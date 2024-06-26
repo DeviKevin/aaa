@@ -1,0 +1,768 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp184705rbd;
+        Thu, 30 May 2024 20:07:42 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHq1z2RJGvLER22MfBqwnZGgXT7t3KL2EIDrqdq0Nm+HPRmR7AsWdLtWrqMe8El7OxGkZoP
+X-Received: by 2002:a9d:664f:0:b0:6f9:d6b:99ae with SMTP id 46e09a7af769-6f911f2300amr731504a34.2.1717124862050;
+        Thu, 30 May 2024 20:07:42 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717124862; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=aPKvXgdAYSz2rgpfcuaJUH5DZgALmjH8qufoP7HPlIO0htlEzfJ3hrr50GEP3HBXtC
+         O7zQKc/QNS5yIV2wuagCmLFZ2iMZRJGdXj78Ef+K7IQKi0WFgAyWRdkIx3aXmrA/Q8rH
+         A7JArTsWXWzhcydsNwgklSaZ3gFvLLYmzuMLBqf4FhTY4NMAGyx9yMMcv0m5vOSkQYrn
+         le2pEf5ypCg5mUpToJCJABDgnOdgNSlnhHaC+1BCxsHHulw7/FeeMq1LukLcflRAS8Hs
+         CCv1dhQb4e4ps4upCXvjr4SUVROnqfxZ6hnCmNdUcv/ON9GY5sbpP6/dIvi9DQcpqmQf
+         0l+Q==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=5QN1YL/IruAmwVGInQHA6JUCgO3y/ii9ajZZu4c+JsU=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=eEo4mr+Gq3Pv+wqIbIykxRTwzjn4fS8NXKQmwCmroGCiC44HfUq2y4KuZx/4OwoOpW
+         KWmg577vXhumCSAJlu2CJgE2xdBGp84S6zqb/AKZw+rlgX0+ZY6KVQigO7wGffoTbJ9K
+         TNst7JuBzfQ3BXZzFXl4ZOijaniLdu0of50eVrKgtu0OVgXB32p8jrCxaDFXSh+8t6QF
+         nfru55+lKjuJcyQjA41Fw83KyjUeAbddi0UJlrO3bFBpfeLM6Nqz6u/Hm16ULHzq8RQz
+         99xTg92d5vajVvuW4X8C+75l/72H68kTIZpJaqX7cl55DuzJZ6GSGgxwB3d6vU5idG24
+         Ha7A==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=og5xpYh2;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o19.zoho.com (sender3-op-o19.zoho.com. [136.143.184.19])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-6c35c73b829si719821a12.730.2024.05.30.20.07.41
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:07:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) client-ip=136.143.184.19;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=og5xpYh2;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717124860; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=DNFXQQVfzLmFlfoKXUW91RfAsCixMWYS5RGrEarAhD12V5sYVWLwBOXs1OUD8V7U43wFfMMPFiHvsxkS5MRNl3nj0+m2fCdMIzFNT8YmRkAzCXLXwXv3XStoqL97LT1LIbXbG1Wbhyu00MgsRmXnwGeOc5fPA3S6UsW7DlptIAU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717124860; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=5QN1YL/IruAmwVGInQHA6JUCgO3y/ii9ajZZu4c+JsU=; 
+	b=ezgVVOK2TpkZKGrAA0LUX2XtLbYmIRQMgAO9/Z5XE0nmcDan7ITWW0IVLXgRjc9DRW4kHcS522D+hwHX0pBhwJn3NE7cXcnH6Lxi0vL3FoDoLbnKzPuuJTCHKmbRfZOeSQrqOgCH4pa6FYETJCmfrPDKOusyWzB+rWF3spRf0WU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717124860;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=5QN1YL/IruAmwVGInQHA6JUCgO3y/ii9ajZZu4c+JsU=;
+	b=og5xpYh2AZv0oTHBJVZILZ7sLCn8nKM/qX4XcLd08uspVIzymEllYfAt1WEpXGZ2
+	K6Hn9VY6H2DKmLcCxcG/uRM61q3BpjShRemt6Lv6Y+VV0b5cI8NgA9VWSLZDDgOAMwt
+	KVcRcFSKALQjUu8EHGhn6YoYQJsbEiuaCVrN4Xjg=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717124859554369.63799484650156; Thu, 30 May 2024 20:07:39 -0700 (PDT)
+Date: Thu, 30 May 2024 23:07:39 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcc9e066c.d58eeb65201308.2379250643642817426@shredex.ca>
+In-Reply-To: <NM606EA6ACA0F7724BDtiffany_rt_prod2@tco1.tiffany.com>
+References: <NM606EA6ACA0F7724BDtiffany_rt_prod2@tco1.tiffany.com>
+Subject: Fwd: Your Tiffany & Co. Receipt
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_652906_1985450286.1717124859501"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_652906_1985450286.1717124859501
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Tiffany & Co. <customerservice@ereceipt.tiffany.com>
+To: <JOHN@SHREDEX.CA>
+Date: Fri, 12 Jan 2024 19:51:35 -0500
+Subject: Your Tiffany & Co. Receipt
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+http://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade014a&p1=3D%40p9dIy=
+tWoBf6of%2FEJsPQo8Bbx%2FFZQQ%2B%2BMyDrRFT6JaDc%3D
+
+
+
+
+
+
+http://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade014b&p1=3Dwww.tiff=
+any.ca
+
+
+
+
+
+SHERWAY GARDENS MALL
+ TORONTO, ONTARIO, CANADA M9C 1B8
+ TEL:(416) 695-2112 FAX:(416) 695-2134
+ www.tiffany.ca
+=20
+
+Sales Professional: Vincenzo Cretella
+
+
+
+
+
+
+
+
+
+Thank you for shopping at Tiffany & Co. It was our pleasure to assist you.
+ A copy of your receipt is below.
+
+
+
+
+
+
+
+Customer Information
+
+Mr. JOHN ESTRADA
+ 377 EVANS AVENUE
+Etobicoke, Ontario M8Z 1K8=20
+Canada
+
+
+
+
+Order # 005220000206261
+ Store: 0522
+ Register: 2
+ Transaction: 6261
+ Date: 01/12/2024
+                                                                    RSP: 91=
+286=20
+ Trans Type: Take/1
+
+
+
+
+
+
+
+
+SS BL MNRTTHRT4MMBDBLT SM
+ 115-64-27630146
+                                                                           =
+                           =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+                                                                           =
+                           =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=20
+
+370.00 G
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Subtotal
+
+370.00
+
+
+M9C 1B8 HST Tax 13.000%
+
+48.10
+
+
+
+
+
+
+Total
+
+418.10
+
+
+=C2=A0
+
+=C2=A0
+
+
+DEBIT
+
+418.10
+
+
+ACCT # /K :  9801=20
+ AUTH:OK 002375=20
+
+
+
+
+=C2=A0
+
+=C2=A0
+
+
+=C2=A0
+
+=C2=A0
+
+
+
+
+
+
+Transaction Summary
+
+
+GST #: 837702216RT0001
+
+
+ECM ID # 21438036
+
+
+
+
+
+
+
+
+
+Customer Copy
+
+
+
+
+
+
+
+
+
+01/12/2024 19:50
+
+                                                                00522000020=
+6261
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade0154&p1=3Dwww.tiff=
+any.ca/jewelry
+
+
+
+
+http://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade0155&p1=3Dwww.tiff=
+any.ca/gifts
+
+
+
+
+http://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade0156&p1=3Dwww.tiff=
+any.ca/engagement
+
+
+
+
+http://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade0157&p1=3Dwww.tiff=
+any.ca/jewelry-stores
+
+
+
+
+
+
+
+
+http://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade0158
+
+
+http://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade0159
+
+
+http://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade015a
+
+
+http://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade015b
+
+
+http://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade015c
+
+
+
+
+
+
+
+
+
+
+To view product care instructions, please visit http://rt1-t.tco.tiffany.co=
+m/r/?id=3Dh6ea6aca,f7724bd,ade015f=20
+
+ To view the Tiffany & Co. privacy policy http://rt1-t.tco.tiffany.com/r/?i=
+d=3Dh6ea6aca,f7724bd,ade0160=20
+
+ Customer shall be responsible for
+compliance with applicable laws and
+regulations regarding payment of
+applicable duties and taxes and the
+declaration of goods in each
+jurisdiction outside the jurisdiction of
+purchase.  Failure to do so may subject
+the customer to civil and / or criminal
+liability and may affect the ability of
+Tiffany & Co. to provide after-sales
+service.
+
+=20
+=20
+ Terms of Sale=20
+ The terms and conditions applicable to this sale are set forth below, subj=
+ect to applicable law.=20
+
+ Merchandise under $75,000 will be accepted by Tiffany & Co. Canada for ref=
+und or credit (excluding any shipping charges) or for exchange only if retu=
+rned in a perfect, unworn condition within 30 days of receipt along with al=
+l original Tiffany packaging and sales receipt. Watches must be accompanied=
+ by the warranty card and bracelets that have been adjusted must be returne=
+d with the same number of links presented at purchase. Personalized, altere=
+d, or engraved items are not eligible for return or exchange. Merchandise v=
+alued at $75,000 or more is only eligible for exchange within 30 days. Refu=
+nds and exchanges are only eligible in the original country of purchase.=20
+
+ Refunds will be provided only for purchases by cash or cheque to the origi=
+nal purchaser; credit or charge card purchases will receive a credit to the=
+ original cardholder=E2=80=99s account on which the purchase was made. If a=
+ credit card has been used to make this purchase, the terms and conditions =
+in the agreement between the cardholder and the issuer of that credit card =
+shall also apply. Refunds for purchases by cheque will be issued by company=
+ mail cheque only upon presentation of the sales receipt and only if funds =
+have been received by Tiffany & Co. Cash purchases over $200 will be refund=
+ed by mail cheque. Gift recipients will be entitled to a non-refundable mer=
+chandise credit redeemable only at Tiffany & Co. Canada locations.=20
+
+ Merchandise purchased at a leased department store may only be refunded at=
+ any same leased department store with a Tiffany & Co store; exchanges are =
+only permitted at the same leased department store with a Tiffany & Co stor=
+e or freestanding stores for equal or greater value.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_652906_1985450286.1717124859501
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Tiffany &amp; Co. &lt;customerservice@ereceipt.=
+tiffany.com&gt;<br>To: &lt;JOHN@SHREDEX.CA&gt;<br>Date: Fri, 12 Jan 2024 19=
+:51:35 -0500<br>Subject: Your Tiffany &amp; Co. Receipt<br>=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D<br></div><div><br></div><blockquote id=3D"blockquote_zmail" style=3D"ma=
+rgin: 0px;"><div class=3D"zm_6151942572344454992_parse_-6363325192875590328=
+"><div id=3D"x_-1678159845wrapper"><table cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0" align=3D"center" width=3D"100%"><tbody><tr><td valign=3D"to=
+p"><table align=3D"center" width=3D"600" cellpadding=3D"0" cellspacing=3D"0=
+" border=3D"0" bgcolor=3D"#ffffff" style=3D"margin :  0 auto; padding :  0p=
+x 0 5px 0;"><tbody><tr><td align=3D"center" width=3D"600" valign=3D"top"><t=
+able width=3D"600" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"border :  5px solid #81d8d0; border-top :  15px solid #81d8d0;" bgcolor=
+=3D"#81d8d0"><tbody><tr><td style=3D"min-width :  600px;"><table width=3D"6=
+00" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#ffffff"><t=
+body><tr><td><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=
+=3D"600" bgcolor=3D"#ffffff" style=3D"width :  600px;"><tbody><tr><td class=
+=3D"x_-1678159845preheader" width=3D"600" height=3D"33" style=3D"text-align=
+ :  center; font-family :  'Times New Roman',  Georgia,  serif; font-size :=
+  9px; width :  600px;"><a href=3D"http://rt1-t.tco.tiffany.com/r/?id=3Dh6e=
+a6aca,f7724bd,ade014a&amp;p1=3D%40p9dIytWoBf6of%2FEJsPQo8Bbx%2FFZQQ%2B%2BMy=
+DrRFT6JaDc%3D" style=3D"text-align :  center; font-family :  'Times New Rom=
+an',  serif; font-size :  9px; font-weight :  600; text-decoration :  none;=
+ color :  #333333;" target=3D"_blank">VIEW IN YOUR BROWSER/PRINT YOUR RECEI=
+PT</a><br></td></tr></tbody></table></td></tr><tr><td><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" width=3D"600" bgcolor=3D"#FFFFFF" style=
+=3D"width :  600px;" class=3D"x_-1678159845width-100"><tbody><tr><td align=
+=3D"center" width=3D"600" class=3D"x_-1678159845width-100"><table width=3D"=
+600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"x_-1678159845width-100"><tbody><tr><td align=3D"center" width=3D"600" =
+class=3D"x_-1678159845width-100"><a style=3D"display :  block; margin :  0;=
+ padding :  0; border :  0;" href=3D"http://rt1-t.tco.tiffany.com/r/?id=3Dh=
+6ea6aca,f7724bd,ade014b&amp;p1=3Dwww.tiffany.ca" target=3D"_blank"><img id=
+=3D"1705107099574100001_imgsrc_url_0" width=3D"600" style=3D"display :  blo=
+ck; margin :  0; padding :  0; border :  0;" class=3D"x_-1678159845width-10=
+0"></a></td></tr></tbody></table></td></tr><tr><td align=3D"center" height=
+=3D"63" style=3D"font-family :  'Times New Roman',  Georgia,  serif; font-s=
+ize :  18px; BORDER-bottom :  #82cec9 1px solid;">SHERWAY GARDENS MALL<br> =
+TORONTO, ONTARIO, CANADA M9C 1B8<br> TEL:(416) 695-2112 FAX:(416) 695-2134<=
+br> www.tiffany.ca<br> <br><br>Sales Professional: Vincenzo Cretella<br><br=
+></td></tr></tbody></table></td></tr><tr><td><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"600" style=3D"padding-left :  20px; padd=
+ing-right :  20px;" bgcolor=3D"#FFFFFF"><tbody><tr><td align=3D"left" heigh=
+t=3D"63" style=3D"font-family :  'Times New Roman',  Georgia,  serif; font-=
+size :  18px;"><br><br>Thank you for shopping at Tiffany &amp; Co. It was o=
+ur pleasure to assist you.<br> A copy of your receipt is below.<br><br></td=
+></tr></tbody></table></td></tr><tr><td><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"600" style=3D"padding :  20px; width :  600px=
+;" bgcolor=3D"#f2f2f2"><tbody><tr valign=3D"top"><td height=3D"63" style=3D=
+"font-family :  'Times New Roman',  Georgia,  serif;"><p style=3D""><span c=
+lass=3D"size" style=3D"font-size:20px"><b>Customer Information</b></span><b=
+r></p><p style=3D""><span class=3D"size" style=3D"font-size:18px">Mr. JOHN =
+ESTRADA<br> 377 EVANS AVENUE<br>Etobicoke, Ontario M8Z 1K8 <br>Canada<br><b=
+r></span></p><br></td><td height=3D"63" style=3D"font-family :  'Times New =
+Roman',  Georgia,  serif;"><p style=3D""><span class=3D"size" style=3D"font=
+-size:18px">Order # 005220000206261<br> Store: 0522<br> Register: 2<br> Tra=
+nsaction: 6261<br> Date: 01/12/2024
+                                                                    RSP: 91=
+286 <br> Trans Type: Take/1<br></span></p></td></tr></tbody></table></td></=
+tr><tr><td><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"600" bgcolor=3D"#FFFFFF" style=3D"font-family :  'Times New Roman',  Georg=
+ia,  serif; BORDER-bottom :  #82cec9 1px solid; width :  600px;"><tbody><tr=
+><td><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%"=
+ style=3D"font-size :  18px;"><tbody><tr><td class=3D"" valign=3D"top" styl=
+e=3D"padding :  20px;" width=3D"87"><img id=3D"1705107099574100001_imgsrc_u=
+rl_1" style=3D"display :  block; margin :  0; padding :  0; border :  0;" w=
+idth=3D"87" alt=3D"product image"></td><td class=3D"" valign=3D"top" style=
+=3D"padding :  15px;"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" width=3D"100%"><tbody><tr><td style=3D"padding :  5px; text-decoration :=
+  none; color :  #000000;" class=3D"x_-1678159845sku"><table cellpadding=3D=
+"0" cellspacing=3D"0" border=3D"0" width=3D"100%"><tbody><tr><td><b>SS BL M=
+NRTTHRT4MMBDBLT SM</b><br> 115-64-27630146
+                                                                           =
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                           =
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br></td><td styl=
+e=3D"text-align :  right; vertical-align :  top;">370.00 G<br></td></tr></t=
+body></table></td></tr><tr><td style=3D"padding :  5px;"><table cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%"><tbody><tr><td><br></t=
+d><td style=3D"text-align :  right;"><br></td></tr></tbody></table></td></t=
+r></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td>=
+</tr><tr><td><br></td></tr><tr><td><br></td></tr><tr><td><table cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" width=3D"600" bgcolor=3D"#FFFFFF" sty=
+le=3D"font-family :  'Times New Roman',  Georgia,  serif; font-size :  18px=
+; width :  600px;"><tbody><tr><td style=3D"text-align :  left; padding :  2=
+0px;">Subtotal<br></td><td style=3D"text-align :  right; padding :  20px;">=
+370.00<br></td></tr><tr><td style=3D"text-align :  left; padding :  0 20px =
+20px 20px;">M9C 1B8 HST Tax 13.000%<br></td><td style=3D"text-align :  righ=
+t; padding :  0 20px 20px 20px;">48.10<br></td></tr></tbody></table></td></=
+tr><tr><td><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D=
+"600" bgcolor=3D"#f2f2f2" style=3D"font-family :  'Times New Roman'; font-s=
+ize :  18px; width :  600px;"><tbody><tr><td style=3D"text-align :  left; p=
+adding :  20px 0px 0 20px;"><b>Total</b><br></td><td style=3D"text-align : =
+ right; padding :  20px 20px 0 20px;"><b>418.10</b><br></td></tr><tr><td st=
+yle=3D"text-align :  left; padding :  0 5px 5px 5px;">&nbsp;<br></td><td st=
+yle=3D"text-align :  right; padding :  0 5px 5px 5px;">&nbsp;<br></td></tr>=
+<tr><td style=3D"text-align :  left; padding :  0 20px 0 20px;">DEBIT<br></=
+td><td style=3D"text-align :  right; padding :  0 20px 0 20px;">418.10<br><=
+/td></tr><tr><td style=3D"text-align :  left; padding :  0 20px 0 20px;">AC=
+CT # /K :  9801 <br> AUTH:OK 002375 <br></td><td style=3D"text-align :  rig=
+ht; padding :  0 20px 0 20px;"><br></td></tr><tr><td style=3D"text-align : =
+ left; padding :  0 5px 5px 5px;">&nbsp;<br></td><td style=3D"text-align : =
+ right; padding :  0 5px 5px 5px;">&nbsp;<br></td></tr><tr><td style=3D"tex=
+t-align :  left; padding :  0 20px 0px 20px;">&nbsp;<br></td><td style=3D"t=
+ext-align :  right; padding :  0 20px 0px 20px;">&nbsp;<br></td></tr></tbod=
+y></table></td></tr><tr><td><table cellpadding=3D"0" cellspacing=3D"0" bord=
+er=3D"0" width=3D"600" bgcolor=3D"#FFFFFF" style=3D"font-family :  'Times N=
+ew Roman',  Georgia,  serif; font-size :  18px; width :  600px;"><tbody><tr=
+><td style=3D"text-align :  left; padding :  20px;"><b>Transaction Summary<=
+/b><br></td></tr><tr><td style=3D"text-align :  left; padding :  0 20px;">G=
+ST #: 837702216RT0001<br></td></tr><tr><td style=3D"text-align :  left; pad=
+ding :  0 20px;">ECM ID # 21438036<br></td></tr><tr><td height=3D"20" bgcol=
+or=3D"#ffffff"><br></td></tr></tbody></table></td></tr><tr><td><table cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"600" bgcolor=3D"#FFFFF=
+F" style=3D"font-family :  'Times New Roman'; width :  600px;"><tbody><tr><=
+td style=3D"text-align :  center; font-size :  18px; padding :  0 80px;"><b=
+>Customer Copy</b><br></td></tr><tr><td height=3D"20" bgcolor=3D"#ffffff"><=
+br></td></tr></tbody></table></td></tr><tr><td><table cellpadding=3D"0" cel=
+lspacing=3D"0" border=3D"0" width=3D"600" bgcolor=3D"#FFFFFF" style=3D"font=
+-family :  'Times New Roman'; font-size :  14px; width :  600px;"><tbody><t=
+r><td style=3D"text-align :  center;">01/12/2024 19:50
+
+                                                                00522000020=
+6261<br></td></tr><tr><td height=3D"20" bgcolor=3D"#ffffff"><br></td></tr><=
+/tbody></table></td></tr><tr><td><table cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0" width=3D"600" bgcolor=3D"#FFFFFF" style=3D"font-family :  'Ti=
+mes New Roman'; font-size :  18px; width :  600px;" align=3D"center"><tbody=
+><tr><td style=3D"padding :  20px 0;"><table align=3D"center" cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0"><tbody><tr><td align=3D"center"><img =
+id=3D"1705107099574100001_imgsrc_url_2"><br></td></tr></tbody></table></td>=
+</tr></tbody></table></td></tr><tr><td><br></td></tr><tr><td height=3D"32" =
+bgcolor=3D"#81d8d0"><br></td></tr></tbody></table></td></tr><tr><td bgcolor=
+=3D"#FFFFFF" align=3D"center"><table cellspacing=3D"0" cellpadding=3D"0" bo=
+rder=3D"0"><tbody><tr><td align=3D"center"><br></td></tr><tr><td align=3D"c=
+enter"><a href=3D"http://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade=
+0154&amp;p1=3Dwww.tiffany.ca/jewelry" target=3D"_blank"><img style=3D"BORDE=
+R-TOP :  0px; BORDER-RIGHT :  0px; BORDER-BOTTOM :  0px; PADDING-BOTTOM :  =
+0px; PADDING-TOP :  0px; PADDING-LEFT :  0px; MARGIN :  0px; BORDER-LEFT : =
+ 0px; DISPLAY :  block; PADDING-RIGHT :  0px;" alt=3D"Jewelry" id=3D"170510=
+7099574100001_imgsrc_url_3"></a></td></tr><tr><td align=3D"center"><br></td=
+></tr><tr><td align=3D"center"><a href=3D"http://rt1-t.tco.tiffany.com/r/?i=
+d=3Dh6ea6aca,f7724bd,ade0155&amp;p1=3Dwww.tiffany.ca/gifts" target=3D"_blan=
+k"><img style=3D"BORDER-TOP :  0px; BORDER-RIGHT :  0px; BORDER-BOTTOM :  0=
+px; PADDING-BOTTOM :  0px; PADDING-TOP :  0px; PADDING-LEFT :  0px; MARGIN =
+:  0px; BORDER-LEFT :  0px; DISPLAY :  block; PADDING-RIGHT :  0px;" alt=3D=
+"Gifts" id=3D"1705107099574100001_imgsrc_url_4"></a></td></tr><tr><td align=
+=3D"center"><br></td></tr><tr><td align=3D"center"><a href=3D"http://rt1-t.=
+tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade0156&amp;p1=3Dwww.tiffany.ca/en=
+gagement" target=3D"_blank"><img style=3D"BORDER-TOP :  0px; BORDER-RIGHT :=
+  0px; BORDER-BOTTOM :  0px; PADDING-BOTTOM :  0px; PADDING-TOP :  0px; PAD=
+DING-LEFT :  0px; MARGIN :  0px; BORDER-LEFT :  0px; DISPLAY :  block; PADD=
+ING-RIGHT :  0px;" alt=3D"Engagement" id=3D"1705107099574100001_imgsrc_url_=
+5"></a></td></tr><tr><td align=3D"center"><br></td></tr><tr><td align=3D"ce=
+nter"><a href=3D"http://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade0=
+157&amp;p1=3Dwww.tiffany.ca/jewelry-stores" target=3D"_blank"><img style=3D=
+"BORDER-TOP :  0px; BORDER-RIGHT :  0px; BORDER-BOTTOM :  0px; PADDING-BOTT=
+OM :  0px; PADDING-TOP :  0px; PADDING-LEFT :  0px; MARGIN :  0px; BORDER-L=
+EFT :  0px; DISPLAY :  block; PADDING-RIGHT :  0px;" alt=3D"Find A Store" i=
+d=3D"1705107099574100001_imgsrc_url_6"></a></td></tr><tr><td align=3D"cente=
+r"><br></td></tr></tbody></table></td></tr><tr><td align=3D"center" bgcolor=
+=3D"#ffffff"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tbody=
+><tr><td><a href=3D"http://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,a=
+de0158" target=3D"_blank"><img style=3D"display :  block; margin :  0; padd=
+ing :  0; border :  0;" id=3D"1705107099574100001_imgsrc_url_7" width=3D"30=
+" height=3D"31" alt=3D"Instagram"></a></td><td width=3D"41"><br></td><td><a=
+ href=3D"http://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade0159" tar=
+get=3D"_blank"><img style=3D"display :  block; margin :  0; padding :  0; b=
+order :  0;" id=3D"1705107099574100001_imgsrc_url_8" width=3D"30" height=3D=
+"31" alt=3D"Facebook"></a></td><td width=3D"41"><br></td><td><a href=3D"htt=
+p://rt1-t.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade015a" target=3D"_blan=
+k"><img style=3D"display :  block; margin :  0; padding :  0; border :  0;"=
+ id=3D"1705107099574100001_imgsrc_url_9" width=3D"30" height=3D"31" alt=3D"=
+Youtube"></a></td><td width=3D"41"><br></td><td><a href=3D"http://rt1-t.tco=
+.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade015b" target=3D"_blank"><img style=
+=3D"display :  block; margin :  0; padding :  0; border :  0;" id=3D"170510=
+7099574100001_imgsrc_url_10" width=3D"30" height=3D"31" alt=3D"Twitter"></a=
+></td><td width=3D"41"><br></td><td><a href=3D"http://rt1-t.tco.tiffany.com=
+/r/?id=3Dh6ea6aca,f7724bd,ade015c" target=3D"_blank"><img style=3D"display =
+:  block; margin :  0; padding :  0; border :  0;" id=3D"170510709957410000=
+1_imgsrc_url_11" width=3D"30" height=3D"31" alt=3D"Pintrest"></a></td></tr>=
+</tbody></table></td></tr><tr><td height=3D"63" bgcolor=3D"#ffffff"><br></t=
+d></tr><tr id=3D"x_-1678159845append-to-content-area"><td bgcolor=3D"#fffff=
+f" style=3D"padding-bottom :  60px;"><table cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" align=3D"center"><tbody><tr><td width=3D"54"><br></td><=
+td width=3D"492" class=3D"x_-1678159845footer" align=3D"center" style=3D"te=
+xt-align :  center; font-family :  'Times New Roman',  serif; font-size :  =
+12px; font-weight :  normal; line-height :  21px; vertical-align :  text-to=
+p;">To view product care instructions, please visit <a href=3D"http://rt1-t=
+.tco.tiffany.com/r/?id=3Dh6ea6aca,f7724bd,ade015f" style=3D"color :  #00000=
+0;" target=3D"_blank">www.Tiffany.ca/ProductCare</a> <br><br> To view the T=
+iffany &amp; Co. privacy policy <a href=3D"http://rt1-t.tco.tiffany.com/r/?=
+id=3Dh6ea6aca,f7724bd,ade0160" style=3D"color :  #000000;" target=3D"_blank=
+">click here</a> <br><br> Customer shall be responsible for<br>compliance w=
+ith applicable laws and<br>regulations regarding payment of<br>applicable d=
+uties and taxes and the<br>declaration of goods in each<br>jurisdiction out=
+side the jurisdiction of<br>purchase.  Failure to do so may subject<br>the =
+customer to civil and / or criminal<br>liability and may affect the ability=
+ of<br>Tiffany &amp; Co. to provide after-sales<br>service.<br><br> <br> <b=
+r> <b>Terms of Sale</b> <br> The terms and conditions applicable to this sa=
+le are set forth below, subject to applicable law. <br><br> Merchandise und=
+er $75,000 will be accepted by Tiffany &amp; Co. Canada for refund or credi=
+t (excluding any shipping charges) or for exchange only if returned in a pe=
+rfect, unworn condition within 30 days of receipt along with all original T=
+iffany packaging and sales receipt. Watches must be accompanied by the warr=
+anty card and bracelets that have been adjusted must be returned with the s=
+ame number of links presented at purchase. Personalized, altered, or engrav=
+ed items are not eligible for return or exchange. Merchandise valued at $75=
+,000 or more is only eligible for exchange within 30 days. Refunds and exch=
+anges are only eligible in the original country of purchase. <br><br> Refun=
+ds will be provided only for purchases by cash or cheque to the original pu=
+rchaser; credit or charge card purchases will receive a credit to the origi=
+nal cardholder=E2=80=99s account on which the purchase was made. If a credi=
+t card has been used to make this purchase, the terms and conditions in the=
+ agreement between the cardholder and the issuer of that credit card shall =
+also apply. Refunds for purchases by cheque will be issued by company mail =
+cheque only upon presentation of the sales receipt and only if funds have b=
+een received by Tiffany &amp; Co. Cash purchases over $200 will be refunded=
+ by mail cheque. Gift recipients will be entitled to a non-refundable merch=
+andise credit redeemable only at Tiffany &amp; Co. Canada locations. <br><b=
+r> Merchandise purchased at a leased department store may only be refunded =
+at any same leased department store with a Tiffany &amp; Co store; exchange=
+s are only permitted at the same leased department store with a Tiffany &am=
+p; Co store or freestanding stores for equal or greater value.</td><td widt=
+h=3D"54"><br></td></tr></tbody></table></td></tr><tr><td height=3D"63" bgco=
+lor=3D"#ffffff"><br></td></tr></tbody></table></td></tr></tbody></table></t=
+d></tr></tbody></table></div><img height=3D"0" width=3D"0" alt=3D"" id=3D"1=
+705107099574100001_imgsrc_url_12"></div></blockquote></div><div><br></div><=
+div class=3D"zmail_signature_below"><div id=3D"" data-zbluepencil-ignore=3D=
+"true" data-sigid=3D"6189300000000739006"><div>Regards,<br></div><div><br><=
+/div><div>John E. Estrada<br></div><div><br></div><div>--------------------=
+-------------------<br></div><div><br></div><p style=3D"font-style: normal;=
+ font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; te=
+xt-transform: none; white-space: normal; widows: 2; word-spacing: 0px"><spa=
+n class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><span c=
+lass=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"=
+font-family:Verdana, Arial, Helvetica, sans-serif"><span class=3D"size" sty=
+le=3D"font-size:13.3333px"><span class=3D"highlight" style=3D"background-co=
+lor:rgb(255, 255, 255)"><b><span class=3D"colour" style=3D"color:rgb(0, 102=
+, 0)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sa=
+ns-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">STAR=
+T SHREDDING INC. (shredEX)</span></span></span></b><span class=3D"colour" s=
+tyle=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Ca=
+libri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=
+=3D"font-size:14.66px"><br>208 Evans Ave, Toronto, ON M8Z 1J7<br></span></s=
+pan></span><b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span =
+class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sa=
+ns-serif"><span class=3D"size" style=3D"font-size:14.66px">E:<span>&nbsp;<a=
+ href=3D"mailto:john@shredex.ca" target=3D"_blank" style=3D"color: rgb(0, 0=
+, 238)">john@shredex.ca</a>&nbsp;</span>W: <a target=3D"_blank" href=3D"htt=
+p://www.startshredding.com" style=3D"color: rgb(0, 0, 238)">www.startshredd=
+ing.com</a><br></span></span></span></b><span class=3D"colour" style=3D"col=
+or:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verd=
+ana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size=
+:14.66px">DIRECT:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, =
+204); cursor: default" target=3D"_blank"><span class=3D"colour" style=3D"co=
+lor:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Ver=
+dana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-siz=
+e:14.66px">416.255.1500</span></span></span></a><span class=3D"colour" styl=
+e=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calib=
+ri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"f=
+ont-size:14.66px"><br>TOLL FREE:&nbsp;</span></span></span><a style=3D"colo=
+r: rgb(17, 85, 204); cursor: default" target=3D"_blank"><span class=3D"colo=
+ur" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-fami=
+ly:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" st=
+yle=3D"font-size:14.66px">1.866.868.9585</span></span></span></a></span></s=
+pan></span></span></span></p><p style=3D"font-style: normal; font-weight: 4=
+00; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: n=
+one; white-space: normal; widows: 2; word-spacing: 0px"><span class=3D"high=
+light" style=3D"background-color:rgb(255, 255, 255)"><span class=3D"colour"=
+ style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:Ver=
+dana, Arial, Helvetica, sans-serif"><span class=3D"size" style=3D"font-size=
+:13.3333px"><span class=3D"highlight" style=3D"background-color:rgb(255, 25=
+5, 255)"><span class=3D"colour" style=3D"color:rgb(34, 34, 34)"><span class=
+=3D"font" style=3D"font-family:arial, sans-serif"><span class=3D"size" styl=
+e=3D"font-size:small"><span class=3D"colour" style=3D"color:gray"><span cla=
+ss=3D"font" style=3D"font-family:Arial, sans-serif"><span class=3D"size" st=
+yle=3D"font-size:7.5pt">This message and any attachments are the property o=
+f the&nbsp;SHREDEX INC.&nbsp;or its affiliates. It may be legally privilege=
+d and/or confidential and is intended only for the use of the addressee(s).=
+ No addressee should store, forward, print, copy, or otherwise reproduce th=
+is message in any manner that would allow it to be viewed by any individual=
+ not originally listed as a recipient. If the reader of this message is not=
+ the intended recipient, you are hereby notified that any unauthorized stor=
+age, disclosure, dissemination, distribution, copying or the taking of any =
+action in reliance on the information herein is strictly prohibited. If you=
+ have received this communication in error, please immediately notify the s=
+ender and delete this message.</span></span></span></span></span></span></s=
+pan></span></span></span></span><br></p><div id=3D""><div><br></div></div><=
+div><br></div></div></div><div><br></div></div><br></body></html>
+------=_Part_652906_1985450286.1717124859501--
+

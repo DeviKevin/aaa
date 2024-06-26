@@ -1,0 +1,1093 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp190655rbd;
+        Thu, 30 May 2024 20:27:53 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEAZIhKb07QKfS3VG35kA4rjPscwrruZjxAp1JU7f6gw2ntsxWajHza/G5FteGzu5S4kmbB
+X-Received: by 2002:a05:6870:d209:b0:24f:d4e9:5d62 with SMTP id 586e51a60fabf-2508bd80e2bmr930140fac.16.1717126072523;
+        Thu, 30 May 2024 20:27:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717126072; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=Tig9O6O9izBs/ZEBBKmmy0iBisBwyWR8GEMKqDtUUW93ZyVKsrqryhwdzEDORYppwt
+         2P7ZyzKE/m1NjTiga20HnR2FopU/eepNdOM2vBK9G85YvzPc7QIxJQtJNAu0HMD766/W
+         F4jfqSgDaMPdMGO6iVM7689axd5yZD99SrMfVRttNcIz8xUCC4TCketDncChrXUV8tha
+         Yaxm/a8t/BQDc0iiYgKqUNMY7PpbCx4oxrAZ0eqrbF6ObJacsAIjA7GktnOb1YfncSvo
+         nUlIa9oAlyHd3cjlcqX99u45y5OrP3Z5jCINRUbaQlF4caMhT430y2yGbaulNLVOjaFs
+         Bpwg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=IX85ZYQ2nYA1m1sbInJp1KOze5DzliporeSb0+TsqQ0=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=uoobCVO4FKquSSZtOwXgqd5ySBQmhs0KgYUZ4tdeBNKkG7YZDAHiq06e0YmvKrb4pq
+         p4Y0PUkSDZuMXhjYMoC/zl2jdSD/O6alO7AODCr78Q9CuEn/MW5Oro9njq7wQQ3Yqwj1
+         Nporqt8g+e7ChAYxVcEqiUb8oulgvgLLjP3Jfe6gLMVi6QaM9Plpf08iBWRC4b8CxXVj
+         JBURL4kpTiZB5K9RFcob4RBa0r6BUemGaWNRKMCr9O4dDO0RA591As+iDxx1ltfG4sqP
+         TvxvqjWU5p+hKfz94kqOgxQkrzU6JPtDnowB9O4vJ5GK3UfL0IW4z3giTYissqbNs02u
+         loSA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=DffHiNNQ;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o18.zoho.com (sender3-op-o18.zoho.com. [136.143.184.18])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-70242b0f33fsi692913b3a.214.2024.05.30.20.27.52
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:27:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) client-ip=136.143.184.18;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=DffHiNNQ;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717126069; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Ej+gvvv2O2lnH8AGubuzATBqpzqJtQUXgJu6IAx+uNYjHF0SOebAbqBhI4GxJ2SnloulH83Om7aFHCjClXs0YYmHham7FjkD5g/44gZ3gNyqBzM8Mjj7U+XmRBmOTS0QQplWRIAX1H44jy/GRfnnIsU2/eqKKF5OIvovT6u/sdg=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717126069; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=IX85ZYQ2nYA1m1sbInJp1KOze5DzliporeSb0+TsqQ0=; 
+	b=fyRxwa48LH6wMjeqYq3b3ODtLL75pIBwV+R6fkcb07tOYlR68/b9T758YAvCcMHLzdi/ZcKiMnOqacVpxVJXd+3LXHjRKpxe34TNV5a1YLzsBAQTLz8Oiy2NDNe45Q8w5iPtGZzmrlz+XeaRJwl1mBZFFJLvN00KKVFaPJ1qcVE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717126069;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=IX85ZYQ2nYA1m1sbInJp1KOze5DzliporeSb0+TsqQ0=;
+	b=DffHiNNQlmgGrVX9pNVWO2zUMgrnQSdfQuPr+Dn0SgpKKPPj+SWRmMoKEAjRTvHT
+	vlb/Au1VKQl5/NJznJxZUP5mlmW09IXwMRJtsZE4WAkP5g/EzTmWcP9WyDQ66ksmvBO
+	kH4hk57MFhnK3T/BNA7//Hxo5ht7UqVb9Et3b4Vc=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717126067506516.7996023263157; Thu, 30 May 2024 20:27:47 -0700 (PDT)
+Date: Thu, 30 May 2024 23:27:47 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fccb074d0.118124567203687.7510777916553728571@shredex.ca>
+In-Reply-To: <451296887.127694.1642875530612.JavaMail.fmpos@p9cpwp00004mcss.corp.ad.ctc>
+References: <451296887.127694.1642875530612.JavaMail.fmpos@p9cpwp00004mcss.corp.ad.ctc>
+Subject: Fwd: Receipt of your recent purchase at Mark's
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_660678_2083440815.1717126067411"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+X-Zoho-Virus-Status: 1
+
+------=_Part_660678_2083440815.1717126067411
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Mark's <do-not-reply@marks.com>
+To: <john@backpocket.ca>
+Date: Sat, 22 Jan 2022 13:18:50 -0500
+Subject: Receipt of your recent purchase at Mark's
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=C2=A0 This is your=20
+ =C2=A0 e-receipt.=20
+=20
+=20
+=20
+ =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0Thank you for shoppi=
+ng with Mark's.=20
+ =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0Upon your request, p=
+lease find below a=20
+ =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0detailed copy of you=
+r receipt.=20
+=20
+ =C2=A0
+
+
+
+
+
+                Collingwood              =20
+  59 Balsam Street, Collingwood, Ontario,=20
+                  L9Y 3Y6                =20
+                     =E2=80=8D                   =20
+                                         =20
+                   SALE                  =20
+
+Date: 2022/01/22 13:16 =20
+Cashier: 53321 Janice=20
+------------------------------------------
+400008852777
+WINDRIVER STRETCH WAFFLE THERMAL BOTTOM
+Clr: Black Sz: Medium=20
+Qty: 1 Base Price: $23.99 =20
+                                  $23.99 H
+
+Sub Total                           $23.99
+ONFedHST 5.000%                      $1.20
+ONProvHST 8.000%                     $1.92
+=20
+Total                               $27.11
+------------------------------------------
+Payments
+Debit Card                          $27.11
+                                         =20
+------------------------------------------
+           TRANSACTION RECORD            =20
+TYPE                              PURCHASE
+=20
+ACCT                 INTERAC FLASH DEFAULT
+AMOUNT                              $27.11
+=20
+CARD NUMBER               ************9801
+DATE/TIME             22 Jan 2022 13:16:30
+REFERENCE #           P12858900010015180 H
+TERMINAL #                        65270001
+AUTH #                              001249
+INTERAC
+A0000002771010
+8080008000
+=20
+       00 APPROVED - THANK YOU 001       =20
+------------------------------------------
+        Triangle Rewards Account #:      =20
+             ************5483            =20
+                                         =20
+CT Money Collected Today             $0.10
+CT Money                             $0.10
+Bonus CT Money                       $0.00
+=20
+CT Money Balance                     $0.56
+=20
+  Collect 10X, that's 4% CT Money* when=20
+ you pay for your purchase with a Canadian
+   Tire Triangle Mastercard. *Calculated =20
+ pre-tax. Terms & conditions apply. Visit=20
+        triangle.com for details.        =20
+******************************************
+
+        TELL US HOW WE DID TODAY!        =20
+     Take our short survey to get $10    =20
+     off your next purchase of $50 or    =20
+      more&be entered to win 1 of 2      =20
+         $500 Monthly Gift Cards!        =20
+        Go to www.marks-survey.com       =20
+               Survey Code:              =20
+             2701952072120828            =20
+    See complete Contest Rules online.   =20
+
+******************************************
+
+------------------------------------------
+              Return Policy              =20
+ If you're not 100% satisfied with your=20
+Mark's purchase, within 100 days, return
+    your unused, unworn or Manufacturer  =20
+ defective item with your original receipt
+     for a full refund or exchange.      =20
+     EXCEPTION TO OUR RETURN POLICY:     =20
+When a regular price item purchased during
+ a " Buy One, Get One " event is returned,
+    the discount on the second item is   =20
+     forfeited. The second item may be   =20
+ repurchased at the current selling price=20
+ or both items can be returned for a full=20
+                 refund.                 =20
+------------------------------------------
+             **CUSTOMER COPY**           =20
+         Str 527 Reg 01 Trn 279788       =20
+           Date 2022/01/22 13:16         =20
+
+
+
+
+
+
+
+           5270120220122279788
+          =20
+            HST #: 103531919             =20
+                                         =20
+
+
+
+
+
+
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0Tell us how we did today.=20
+ =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0Take our short survey to get $10 off y=
+our next purchase
+ =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0of $50 or more! See complete Contest R=
+ules online.
+
+https://survey.medallia.ca/?cantire-marks&OfferCode=3D0527&DateOfService=3D=
+01/22/2022&Transaction=3D279788&Register=3D01
+
+
+
+
+
+
+
+
+
+
+
+
+
+Please do not reply to this email; this address is not monitored. To get in=
+ touch with our customer service team please call 1-866-339-1626 or email m=
+ailto:marks.customer.service@canadiantire.ca.=20
+=20
+ Mark's Work Wearhouse Ltd=20
+ 205 Quarry Park Blvd #110, Calgary, AB T2C 3E7 Canada=20
+=20
+ https://www.marks.com/en/help-desk/company-information/privacy-policy.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://www.marks.com/en/weekly-offers.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://www.facebook.com/MarksClothing
+=C2=A0
+
+https://twitter.com/marksCanada
+=C2=A0
+
+https://www.instagram.com/markscanada/
+=C2=A0
+
+https://www.youtube.com/user/MarksClothing
+=C2=A0
+
+https://www.pinterest.ca/markscanada/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Product availability, pricing, colour, selection and brands may vary by loc=
+ation. Regular prices shown are those at which the items
+ have been sold by Mark=E2=80=99s Work Wearhouse Ltd. Franchisees may sell =
+for less. Typographical, illustrative or pricing errors may occur. We reser=
+ve the right to correct any errors. The lifestyle images presented in this =
+advertisement may not be available.=20
+=20
+ Please be aware that all unsubscribe requests are processed within 5 busin=
+ess days, and that you may receive additional emails during that time perio=
+d. CASL regulations require a ten-day processing cycle. To get in touch wit=
+h our customer service team please
+ call=C2=A0 tel:18663391626=C2=A0or email=C2=A0 mailto:marks.customer.servi=
+ce@canadiantire.ca.=20
+=20
+ https://goo.gl/maps/PHYz7EupENR2
+=20
+ https://www.marks.com/en/help-desk/company-information/privacy-policy.html
+ https://www.marks.com/en/preference-center.html?ltkKey=3D=C2=A0|=C2=A0 htt=
+ps://www.marks.com/en/preference-center.html?ltkKey=3D&od=3D1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+This message, including any attachments, is privileged and may contain conf=
+idential information intended only for the person(s) named above. If you ar=
+e not the intended recipient or have received this message in error, please=
+ notify the sender immediately
+ by reply email and permanently delete the original transmission from the s=
+ender, including any attachments, without making a copy. Thank you.=20
+=20
+ Ce message, y compris toutes ses pi=C3=A8ces jointes, est confidentiel et =
+peut contenir des renseignements destin=C3=A9s uniquement aux personnes don=
+t le nom est indiqu=C3=A9 ci-dessus. Si vous n'=C3=AAtes pas le destinatair=
+e pr=C3=A9vu ou si vous avez re=C3=A7u ce message par erreur, veuillez
+ en aviser l'exp=C3=A9diteur imm=C3=A9diatement, en lui r=C3=A9pondant par =
+courriel. Veuillez aussi supprimer d=C3=A9finitivement le message original =
+de l'exp=C3=A9diteur, y compris toute pi=C3=A8ce jointe, sans faire de copi=
+e. Merci.
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_660678_2083440815.1717126067411
+Content-Type: multipart/related; 
+	boundary="----=_Part_660679_796539553.1717126067426"
+
+------=_Part_660679_796539553.1717126067426
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Mark's &lt;do-not-reply@marks.com&gt;<br>To: &l=
+t;john@backpocket.ca&gt;<br>Date: Sat, 22 Jan 2022 13:18:50 -0500<br>Subjec=
+t: Receipt of your recent purchase at Mark's<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><=
+div><br></div><blockquote id=3D"blockquote_zmail" style=3D"margin: 0px;"><d=
+iv style=3D"height: 100%; width: 100%; font-family: sofia-pro, sans-serif; =
+font-size: 12px; color: rgb(34, 34, 34); margin: 0.0px; padding: 0.0px; bac=
+kground-color: rgb(54,53,58);" class=3D"zm_-7683314533416923603_parse_-1995=
+388846303344768"><table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" wi=
+dth=3D"100%" bgcolor=3D"#36353a" style=3D"border-collapse: collapse; table-=
+layout: fixed;"><tbody><tr valign=3D"top"><td valign=3D"top" align=3D"cente=
+r"><div style=3D"vertical-align: top; margin: 0; max-width: 600.0px;"><tabl=
+e border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" align=3D"=
+center" style=3D"border-collapse: collapse; table-layout: fixed; max-width:=
+ 600.0px;" bgcolor=3D"white"><tbody><tr style=3D"vertical-align: top;"><td>=
+<table class=3D"x_-13010249Wrapper" cellpadding=3D"0" cellspacing=3D"0" bor=
+der=3D"0" style=3D"border-collapse: collapse; table-layout: auto; padding: =
+11.0px 0 11.0px 0; width: 100.0%;" width=3D"100.0%"><tbody><tr><td align=3D=
+"center" style=3D"background-color: rgb(50,65,90);border-top-style: none;bo=
+rder-bottom-style: none;border-right-style: none;border-left-style: none;bo=
+rder-top-width: 0.0px;border-bottom-width: 0.0px;border-right-width: 0.0px;=
+border-left-width: 0.0px;border-color: rgb(34,34,34);"><table width=3D"100%=
+" class=3D"x_-13010249Container" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" style=3D"border-collapse: collapse; table-layout: auto; max-width: 6=
+00.0px;"><tbody><tr><td align=3D"center" style=3D"background-color: rgb(50,=
+65,90);"><table width=3D"100%" class=3D"x_-13010249Column-2 x_-13010249mobi=
+le-align-center" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"=
+border-collapse: collapse; table-layout: auto;"><tbody><tr><td style=3D"tex=
+t-align: center;font-size: 0.0px;"><div class=3D"x_-13010249column-33" styl=
+e=3D"width: 100.0%; max-width: 200.0px; display: inline-block; vertical-ali=
+gn: top; margin: 0;"><table width=3D"100%" cellpadding=3D"0" cellspacing=3D=
+"0" border=3D"0" style=3D"border-collapse: collapse; table-layout: auto;"><=
+tbody><tr class=3D"x_-13010249image"><td align=3D"center" style=3D"padding:=
+ 14.0px 6.0px 10.0px 6.0px;"><a href=3D"https://www.marks.com" title=3D"Mar=
+k's" target=3D"_blank" style=3D"text-decoration: none;"><img id=3D"16428755=
+57711100001_imgsrc_url_0" alt=3D"Mark's" style=3D"line-height: 100%; outlin=
+e: none; text-decoration: none; display: block; width: 160.0px; max-width: =
+160.0px; border: 0;" width=3D"160"></a></td></tr></tbody></table></div><div=
+ class=3D"x_-13010249column-66" style=3D"width: 100.0%; max-width: 400.0px;=
+ display: inline-block; vertical-align: top; margin: 0;"><table width=3D"10=
+0%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collap=
+se: collapse; table-layout: auto;"><tbody><tr class=3D"x_-13010249nav x_-13=
+010249mobile-hide"><td align=3D"right" style=3D"font-size: 0;padding: 20.0p=
+x 5.0px 20.0px 5.0px;line-height: 1.5;letter-spacing: 2.0px;"><span class=
+=3D"colour" style=3D"color:rgb(255, 255, 255)"><a href=3D"https://www.marks=
+.com/en/men.html" title=3D"MEN'S" target=3D"_blank" style=3D"font-size: 12.=
+0px; font-style: normal; color: rgb(255,255,255); display: inline-block; ba=
+ckground-color: transparent; text-decoration: none; padding: 10.0px; box-si=
+zing: border-box;"><b>men's</b> </a></span><span class=3D"colour" style=3D"=
+color:rgb(255, 255, 255)"><a href=3D"https://www.marks.com/en/women.html" t=
+itle=3D"WOMEN'S" target=3D"_blank" style=3D"font-size: 12.0px; font-style: =
+normal; color: rgb(255,255,255); display: inline-block; background-color: t=
+ransparent; text-decoration: none; padding: 10.0px; box-sizing: border-box;=
+"><b>women's</b> </a></span><span class=3D"colour" style=3D"color:rgb(255, =
+255, 255)"><a href=3D"https://www.marks.com/en/shoes.html" title=3D"SHOES" =
+target=3D"_blank" style=3D"font-size: 12.0px; font-style: normal; color: rg=
+b(255,255,255); display: inline-block; background-color: transparent; text-=
+decoration: none; padding: 10.0px; box-sizing: border-box;"><b>shoes</b> </=
+a></span><span class=3D"colour" style=3D"color:rgb(255, 255, 255)"><a href=
+=3D"https://www.marks.com/en/workwear.html" title=3D"WORKWEAR" target=3D"_b=
+lank" style=3D"font-size: 12.0px; font-style: normal; color: rgb(255,255,25=
+5); display: inline-block; background-color: transparent; text-decoration: =
+none; padding: 10.0px; box-sizing: border-box;"><b>workwear</b></a></span><=
+br></td></tr></tbody></table></div></td></tr></tbody></table></td></tr></tb=
+ody></table></td></tr></tbody></table></td></tr><tr><td style=3D"padding: 4=
+0.0px;text-align: left;font-size: 18.0px;color: rgb(50,65,90);"><div style=
+=3D"vertical-align: top; margin: 0; background-color: rgb(255,166,44);"><br=
+><span class=3D"font" style=3D"font-family:sofia-pro, sans-serif"><span cla=
+ss=3D"size" style=3D"font-size: 64px; line-height: 1; font-weight: 300;">&n=
+bsp; This is your </span></span><br> <span class=3D"font" style=3D"font-fam=
+ily:sofia-pro, sans-serif"><span class=3D"size" style=3D"font-size: 64px; l=
+ine-height: 1; font-weight: 300;">&nbsp; e-receipt. </span></span><br> <br>=
+ <br> <br> <span><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T=
+hank you for shopping with Mark's.</b> </span><br> <span>&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Upon your request, please find below a =
+</span><br> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;det=
+ailed copy of your receipt. </span><br> <br> <span>&nbsp;</span></div></td>=
+</tr><tr valign=3D"top"><td valign=3D"top" align=3D"center" bgcolor=3D"#fff=
+fff" style=3D"padding-bottom: 20.0px;"><table cellspacing=3D"0" cellpadding=
+=3D"0" style=3D"border-collapse: collapse; table-layout: auto; margin-botto=
+m: 20.0px;"><tbody><tr valign=3D"top"><td valign=3D"top" align=3D"center" s=
+tyle=3D"padding: 20.0px;width: 320.0px;"><img class=3D"x_-13010249logo" src=
+=3D"cid:logo-5270120220122279788" alt=3D"Mark's" style=3D"border: 0; line-h=
+eight: 100%; outline: none; text-decoration: none;"><br></td></tr><tr valig=
+n=3D"top"><td valign=3D"top" align=3D"left" style=3D"padding: 0 20.0px 20.0=
+px 20.0px;width: 320.0px;"><pre style=3D"font-family: Courier, monospace;fo=
+nt-size: 11.0px;line-height: 16.0px;">                Collingwood          =
+    =20
+  59 Balsam Street, Collingwood, Ontario,=20
+                  L9Y 3Y6                =20
+                     =E2=80=8D                   =20
+                                         =20
+                   SALE                  =20
+
+Date: 2022/01/22 13:16 =20
+Cashier: 53321 Janice=20
+------------------------------------------
+400008852777
+WINDRIVER STRETCH WAFFLE THERMAL BOTTOM
+Clr: Black Sz: Medium=20
+Qty: 1 Base Price: $23.99 =20
+                                  $23.99 H
+
+Sub Total                           $23.99
+ONFedHST 5.000%                      $1.20
+ONProvHST 8.000%                     $1.92
+=20
+Total                               $27.11
+------------------------------------------
+Payments
+Debit Card                          $27.11
+                                         =20
+------------------------------------------
+           TRANSACTION RECORD            =20
+TYPE                              PURCHASE
+=20
+ACCT                 INTERAC FLASH DEFAULT
+AMOUNT                              $27.11
+=20
+CARD NUMBER               ************9801
+DATE/TIME             22 Jan 2022 13:16:30
+REFERENCE #           P12858900010015180 H
+TERMINAL #                        65270001
+AUTH #                              001249
+INTERAC
+A0000002771010
+8080008000
+=20
+       00 APPROVED - THANK YOU 001       =20
+------------------------------------------
+        Triangle Rewards Account #:      =20
+             ************5483            =20
+                                         =20
+CT Money Collected Today             $0.10
+CT Money                             $0.10
+Bonus CT Money                       $0.00
+=20
+CT Money Balance                     $0.56
+=20
+  Collect 10X, that's 4% CT Money* when=20
+ you pay for your purchase with a Canadian
+   Tire Triangle Mastercard. *Calculated =20
+ pre-tax. Terms &amp; conditions apply. Visit=20
+        triangle.com for details.        =20
+******************************************
+
+        TELL US HOW WE DID TODAY!        =20
+     Take our short survey to get $10    =20
+     off your next purchase of $50 or    =20
+      more&amp;be entered to win 1 of 2      =20
+         $500 Monthly Gift Cards!        =20
+        Go to www.marks-survey.com       =20
+               Survey Code:              =20
+             2701952072120828            =20
+    See complete Contest Rules online.   =20
+
+******************************************
+
+------------------------------------------
+              Return Policy              =20
+ If you're not 100% satisfied with your=20
+Mark's purchase, within 100 days, return
+    your unused, unworn or Manufacturer  =20
+ defective item with your original receipt
+     for a full refund or exchange.      =20
+     EXCEPTION TO OUR RETURN POLICY:     =20
+When a regular price item purchased during
+ a " Buy One, Get One " event is returned,
+    the discount on the second item is   =20
+     forfeited. The second item may be   =20
+ repurchased at the current selling price=20
+ or both items can be returned for a full=20
+                 refund.                 =20
+------------------------------------------
+             **CUSTOMER COPY**           =20
+         Str 527 Reg 01 Trn 279788       =20
+           Date 2022/01/22 13:16         =20
+<br></pre></td></tr><tr valign=3D"top"><td valign=3D"top" align=3D"center" =
+style=3D"padding: 0 20.0px 0 20.0px;width: 320.0px;"><img class=3D"x_-13010=
+249barcode" src=3D"cid:barcode-5270120220122279788" width=3D"100%" alt=3D"B=
+arcode" style=3D"border: 0; line-height: 100%; outline: none; text-decorati=
+on: none;"><br></td></tr><tr valign=3D"top"><td valign=3D"top" align=3D"lef=
+t" style=3D"padding: 0 20.0px 20.0px 20.0px;"><pre style=3D"font-family: Co=
+urier, monospace;font-size: 11.0px;line-height: 16.0px;">           5270120=
+220122279788
+          =20
+            HST #: 103531919             =20
+                                          <br></pre></td></tr></tbody></tab=
+le></td></tr><tr><td style=3D"max-width: 600.0px;padding: 40.0px;"><div sty=
+le=3D"vertical-align: top; margin: 0; text-align: center;"><table style=3D"=
+table-layout: auto; color: rgb(50,65,90); background-color: rgb(255,166,44)=
+; border-spacing: 0; border-collapse: collapse; width: 100.0%;" width=3D"10=
+0.0%" bgcolor=3D"rgb(255,166,44)"><tbody><tr><td style=3D"text-align: left;=
+width: 100.0%;"><br><span class=3D"font" style=3D"font-family:sofia-pro, sa=
+ns-serif"><span class=3D"size" style=3D"font-size: 26px; letter-spacing: -1=
+px; margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tell us how we did today. <=
+/span></span><br> <span class=3D"font" style=3D"font-family:sofia-pro, sans=
+-serif"><span class=3D"size" style=3D"font-size: 18px; text-align: left; ma=
+rgin: auto; display: block; font-weight: 400;">&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;Take our short survey to get $10 off your next purchase<br> &nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of $50 or more! See complete Contest Rules onl=
+ine.</span></span></td></tr><tr><td><table cellspacing=3D"0" cellpadding=3D=
+"0" border=3D"0" align=3D"left" style=3D"border-collapse: collapse; table-l=
+ayout: auto;"><tbody><tr><td style=3D"border-radius: 3.0px;text-align: cent=
+er;padding: 20.0px;" class=3D"x_-13010249button-td"><a href=3D"https://surv=
+ey.medallia.ca/?cantire-marks&amp;OfferCode=3D0527&amp;DateOfService=3D01/2=
+2/2022&amp;Transaction=3D279788&amp;Register=3D01" target=3D"_blank" style=
+=3D"border: 8.0px solid rgb(255,255,255); background-color: white; color: r=
+gb(50,65,90); text-align: center; text-decoration: none; display: block; bo=
+rder-radius: 0.0px; font-weight: bold;" class=3D"x_-13010249button-a">&nbsp=
+;&nbsp;TAKE
+ OUR SURVEY&nbsp;&nbsp;<br></a></td></tr></tbody></table></td></tr><tr styl=
+e=3D"height: 4.0px;background-color: white;"><td style=3D"background-color:=
+ white;padding-bottom: 6.0px;"><br></td></tr></tbody></table></div></td></t=
+r><tr style=3D"margin-top: 4.0px;"><td style=3D"padding: 0 64.0px 36.0px 64=
+.0px;color: rgb(50,65,90);"><div class=3D"x_-13010249dont-reply" style=3D"v=
+ertical-align: top; margin: 0;"><p style=3D"font-weight: 300; margin: 0px;"=
+><span class=3D"colour" style=3D"color:rgb(50, 65, 90)"><span class=3D"size=
+" style=3D"font-size: 14px; font-weight: 300; margin: 0px;">Please do not r=
+eply to this email; this address is not monitored. To get in touch with our=
+ customer service team please call <u>1-866-339-1626</u> or email <a href=
+=3D"mailto:marks.customer.service@canadiantire.ca" style=3D"color: rgb(50,6=
+5,90); text-decoration: underline;" target=3D"_blank"> marks.customer.servi=
+ce@canadiantire.ca</a>. <br> <br> Mark's Work Wearhouse Ltd <br> 205 Quarry=
+ Park Blvd #110, Calgary, AB T2C 3E7 Canada <br> <br> <a href=3D"https://ww=
+w.marks.com/en/help-desk/company-information/privacy-policy.html" style=3D"=
+color: rgb(50,65,90); text-decoration: underline;" target=3D"_blank">Privac=
+y Policy</a></span></span></p></div></td></tr><tr style=3D"height: 3.0px;">=
+<td style=3D"background-color: rgb(199,200,198);padding-bottom: 6.0px;"><br=
+></td></tr><tr><td valign=3D"top" align=3D"center" style=3D"padding: 0;"><t=
+able width=3D"100%" class=3D"x_-13010249Wrapper" cellpadding=3D"0" cellspac=
+ing=3D"0" border=3D"0" style=3D"border-collapse: collapse; table-layout: au=
+to;"><tbody><tr><td align=3D"center" style=3D"background-color: rgb(199,201=
+,200);border-top-style: none;border-bottom-style: none;border-right-style: =
+none;border-left-style: none;border-top-width: 0.0px;border-bottom-width: 0=
+.0px;border-right-width: 0.0px;border-left-width: 0.0px;border-color: rgb(3=
+4,34,34);"><table width=3D"100%" class=3D"x_-13010249Container" cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse; t=
+able-layout: auto; max-width: 600.0px;"><tbody><tr><td align=3D"center" sty=
+le=3D"background-color: rgb(50,65,90);padding: 0 40.0px;"><table width=3D"1=
+00%" class=3D"x_-13010249Column-2 x_-13010249mobile-align-center" cellpaddi=
+ng=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse;=
+ table-layout: auto;"><tbody><tr><td style=3D"text-align: center;font-size:=
+ 0.0px;"><div class=3D"x_-13010249column-50" style=3D"width: 50.0%; max-wid=
+th: 300.0px; display: inline-block; vertical-align: top; margin: 0;"><table=
+ width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"b=
+order-collapse: collapse; table-layout: auto;"><tbody><tr class=3D"x_-13010=
+249button"><td align=3D"center" style=3D"padding: 8.0px 8.0px 8.0px 8.0px;"=
+><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-co=
+llapse: collapse; table-layout: auto; width: 100.0%;" width=3D"100.0%"><tbo=
+dy><tr><th align=3D"center" style=3D"display: block;background-color: rgb(5=
+0,65,90);border-width: 1.0px;border-style: solid;border-color: white;color:=
+ rgb(255,255,255);min-height: 42.0px;position: relative;width: 100.0%;borde=
+r-top-left-radius: 0.0px;border-top-right-radius: 0.0px;border-bottom-left-=
+radius: 0.0px;"><a href=3D"https://www.marks.com/en/men.html" title=3D"MEN"=
+ target=3D"_blank" style=3D"color: rgb(255,255,255); font-size: 14.0px; fon=
+t-style: normal; letter-spacing: 2.0px; text-align: center; display: block;=
+ background-color: rgb(50,65,90); top: 50.0%; width: 100.0%; line-height: 4=
+2.0px; text-decoration: none; border-top-left-radius: 0.0px; border-top-rig=
+ht-radius: 0.0px; border-bottom-left-radius: 0.0px; box-sizing: border-box;=
+"><b>MEN</b><br></a></th></tr></tbody></table></td></tr></tbody></table></d=
+iv><div class=3D"x_-13010249column-50" style=3D"width: 50.0%; max-width: 30=
+0.0px; display: inline-block; vertical-align: top; margin: 0;"><table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-=
+collapse: collapse; table-layout: auto;"><tbody><tr class=3D"x_-13010249but=
+ton"><td align=3D"center" style=3D"padding: 8.0px 8.0px 8.0px 8.0px;"><tabl=
+e cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse=
+: collapse; table-layout: auto; width: 100.0%;" width=3D"100.0%"><tbody><tr=
+><th align=3D"center" style=3D"display: block;background-color: rgb(50,65,9=
+0);border-width: 1.0px;border-style: solid;border-color: white;color: rgb(2=
+55,255,255);min-height: 42.0px;position: relative;border-top-left-radius: 0=
+.0px;border-top-right-radius: 0.0px;border-bottom-left-radius: 0.0px;"><a h=
+ref=3D"https://www.marks.com/en/women.html" title=3D"WOMEN" target=3D"_blan=
+k" style=3D"color: rgb(255,255,255); font-size: 14.0px; font-style: normal;=
+ letter-spacing: 2.0px; text-align: center; display: block; background-colo=
+r: rgb(50,65,90); top: 50.0%; width: 100.0%; text-decoration: none; border-=
+top-left-radius: 0.0px; border-top-right-radius: 0.0px; border-bottom-left-=
+radius: 0.0px; line-height: 42.0px; box-sizing: border-box;"><b>WOMEN</b><b=
+r></a></th></tr></tbody></table></td></tr></tbody></table></div></td></tr><=
+/tbody></table><table width=3D"100%" class=3D"x_-13010249Column-2 x_-130102=
+49mobile-align-center" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" sty=
+le=3D"border-collapse: collapse; table-layout: auto;"><tbody><tr><td style=
+=3D"text-align: center;font-size: 0.0px;"><div class=3D"x_-13010249column-5=
+0" style=3D"width: 50.0%; max-width: 300.0px; display: inline-block; vertic=
+al-align: top; margin: 0;"><table width=3D"100%" cellpadding=3D"0" cellspac=
+ing=3D"0" border=3D"0" style=3D"border-collapse: collapse; table-layout: au=
+to;"><tbody><tr class=3D"x_-13010249button"><td align=3D"center" style=3D"p=
+adding: 8.0px 8.0px 8.0px 8.0px;"><table cellpadding=3D"0" cellspacing=3D"0=
+" border=3D"0" style=3D"border-collapse: collapse; table-layout: auto; widt=
+h: 100.0%;" width=3D"100.0%"><tbody><tr><th align=3D"center" style=3D"displ=
+ay: block;background-color: rgb(50,65,90);border-width: 1.0px;border-style:=
+ solid;border-color: white;color: rgb(255,255,255);min-height: 42.0px;posit=
+ion: relative;width: 100.0%;border-top-left-radius: 0.0px;border-top-right-=
+radius: 0.0px;border-bottom-left-radius: 0.0px;"><a href=3D"https://www.mar=
+ks.com/en/shoes.html" title=3D"SHOES" target=3D"_blank" style=3D"color: rgb=
+(255,255,255); font-size: 14.0px; font-style: normal; letter-spacing: 2.0px=
+; text-align: center; display: block; background-color: rgb(50,65,90); top:=
+ 50.0%; width: 100.0%; text-decoration: none; line-height: 42.0px; border-t=
+op-left-radius: 0.0px; border-top-right-radius: 0.0px; border-bottom-left-r=
+adius: 0.0px; box-sizing: border-box;"><b>SHOES</b><br></a></th></tr></tbod=
+y></table></td></tr></tbody></table></div><div class=3D"x_-13010249column-5=
+0" style=3D"width: 50.0%; max-width: 300.0px; display: inline-block; vertic=
+al-align: top; margin: 0;"><table width=3D"100%" cellpadding=3D"0" cellspac=
+ing=3D"0" border=3D"0" style=3D"border-collapse: collapse; table-layout: au=
+to;"><tbody><tr class=3D"x_-13010249button"><td align=3D"center" style=3D"p=
+adding: 8.0px 8.0px 8.0px 8.0px;"><table cellpadding=3D"0" cellspacing=3D"0=
+" border=3D"0" style=3D"border-collapse: collapse; table-layout: auto; widt=
+h: 100.0%;" width=3D"100.0%"><tbody><tr><th align=3D"center" style=3D"displ=
+ay: block;background-color: rgb(50,65,90);border-width: 1.0px;border-style:=
+ solid;border-color: white;color: rgb(255,255,255);min-height: 42.0px;posit=
+ion: relative;width: 100.0%;border-top-left-radius: 0.0px;border-top-right-=
+radius: 0.0px;border-bottom-left-radius: 0.0px;"><a href=3D"https://www.mar=
+ks.com/en/workwear.html" title=3D"WORKWEAR" target=3D"_blank" style=3D"colo=
+r: rgb(255,255,255); font-size: 14.0px; font-style: normal; letter-spacing:=
+ 2.0px; text-align: center; display: block; background-color: rgb(50,65,90)=
+; top: 50.0%; width: 100.0%; text-decoration: none; line-height: 42.0px; bo=
+rder-top-left-radius: 0.0px; border-top-right-radius: 0.0px; border-bottom-=
+left-radius: 0.0px; box-sizing: border-box;"><b>WORKWEAR</b><br></a></th></=
+tr></tbody></table></td></tr></tbody></table></div></td></tr></tbody></tabl=
+e><table width=3D"100%" class=3D"x_-13010249Column-1" cellpadding=3D"0" cel=
+lspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse; table-layou=
+t: auto;"><tbody><tr><td align=3D"center"><table width=3D"100%" cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse; t=
+able-layout: auto;"><tbody><tr class=3D"x_-13010249button"><td align=3D"cen=
+ter" style=3D"padding: 8.0px 8.0px 8.0px 8.0px;"><table cellpadding=3D"0" c=
+ellspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse; table-lay=
+out: auto; width: 100.0%;" width=3D"100.0%"><tbody><tr><th align=3D"center"=
+ style=3D"display: block;background-color: rgb(50,65,90);border-width: 1.0p=
+x;border-style: solid;border-color: rgb(255,255,255);border-top-left-radius=
+: 0.0px;border-top-right-radius: 0.0px;border-bottom-left-radius: 0.0px;col=
+or: rgb(255,255,255);line-height: 1.5;"><a href=3D"https://www.marks.com/en=
+/weekly-offers.html" title=3D"WEEKLY OFFERS" target=3D"_blank" style=3D"col=
+or: rgb(255,255,255); font-size: 14.0px; font-style: normal; letter-spacing=
+: 2.0px; text-align: center; display: block; background-color: rgb(50,65,90=
+); border-top-left-radius: 0.0px; border-top-right-radius: 0.0px; border-bo=
+ttom-left-radius: 0.0px; text-decoration: none; padding: 10.0px 20.0px 10.0=
+px 20.0px; box-sizing: border-box; border-width: 1.0px; border-style: solid=
+; border-color: rgb(58,59,63);"><b>WEEKLY
+ OFFERS</b><br></a></th></tr></tbody></table></td></tr></tbody></table></td=
+></tr></tbody></table><table width=3D"100%" class=3D"x_-13010249Column-2 x_=
+-13010249mobile-align-center" cellpadding=3D"0" cellspacing=3D"0" border=3D=
+"0" style=3D"border-collapse: collapse; table-layout: auto;"><tbody><tr><td=
+ style=3D"text-align: center;font-size: 0.0px;"><div style=3D"width: 50.0%;=
+ max-width: 300.0px; display: inline-block; vertical-align: top; margin: 0;=
+"><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" st=
+yle=3D"border-collapse: collapse; table-layout: auto;"><tbody><tr><td align=
+=3D"center" style=3D"width: 50.0%;vertical-align: top;"><table width=3D"100=
+%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collaps=
+e: collapse; table-layout: auto;"><tbody><tr class=3D"x_-13010249image"><td=
+ align=3D"center" style=3D"padding: 10.0px 10.0px 0.0px 10.0px;"><a href=3D=
+"https://www.marks.com/en/store-locator.html" title=3D"Find a Store" target=
+=3D"_blank" style=3D"text-decoration: none;"><img id=3D"1642875557711100001=
+_imgsrc_url_1" alt=3D"Find a Store" width=3D"100%" style=3D"line-height: 10=
+0%; outline: none; text-decoration: none; display: block; width: 100.0%; ma=
+x-width: 81.0px; border: 0.0px;"></a></td></tr><tr class=3D"x_-13010249text=
+"><td style=3D"padding: 0.0px 7.0px 7.0px 7.0px;border-width: 0.0px;border-=
+style: none;font-family: sofia-pro, sans-serif;font-size: 12.0px;font-weigh=
+t: normal;color: rgb(34,34,34);line-height: 1.5;text-align: center;"><span =
+class=3D"font" style=3D"font-family:sofia-pro, sans-serif"><a href=3D"https=
+://www.marks.com/en/store-locator.html" style=3D"color: rgb(255,255,255); t=
+ext-decoration: none;" target=3D"_blank" title=3D"FIND A STORE"><span style=
+=3D"letter-spacing: 2.0px;"><span class=3D"colour" style=3D"color:rgb(255, =
+255, 255)">FIND
+ A STORE</span></span></a></span><br></td></tr></tbody></table></td><td ali=
+gn=3D"center" style=3D"width: 50.0%;vertical-align: top;"><table width=3D"1=
+00%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-colla=
+pse: collapse; table-layout: auto;"><tbody><tr class=3D"x_-13010249image"><=
+td align=3D"center" style=3D"padding: 10.0px 10.0px 0.0px 10.0px;"><a href=
+=3D"https://www.marks.com/en/true-fit.html" title=3D"True Fit" target=3D"_b=
+lank" style=3D"text-decoration: none;"><img id=3D"1642875557711100001_imgsr=
+c_url_2" alt=3D"True Fit" style=3D"line-height: 100%; outline: none; text-d=
+ecoration: none; display: block; width: 100.0%; max-width: 81.0px; border: =
+0.0px;" width=3D"100%"></a></td></tr><tr class=3D"x_-13010249text"><td styl=
+e=3D"padding: 0.0px 7.0px 7.0px 7.0px;border-width: 0.0px;border-style: non=
+e;font-family: sofia-pro, sans-serif;font-size: 12.0px;font-weight: normal;=
+color: rgb(34,34,34);line-height: 1.5;text-align: center;"><span class=3D"f=
+ont" style=3D"font-family:sofia-pro, sans-serif"><a href=3D"https://www.mar=
+ks.com/en/true-fit.html" style=3D"color: rgb(255,255,255); text-decoration:=
+ none;" target=3D"_blank" title=3D"TRUE FIT"><span style=3D"letter-spacing:=
+ 2.0px;"><span class=3D"colour" style=3D"color:rgb(255, 255, 255)"><span cl=
+ass=3D"colour" style=3D"color:rgb(255, 255, 255)">TRUE
+ FIT=C2=AE</span></span></span></a></span><br></td></tr></tbody></table></t=
+d></tr></tbody></table></div><div style=3D"width: 50.0%; max-width: 300.0px=
+; display: inline-block; vertical-align: top; margin: 0;"><table width=3D"1=
+00%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-colla=
+pse: collapse; table-layout: auto;"><tbody><tr><td align=3D"center" style=
+=3D"width: 50.0%;vertical-align: top;"><table width=3D"100%" cellpadding=3D=
+"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse; tabl=
+e-layout: auto;"><tbody><tr class=3D"x_-13010249image"><td align=3D"center"=
+ style=3D"padding: 10.0px 10.0px 0.0px 10.0px;"><a href=3D"https://www.mark=
+s.com/en/click-and-collect-free-pick-up-in-store.html" title=3D"Click &amp;=
+ Collect" target=3D"_blank" style=3D"text-decoration: none;"><img id=3D"164=
+2875557711100001_imgsrc_url_3" style=3D"line-height: 100%; outline: none; t=
+ext-decoration: none; display: block; width: 100.0%; max-width: 81.0px; bor=
+der: 0.0px;" width=3D"100%"></a></td></tr><tr class=3D"x_-13010249text"><td=
+ style=3D"padding: 0.0px 7.0px 7.0px 7.0px;border-width: 0.0px;border-style=
+: none;font-family: sofia-pro, sans-serif;font-size: 12.0px;font-weight: no=
+rmal;color: rgb(34,34,34);line-height: 1.5;text-align: center;"><span class=
+=3D"font" style=3D"font-family:sofia-pro, sans-serif"><a href=3D"https://ww=
+w.marks.com/en/click-and-collect-free-pick-up-in-store.html" style=3D"color=
+: rgb(255,255,255); text-decoration: none;" target=3D"_blank" title=3D"CLIC=
+K &amp; COLLECT"><span style=3D"letter-spacing: 2.0px;"><span class=3D"colo=
+ur" style=3D"color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"colo=
+r:rgb(255, 255, 255)">CLICK
+ &amp; COLLECT</span></span></span></a></span><br></td></tr></tbody></table=
+></td><td align=3D"center" style=3D"width: 50.0%;vertical-align: top;"><tab=
+le width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D=
+"border-collapse: collapse; table-layout: auto;"><tbody><tr class=3D"x_-130=
+10249image"><td align=3D"center" style=3D"padding: 10.0px 10.0px 0.0px 10.0=
+px;"><a href=3D"https://www.marks.com/en/flyer.html" title=3D"Flyer" target=
+=3D"_blank" style=3D"text-decoration: none;"><img id=3D"1642875557711100001=
+_imgsrc_url_4" alt=3D"Flyer" style=3D"line-height: 100%; outline: none; tex=
+t-decoration: none; display: block; width: 100.0%; max-width: 81.0px; borde=
+r: 0.0px;" width=3D"100%"></a></td></tr><tr class=3D"x_-13010249text"><td s=
+tyle=3D"padding: 0.0px 7.0px 7.0px 7.0px;border-width: 0.0px;border-style: =
+none;font-family: sofia-pro, sans-serif;font-size: 12.0px;font-weight: norm=
+al;color: rgb(34,34,34);line-height: 1.5;text-align: center;"><span class=
+=3D"font" style=3D"font-family:sofia-pro, sans-serif"><a href=3D"https://ww=
+w.marks.com/en/flyer.html" style=3D"color: rgb(255,255,255); text-decoratio=
+n: none;" target=3D"_blank" title=3D"LATEST FLYER"><span style=3D"letter-sp=
+acing: 2.0px;"><span class=3D"colour" style=3D"color:rgb(255, 255, 255)"><s=
+pan class=3D"colour" style=3D"color:rgb(255, 255, 255)">LATEST
+ FLYER</span></span></span></a></span><br></td></tr></tbody></table></td></=
+tr></tbody></table></div></td></tr></tbody></table><table width=3D"100%" cl=
+ass=3D"x_-13010249Column-1" cellpadding=3D"0" cellspacing=3D"0" border=3D"0=
+" style=3D"border-collapse: collapse; table-layout: auto; padding-top: 10.0=
+px;"><tbody><tr><td align=3D"center"><table width=3D"100%" cellpadding=3D"0=
+" cellspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse; table-=
+layout: auto;"><tbody><tr class=3D"x_-13010249social"><td align=3D"center" =
+style=3D"padding: 10.0px 10.0px 10.0px 10.0px;"><table width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse: colla=
+pse; table-layout: auto; display: inline-block; margin: 0; vertical-align: =
+top; max-width: 174.0px;" valign=3D"top"><tbody><tr><td width=3D"36"><a hre=
+f=3D"https://www.facebook.com/MarksClothing" title=3D"Facebook" target=3D"_=
+blank" style=3D"text-decoration: none;"><img alt=3D"Facebook" id=3D"1642875=
+557711100001_imgsrc_url_5" width=3D"100%" style=3D"line-height: 100%; outli=
+ne: none; text-decoration: none; display: block; width: 100.0%; max-width: =
+36.0px; border: 0;"></a></td><td><span style=3D"display: block;width: 10.0p=
+x;">&nbsp;<br></span></td><td width=3D"36"><a href=3D"https://twitter.com/m=
+arksCanada" title=3D"Twitter" target=3D"_blank" style=3D"text-decoration: n=
+one;"><img alt=3D"Twitter" id=3D"1642875557711100001_imgsrc_url_6" width=3D=
+"100%" style=3D"line-height: 100%; outline: none; text-decoration: none; di=
+splay: block; width: 100.0%; max-width: 36.0px; border: 0;"></a></td><td><s=
+pan style=3D"display: block;width: 10.0px;">&nbsp;<br></span></td><td width=
+=3D"36"><a href=3D"https://www.instagram.com/markscanada/" title=3D"Instagr=
+am" target=3D"_blank" style=3D"text-decoration: none;"><img alt=3D"Instagra=
+m" id=3D"1642875557711100001_imgsrc_url_7" width=3D"100%" style=3D"line-hei=
+ght: 100%; outline: none; text-decoration: none; display: block; width: 100=
+.0%; max-width: 36.0px; border: 0;"></a></td><td><span style=3D"display: bl=
+ock;width: 10.0px;">&nbsp;<br></span></td><td width=3D"36"><a href=3D"https=
+://www.youtube.com/user/MarksClothing" title=3D"YouTube" target=3D"_blank" =
+style=3D"text-decoration: none;"><img alt=3D"YouTube" id=3D"164287555771110=
+0001_imgsrc_url_8" width=3D"100%" style=3D"line-height: 100%; outline: none=
+; text-decoration: none; display: block; width: 100.0%; max-width: 36.0px; =
+border: 0;"></a></td><td><span style=3D"display: block;width: 10.0px;">&nbs=
+p;<br></span></td><td width=3D"36"><a href=3D"https://www.pinterest.ca/mark=
+scanada/" title=3D"Pinterest" target=3D"_blank" style=3D"text-decoration: n=
+one;"><img alt=3D"YouTube" id=3D"1642875557711100001_imgsrc_url_9" width=3D=
+"100%" style=3D"line-height: 100%; outline: none; text-decoration: none; di=
+splay: block; width: 100.0%; max-width: 36.0px; border: 0;"></a></td></tr><=
+/tbody></table></td></tr><tr class=3D"x_-13010249divider"><td style=3D"padd=
+ing: 0.0px 10.0px 5.0px 10.0px;vertical-align: top;"><table width=3D"100%" =
+cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse: =
+collapse; table-layout: auto;"><tbody><tr><td height=3D"5" style=3D"font-si=
+ze: 0.0px;line-height: 0.0px;border-bottom-style: solid;border-top-width: 0=
+.0px;border-bottom-width: 1.0px;border-right-width: 0.0px;border-left-width=
+: 0.0px;border-color: rgb(255,255,255);">&nbsp;<br></td></tr></tbody></tabl=
+e></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></t=
+able></td></tr><tr><td align=3D"center" style=3D"background-color: rgb(199,=
+201,200);border-top-style: none;border-bottom-style: none;border-right-styl=
+e: none;border-left-style: none;border-top-width: 0.0px;border-bottom-width=
+: 0.0px;border-right-width: 0.0px;border-left-width: 0.0px;border-color: rg=
+b(34,34,34);"><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bor=
+der=3D"0" style=3D"border-collapse: collapse; table-layout: auto; max-width=
+: 600.0px; background-color: rgb(50,65,90);" bgcolor=3D"rgb(50,65,90)"><tbo=
+dy><tr class=3D"x_-13010249text"><td style=3D"padding: 15.0px 60.0px 30.0px=
+ 60.0px;border-width: 0.0px;border-style: none;font-family: sofia-pro, sans=
+-serif;font-size: 12.0px;font-weight: normal;color: rgb(34,34,34);line-heig=
+ht: 1.5;text-align: left;"><span class=3D"font" style=3D"font-family:sofia-=
+pro, sans-serif"><span class=3D"size" style=3D"font-size:10px"><span class=
+=3D"colour" style=3D"color:rgb(255, 255, 255)">Product availability, pricin=
+g, colour, selection and brands may vary by location. Regular prices shown =
+are those at which the items
+ have been sold by Mark=E2=80=99s Work Wearhouse Ltd. Franchisees may sell =
+for less. Typographical, illustrative or pricing errors may occur. We reser=
+ve the right to correct any errors. The lifestyle images presented in this =
+advertisement may not be available. <br> <br> Please be aware that all unsu=
+bscribe requests are processed within 5 business days, and that you may rec=
+eive additional emails during that time period. CASL regulations require a =
+ten-day processing cycle. To get in touch with our customer service team pl=
+ease
+ call&nbsp; <a href=3D"tel:18663391626" style=3D"color: rgb(255,255,255); t=
+ext-decoration: underline;" target=3D"_blank" title=3D"1-866-339-1626"> <sp=
+an class=3D"size" style=3D"font-size:11px"><span class=3D"colour" style=3D"=
+color:rgb(255, 255, 255)">1-866-339-1626</span> </span> </a>&nbsp;or email&=
+nbsp; <a href=3D"mailto:marks.customer.service@canadiantire.ca" style=3D"co=
+lor: rgb(255,255,255); text-decoration: underline;" target=3D"_blank"> mark=
+s.customer.service@canadiantire.ca </a>. <br> <br> <a href=3D"https://goo.g=
+l/maps/PHYz7EupENR2" style=3D"color: rgb(255,255,255); text-decoration: non=
+e;" target=3D"_blank">Unit #110 - 205 Quarry Park Blvd S.E., Calgary, Alber=
+ta, T2C 3E7 Canada </a><br> <br> <a href=3D"https://www.marks.com/en/help-d=
+esk/company-information/privacy-policy.html" style=3D"color: rgb(255,255,25=
+5); text-decoration: underline;" target=3D"_blank" title=3D"Privacy Policy"=
+>Privacy Policy </a><br> <a href=3D"https://www.marks.com/en/preference-cen=
+ter.html?ltkKey=3D" style=3D"color: rgb(255,255,255); text-decoration: unde=
+rline;" target=3D"_blank" title=3D"Update Email Preferences">Update Email P=
+references</a>&nbsp;|&nbsp; <a href=3D"https://www.marks.com/en/preference-=
+center.html?ltkKey=3D&amp;od=3D1" style=3D"color: rgb(255,255,255); text-de=
+coration: underline;" target=3D"_blank" title=3D"Unsubscribe"> Unsubscribe<=
+/a></span></span></span></td></tr></tbody></table></td></tr><tr style=3D"he=
+ight: 10.0px;background-color: rgb(54,53,58);padding-bottom: 10.0px;"><td s=
+tyle=3D"padding-bottom: 10.0px;"><br></td></tr></tbody></table></td></tr></=
+tbody></table></div></td></tr></tbody></table><p>This message, including an=
+y attachments, is privileged and may contain confidential information inten=
+ded only for the person(s) named above. If you are not the intended recipie=
+nt or have received this message in error, please notify the sender immedia=
+tely
+ by reply email and permanently delete the original transmission from the s=
+ender, including any attachments, without making a copy. Thank you. <br> <b=
+r> Ce message, y compris toutes ses pi=C3=A8ces jointes, est confidentiel e=
+t peut contenir des renseignements destin=C3=A9s uniquement aux personnes d=
+ont le nom est indiqu=C3=A9 ci-dessus. Si vous n'=C3=AAtes pas le destinata=
+ire pr=C3=A9vu ou si vous avez re=C3=A7u ce message par erreur, veuillez
+ en aviser l'exp=C3=A9diteur imm=C3=A9diatement, en lui r=C3=A9pondant par =
+courriel. Veuillez aussi supprimer d=C3=A9finitivement le message original =
+de l'exp=C3=A9diteur, y compris toute pi=C3=A8ce jointe, sans faire de copi=
+e. Merci.</p></div></blockquote></div><div><br></div><div class=3D"zmail_si=
+gnature_below"><div id=3D"" data-zbluepencil-ignore=3D"true" data-sigid=3D"=
+6189300000000739006"><div>Regards,<br></div><div><br></div><div>John E. Est=
+rada<br></div><div><br></div><div>---------------------------------------<b=
+r></div><div><br></div><p style=3D"font-style: normal; font-weight: 400; le=
+tter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; w=
+hite-space: normal; widows: 2; word-spacing: 0px"><span class=3D"highlight"=
+ style=3D"background-color:rgb(255, 255, 255)"><span class=3D"colour" style=
+=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:Verdana, =
+Arial, Helvetica, sans-serif"><span class=3D"size" style=3D"font-size:13.33=
+33px"><span class=3D"highlight" style=3D"background-color:rgb(255, 255, 255=
+)"><b><span class=3D"colour" style=3D"color:rgb(0, 102, 0)"><span class=3D"=
+font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"=
+><span class=3D"size" style=3D"font-size:14.66px">START SHREDDING INC. (shr=
+edEX)</span></span></span></b><span class=3D"colour" style=3D"color:rgb(51,=
+ 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial=
+, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">=
+<br>208 Evans Ave, Toronto, ON M8Z 1J7<br></span></span></span><b><span cla=
+ss=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D=
+"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=
+=3D"size" style=3D"font-size:14.66px">E:<span>&nbsp;<a href=3D"mailto:john@=
+shredex.ca" target=3D"_blank" style=3D"color: rgb(0, 0, 238)">john@shredex.=
+ca</a>&nbsp;</span>W: <a target=3D"_blank" href=3D"http://www.startshreddin=
+g.com" style=3D"color: rgb(0, 0, 238)">www.startshredding.com</a><br></span=
+></span></span></b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><=
+span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-seri=
+f, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">DIRECT:&nbs=
+p;</span></span></span><a style=3D"color: rgb(17, 85, 204); cursor: default=
+" target=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)">=
+<span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-ser=
+if, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">416.255.15=
+00</span></span></span></a><span class=3D"colour" style=3D"color:rgb(51, 51=
+, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, s=
+ans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br=
+>TOLL FREE:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, 204); =
+cursor: default" target=3D"_blank"><span class=3D"colour" style=3D"color:rg=
+b(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, =
+Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.6=
+6px">1.866.868.9585</span></span></span></a></span></span></span></span></s=
+pan></p><p style=3D"font-style: normal; font-weight: 400; letter-spacing: n=
+ormal; orphans: 2; text-indent: 0px; text-transform: none; white-space: nor=
+mal; widows: 2; word-spacing: 0px"><span class=3D"highlight" style=3D"backg=
+round-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0=
+, 0, 0)"><span class=3D"font" style=3D"font-family:Verdana, Arial, Helvetic=
+a, sans-serif"><span class=3D"size" style=3D"font-size:13.3333px"><span cla=
+ss=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><span class=
+=3D"colour" style=3D"color:rgb(34, 34, 34)"><span class=3D"font" style=3D"f=
+ont-family:arial, sans-serif"><span class=3D"size" style=3D"font-size:small=
+"><span class=3D"colour" style=3D"color:gray"><span class=3D"font" style=3D=
+"font-family:Arial, sans-serif"><span class=3D"size" style=3D"font-size:7.5=
+pt">This message and any attachments are the property of the&nbsp;SHREDEX I=
+NC.&nbsp;or its affiliates. It may be legally privileged and/or confidentia=
+l and is intended only for the use of the addressee(s). No addressee should=
+ store, forward, print, copy, or otherwise reproduce this message in any ma=
+nner that would allow it to be viewed by any individual not originally list=
+ed as a recipient. If the reader of this message is not the intended recipi=
+ent, you are hereby notified that any unauthorized storage, disclosure, dis=
+semination, distribution, copying or the taking of any action in reliance o=
+n the information herein is strictly prohibited. If you have received this =
+communication in error, please immediately notify the sender and delete thi=
+s message.</span></span></span></span></span></span></span></span></span></=
+span></span><br></p><div id=3D""><div><br></div></div><div><br></div></div>=
+</div><div><br></div></div><br></body></html>
+------=_Part_660679_796539553.1717126067426
+Content-Type: image/png; name=1.png
+Content-Transfer-Encoding: base64
+Content-Disposition: inline; filename=1.png
+Content-ID: <logo-5270120220122279788>
+
+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
+COQsg8yacQAAAABJRU5ErkJggg==
+------=_Part_660679_796539553.1717126067426
+Content-Type: image/png; name=2.png
+Content-Transfer-Encoding: base64
+Content-Disposition: inline; filename=2.png
+Content-ID: <barcode-5270120220122279788>
+
+iVBORw0KGgoAAAANSUhEUgAAANAAAAAoCAIAAAAAB+NXAAAAx0lEQVR42u3SSwrAIAwFwNz/0nYX
+pNUQ20U340L8PEIIExExxsg9Vz4Wh7zuvubAMr8rWCSbsWaHrwsedfjlq5jhMtmc/FFvNx79tp+i
+AjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw44
+4IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCAAw444IADDjjggAMOOOCA
+Aw444P4DdwGK07aVpR1xRgAAAABJRU5ErkJggg==
+------=_Part_660679_796539553.1717126067426--
+
+------=_Part_660678_2083440815.1717126067411--
+

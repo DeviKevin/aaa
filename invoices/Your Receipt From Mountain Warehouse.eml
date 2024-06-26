@@ -1,0 +1,783 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp184512rbd;
+        Thu, 30 May 2024 20:07:06 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFtnp9jluNdAK+t0p9N8bkM9rWvN4VeopGaukIJ8aQvAix+527M62QhT3345QmFqUxylJwf
+X-Received: by 2002:a05:6e02:19c5:b0:36c:4c02:f172 with SMTP id e9e14a558f8ab-3748b990707mr9252525ab.17.1717124825968;
+        Thu, 30 May 2024 20:07:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717124825; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=sROUPy024kxKO5npUwBvRuw3WjgF3tXeHjS0G0UaMmLMXNCUFilwWgAAYRyExl233r
+         xH1igSfjrPDp84c7jrCQd5ztkvbvALUFZr+FtM1+Dvy8ZRadN544KRe9Ba78YDIrvX2X
+         KO0txmlPI61qRt/eyXHWm88dOmobKDhaVNp9jCKNEnNOj44VA9OgH7Zcn2MkgI659b6X
+         Si9J8JfMu4tPZoXzWTNdPJzhVn33f1mjoF/tbTaUXOlFqE4do3QOTTuF+4Ru5aVlFqhX
+         G6fJD33rRFadoALKsT4HozBEJHZOtRxC1p5RUBj8rmTWRoTGGxSWCLk681Ybx2E14jJM
+         QBYA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:message-id:to:from:date
+         :dkim-signature;
+        bh=thzrzjgvTQuhz9QftxITyIPMjhmSiPzkWbqmey/WgMA=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=z47mWEl73yFq9sn2BmWVhwRi/5cRB1TpZZEGhJ/7OiAd7kVyE/nS0TJMNzQ4Q1Zl1C
+         NpMYjqfU108RkTzJ/B3ue9EOpVqxKVyAm0LCVxqhvG/9qgEaP2ywjhak4lORk6Vjx9pv
+         kKGd3iEi+qoXnvvArP0gctC3Ccq327gPc/O0IiPqVG9OWdE5l8Gm3o8V/BiH/QGi1K+x
+         r/gwi2R1h08YTmYx7Emzt8enWgUCK1kcYOHc0TWDm84pxxTXW1sI08DRZStzau6435tQ
+         vIIT4+7GPPsCSz8LS8fVZFRXMewP5f9bvQu/FLEXwgn6vRmTS7giLRirYL6/w9ZwgUvR
+         IHIA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=OtOnXsz7;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender4-op-o14.zoho.com (sender4-op-o14.zoho.com. [136.143.188.14])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-6c35af4644bsi696353a12.452.2024.05.30.20.07.05
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:07:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) client-ip=136.143.188.14;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=OtOnXsz7;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717124824; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=dJjzj3UrBOJRoWRFRa1fxodeLjbLgqYAy7uJsBqjoS5nXOqkiJlnjwVyPNBHlq7VWgmQFD/omPZlBpT7/FNg2Y7dYb6j8WaLGYLEIta7sxvdORHm6/+i/shmsoGQEF8sHu5pnVybpkCSPkjNySUJ0qs4oweEws+pY8TnmV5ZbiA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717124824; h=Content-Type:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=thzrzjgvTQuhz9QftxITyIPMjhmSiPzkWbqmey/WgMA=; 
+	b=TciVf2Z59xDSkHqs+X/6oUyTGr5rWDIIktmZZ/cskdSzT/AowXOGfEfz1uo0Kkj28K5Ueos65ueIR+57r7E0EI4ouXt/S/TzImjYmRT/yDFd9O9GnJr6NRbU8bouFlwKHNATMm9EyzerVtMZLMI49xbiourZQl/u/f/Tw5HCyY8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717124824;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=thzrzjgvTQuhz9QftxITyIPMjhmSiPzkWbqmey/WgMA=;
+	b=OtOnXsz72JsXVwBeCreAoq9axPAQZq5OjX/fPsizqzP7aB5OaDbkW8hMQVLbDfbx
+	hVygHKCYRFgC34wtBoYt5bPkSOt97LUy1PeegKrO7xJ3caTbaspdLJ8luEThW/eCC8C
+	xJeCvN7PhhGiBrjV6Yrq7oG8jiBEzlmE0shegXCE=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717124822425161.88387127621684; Thu, 30 May 2024 20:07:02 -0700 (PDT)
+Date: Thu, 30 May 2024 23:07:02 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcc9d754b.bcfd5c9d201233.2884505784590095@shredex.ca>
+Subject: Fwd: Your Receipt From Mountain Warehouse
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_652676_1707850902.1717124822349"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+X-Zoho-Virus-Status: 1
+
+------=_Part_652676_1707850902.1717124822349
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Mountain Warehouse <do_not_reply@mountainwarehouse.com>
+To: <john@backpocket.ca>
+Date: Sat, 06 Apr 2024 12:10:13 -0400
+Subject: Your Receipt From Mountain Warehouse
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+https://www.mountainwarehouse.com/goto/home(?utm_source=3DEreceipt&utm_medi=
+um=3DEmail&utm_campaign=3D2024&tid=3DE08370002009272404061206564)
+=C2=A0
+
+
+https://www.mountainwarehouse.com/goto/mens/?utm_source=3DEreceipt&utm_medi=
+um=3DEmail&utm_campaign=3D2024&tid=3DE08370002009272404061206564
+
+|
+
+https://www.mountainwarehouse.com/goto/womens/?utm_source=3DEreceipt&utm_me=
+dium=3DEmail&utm_campaign=3D2024&tid=3DE08370002009272404061206564
+
+|
+
+https://www.mountainwarehouse.com/goto/kids/?utm_source=3DEreceipt&utm_medi=
+um=3DEmail&utm_campaign=3D2024&tid=3DE08370002009272404061206564
+
+|
+
+https://www.mountainwarehouse.com/goto/outdoor/?utm_source=3DEreceipt&utm_m=
+edium=3DEmail&utm_campaign=3D2024&tid=3DE08370002009272404061206564
+
+|
+
+https://www.mountainwarehouse.com/goto/clearance/?utm_source=3DEreceipt&utm=
+_medium=3DEmail&utm_campaign=3D2024&tid=3DE08370002009272404061206564
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+=C2=A0
+
+
+Thank you for shopping at Mountain Warehouse.
+
+Your requested E-Receipt is below.  We hope you enjoy your purchases and lo=
+ok forward to seeing you again soon.
+
+Take a few minutes to complete our quick survey https://www.mountainwarehou=
+se.com/goto/discount?transactionid=3D08370002009272404061206564 and we will=
+ send you a voucher with 10% off your next purchase, just for giving us you=
+r honest opinion!
+
+
+
+Saturday, 06. April 2024 12:08
+
+Salesperson: Ethan
+
+TID: KCK=C2=A0 2=C2=A0 927
+
+
+
+=C2=A0
+
+
+Item
+
+Qty
+
+Price
+
+
+EXODUS KIDS WATER RESISTANT SO=20
+Style : 021398=20
+Colour : BLACK=20
+Size : 11-12=20
+
+1
+
+$22.99
+
+
+EXODUS KIDS WATER RESISTANT SO=20
+Style : 021398=20
+Colour : RED=20
+Size : 13-14=20
+
+1
+
+$22.99
+
+
+Subtotal:
+
+
+
+$45.98
+
+
+Tax
+
+
+
+$2.30
+
+
+TOTAL (INCLUDING GST / HST):
+
+
+
+$48.28
+
+
+Cards
+
+
+
+-$48.28
+
+
+
+
+Tax Summary
+
+
+=C2=A0
+
+Net
+
+Pct
+
+Tax
+
+
+Reduced HST
+
+$45.98
+
+5.00%
+
+$2.30
+
+
+
+
+
+
+Thank you for shopping at Mountain Warehouse!
+
+https://www.mountainwarehouse.com/goto/home?utm_source=3DEreceipt&utm_mediu=
+m=3DEmail&utm_campaign=3D2024&tid=3DE08370002009272404061206564
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://www.mountainwarehouse.com/goto/help/contact-us/?utm_source=3DErecei=
+pt&utm_medium=3DEmail&utm_campaign=3D2024&tid=3DE08370002009272404061206564
+https://www.mountainwarehouse.com/goto/stores/?utm_source=3DEreceipt&utm_me=
+dium=3DEmail&utm_campaign=3D2024&tid=3DE08370002009272404061206564
+https://www.mountainwarehouse.com/goto/help/delivery/?utm_source=3DEreceipt=
+&utm_medium=3DEmail&utm_campaign=3D2024&tid=3DE08370002009272404061206564
+https://www.facebook.com/MountainWarehouse
+https://twitter.com/MountainWHouse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+This email was sent to mailto:john@backpocket.ca
+
+https://www.mountainwarehouse.com/ca/help/privacy-policy/
+
+GST No. 812205938 RT0001
+Mountain Warehouse Outdoor (Canada) Limited,=20
+#302, Toronto Premium Outlets, Hamilton Hills, ON CA L7G0J1
+
+A subsidiary of Mountain Warehouse Ltd - Company Registered in the UK. Numb=
+er 3417738
+Registered Address =E2=80=93 5 Eccleston Street, London, SW1W 9LX, United K=
+ingdom=20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_652676_1707850902.1717124822349
+Content-Type: multipart/related; 
+	boundary="----=_Part_652677_1311843701.1717124822366"
+
+------=_Part_652677_1311843701.1717124822366
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Mountain Warehouse &lt;do_not_reply@mountainwar=
+ehouse.com&gt;<br>To: &lt;john@backpocket.ca&gt;<br>Date: Sat, 06 Apr 2024 =
+12:10:13 -0400<br>Subject: Your Receipt From Mountain Warehouse<br>=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D<br></div><div><br></div><blockquote id=3D"blockquote_zmail" st=
+yle=3D"margin: 0px;"><div class=3D"zm_7719996088319412866_parse_39800561417=
+84251263" style=3D"font-size: 15px; font-family: Arial, Sans-Serif; margin:=
+ 10px auto; width: 700px; color: rgb(64, 64, 65); padding: 0px;"><table cel=
+lspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"text-decoration: non=
+e; background: rgb(250, 250, 250); font-family: Arial, Helvetica, sans-seri=
+f; border-collapse: collapse; margin: 0; padding: 0; width: 100%; line-heig=
+ht: 100%" id=3D"x_257119246backgroundTable"><tbody><tr><td style=3D"line-he=
+ight: 22px; border-collapse: collapse;"><table width=3D"700" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0" align=3D"center" style=3D"text-decoratio=
+n: none; font-family: Arial, Helvetica, sans-serif; border-collapse: collap=
+se"><tbody><tr><td style=3D"line-height: 22px; border-collapse: collapse;">=
+<table width=3D"700" cellspacing=3D"0" cellpadding=3D"15" border=3D"0" alig=
+n=3D"center" style=3D"text-decoration: none; border: rgb(221, 221, 221) 1px=
+ solid; background: rgb(255, 255, 255); font-family: Arial, Helvetica, sans=
+-serif; border-collapse: collapse"><tbody><tr><td style=3D"line-height: 22p=
+x; border-collapse: collapse;"><table width=3D"700" cellspacing=3D"0" cellp=
+adding=3D"0" border=3D"0" align=3D"center" style=3D"text-decoration: none; =
+border-collapse: collapse"><tbody><tr><td width=3D"300" style=3D"line-heigh=
+t: 22px; border-collapse: collapse;"><a style=3D"color: rgb(0, 84, 166); cu=
+rsor: pointer;" name=3D"www_mountainwarehouse_com_" title=3D"Mountain Wareh=
+ouse" href=3D"https://www.mountainwarehouse.com/goto/home(?utm_source=3DEre=
+ceipt&amp;utm_medium=3DEmail&amp;utm_campaign=3D2024&amp;tid=3DE08370002009=
+272404061206564)" target=3D"_blank"><img width=3D"222" height=3D"35" border=
+=3D"0" style=3D"outline: none; text-decoration: none; border: none; display=
+: block" id=3D"1712419817805100001_imgsrc_url_0" alt=3D"Mountain Warehouse"=
+ title=3D"Mountain Warehouse" class=3D"x_257119246image_fix"></a></td><td w=
+idth=3D"380" align=3D"right" style=3D"line-height: 22px; border-collapse: c=
+ollapse;"><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"=
+text-decoration: none !important; font-family: Arial, Helvetica, sans-serif=
+; width: 380px; border-collapse: collapse"><tbody><tr><td height=3D"20" sty=
+le=3D"line-height: 22px; border-collapse: collapse;" colspan=3D"9">&nbsp;<b=
+r></td></tr><tr><td width=3D"50" align=3D"center" style=3D"line-height: 22p=
+x; border-collapse: collapse;"><a style=3D"color: rgb(125, 125, 125); curso=
+r: pointer; text-decoration: none;" href=3D"https://www.mountainwarehouse.c=
+om/goto/mens/?utm_source=3DEreceipt&amp;utm_medium=3DEmail&amp;utm_campaign=
+=3D2024&amp;tid=3DE08370002009272404061206564" name=3D"www_mountainwarehous=
+e_com_mens" title=3D"Men" target=3D"_blank"><span class=3D"size" style=3D"f=
+ont-size: 14px; text-decoration: none;"><b>Men</b></span></a><br></td><td w=
+idth=3D"10" align=3D"center" style=3D"line-height: 22px; border-collapse: c=
+ollapse;"><span class=3D"colour" style=3D"color:rgb(125, 125, 125)"><span c=
+lass=3D"size" style=3D"font-size:14px">|</span></span><br></td><td width=3D=
+"73" align=3D"center" style=3D"line-height: 22px; border-collapse: collapse=
+;"><a style=3D"color: rgb(125, 125, 125); text-decoration: none; cursor: po=
+inter;" href=3D"https://www.mountainwarehouse.com/goto/womens/?utm_source=
+=3DEreceipt&amp;utm_medium=3DEmail&amp;utm_campaign=3D2024&amp;tid=3DE08370=
+002009272404061206564" name=3D"www_mountainwarehouse_com_wome" title=3D"Wom=
+en" target=3D"_blank"><span class=3D"size" style=3D"font-size:14px"><b>Wome=
+n</b></span></a><br></td><td width=3D"5" align=3D"center" style=3D"line-hei=
+ght: 22px; border-collapse: collapse;"><span class=3D"colour" style=3D"colo=
+r:rgb(125, 125, 125)"><span class=3D"size" style=3D"font-size:14px">|</span=
+></span><br></td><td width=3D"43" align=3D"center" style=3D"line-height: 22=
+px; border-collapse: collapse;"><a style=3D"color: rgb(125, 125, 125); text=
+-decoration: none; cursor: pointer;" href=3D"https://www.mountainwarehouse.=
+com/goto/kids/?utm_source=3DEreceipt&amp;utm_medium=3DEmail&amp;utm_campaig=
+n=3D2024&amp;tid=3DE08370002009272404061206564" name=3D"www_mountainwarehou=
+se_com_kids" title=3D"Kids" target=3D"_blank"><span class=3D"size" style=3D=
+"font-size:14px"><b>Kids</b></span></a><br></td><td width=3D"5" align=3D"ce=
+nter" style=3D"line-height: 22px; border-collapse: collapse;"><span class=
+=3D"colour" style=3D"color:rgb(125, 125, 125)"><span class=3D"size" style=
+=3D"font-size:14px">|</span></span><br></td><td width=3D"68" align=3D"cente=
+r" style=3D"line-height: 22px; border-collapse: collapse;"><a style=3D"colo=
+r: rgb(125, 125, 125); text-decoration: none; cursor: pointer;" href=3D"htt=
+ps://www.mountainwarehouse.com/goto/outdoor/?utm_source=3DEreceipt&amp;utm_=
+medium=3DEmail&amp;utm_campaign=3D2024&amp;tid=3DE0837000200927240406120656=
+4" name=3D"www_mountainwarehouse_com_walking_" title=3D"Walking" target=3D"=
+_blank"><span class=3D"size" style=3D"font-size:14px"><b>Walking</b></span>=
+</a><br></td><td width=3D"10" align=3D"center" style=3D"line-height: 22px; =
+border-collapse: collapse;"><span class=3D"colour" style=3D"color:rgb(125, =
+125, 125)"><span class=3D"size" style=3D"font-size:14px">|</span></span><br=
+></td><td width=3D"76" align=3D"center" style=3D"line-height: 22px; color: =
+rgb(255, 0, 0); border-collapse: collapse;"><a target=3D"_blank" style=3D"c=
+olor: rgb(255, 0, 0); text-decoration: none; cursor: pointer;" href=3D"http=
+s://www.mountainwarehouse.com/goto/clearance/?utm_source=3DEreceipt&amp;utm=
+_medium=3DEmail&amp;utm_campaign=3D2024&amp;tid=3DE083700020092724040612065=
+64" name=3D"www_mountainwarehouse_com" title=3D"Clearance"><b><span class=
+=3D"size" style=3D"font-size:14px"><b>Clearance</b></span></b></a><br></td>=
+</tr></tbody></table></td></tr><tr><td height=3D"35" style=3D"line-height: =
+22px; border-collapse: collapse;" colspan=3D"9">&nbsp;<br></td></tr><tr><td=
+ style=3D"line-height: 22px; border-collapse: collapse;" colspan=3D"9"><div=
+ class=3D"x_257119246topImage"><a target=3D"_blank" name=3D"Dogs" style=3D"=
+color: rgb(77, 145, 62);"><img width=3D"100%" height=3D"auto" border=3D"0" =
+alt=3D"Thank You!" id=3D"1712419817805100001_imgsrc_url_1" title=3D"Thank Y=
+ou!" style=3D"position: relative; height: auto; display: block; width: 100%=
+;"></a></div></td></tr><tr><td height=3D"10" style=3D"border-collapse: coll=
+apse; line-height: 10px;" colspan=3D"9">&nbsp;<br></td></tr><tr><td colspan=
+=3D"9" style=3D"line-height: 22px; border-collapse: collapse;"><table cells=
+pacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"text-decoration: none =
+!important; font-family: Arial, Helvetica, sans-serif; border-collapse: col=
+lapse"><tbody><tr><td width=3D"500" style=3D"line-height: 22px; width: 500p=
+x; vertical-align: top;" valign=3D"top"><table width=3D"500" cellspacing=3D=
+"2" cellpadding=3D"0" border=3D"0" align=3D"center" style=3D"text-decoratio=
+n: none; border-collapse: collapse"><tbody><tr><td style=3D"line-height: 22=
+px; border-collapse: collapse;" colspan=3D"9"><p>Thank you for shopping at =
+Mountain Warehouse.<br></p><p>Your requested E-Receipt is below.  We hope y=
+ou enjoy your purchases and look forward to seeing you again soon.<br></p><=
+p>Take a few minutes to complete our quick survey <a href=3D"https://www.mo=
+untainwarehouse.com/goto/discount?transactionid=3D0837000200927240406120656=
+4" target=3D"_blank" style=3D"color: rgb(77, 145, 62);">here</a> and we wil=
+l send you a voucher with 10% off your next purchase, just for giving us yo=
+ur honest opinion!<br></p><br><br><p>Saturday, 06. April 2024 12:08<br></p>=
+<p style=3D"margin: 3px 0">Salesperson: Ethan<br></p><p style=3D"margin: 3p=
+x 0"><span>TID: KCK</span>&nbsp; <span>2</span>&nbsp; <span>927</span><br><=
+/p></td></tr><tr><td style=3D"line-height: 22px; border-collapse: collapse;=
+" colspan=3D"9"><table width=3D"500" cellspacing=3D"0" cellpadding=3D"4" bo=
+rder=3D"0" align=3D"center" style=3D"text-decoration: none"><tbody><tr><td =
+height=3D"10" style=3D"border-collapse: collapse; line-height: 10px;" colsp=
+an=3D"3">&nbsp;<br></td></tr><tr><th style=3D"border: 2px rgb(255, 255, 255=
+) solid; background: rgb(245, 245, 245)">Item<br></th><th style=3D"border: =
+2px rgb(255, 255, 255) solid; background: rgb(245, 245, 245)">Qty<br></th><=
+th style=3D"border: 2px rgb(255, 255, 255) solid; background: rgb(245, 245,=
+ 245)">Price<br></th></tr><tr align=3D"left"><td style=3D"line-height: 22px=
+; border: 2px rgb(255, 255, 255) solid; background: rgb(245, 245, 245);"><b=
+>EXODUS KIDS WATER RESISTANT SO</b> <br>Style : 021398 <br>Colour : BLACK <=
+br>Size : 11-12 <br></td><td style=3D"line-height: 22px; border: 2px rgb(25=
+5, 255, 255) solid; background: rgb(245, 245, 245);">1<br></td><td align=3D=
+"right" class=3D"x_257119246alignright" style=3D"line-height: 22px; border:=
+ 2px rgb(255, 255, 255) solid; background: rgb(245, 245, 245);">$22.99<br><=
+/td></tr><tr align=3D"left"><td style=3D"line-height: 22px; border: 2px rgb=
+(255, 255, 255) solid; background: rgb(245, 245, 245);"><b>EXODUS KIDS WATE=
+R RESISTANT SO</b> <br>Style : 021398 <br>Colour : RED <br>Size : 13-14 <br=
+></td><td style=3D"line-height: 22px; border: 2px rgb(255, 255, 255) solid;=
+ background: rgb(245, 245, 245);">1<br></td><td align=3D"right" class=3D"x_=
+257119246alignright" style=3D"line-height: 22px; border: 2px rgb(255, 255, =
+255) solid; background: rgb(245, 245, 245);">$22.99<br></td></tr><tr><td cl=
+ass=3D"x_257119246spc" align=3D"left" style=3D"line-height: 22px; border: 2=
+px rgb(255, 255, 255) solid; background: rgb(245, 245, 245);"><b>Subtotal:<=
+/b><br></td><td class=3D"x_257119246spc" style=3D"line-height: 22px; border=
+: 2px rgb(255, 255, 255) solid; background: rgb(245, 245, 245);"><br></td><=
+td align=3D"right" class=3D"x_257119246spcar" style=3D"line-height: 22px; b=
+order: 2px rgb(255, 255, 255) solid; background: rgb(245, 245, 245);"><b>$4=
+5.98</b><br></td></tr><tr><td class=3D"x_257119246spc" align=3D"left" style=
+=3D"line-height: 22px; border: 2px rgb(255, 255, 255) solid; background: rg=
+b(245, 245, 245);"><b>Tax</b><br></td><td class=3D"x_257119246spc" style=3D=
+"line-height: 22px; border: 2px rgb(255, 255, 255) solid; background: rgb(2=
+45, 245, 245);"><br></td><td align=3D"right" class=3D"x_257119246spcar" sty=
+le=3D"line-height: 22px; border: 2px rgb(255, 255, 255) solid; background: =
+rgb(245, 245, 245);"><b>$2.30</b><br></td></tr><tr><td class=3D"x_257119246=
+spc" align=3D"left" style=3D"line-height: 22px; border: 2px rgb(255, 255, 2=
+55) solid; background: rgb(245, 245, 245);"><b>TOTAL (INCLUDING GST / HST):=
+</b><br></td><td class=3D"x_257119246spc" style=3D"line-height: 22px; borde=
+r: 2px rgb(255, 255, 255) solid; background: rgb(245, 245, 245);"><br></td>=
+<td align=3D"right" class=3D"x_257119246spcar" style=3D"line-height: 22px; =
+border: 2px rgb(255, 255, 255) solid; background: rgb(245, 245, 245);"><b>$=
+48.28</b><br></td></tr><tr><td align=3D"left" style=3D"line-height: 22px; b=
+order: 2px rgb(255, 255, 255) solid; background: rgb(245, 245, 245);">Cards=
+<br></td><td style=3D"line-height: 22px; border: 2px rgb(255, 255, 255) sol=
+id; background: rgb(245, 245, 245);"><br></td><td align=3D"right" style=3D"=
+line-height: 22px; border: 2px rgb(255, 255, 255) solid; background: rgb(24=
+5, 245, 245);">-$48.28<br></td></tr></tbody></table><table width=3D"500" ce=
+llspacing=3D"0" cellpadding=3D"4" border=3D"0" align=3D"center" style=3D"te=
+xt-decoration: none"><tbody><tr><th colspan=3D"4">Tax Summary<br></th></tr>=
+<tr><td style=3D"line-height: 22px; border: 2px rgb(255, 255, 255) solid; b=
+ackground: rgb(245, 245, 245);">&nbsp;<br></td><td style=3D"line-height: 22=
+px; border: 2px rgb(255, 255, 255) solid; background: rgb(245, 245, 245);">=
+Net<br></td><td style=3D"line-height: 22px; border: 2px rgb(255, 255, 255) =
+solid; background: rgb(245, 245, 245);">Pct<br></td><td style=3D"line-heigh=
+t: 22px; border: 2px rgb(255, 255, 255) solid; background: rgb(245, 245, 24=
+5);">Tax<br></td></tr><tr><td align=3D"left" style=3D"line-height: 22px; bo=
+rder: 2px rgb(255, 255, 255) solid; background: rgb(245, 245, 245);">Reduce=
+d HST<br></td><td align=3D"right" style=3D"line-height: 22px; border: 2px r=
+gb(255, 255, 255) solid; background: rgb(245, 245, 245);">$45.98<br></td><t=
+d align=3D"right" style=3D"line-height: 22px; border: 2px rgb(255, 255, 255=
+) solid; background: rgb(245, 245, 245);">5.00%<br></td><td align=3D"right"=
+ style=3D"line-height: 22px; border: 2px rgb(255, 255, 255) solid; backgrou=
+nd: rgb(245, 245, 245);">$2.30<br></td></tr></tbody></table><p align=3D"cen=
+ter"><img alt=3D"08370002009272404061206564" src=3D"cid:0837000200927240406=
+1206564"><br></p><p align=3D"center">Thank you for shopping at Mountain War=
+ehouse!<br></p><p align=3D"center"><a href=3D"https://www.mountainwarehouse=
+.com/goto/home?utm_source=3DEreceipt&amp;utm_medium=3DEmail&amp;utm_campaig=
+n=3D2024&amp;tid=3DE08370002009272404061206564" target=3D"_blank" style=3D"=
+color: rgb(77, 145, 62);">www.mountainwarehouse.com</a><br></p></td></tr></=
+tbody></table></td><td width=3D"200" style=3D"line-height: 22px; width: 200=
+px; vertical-align: top;" valign=3D"top"><table cellspacing=3D"0" cellpaddi=
+ng=3D"0" border=3D"0" width=3D"200" style=3D"width: 200px; text-decoration:=
+ none !important; font-family: Arial, Helvetica, sans-serif; border-collaps=
+e: collapse; text-align: right; vertical-align: top"><tbody><tr><td style=
+=3D"line-height: 22px; border-collapse: collapse;" colspan=3D"9"><a target=
+=3D"_blank" style=3D"color: rgb(77, 145, 62);"><img width=3D"180" height=3D=
+"200" border=3D"0" alt=3D"kids-lifestyle-image" id=3D"1712419817805100001_i=
+mgsrc_url_2" title=3D"kids-lifestyle-image"> </a><br></td></tr><tr><td heig=
+ht=3D"10" style=3D"border-collapse: collapse; line-height: 10px;" colspan=
+=3D"9">&nbsp;<br></td></tr><tr><td style=3D"line-height: 22px; border-colla=
+pse: collapse;" colspan=3D"9"><a target=3D"_blank" style=3D"color: rgb(77, =
+145, 62);"><img width=3D"180" height=3D"200" border=3D"0" alt=3D"womens-lif=
+estyle-image" id=3D"1712419817805100001_imgsrc_url_3" title=3D"womens-lifes=
+tyle-image"></a><br></td></tr><tr><td height=3D"10" style=3D"border-collaps=
+e: collapse; line-height: 10px;" colspan=3D"9">&nbsp;<br></td></tr><tr><td =
+style=3D"line-height: 22px; border-collapse: collapse;" colspan=3D"9"><a ta=
+rget=3D"_blank" style=3D"color: rgb(77, 145, 62);"><img width=3D"180" heigh=
+t=3D"200" border=3D"0" alt=3D"mens-lifestyle-image" name=3D"mens-lifestyle-=
+image" id=3D"1712419817805100001_imgsrc_url_4" title=3D"mens-lifestyle-imag=
+e"></a><br></td></tr></tbody></table></td></tr></tbody></table></td></tr></=
+tbody></table></td></tr></tbody></table></td></tr><tr><td style=3D"line-hei=
+ght: 22px; border-collapse: collapse;"><table style=3D"border-collapse: col=
+lapse; font-family: Arial, Helvetica, sans-serif; text-decoration: none"><t=
+body><tr><td style=3D"line-height: 22px; border-collapse: collapse;" colspa=
+n=3D"3"><table cellspacing=3D"0" cellpadding=3D"0" align=3D"center" style=
+=3D"border-collapse: collapse; text-decoration: none"><tbody><tr><td style=
+=3D"line-height: 22px; border-collapse: collapse;"><a name=3D"Contact" href=
+=3D"https://www.mountainwarehouse.com/goto/help/contact-us/?utm_source=3DEr=
+eceipt&amp;utm_medium=3DEmail&amp;utm_campaign=3D2024&amp;tid=3DE0837000200=
+9272404061206564" style=3D"color: rgb(0, 84, 166);" target=3D"_blank"><img =
+width=3D"150" height=3D"176" id=3D"1712419817805100001_imgsrc_url_5" style=
+=3D"border-bottom: medium none; border-left: medium none; outline-style: no=
+ne; outline-color: invert; outline-width: medium; display: block; border-to=
+p: medium none; border-right: medium none; text-decoration: none" alt=3D"Co=
+ntact Us" title=3D"Contact Us" class=3D"x_257119246image_fix"></a></td><td =
+style=3D"line-height: 22px; border-collapse: collapse;"><a name=3D"StoreFoo=
+ter" href=3D"https://www.mountainwarehouse.com/goto/stores/?utm_source=3DEr=
+eceipt&amp;utm_medium=3DEmail&amp;utm_campaign=3D2024&amp;tid=3DE0837000200=
+9272404061206564" style=3D"color: rgb(0, 84, 166);" target=3D"_blank"><img =
+width=3D"148" height=3D"176" id=3D"1712419817805100001_imgsrc_url_6" style=
+=3D"border-bottom: medium none; border-left: medium none; outline-style: no=
+ne; outline-color: invert; outline-width: medium; display: block; border-to=
+p: medium none; border-right: medium none; text-decoration: none" alt=3D"Fi=
+nd a store" title=3D"Find a store" class=3D"x_257119246image_fix"></a></td>=
+<td style=3D"line-height: 22px; border-collapse: collapse;"><a name=3D"Deli=
+very" href=3D"https://www.mountainwarehouse.com/goto/help/delivery/?utm_sou=
+rce=3DEreceipt&amp;utm_medium=3DEmail&amp;utm_campaign=3D2024&amp;tid=3DE08=
+370002009272404061206564" style=3D"color: rgb(0, 84, 166);" target=3D"_blan=
+k"><img width=3D"148" height=3D"176" id=3D"1712419817805100001_imgsrc_url_7=
+" style=3D"border-bottom: medium none; border-left: medium none; outline-st=
+yle: none; outline-color: invert; outline-width: medium; display: block; bo=
+rder-top: medium none; border-right: medium none; text-decoration: none" ti=
+tle=3D"Click &amp; collect" class=3D"x_257119246image_fix"></a></td><td sty=
+le=3D"line-height: 22px; border-collapse: collapse;"><a name=3D"Facebook" h=
+ref=3D"https://www.facebook.com/MountainWarehouse" style=3D"color: rgb(0, 8=
+4, 166);" target=3D"_blank"><img width=3D"148" height=3D"176" id=3D"1712419=
+817805100001_imgsrc_url_8" style=3D"border-bottom: medium none; border-left=
+: medium none; outline-style: none; outline-color: invert; outline-width: m=
+edium; display: block; border-top: medium none; border-right: medium none; =
+text-decoration: none" alt=3D"Find us on Facebook" title=3D"Find us on Face=
+book" class=3D"x_257119246image_fix"></a></td><td style=3D"line-height: 22p=
+x; border-collapse: collapse;"><a name=3D"Twitter" href=3D"https://twitter.=
+com/MountainWHouse" style=3D"color: rgb(0, 84, 166);" target=3D"_blank"><im=
+g width=3D"148" height=3D"176" id=3D"1712419817805100001_imgsrc_url_9" styl=
+e=3D"border-bottom: medium none; border-left: medium none; outline-style: n=
+one; outline-color: invert; outline-width: medium; display: block; border-t=
+op: medium none; border-right: medium none; text-decoration: none" alt=3D"F=
+ollow us on Twitter" title=3D"Follow us on Twitter" class=3D"x_257119246ima=
+ge_fix"></a></td></tr></tbody></table></td></tr></tbody></table></td></tr><=
+tr style=3D"vertical-align: top; text-align: left; margin: 0; padding: 0" a=
+lign=3D"left"><td style=3D"line-height: 22px; vertical-align: top; text-ali=
+gn: left; margin: 0; padding: 0; border-collapse: collapse;" align=3D"left"=
+ valign=3D"top"><table class=3D"x_257119246grid_12" cellpadding=3D"0" cells=
+pacing=3D"0" border=3D"0" style=3D"border-spacing: 0; border-collapse: coll=
+apse; vertical-align: top; text-align: left; width: 600px; margin: 0; paddi=
+ng: 0"><tbody><tr style=3D"vertical-align: top; text-align: left; margin: 0=
+; padding: 0" align=3D"left"><td class=3D"x_257119246wrap" style=3D"line-he=
+ight: 22px; vertical-align: top; text-align: left; margin: 0; padding: 0; b=
+order-collapse: collapse;" align=3D"left" valign=3D"top"><table cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-spacing: 0; border-co=
+llapse: collapse; vertical-align: top; text-align: left; margin: 0; padding=
+: 0"><tbody><tr style=3D"vertical-align: top; text-align: left; margin: 0; =
+padding: 0" align=3D"left"><td width=3D"1" height=3D"10" style=3D"line-heig=
+ht: 22px; display: block; vertical-align: top; text-align: left; margin: 0;=
+ padding: 0; border-collapse: collapse;" align=3D"left" valign=3D"top"><br>=
+</td></tr><tr style=3D"vertical-align: top; text-align: left; margin: 0; pa=
+dding: 0" align=3D"left"><td style=3D"line-height: 22px; vertical-align: to=
+p; text-align: left; margin: 0; padding: 0; border-collapse: collapse;" ali=
+gn=3D"left" valign=3D"top"><table style=3D"border-spacing: 0; border-collap=
+se: collapse; vertical-align: top; text-align: left; margin: 0; padding: 0"=
+><tbody><tr style=3D"vertical-align: top; text-align: left; margin: 0; padd=
+ing: 0" align=3D"left"><td class=3D"x_257119246spacer" width=3D"40" height=
+=3D"1" style=3D"line-height: 22px; vertical-align: top; text-align: left; m=
+argin: 0; padding: 0; border-collapse: collapse;" align=3D"left" valign=3D"=
+top"><br></td><td class=3D"x_257119246content" style=3D"line-height: 22px; =
+vertical-align: top; text-align: left; margin: 0; padding: 0 10px; border-c=
+ollapse: collapse;" align=3D"left" valign=3D"top"><p class=3D"x_257119246ce=
+nter x_257119246smalltext" style=3D"font-weight: 300; text-align: center; l=
+ine-height: 13px; margin: 15px 0px; padding: 0px;" align=3D"center"><span c=
+lass=3D"colour" style=3D"color:rgb(194, 194, 194)"><span class=3D"size" sty=
+le=3D"font-size: 12px; font-weight: 300; text-align: center; line-height: 1=
+3px; margin: 15px 0px; padding: 0px;"><span>This email was sent to <a href=
+=3D"mailto:john@backpocket.ca" target=3D"_blank" style=3D"color: rgb(77, 14=
+5, 62);">john@backpocket.ca</a></span></span></span><br></p><p class=3D"x_2=
+57119246center x_257119246smalltext" style=3D"font-weight: 300; text-align:=
+ center; line-height: 13px; margin: 15px 0px; padding: 0px;" align=3D"cente=
+r"><span class=3D"colour" style=3D"color:rgb(194, 194, 194)"><span class=3D=
+"size" style=3D"font-size: 12px; font-weight: 300; text-align: center; line=
+-height: 13px; margin: 15px 0px; padding: 0px;"><a href=3D"https://www.moun=
+tainwarehouse.com/ca/help/privacy-policy/" style=3D"text-decoration: underl=
+ine; font-weight: normal; color: rgb(194, 194, 194); text-align: center; fo=
+nt-size: 12px; line-height: 13px;" target=3D"_blank"><span>Privacy policy</=
+span></a></span></span><br></p><p class=3D"x_257119246center x_257119246sma=
+lltext" style=3D"font-weight: normal; line-height: 13px; text-align: center=
+; margin: 15px 0px; padding: 0px;" align=3D"center"><span class=3D"colour" =
+style=3D"color:rgb(194, 194, 194)"><span class=3D"size" style=3D"font-size:=
+ 12px; font-weight: normal; line-height: 13px; text-align: center; margin: =
+15px 0px; padding: 0px;"><span>GST No. 812205938 RT0001<br style=3D"">Mount=
+ain Warehouse Outdoor (Canada) Limited, <br style=3D"">#302, Toronto Premiu=
+m Outlets, Hamilton Hills, ON CA L7G0J1<br style=3D""><br style=3D"">A subs=
+idiary of Mountain Warehouse Ltd - Company Registered in the UK. Number 341=
+7738<br style=3D"">Registered Address =E2=80=93 5 Eccleston Street, London,=
+ SW1W 9LX, United Kingdom <br style=3D""></span></span></span></p></td><td =
+class=3D"x_257119246spacer" width=3D"40" height=3D"1" style=3D"line-height:=
+ 22px; vertical-align: top; text-align: left; margin: 0; padding: 0; border=
+-collapse: collapse;" align=3D"left" valign=3D"top"><br></td></tr></tbody><=
+/table></td></tr><tr style=3D"vertical-align: top; text-align: left; margin=
+: 0; padding: 0" align=3D"left"><td width=3D"1" height=3D"20" style=3D"line=
+-height: 22px; display: block; vertical-align: top; text-align: left; margi=
+n: 0; padding: 0; border-collapse: collapse;" align=3D"left" valign=3D"top"=
+><br></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody>=
+</table></td></tr></tbody></table></div></blockquote></div><div><br></div><=
+div class=3D"zmail_signature_below"><div id=3D"" data-zbluepencil-ignore=3D=
+"true" data-sigid=3D"6189300000000739006"><div>Regards,<br></div><div><br><=
+/div><div>John E. Estrada<br></div><div><br></div><div>--------------------=
+-------------------<br></div><div><br></div><p style=3D"font-style: normal;=
+ font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; te=
+xt-transform: none; white-space: normal; widows: 2; word-spacing: 0px"><spa=
+n class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><span c=
+lass=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"=
+font-family:Verdana, Arial, Helvetica, sans-serif"><span class=3D"size" sty=
+le=3D"font-size:13.3333px"><span class=3D"highlight" style=3D"background-co=
+lor:rgb(255, 255, 255)"><b><span class=3D"colour" style=3D"color:rgb(0, 102=
+, 0)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sa=
+ns-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">STAR=
+T SHREDDING INC. (shredEX)</span></span></span></b><span class=3D"colour" s=
+tyle=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Ca=
+libri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=
+=3D"font-size:14.66px"><br>208 Evans Ave, Toronto, ON M8Z 1J7<br></span></s=
+pan></span><b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span =
+class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sa=
+ns-serif"><span class=3D"size" style=3D"font-size:14.66px">E:<span>&nbsp;<a=
+ href=3D"mailto:john@shredex.ca" target=3D"_blank" style=3D"color: rgb(0, 0=
+, 238)">john@shredex.ca</a>&nbsp;</span>W: <a target=3D"_blank" href=3D"htt=
+p://www.startshredding.com" style=3D"color: rgb(0, 0, 238)">www.startshredd=
+ing.com</a><br></span></span></span></b><span class=3D"colour" style=3D"col=
+or:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verd=
+ana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size=
+:14.66px">DIRECT:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, =
+204); cursor: default" target=3D"_blank"><span class=3D"colour" style=3D"co=
+lor:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Ver=
+dana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-siz=
+e:14.66px">416.255.1500</span></span></span></a><span class=3D"colour" styl=
+e=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calib=
+ri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"f=
+ont-size:14.66px"><br>TOLL FREE:&nbsp;</span></span></span><a style=3D"colo=
+r: rgb(17, 85, 204); cursor: default" target=3D"_blank"><span class=3D"colo=
+ur" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-fami=
+ly:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" st=
+yle=3D"font-size:14.66px">1.866.868.9585</span></span></span></a></span></s=
+pan></span></span></span></p><p style=3D"font-style: normal; font-weight: 4=
+00; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: n=
+one; white-space: normal; widows: 2; word-spacing: 0px"><span class=3D"high=
+light" style=3D"background-color:rgb(255, 255, 255)"><span class=3D"colour"=
+ style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:Ver=
+dana, Arial, Helvetica, sans-serif"><span class=3D"size" style=3D"font-size=
+:13.3333px"><span class=3D"highlight" style=3D"background-color:rgb(255, 25=
+5, 255)"><span class=3D"colour" style=3D"color:rgb(34, 34, 34)"><span class=
+=3D"font" style=3D"font-family:arial, sans-serif"><span class=3D"size" styl=
+e=3D"font-size:small"><span class=3D"colour" style=3D"color:gray"><span cla=
+ss=3D"font" style=3D"font-family:Arial, sans-serif"><span class=3D"size" st=
+yle=3D"font-size:7.5pt">This message and any attachments are the property o=
+f the&nbsp;SHREDEX INC.&nbsp;or its affiliates. It may be legally privilege=
+d and/or confidential and is intended only for the use of the addressee(s).=
+ No addressee should store, forward, print, copy, or otherwise reproduce th=
+is message in any manner that would allow it to be viewed by any individual=
+ not originally listed as a recipient. If the reader of this message is not=
+ the intended recipient, you are hereby notified that any unauthorized stor=
+age, disclosure, dissemination, distribution, copying or the taking of any =
+action in reliance on the information herein is strictly prohibited. If you=
+ have received this communication in error, please immediately notify the s=
+ender and delete this message.</span></span></span></span></span></span></s=
+pan></span></span></span></span><br></p><div id=3D""><div><br></div></div><=
+div><br></div></div></div><div><br></div></div><br></body></html>
+------=_Part_652677_1311843701.1717124822366
+Content-Type: image/png; name=1.png
+Content-Transfer-Encoding: base64
+Content-Disposition: inline; filename=1.png
+Content-ID: <08370002009272404061206564>
+
+iVBORw0KGgoAAAANSUhEUgAAAVUAAABFCAYAAAD6rXUBAAAABHNCSVQICAgIfAhkiAAAAshJREFU
+eJzt2tuOmzAUBVCo+v+/7D5RESv4xiappmtJlTJj7HOgsAukeymlbAP2fd+2bdtKKdu+79sx7fz5
+vO15/HDMPT5fjddjrZ/Pa/bWrT+3arb6fWrbVv/1/j7Zw1XNO/1e1U33NHNe9Wp+Yt3WWr1jsHrM
+nuq3Xqd3DFczYPQaP+dSb19bfbzbtuXX0FYADBGqAEFCFSBIqAIECVWAIKEKECRUAYKEKkCQUAUI
+EqoAQUIVIEioAgQJVYAgoQoQJFQBgoQqQJBQBQgSqgBBQhUgSKgCBAlVgCChChAkVAGChCpAkFAF
+CBKqAEFCFSBIqAIECVWAIKEKECRUAYKEKkCQUAUIEqoAQUIVIEioAgQJVYAgoQoQJFQBgoQqQJBQ
+BQgSqgBBQhUgSKgCBAlVgCChChAkVAGChCpA0F5KKd9uAuCncKcKECRUAYJ+f7uBn2Tf97+f67cq
+K2Pn3/fG0/US6yX6mO3zGJ/p4868d+NPHKuRWjPz6nFvAXO8Uw05TtxSysvnY6wOhZGxdzXqi+mq
+3uxYr8fVWk/sd2te3UOvxzvzemE00uvIcWzVmu3h3Xhdi3s8/gcdJ+bMCTq67buLo1VvdqzXx2qt
+3no99X6vBkirx5V5K3d3q8d49U7ybuCyxuP/B5zvPo6fz0YeTWl7Knh6cw9P/7098YrFufYMofoB
+vcfA3sn+6QsgVa/+x2S23uid1jcCddvuhdTs9le1eufKu3kC9VlClRfpC673BVQqEOu1R9ddnXfH
+vxBq39jv/4V3qkHHiTpyd1bPSddbGet9WbRSq7V2KlBLKS9/jt/1elydd8fqMU4a2W/W+fY/6In/
+SjNyESbqvbuQr+4EZ97bjcy5mnv1SqA172ruyPvP2Xkj+30ef/oYz8yrtxEDOUIVIMjjP0CQUAUI
+EqoAQUIVIEioAgQJVYAgoQoQJFQBgv4Ahf5HZVQAoBMAAAAASUVORK5CYII=
+------=_Part_652677_1311843701.1717124822366--
+
+------=_Part_652676_1707850902.1717124822349--
+

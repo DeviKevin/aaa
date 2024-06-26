@@ -1,0 +1,1580 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp185715rbd;
+        Thu, 30 May 2024 20:10:47 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFp09Ngk2AI1J7o6/MuWNSI5C2UUMjq5gtdgUaoaLxF+85MKQrFwZEuyHLubv+obfOSD1j0
+X-Received: by 2002:a17:902:d510:b0:1f0:8bbd:34db with SMTP id d9443c01a7336-1f63702c8c7mr7973405ad.34.1717125046657;
+        Thu, 30 May 2024 20:10:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125046; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=p1ueFkOytR50lN2AyPNF3Iak153UNT1J37G7oaM5r4KLAL+ClX5aMaN2pO8i1x3sK9
+         imHRI1tMDm/XFkwSQiUthOsl8T5crqo2/mfJwg228TimRT+JYp12577nNWizx6NUUayE
+         xMel4JFO1v1ElV5AGsuHsulbJpDzeiouXovJwSqUWEIiuu2unw/7oos1VcjukMrArx5k
+         +aA9guXU0cspE4I9Hq9CTdhxQD9Ru65UP01/GtaJME2EBxlKphQu81JewiMa9bs6/I+d
+         Lts7kgQ2pOuWtMkDNGyVaJIhMHKuMxWJBDNYVi9lwLgM+MYALLiK4aiDdjBbaI/fXPGE
+         vcHg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=RuCCS8Ti3Pd3LNvcLcPf/ADXUtLpls4PGA10R7ZoKOo=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=yGG2F/Fnc6yvH+PVACNGviiGk6dpxnHmlvmDxzne8ENjaJ8wPDLufHn/UrzVUlnUAz
+         fo8FMzeXbKq4HXjbC8OGvLGhQurDZI4vEx3WQB5UuNDB95BdHvXMrgasMdtSM4bHeqwn
+         yWlUCfEPyE5yFSy1zUdrZKhjs5rbqvxvx+AhdU/KdPllPCTkHzBQ9pf2JyxfmqFA0yu2
+         b5sSy2DUCdEDdbhnncDXiW3Pj4TcmuzBro1zMahFm0ujEtJBqaljbbBRPDrERKntFVC2
+         9iKdJkwO8yd/G7PvWac9Q+q0y7OaQe3eNXYch8p38wU07K9E6FJcgkhsa6WKrUHHgGyF
+         BysA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=DlCM13yi;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o19.zoho.com (sender3-op-o19.zoho.com. [136.143.184.19])
+        by mx.google.com with ESMTPS id d9443c01a7336-1f632419b30si7652975ad.611.2024.05.30.20.10.46
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:10:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) client-ip=136.143.184.19;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=DlCM13yi;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125045; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Iv/zF6cB2Wja0iSdPWRK3FrSjDI//ZA792eOEEKHllUnCGp5GPSCBlXCTS4zd6t66HcMvKSjkcmavKi+qIZ2lmJjvgyZmA8lhPHyi2WjX41oDcUwX+XaPiEuIsNozVO/JKA/ZKJD5jxQBwMrC1H64/EXdb9xsQKtKmpklLdBWs0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125045; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=RuCCS8Ti3Pd3LNvcLcPf/ADXUtLpls4PGA10R7ZoKOo=; 
+	b=Zkpevz22dyu3QtvnQrYW2vadVKQHzagfJH86u5/R0DpfmBfOhwJJ+elYSLRQ0zoJLhQmXsPHZapMwn+70trX4TupXfTcI0we4YdojYl6ox2eNBSGfBQQkr05hHBNBonJ8PxTkl5k+Mr4GThMCKAFHOhPHrySNuuYE+ketLVl/0g=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125045;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=RuCCS8Ti3Pd3LNvcLcPf/ADXUtLpls4PGA10R7ZoKOo=;
+	b=DlCM13yi2rTQAp2DqbpcCWYt/2yZkMu7fRdCtwoS5jz1vFO9zbbhwUvV9YkHfn/t
+	sopihehYeGi3V4wTUUDUsXtO0Svt2hhS4WuKNdQkVvIgxT9fBOQcO3vwg9yE+GDEKpX
+	8vcTybJErI+ieHZTsPslTAu0uVsQK35IvPfjzKBE=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717125043921111.33161480791625; Thu, 30 May 2024 20:10:43 -0700 (PDT)
+Date: Thu, 30 May 2024 23:10:43 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcca0d67c.ff8e9bfd201715.5531626135602245163@shredex.ca>
+In-Reply-To: <-525072746.75991.1700847490837@pdl20wb2ap051.ca.bestbuy.com>
+References: <-525072746.75991.1700847490837@pdl20wb2ap051.ca.bestbuy.com>
+Subject: Fwd: Your Best Buy eReceipt
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_654185_1880681372.1717125043838"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_654185_1880681372.1717125043838
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Best Buy Canada <non-respondable-email@bestbuy.ca>
+To: <john@backpocket.ca>
+Date: Fri, 24 Nov 2023 12:38:10 -0500
+Subject: Your Best Buy eReceipt
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+
+
+
+
+
+
+Your Best Buy e-receipt is here
+
+
+
+
+
+
+
+
+
+
+
+http://www.bestbuy.ca/en-CA/home.aspx?CMP=3DEMC-eReceipt-ALL-20130626-BBYhe=
+aderlogo-en
+
+
+https://www-ssl.bestbuy.ca/en-CA/stores/store-locator.aspx?CMP=3DEMC-eRecei=
+pt-ALL-20130626-BBYheaderfindstore-en
+
+
+
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+Thank you for shopping at Best Buy. Upon your request, we are pleased to pr=
+ovide you with an electronic copy of your receipt. Please save it to facili=
+tate returns, exchanges and service of your protection plan(s) in the futur=
+e.
+
+
+=C2=A0
+
+
+Yours truly,
+
+
+=C2=A0
+
+
+Best Buy
+
+
+http://www.bestbuy.ca/en-CA/home.aspx?CMP=3DEMC-eReceipt-ALL-20130626-BBYco=
+ntenthome-en
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0
+
+=C2=A0
+
+=C2=A0
+
+
+
+
+
+
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0BEST=C2=A0BUY=C2=A0#938=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0Your=C2=A0extraordinary=C2=A0awai=
+ts.=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0First=C2=A0Pro=C2=A0Queensway,=C2=A0Etobicoke=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0Kee=
+p=C2=A0your=C2=A0receipt=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+Val=C2=A0#:=C2=A01496-6733-6884-3574=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+=C2=A0
+
+
+0938=C2=A0041=C2=A01278=C2=A011/24/23=C2=A0=C2=A0=C2=A0=C2=A0=C2=A012:37=C2=
+=A0=C2=A0=C2=A0=C2=A0KEVP
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0SALES=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+=C2=A0
+
+
+16057683=C2=A0=C2=A0DZ300C=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0169.99
+
+
+=C2=A0=C2=A0NINJA=C2=A0DZ300C=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0----------=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0SUBTOTAL=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0169.99
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0HST=C2=A0ON=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A022.10
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0TOTAL=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0192.09
+
+
+=C2=A0
+
+
+Transaction=C2=A0Record=C2=A0SALE=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+xxxxxxxxxxxx3631=C2=A0P=C2=A0VISA=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0192.09
+
+
+Approved=C2=A0010840=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0
+
+
+SEQ=C2=A0NO:=C2=A0001001001018=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+ACI/ISO=C2=A0001/00=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+11/24/2023=C2=A012:37:06=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+AID:=C2=A0A0000000031010=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+APN:=C2=A0VISA=C2=A0CREDIT=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0
+
+
+TVR=C2=A00000000000=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+NO=C2=A0SIGNATURE=C2=A0REQUIRED=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+GST=C2=A0Reg.#=C2=A0R135664738=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+=C2=A0
+
+
+Need=C2=A0help?=C2=A0Visit:=C2=A0http://BestBuy.ca/Contact-us;
+
+
+=C2=A0
+
+
+Join=C2=A0our=C2=A0amazing=C2=A0team.=C2=A0We're=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+looking=C2=A0for=C2=A0people=C2=A0just=C2=A0like=C2=A0you.=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+Apply=C2=A0at=C2=A0http://BestBuy.ca/careers;
+
+
+=C2=A0
+
+
+Where=C2=A0applicable,=C2=A0EHF=C2=A0and=C2=A0end-of-life=C2=A0=C2=A0=C2=A0
+
+
+recycling=C2=A0program=C2=A0information=C2=A0is=C2=A0available=C2=A0at
+
+
+http://bestbuy.ca/ehf;
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0Shop BestBuy.ca and pick up for
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0FREE at a store near you.
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0We'll gladly give you a=C2=A0refund,
+
+
+=C2=A0exchange, or price adjustment=C2=A0on your
+
+
+=C2=A0=C2=A0purchases until Jan.11, 2024. This
+
+
+extended holiday return policy does not
+
+
+=C2=A0=C2=A0apply to cellular/wireless devices,
+
+
+=C2=A0devices and services financed through
+
+
+=C2=A0=C2=A0=C2=A0Best Buy Monthly Subscription,=C2=A0or
+
+
+=C2=A0non-returnable items. A store credit
+
+
+=C2=A0=C2=A0will be issued for any gift receipt
+
+
+=C2=A0=C2=A0returns. Best Buy Marketplace items
+
+
+cannot be returned to Best Buy stores.
+
+
+=C2=A0=C2=A0Your original receipt is required.
+
+
+=C2=A0Some conditions apply. Please ask=C2=A0an
+
+
+=C2=A0in-store Advisor=C2=A0or visit BestBuy.ca
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0for full =
+details.
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0To ensure quality service, returns,
+
+
+=C2=A0exchanges,=C2=A0and price adjustments will
+
+
+=C2=A0=C2=A0not be processed on Dec. 26, 2023.
+
+
+=C2=A0Stores in Sault Ste. Marie (Ontario),
+
+
+=C2=A0and all stores in Quebec and Atlantic
+
+
+=C2=A0provinces will not be able to process
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0returns, exchanges,=C2=A0and price
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0adjustments on Dec. 27, 2023.
+
+
+=C2=A0
+
+
+Our Low Price Guarantee excludes prices
+
+
+=C2=A0=C2=A0on Black Friday, Cyber Monday, and
+
+
+=C2=A0=C2=A0=C2=A0Boxing Day & Week. Please ask=C2=A0an
+
+
+=C2=A0in- store=C2=A0Advisor or visit=C2=A0BestBuy.ca
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0for full =
+details.
+
+
+=C2=A0
+
+
+=C2=A0YOUR CUSTOMER SERVICE 4-PART-KEY IS:
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A00938 041 1278 112423
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0WIN A $1000 BEST BUY GIFT CARD!
+
+
+=C2=A0TAKE OUR SHORT 5 MINUTE SURVEY IN THE
+
+
+=C2=A0=C2=A0NEXT 30 DAYS AND BE ENTERED TO WIN.
+
+
+=C2=A0To enter and for full contest rules,
+
+
+=C2=A0=C2=A0go to http://www.bestbuycanadacares.ca and
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0use the following codes:
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0Group A: =C2=A0=C2=A0=
+294411
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0Group B: =C2=A0=C2=A0=
+3278
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0Group C: =C2=A0=C2=A0=
+181230VPKE00
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+Total Store Stock Items: 1
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0<<<<< CUSTOMER COPY >>>>>
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://www.bestbuycanadacares.ca
+
+
+http://www.bestbuycanadacares.ca
+
+
+http://www.bestbuycanadacares.ca
+
+
+
+
+
+http://www.bestbuycanadacares.ca
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://www.bestbuy.ca/en-CA/help.aspx?CMP=3DEMC-eReceipt-ALL-20131112-BBYsi=
+debarhelp-en
+
+
+http://www.bestbuy.ca/en-CA/help.aspx?CMP=3DEMC-eReceipt-ALL-20131112-BBYsi=
+debarhelp-en
+
+
+http://www.bestbuy.ca/en-CA/help.aspx?CMP=3DEMC-eReceipt-ALL-20131112-BBYsi=
+debarhelp-en
+
+
+
+
+
+http://www.bestbuy.ca/en-CA/help.aspx?CMP=3DEMC-eReceipt-ALL-20131112-BBYsi=
+debarhelp-en
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://www.bestbuy.ca/en-CA/help/returns-and-exchanges-policy/hc1075.aspx?C=
+MP=3DEMC-eReceipt-ALL-20131112-BBYsidebarreturn-en
+
+
+http://www.bestbuy.ca/en-CA/help/returns-and-exchanges-policy/hc1075.aspx?C=
+MP=3DEMC-eReceipt-ALL-20131112-BBYsidebarreturn-en
+
+
+
+
+http://www.bestbuy.ca/en-CA/help/returns-and-exchanges-policy/hc1075.aspx?C=
+MP=3DEMC-eReceipt-ALL-20131112-BBYsidebarreturn-en
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://www.bestbuy.ca/en-CA/reserveandpickup.aspx?CMP=3DEMC-eReceipt-ALL-20=
+131112-BBYsidebarreserve-en
+
+
+http://www.bestbuy.ca/en-CA/reserveandpickup.aspx?CMP=3DEMC-eReceipt-ALL-20=
+131112-BBYsidebarreserve-en
+
+http://www.bestbuy.ca/en-CA/reserveandpickup.aspx?CMP=3DEMC-eReceipt-ALL-20=
+131112-BBYsidebarreserve-en
+
+
+
+
+http://www.bestbuy.ca/en-CA/reserveandpickup.aspx?CMP=3DEMC-eReceipt-ALL-20=
+131112-BBYsidebarreserve-en
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://www.bestbuy.ca/en-CA/help/lowest-price-guarantee/hc1001.aspx?CMP=3DE=
+MC-eReceipt-ALL-20131112-BBYsidebarprice-en
+
+
+http://www.bestbuy.ca/en-CA/help/lowest-price-guarantee/hc1001.aspx?CMP=3DE=
+MC-eReceipt-ALL-20131112-BBYsidebarprice-en
+
+
+
+
+
+http://www.bestbuy.ca/en-CA/help/lowest-price-guarantee/hc1001.aspx?CMP=3DE=
+MC-eReceipt-ALL-20131112-BBYsidebarprice-en
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=C2=A0=C2=A0
+
+https://www.bestbuy.ca/en-ca/careers/
+http://www.bestbuy.ca/en-CA/help.aspx
+http://www.bestbuy.ca/en-CA/help.aspx
+=C2=A0
+
+
+
+
+=C2=A0
+
+We accept returns or exchanges 30 days from the original date of purchase o=
+n most items we sell*. All returns, exchanges and price adjustments must be=
+ made in the country of original purchase. See https://www.bestbuy.ca/en-ca=
+/help/blta74f084c4c164e6f for details.
+
+
+
+
+
+All returns require:
+
+
+
+
+
+1.
+
+The original receipt (invoice) from your purchase.
+
+
+2.
+
+The original method of payment. Payment card purchases will be refunded to =
+the original payment card. Store credit will be given for returns with gift=
+ receipts.
+
+
+3.
+
+Original packaging and all items originally included by the manufacturer or=
+ Best Buy (including all manuals, accessories, gifts with purchase, bonus a=
+nd included items).
+
+
+4.
+
+Your name, address, phone number and signature. Valid government-issued pho=
+to ID may be requested to confirm this information.
+
+
+
+
+
+
+
+
+
+*Some conditions and exclusions apply. Certain items have a 14-day or 15-da=
+y return policy. Some items may not be returned if opened or assembled, or =
+may not be eligible for return or exchange (such as food). A list of these =
+items and full details on our return and exchange policy can be found on Be=
+stBuy.ca.
+
+
+
+
+
+The information in this e-mail message including any attachments is intende=
+d only for the named recipients above and may contain confidential or privi=
+leged information. If you have received this message in error, or are not t=
+he intended email recipient(s), please immediately notify the sender by ema=
+iling mailto:customerservice@bestbuycanada.ca and delete all copies of it f=
+rom your computer.
+
+
+
+
+
+This email was sent from an outgoing-only address that cannot accept incomi=
+ng emails. If you haven't found the information you are looking for and sti=
+ll have questions please visit our https://www.bestbuy.ca/en-ca/help/ to ac=
+cess general information, frequently asked questions, contact us informatio=
+n, and more.
+
+
+
+
+
+At Best Buy we know how important it is to protect your personal informatio=
+n. A copy of our privacy notice can be found at http://www.bestbuy.ca/.
+
+
+
+
+
+Promotional Emails: As a customer of Best Buy Canada, we may send you promo=
+tional emails. If you do not wish to receive promotional emails from Best B=
+uy Canada, please click here to https://www-ssl.bestbuy.ca/en-CA/secure/new=
+sletter-unsubscribe.aspx.
+
+
+
+
+
+Best Buy Canada Ltd.
+ #102 425 West 6th Avenue,
+ Vancouver, BC V5Y 1L3
+ http://www.bestbuy.ca/en-CA/home.aspx=20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_654185_1880681372.1717125043838
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Best Buy Canada &lt;non-respondable-email@bestb=
+uy.ca&gt;<br>To: &lt;john@backpocket.ca&gt;<br>Date: Fri, 24 Nov 2023 12:38=
+:10 -0500<br>Subject: Your Best Buy eReceipt<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><=
+div><br></div><blockquote id=3D"blockquote_zmail" style=3D"margin: 0px;"><d=
+iv><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"560"><t=
+body><tr><td><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=
+=3D"560"><tbody><tr><td width=3D"10" height=3D"10"><br></td><td height=3D"8=
+"><br></td></tr><tr><td width=3D"10"><br></td><td><span class=3D"font" styl=
+e=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:16px"><span=
+ class=3D"colour" style=3D"color:#000000"><b>Your Best Buy e-receipt is her=
+e</b></span></span></span><br></td></tr><tr><td width=3D"10" height=3D"10">=
+<br></td><td height=3D"8"><br></td></tr></tbody></table></td></tr><tr><td><=
+table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"560"><tbody=
+><tr><td width=3D"389" bgcolor=3D"#0046be"><a href=3D"http://www.bestbuy.ca=
+/en-CA/home.aspx?CMP=3DEMC-eReceipt-ALL-20130626-BBYheaderlogo-en" target=
+=3D"_blank"><img style=3D"display :  block;" id=3D"1700847497682100001_imgs=
+rc_url_0" border=3D"0" width=3D"316" height=3D"67"></a></td><td width=3D"90=
+" style=3D"background :  #0046be;"><br></td><td width=3D"81" style=3D"backg=
+round :  #0046be;"><a href=3D"https://www-ssl.bestbuy.ca/en-CA/stores/store=
+-locator.aspx?CMP=3DEMC-eReceipt-ALL-20130626-BBYheaderfindstore-en" target=
+=3D"_blank"><img style=3D"display :  block;" id=3D"1700847497682100001_imgs=
+rc_url_1" border=3D"0" width=3D"81" height=3D"67" alt=3D"Find stores"></a><=
+/td></tr></tbody></table></td></tr><tr><td><table cellpadding=3D"0" cellspa=
+cing=3D"0" border=3D"0" width=3D"100%"><tbody><tr><td width=3D"10" height=
+=3D"24"><br></td><td height=3D"24"><br></td><td width=3D"10" height=3D"24">=
+<br></td></tr><tr><td style=3D"height :  24px; width :  10px;">&nbsp;<br></=
+td><td><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100=
+%"><tbody><tr><td><span class=3D"font" style=3D"font-family:Arial"><span cl=
+ass=3D"size" style=3D"font-size:16px"><span class=3D"colour" style=3D"color=
+:#1d252c">Thank you for shopping at Best Buy. Upon your request, we are ple=
+ased to provide you with an electronic copy of your receipt. Please save it=
+ to facilitate returns, exchanges and service of your protection plan(s) in=
+ the future.</span></span></span><br></td></tr><tr><td>&nbsp;<br></td></tr>=
+<tr><td><span class=3D"font" style=3D"font-family:Arial"><span class=3D"siz=
+e" style=3D"font-size:16px"><span class=3D"colour" style=3D"color:#1d252c">=
+Yours truly,</span></span></span><br></td></tr><tr><td>&nbsp;<br></td></tr>=
+<tr><td><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"10=
+0%"><tbody><tr><td><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+width=3D"100%"><tbody><tr><td><span class=3D"font" style=3D"font-family:Ari=
+al"><span class=3D"size" style=3D"font-size:18px"><span class=3D"colour" st=
+yle=3D"color:#1d252c">Best Buy</span></span></span><br></td></tr><tr><td><a=
+ href=3D"http://www.bestbuy.ca/en-CA/home.aspx?CMP=3DEMC-eReceipt-ALL-20130=
+626-BBYcontenthome-en" target=3D"_blank" style=3D"text-decoration :  none;"=
+><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" styl=
+e=3D"font-size:13px"><span class=3D"colour" style=3D"color:#0078d7">bestbuy=
+.ca</span></span></span></a><br></td></tr></tbody></table></td><td style=3D=
+"width :  93px;"><br></td></tr></tbody></table></td></tr></tbody></table></=
+td><td style=3D"height :  24px; width :  10px;">&nbsp;<br></td></tr><tr><td=
+ style=3D"height :  24px; width :  10px;">&nbsp;<br></td><td style=3D"heigh=
+t :  24px;">&nbsp;<br></td><td style=3D"height :  24px; width :  10px;">&nb=
+sp;<br></td></tr></tbody></table></td></tr><tr><td><table cellpadding=3D"0"=
+ cellspacing=3D"0" border=3D"0" width=3D"100%"><tbody><tr><td style=3D"widt=
+h :  10px;"><br></td><td width=3D"280" valign=3D"top"><table border=3D"1" c=
+ellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td><span clas=
+s=3D"font" style=3D"font-family:Courier New"><span class=3D"size" style=3D"=
+font-size:10px"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" wid=
+th=3D"100%"><tbody><tr><td><span class=3D"font" style=3D"font-family:Courie=
+r New"><span class=3D"size" style=3D"font-size:10px"><span class=3D"colour"=
+ style=3D"color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BEST&nbsp;BUY&nbsp;#938</b>&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><=
+/span></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-famil=
+y:Courier New"><span class=3D"size" style=3D"font-size:10px"><span class=3D=
+"colour" style=3D"color:#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+Your&nbsp;extraordinary&nbsp;awaits.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;</span></span></span><br></td></tr><tr><td><span class=3D"font" style=3D=
+"font-family:Courier New"><span class=3D"colour" style=3D"color:#000000">&n=
+bsp;</span></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-=
+family:Courier New"><span class=3D"size" style=3D"font-size:10px"><span cla=
+ss=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First&n=
+bsp;Pro&nbsp;Queensway,&nbsp;Etobicoke&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>=
+</span></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-fami=
+ly:Courier New"><span class=3D"colour" style=3D"color:#000000">&nbsp;</span=
+></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Cou=
+rier New"><span class=3D"size" style=3D"font-size:10px"><span class=3D"colo=
+ur" style=3D"color:#000000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;Keep&nbsp;your&nbsp;receipt</b>&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><br>=
+</td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><s=
+pan class=3D"colour" style=3D"color:#000000">&nbsp;</span></span><br></td><=
+/tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><span cl=
+ass=3D"colour" style=3D"color:#000000">&nbsp;</span></span><br></td></tr><t=
+r><td><span class=3D"font" style=3D"font-family:Courier New"><span class=3D=
+"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#0000=
+00">Val&nbsp;#:&nbsp;1496-6733-6884-3574&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><br><=
+/td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><sp=
+an class=3D"colour" style=3D"color:#000000">&nbsp;</span></span><br></td></=
+tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><span cla=
+ss=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:=
+#000000">0938&nbsp;041&nbsp;1278&nbsp;11/24/23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;12:37&nbsp;&nbsp;&nbsp;&nbsp;KEVP</span></span></span><br></td></tr><tr><t=
+d><span class=3D"font" style=3D"font-family:Courier New"><span class=3D"col=
+our" style=3D"color:#000000">&nbsp;</span></span><br></td></tr><tr><td><spa=
+n class=3D"font" style=3D"font-family:Courier New"><span class=3D"size" sty=
+le=3D"font-size:10px"><span class=3D"colour" style=3D"color:#000000">&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;SALES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></=
+span><br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Courie=
+r New"><span class=3D"colour" style=3D"color:#000000">&nbsp;</span></span><=
+br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"=
+><span class=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=
+=3D"color:#000000">16057683&nbsp;&nbsp;DZ300C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;169.99</span></span></span><br></td></tr><tr><td><span class=3D"font" st=
+yle=3D"font-family:Courier New"><span class=3D"size" style=3D"font-size:10p=
+x"><span class=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;NINJA&nbsp;DZ=
+300C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;</span></span></span><br></td></tr><tr><td><span class=3D"font" s=
+tyle=3D"font-family:Courier New"><span class=3D"size" style=3D"font-size:10=
+px"><span class=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+----------&nbsp;</span></span></span><br></td></tr><tr><td><span class=3D"f=
+ont" style=3D"font-family:Courier New"><span class=3D"size" style=3D"font-s=
+ize:10px"><span class=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUBTOTAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;169.=
+99</span></span></span><br></td></tr><tr><td><span class=3D"font" style=3D"=
+font-family:Courier New"><span class=3D"size" style=3D"font-size:10px"><spa=
+n class=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HST&nbsp;ON&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;22.10</span></span></span><br></td></tr><tr><td><span class=3D"font" sty=
+le=3D"font-family:Courier New"><span class=3D"size" style=3D"font-size:10px=
+"><span class=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D&nbsp;</span></span></span><br></td></tr><tr>=
+<td><span class=3D"font" style=3D"font-family:Courier New"><span class=3D"s=
+ize" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#000000=
+">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TOTA=
+L&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;192.09</span></span></span><br></td></tr><tr=
+><td><span class=3D"font" style=3D"font-family:Courier New"><span class=3D"=
+colour" style=3D"color:#000000">&nbsp;</span></span><br></td></tr><tr><td><=
+span class=3D"font" style=3D"font-family:Courier New"><span class=3D"size" =
+style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#000000">Tra=
+nsaction&nbsp;Record&nbsp;SALE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></sp=
+an><br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier =
+New"><span class=3D"size" style=3D"font-size:10px"><span class=3D"colour" s=
+tyle=3D"color:#000000">xxxxxxxxxxxx3631&nbsp;P&nbsp;VISA&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;192.09</span></span></span><=
+br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"=
+><span class=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=
+=3D"color:#000000">Approved&nbsp;010840&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><br></td></tr><=
+tr><td><span class=3D"font" style=3D"font-family:Courier New"><span class=
+=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#0=
+00000">SEQ&nbsp;NO:&nbsp;001001001018&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;</span></span></span><br></td></tr><tr><td><span class=3D"font" styl=
+e=3D"font-family:Courier New"><span class=3D"size" style=3D"font-size:10px"=
+><span class=3D"colour" style=3D"color:#000000">ACI/ISO&nbsp;001/00&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</=
+span></span></span><br></td></tr><tr><td><span class=3D"font" style=3D"font=
+-family:Courier New"><span class=3D"size" style=3D"font-size:10px"><span cl=
+ass=3D"colour" style=3D"color:#000000">11/24/2023&nbsp;12:37:06&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><br></td></tr><=
+tr><td><span class=3D"font" style=3D"font-family:Courier New"><span class=
+=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#0=
+00000">AID:&nbsp;A0000000031010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;</span></span></span><br></td></tr><tr><td><span class=3D"font" styl=
+e=3D"font-family:Courier New"><span class=3D"size" style=3D"font-size:10px"=
+><span class=3D"colour" style=3D"color:#000000">APN:&nbsp;VISA&nbsp;CREDIT&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>=
+</span></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-fami=
+ly:Courier New"><span class=3D"size" style=3D"font-size:10px"><span class=
+=3D"colour" style=3D"color:#000000">TVR&nbsp;0000000000&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>=
+</span><br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Cour=
+ier New"><span class=3D"size" style=3D"font-size:10px"><span class=3D"colou=
+r" style=3D"color:#000000">NO&nbsp;SIGNATURE&nbsp;REQUIRED&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;</span></span></span><br></td></tr><tr><td><span clas=
+s=3D"font" style=3D"font-family:Courier New"><span class=3D"colour" style=
+=3D"color:#000000">&nbsp;</span></span><br></td></tr><tr><td><span class=3D=
+"font" style=3D"font-family:Courier New"><span class=3D"colour" style=3D"co=
+lor:#000000">&nbsp;</span></span><br></td></tr><tr><td><span class=3D"font"=
+ style=3D"font-family:Courier New"><span class=3D"size" style=3D"font-size:=
+10px"><span class=3D"colour" style=3D"color:#000000">GST&nbsp;Reg.#&nbsp;R1=
+35664738&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><=
+br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"=
+><span class=3D"colour" style=3D"color:#000000">&nbsp;</span></span><br></t=
+d></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><span=
+ class=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"co=
+lor:#000000">Need&nbsp;help?&nbsp;Visit:&nbsp;<a href=3D"http://BestBuy.ca/=
+Contact-us" target=3D"_blank">BestBuy.ca/Contact-us&nbsp;</a>;</span></span=
+></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Cou=
+rier New"><span class=3D"colour" style=3D"color:#000000">&nbsp;</span></spa=
+n><br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier N=
+ew"><span class=3D"size" style=3D"font-size:10px"><span class=3D"colour" st=
+yle=3D"color:#000000">Join&nbsp;our&nbsp;amazing&nbsp;team.&nbsp;We're&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><=
+/span></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-famil=
+y:Courier New"><span class=3D"size" style=3D"font-size:10px"><span class=3D=
+"colour" style=3D"color:#000000">looking&nbsp;for&nbsp;people&nbsp;just&nbs=
+p;like&nbsp;you.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></s=
+pan><br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier=
+ New"><span class=3D"size" style=3D"font-size:10px"><span class=3D"colour" =
+style=3D"color:#000000">Apply&nbsp;at&nbsp;<a href=3D"http://BestBuy.ca/car=
+eers" target=3D"_blank">BestBuy.ca/careers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>;</span></span></span><br>=
+</td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><s=
+pan class=3D"colour" style=3D"color:#000000">&nbsp;</span></span><br></td><=
+/tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><span cl=
+ass=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color=
+:#000000">Where&nbsp;applicable,&nbsp;EHF&nbsp;and&nbsp;end-of-life&nbsp;&n=
+bsp;&nbsp;</span></span></span><br></td></tr><tr><td><span class=3D"font" s=
+tyle=3D"font-family:Courier New"><span class=3D"size" style=3D"font-size:10=
+px"><span class=3D"colour" style=3D"color:#000000">recycling&nbsp;program&n=
+bsp;information&nbsp;is&nbsp;available&nbsp;at</span></span></span><br></td=
+></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><span =
+class=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"col=
+or:#000000"><a href=3D"http://bestbuy.ca/ehf" target=3D"_blank">bestbuy.ca/=
+ehf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;</a>;</span></span></span><br></td></tr><tr><td><span class=3D"fon=
+t" style=3D"font-family:Courier New"><span class=3D"colour" style=3D"color:=
+#000000">&nbsp;</span></span><br></td></tr><tr><td><span class=3D"font" sty=
+le=3D"font-family:Courier New"><span class=3D"colour" style=3D"color:#00000=
+0">&nbsp;</span></span><br></td></tr><tr><td><span class=3D"font" style=3D"=
+font-family:Courier New"><span class=3D"colour" style=3D"color:#000000">&nb=
+sp;</span></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-f=
+amily:Courier New"><span class=3D"size" style=3D"font-size:10px"><span clas=
+s=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;&nbsp;&nbsp;Shop BestBuy.c=
+a and pick up for</span></span></span><br></td></tr><tr><td><span class=3D"=
+font" style=3D"font-family:Courier New"><span class=3D"size" style=3D"font-=
+size:10px"><span class=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;FREE at a store near you.</span></span></span><br>=
+</td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><s=
+pan class=3D"colour" style=3D"color:#000000">&nbsp;</span></span><br></td><=
+/tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><span cl=
+ass=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color=
+:#000000">&nbsp;&nbsp;&nbsp;&nbsp;We'll gladly give you a&nbsp;refund,</spa=
+n></span></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-fa=
+mily:Courier New"><span class=3D"size" style=3D"font-size:10px"><span class=
+=3D"colour" style=3D"color:#000000">&nbsp;exchange, or price adjustment&nbs=
+p;on your</span></span></span><br></td></tr><tr><td><span class=3D"font" st=
+yle=3D"font-family:Courier New"><span class=3D"size" style=3D"font-size:10p=
+x"><span class=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;purchases unt=
+il Jan.11, 2024. This</span></span></span><br></td></tr><tr><td><span class=
+=3D"font" style=3D"font-family:Courier New"><span class=3D"size" style=3D"f=
+ont-size:10px"><span class=3D"colour" style=3D"color:#000000">extended holi=
+day return policy does not</span></span></span><br></td></tr><tr><td><span =
+class=3D"font" style=3D"font-family:Courier New"><span class=3D"size" style=
+=3D"font-size:10px"><span class=3D"colour" style=3D"color:#000000">&nbsp;&n=
+bsp;apply to cellular/wireless devices,</span></span></span><br></td></tr><=
+tr><td><span class=3D"font" style=3D"font-family:Courier New"><span class=
+=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#0=
+00000">&nbsp;devices and services financed through</span></span></span><br>=
+</td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><s=
+pan class=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D=
+"color:#000000">&nbsp;&nbsp;&nbsp;Best Buy Monthly Subscription,&nbsp;or</s=
+pan></span></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-=
+family:Courier New"><span class=3D"size" style=3D"font-size:10px"><span cla=
+ss=3D"colour" style=3D"color:#000000">&nbsp;non-returnable items. A store c=
+redit</span></span></span><br></td></tr><tr><td><span class=3D"font" style=
+=3D"font-family:Courier New"><span class=3D"size" style=3D"font-size:10px">=
+<span class=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;will be issued f=
+or any gift receipt</span></span></span><br></td></tr><tr><td><span class=
+=3D"font" style=3D"font-family:Courier New"><span class=3D"size" style=3D"f=
+ont-size:10px"><span class=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;r=
+eturns. Best Buy Marketplace items</span></span></span><br></td></tr><tr><t=
+d><span class=3D"font" style=3D"font-family:Courier New"><span class=3D"siz=
+e" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#000000">=
+cannot be returned to Best Buy stores.</span></span></span><br></td></tr><t=
+r><td><span class=3D"font" style=3D"font-family:Courier New"><span class=3D=
+"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#0000=
+00">&nbsp;&nbsp;Your original receipt is required.</span></span></span><br>=
+</td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><s=
+pan class=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D=
+"color:#000000">&nbsp;Some conditions apply. Please ask&nbsp;an</span></spa=
+n></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Co=
+urier New"><span class=3D"size" style=3D"font-size:10px"><span class=3D"col=
+our" style=3D"color:#000000">&nbsp;in-store Advisor&nbsp;or visit BestBuy.c=
+a</span></span></span><br></td></tr><tr><td><span class=3D"font" style=3D"f=
+ont-family:Courier New"><span class=3D"size" style=3D"font-size:10px"><span=
+ class=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for full details.</span></span></span><br>=
+</td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><s=
+pan class=3D"colour" style=3D"color:#000000">&nbsp;</span></span><br></td><=
+/tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><span cl=
+ass=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color=
+:#000000">&nbsp;&nbsp;To ensure quality service, returns,</span></span></sp=
+an><br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier =
+New"><span class=3D"size" style=3D"font-size:10px"><span class=3D"colour" s=
+tyle=3D"color:#000000">&nbsp;exchanges,&nbsp;and price adjustments will</sp=
+an></span></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-f=
+amily:Courier New"><span class=3D"size" style=3D"font-size:10px"><span clas=
+s=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;not be processed on Dec. 2=
+6, 2023.</span></span></span><br></td></tr><tr><td><span class=3D"font" sty=
+le=3D"font-family:Courier New"><span class=3D"size" style=3D"font-size:10px=
+"><span class=3D"colour" style=3D"color:#000000">&nbsp;Stores in Sault Ste.=
+ Marie (Ontario),</span></span></span><br></td></tr><tr><td><span class=3D"=
+font" style=3D"font-family:Courier New"><span class=3D"size" style=3D"font-=
+size:10px"><span class=3D"colour" style=3D"color:#000000">&nbsp;and all sto=
+res in Quebec and Atlantic</span></span></span><br></td></tr><tr><td><span =
+class=3D"font" style=3D"font-family:Courier New"><span class=3D"size" style=
+=3D"font-size:10px"><span class=3D"colour" style=3D"color:#000000">&nbsp;pr=
+ovinces will not be able to process</span></span></span><br></td></tr><tr><=
+td><span class=3D"font" style=3D"font-family:Courier New"><span class=3D"si=
+ze" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#000000"=
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returns, exchanges,&nbsp;and price</span></s=
+pan></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-family:=
+Courier New"><span class=3D"size" style=3D"font-size:10px"><span class=3D"c=
+olour" style=3D"color:#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adjustments on=
+ Dec. 27, 2023.</span></span></span><br></td></tr><tr><td><span class=3D"fo=
+nt" style=3D"font-family:Courier New"><span class=3D"colour" style=3D"color=
+:#000000">&nbsp;</span></span><br></td></tr><tr><td><span class=3D"font" st=
+yle=3D"font-family:Courier New"><span class=3D"size" style=3D"font-size:10p=
+x"><span class=3D"colour" style=3D"color:#000000">Our Low Price Guarantee e=
+xcludes prices</span></span></span><br></td></tr><tr><td><span class=3D"fon=
+t" style=3D"font-family:Courier New"><span class=3D"size" style=3D"font-siz=
+e:10px"><span class=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;on Black=
+ Friday, Cyber Monday, and</span></span></span><br></td></tr><tr><td><span =
+class=3D"font" style=3D"font-family:Courier New"><span class=3D"size" style=
+=3D"font-size:10px"><span class=3D"colour" style=3D"color:#000000">&nbsp;&n=
+bsp;&nbsp;Boxing Day &amp; Week. Please ask&nbsp;an</span></span></span><br=
+></td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><=
+span class=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=
+=3D"color:#000000">&nbsp;in- store&nbsp;Advisor or visit&nbsp;BestBuy.ca</s=
+pan></span></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-=
+family:Courier New"><span class=3D"size" style=3D"font-size:10px"><span cla=
+ss=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for full details.</span></span></span><br></td=
+></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><span =
+class=3D"colour" style=3D"color:#000000">&nbsp;</span></span><br></td></tr>=
+<tr><td><span class=3D"font" style=3D"font-family:Courier New"><span class=
+=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#0=
+00000">&nbsp;YOUR CUSTOMER SERVICE 4-PART-KEY IS:</span></span></span><br><=
+/td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><sp=
+an class=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"=
+color:#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0938 0=
+41 1278 112423</span></span></span><br></td></tr><tr><td><span class=3D"fon=
+t" style=3D"font-family:Courier New"><span class=3D"colour" style=3D"color:=
+#000000">&nbsp;</span></span><br></td></tr><tr><td><span class=3D"font" sty=
+le=3D"font-family:Courier New"><span class=3D"colour" style=3D"color:#00000=
+0">&nbsp;</span></span><br></td></tr><tr><td><span class=3D"font" style=3D"=
+font-family:Courier New"><span class=3D"size" style=3D"font-size:10px"><spa=
+n class=3D"colour" style=3D"color:#000000"><b>&nbsp;&nbsp;&nbsp;WIN A $1000=
+ BEST BUY GIFT CARD!</b></span></span></span><br></td></tr><tr><td><span cl=
+ass=3D"font" style=3D"font-family:Courier New"><span class=3D"size" style=
+=3D"font-size:10px"><span class=3D"colour" style=3D"color:#000000"><b>&nbsp=
+;TAKE OUR SHORT 5 MINUTE SURVEY IN THE</b></span></span></span><br></td></t=
+r><tr><td><span class=3D"font" style=3D"font-family:Courier New"><span clas=
+s=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#=
+000000"><b>&nbsp;&nbsp;NEXT 30 DAYS AND BE ENTERED TO WIN.</b></span></span=
+></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Cou=
+rier New"><span class=3D"size" style=3D"font-size:10px"><span class=3D"colo=
+ur" style=3D"color:#000000">&nbsp;To enter and for full contest rules,</spa=
+n></span></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-fa=
+mily:Courier New"><span class=3D"size" style=3D"font-size:10px"><span class=
+=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;go to <a href=3D"http://www=
+.bestbuycanadacares.ca" target=3D"_blank">www.bestbuycanadacares.ca</a> and=
+</span></span></span><br></td></tr><tr><td><span class=3D"font" style=3D"fo=
+nt-family:Courier New"><span class=3D"size" style=3D"font-size:10px"><span =
+class=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;use the following codes:</span></span></span><br></td></tr><tr><td>=
+<span class=3D"font" style=3D"font-family:Courier New"><span class=3D"colou=
+r" style=3D"color:#000000">&nbsp;</span></span><br></td></tr><tr><td><span =
+class=3D"font" style=3D"font-family:Courier New"><span class=3D"size" style=
+=3D"font-size:10px"><span class=3D"colour" style=3D"color:#000000">&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Group A: &nbsp;&nbsp;294411</=
+span></span></span><br></td></tr><tr><td><span class=3D"font" style=3D"font=
+-family:Courier New"><span class=3D"size" style=3D"font-size:10px"><span cl=
+ass=3D"colour" style=3D"color:#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;Group B: &nbsp;&nbsp;3278</span></span></span><br></td></=
+tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><span cla=
+ss=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:=
+#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Group C: &nb=
+sp;&nbsp;181230VPKE00</span></span></span><br></td></tr><tr><td><span class=
+=3D"font" style=3D"font-family:Courier New"><span class=3D"colour" style=3D=
+"color:#000000">&nbsp;</span></span><br></td></tr><tr><td><span class=3D"fo=
+nt" style=3D"font-family:Courier New"><span class=3D"colour" style=3D"color=
+:#000000">&nbsp;</span></span><br></td></tr><tr><td><span class=3D"font" st=
+yle=3D"font-family:Courier New"><span class=3D"colour" style=3D"color:#0000=
+00">&nbsp;</span></span><br></td></tr><tr><td><span class=3D"font" style=3D=
+"font-family:Courier New"><span class=3D"colour" style=3D"color:#000000">&n=
+bsp;</span></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-=
+family:Courier New"><span class=3D"size" style=3D"font-size:10px"><span cla=
+ss=3D"colour" style=3D"color:#000000"><b>Total Store Stock Items: 1</b></sp=
+an></span></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-f=
+amily:Courier New"><span class=3D"colour" style=3D"color:#000000">&nbsp;</s=
+pan></span><br></td></tr><tr><td><span class=3D"font" style=3D"font-family:=
+Courier New"><span class=3D"size" style=3D"font-size:10px"><span class=3D"c=
+olour" style=3D"color:#000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&l=
+t;&lt;&lt;&lt;&lt; CUSTOMER COPY &gt;&gt;&gt;&gt;&gt;</span></span></span><=
+br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"=
+><span class=3D"colour" style=3D"color:#000000">&nbsp;</span></span><br></t=
+d></tr><tr><td><span class=3D"font" style=3D"font-family:Courier New"><span=
+ class=3D"colour" style=3D"color:#000000">&nbsp;</span></span><br></td></tr=
+><tr><td><span class=3D"font" style=3D"font-family:Courier New"><span class=
+=3D"colour" style=3D"color:#000000">&nbsp;</span></span><br></td></tr><tr><=
+td><span class=3D"font" style=3D"font-family:Courier New"><span class=3D"co=
+lour" style=3D"color:#000000">&nbsp;</span></span><br></td></tr></tbody></t=
+able></span></span></td></tr></tbody></table></td><td style=3D"width :  9px=
+;"><br></td><td width=3D"280" valign=3D"top"><table cellpadding=3D"0" cells=
+pacing=3D"0" border=3D"0" width=3D"100%" style=3D"vertical-align :  top;" b=
+gcolor=3D"#e6e7e8"><tbody><tr><td width=3D"17"><br></td><td><table cellpadd=
+ing=3D"0" cellspacing=3D"0" border=3D"0" style=3D"vertical-align :  top;"><=
+tbody><tr><td height=3D"15"><br></td></tr><tr><td><br><table cellpadding=3D=
+"0" cellspacing=3D"0" border=3D"0" style=3D"vertical-align :  top;"></table=
+></td></tr></tbody></table></td></tr><tr><td height=3D"32"><br></td></tr><t=
+r><td><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"vert=
+ical-align :  top;"><tbody><tr><td valign=3D"top"><a href=3D"http://www.bes=
+tbuycanadacares.ca" style=3D"text-decoration :  none;" target=3D"_blank"><i=
+mg border=3D"0" style=3D"display :  block;" id=3D"1700847497682100001_imgsr=
+c_url_2"></a></td><td width=3D"12"><br></td><td><table cellpadding=3D"0" ce=
+llspacing=3D"0" border=3D"0" style=3D"vertical-align :  top;"><tbody><tr><t=
+d><a href=3D"http://www.bestbuycanadacares.ca" style=3D"text-decoration :  =
+none;" target=3D"_blank"><span class=3D"font" style=3D"font-family:Arial"><=
+span class=3D"size" style=3D"font-size:16px"><span class=3D"colour" style=
+=3D"color:#1d252c"><b>Please tell us how we did.</b></span></span></span></=
+a><br></td></tr><tr><td><a href=3D"http://www.bestbuycanadacares.ca" style=
+=3D"text-decoration :  none;" target=3D"_blank"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:16px"><span =
+class=3D"colour" style=3D"color:#1d252c">Take our survey.</span></span></sp=
+an></a><br></td></tr><tr><td height=3D"10"><br></td></tr><tr><td><a href=3D=
+"http://www.bestbuycanadacares.ca" style=3D"text-decoration :  none;" targe=
+t=3D"_blank"><span class=3D"font" style=3D"font-family:Arial"><span class=
+=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#0=
+078d7">Details &gt;</span></span></span></a><br></td></tr></tbody></table><=
+/td></tr></tbody></table></td></tr><tr><td height=3D"32"><br></td></tr><tr>=
+<td><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"vertic=
+al-align :  top;"><tbody><tr><td valign=3D"top"><a href=3D"http://www.bestb=
+uy.ca/en-CA/help.aspx?CMP=3DEMC-eReceipt-ALL-20131112-BBYsidebarhelp-en" st=
+yle=3D"text-decoration :  none;" target=3D"_blank"><img border=3D"0" style=
+=3D"display :  block;" id=3D"1700847497682100001_imgsrc_url_3"></a></td><td=
+ width=3D"12"><br></td><td><table cellpadding=3D"0" cellspacing=3D"0" borde=
+r=3D"0" style=3D"vertical-align :  top;"><tbody><tr><td><a href=3D"http://w=
+ww.bestbuy.ca/en-CA/help.aspx?CMP=3DEMC-eReceipt-ALL-20131112-BBYsidebarhel=
+p-en" style=3D"text-decoration :  none;" target=3D"_blank"><span class=3D"f=
+ont" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:16=
+px"><span class=3D"colour" style=3D"color:#1d252c"><b>Got a question?</b></=
+span></span></span></a><br></td></tr><tr><td><a href=3D"http://www.bestbuy.=
+ca/en-CA/help.aspx?CMP=3DEMC-eReceipt-ALL-20131112-BBYsidebarhelp-en" style=
+=3D"text-decoration :  none;" target=3D"_blank"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:16px"><span =
+class=3D"colour" style=3D"color:#1d252c">Get an answer.</span></span></span=
+></a><br></td></tr><tr><td height=3D"10"><br></td></tr><tr><td><a href=3D"h=
+ttp://www.bestbuy.ca/en-CA/help.aspx?CMP=3DEMC-eReceipt-ALL-20131112-BBYsid=
+ebarhelp-en" style=3D"text-decoration :  none;" target=3D"_blank"><span cla=
+ss=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-=
+size:10px"><span class=3D"colour" style=3D"color:#0078d7">Details &gt;</spa=
+n></span></span></a><br></td></tr></tbody></table></td></tr></tbody></table=
+></td></tr><tr><td height=3D"30"><br></td></tr><tr><td><table cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" style=3D"vertical-align :  top;"><tbo=
+dy><tr><td valign=3D"top"><a href=3D"http://www.bestbuy.ca/en-CA/help/retur=
+ns-and-exchanges-policy/hc1075.aspx?CMP=3DEMC-eReceipt-ALL-20131112-BBYside=
+barreturn-en" style=3D"text-decoration :  none;" target=3D"_blank"><img bor=
+der=3D"0" style=3D"display :  block;" id=3D"1700847497682100001_imgsrc_url_=
+4"></a></td><td width=3D"12"><br></td><td><table cellpadding=3D"0" cellspac=
+ing=3D"0" border=3D"0" style=3D"vertical-align :  top;"><tbody><tr><td><a h=
+ref=3D"http://www.bestbuy.ca/en-CA/help/returns-and-exchanges-policy/hc1075=
+.aspx?CMP=3DEMC-eReceipt-ALL-20131112-BBYsidebarreturn-en" style=3D"text-de=
+coration :  none;" target=3D"_blank"><span class=3D"font" style=3D"font-fam=
+ily:Arial"><span class=3D"size" style=3D"font-size:16px"><span class=3D"col=
+our" style=3D"color:#1d252c"><b>Returns and<br>exchanges.</b></span></span>=
+</span></a></td></tr><tr><td height=3D"10"><br></td></tr><tr><td><a href=3D=
+"http://www.bestbuy.ca/en-CA/help/returns-and-exchanges-policy/hc1075.aspx?=
+CMP=3DEMC-eReceipt-ALL-20131112-BBYsidebarreturn-en" style=3D"text-decorati=
+on :  none;" target=3D"_blank"><span class=3D"font" style=3D"font-family:Ar=
+ial"><span class=3D"size" style=3D"font-size:10px"><span class=3D"colour" s=
+tyle=3D"color:#0078d7">Details &gt;</span></span></span></a><br></td></tr><=
+/tbody></table></td></tr></tbody></table></td></tr><tr><td height=3D"30"><b=
+r></td></tr><tr><td><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+ style=3D"vertical-align :  top;"><tbody><tr><td valign=3D"top"><a href=3D"=
+http://www.bestbuy.ca/en-CA/reserveandpickup.aspx?CMP=3DEMC-eReceipt-ALL-20=
+131112-BBYsidebarreserve-en" style=3D"text-decoration :  none;" target=3D"_=
+blank"><img border=3D"0" style=3D"display :  block;" id=3D"1700847497682100=
+001_imgsrc_url_5"></a></td><td width=3D"12"><br></td><td><table cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" style=3D"vertical-align :  top;"><tbo=
+dy><tr><td><a href=3D"http://www.bestbuy.ca/en-CA/reserveandpickup.aspx?CMP=
+=3DEMC-eReceipt-ALL-20131112-BBYsidebarreserve-en" style=3D"text-decoration=
+ :  none;" target=3D"_blank"><span class=3D"font" style=3D"font-family:Aria=
+l"><span class=3D"size" style=3D"font-size:16px"><span class=3D"colour" sty=
+le=3D"color:#1d252c"><b>Reserve online<br></b></span></span></span></a></td=
+></tr><tr><td><a href=3D"http://www.bestbuy.ca/en-CA/reserveandpickup.aspx?=
+CMP=3DEMC-eReceipt-ALL-20131112-BBYsidebarreserve-en" style=3D"text-decorat=
+ion :  none;" target=3D"_blank"><span class=3D"font" style=3D"font-family:A=
+rial"><span class=3D"size" style=3D"font-size:16px"><span class=3D"colour" =
+style=3D"color:#1d252c">and pick up<br>in-store.</span></span></span></a></=
+td></tr><tr><td height=3D"10"><br></td></tr><tr><td><a href=3D"http://www.b=
+estbuy.ca/en-CA/reserveandpickup.aspx?CMP=3DEMC-eReceipt-ALL-20131112-BBYsi=
+debarreserve-en" style=3D"text-decoration :  none;" target=3D"_blank"><span=
+ class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"f=
+ont-size:10px"><span class=3D"colour" style=3D"color:#0078d7">Details &gt;<=
+/span></span></span></a><br></td></tr></tbody></table></td></tr></tbody></t=
+able></td></tr><tr><td height=3D"30"><br></td></tr><tr><td><table cellpaddi=
+ng=3D"0" cellspacing=3D"0" border=3D"0" style=3D"vertical-align :  top;"><t=
+body><tr><td valign=3D"top"><a href=3D"http://www.bestbuy.ca/en-CA/help/low=
+est-price-guarantee/hc1001.aspx?CMP=3DEMC-eReceipt-ALL-20131112-BBYsidebarp=
+rice-en" style=3D"text-decoration :  none;" target=3D"_blank"><img border=
+=3D"0" style=3D"display :  block;" id=3D"1700847497682100001_imgsrc_url_6">=
+</a></td><td width=3D"12"><br></td><td><table cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"vertical-align :  top;"><tbody><tr><td><a href=
+=3D"http://www.bestbuy.ca/en-CA/help/lowest-price-guarantee/hc1001.aspx?CMP=
+=3DEMC-eReceipt-ALL-20131112-BBYsidebarprice-en" style=3D"text-decoration :=
+  none;" target=3D"_blank"><span class=3D"font" style=3D"font-family:Arial"=
+><span class=3D"size" style=3D"font-size:16px"><span class=3D"colour" style=
+=3D"color:#1d252c"><b>Low price guaranteed</b></span></span></span></a><br>=
+</td></tr><tr><td height=3D"10"><br></td></tr><tr><td><a href=3D"http://www=
+.bestbuy.ca/en-CA/help/lowest-price-guarantee/hc1001.aspx?CMP=3DEMC-eReceip=
+t-ALL-20131112-BBYsidebarprice-en" style=3D"text-decoration :  none;" targe=
+t=3D"_blank"><span class=3D"font" style=3D"font-family:Arial"><span class=
+=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#0=
+078d7">Details &gt;</span></span></span></a><br></td></tr></tbody></table><=
+/td></tr></tbody></table></td></tr><tr><td height=3D"30"><br></td></tr></tb=
+ody></table></td><td width=3D"18"><br></td></tr></tbody></table></td></tr><=
+/tbody></table>&nbsp;<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0=
+" bgcolor=3D"#0046be" height=3D"41"><tbody><tr><td style=3D"height :  16px;=
+ width :  159px;">&nbsp;<br></td><td><a href=3D"https://www.bestbuy.ca/en-c=
+a/careers/" target=3D"_blank"><img style=3D"display :  block;" id=3D"170084=
+7497682100001_imgsrc_url_7" border=3D"0" alt=3D"Careers" width=3D"62" heigh=
+t=3D"41"></a></td><td><a href=3D"http://www.bestbuy.ca/en-CA/help.aspx" tar=
+get=3D"_blank"><img style=3D"display :  block;" id=3D"1700847497682100001_i=
+mgsrc_url_8" border=3D"0" alt=3D"Careers" width=3D"105" height=3D"41"></a><=
+/td><td><a href=3D"http://www.bestbuy.ca/en-CA/help.aspx" target=3D"_blank"=
+><img style=3D"display :  block;" id=3D"1700847497682100001_imgsrc_url_9" b=
+order=3D"0" alt=3D"Careers" width=3D"75" height=3D"41"></a></td><td style=
+=3D"height :  16px; width :  159px;">&nbsp;<br></td></tr></tbody></table>&n=
+bsp;<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tbody><tr><td =
+width=3D"10"><br></td><td width=3D"540"><table cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0"><tbody><tr><td><span class=3D"font" style=3D"font-fami=
+ly:Arial"><span class=3D"size" style=3D"font-size:10px"><span class=3D"colo=
+ur" style=3D"color:#000000">We accept returns or exchanges 30 days from the=
+ original date of purchase on most items we sell*. All returns, exchanges a=
+nd price adjustments must be made in the country of original purchase. See =
+<a href=3D"https://www.bestbuy.ca/en-ca/help/blta74f084c4c164e6f" style=3D"=
+text-decoration :  none;" target=3D"_blank"><span class=3D"colour" style=3D=
+"color:#04188f">our full return policy</span></a> for details.</span></span=
+></span><br></td></tr><tr><td height=3D"10"><br></td></tr><tr><td><span cla=
+ss=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-=
+size:10px"><span class=3D"colour" style=3D"color:#000000">All returns requi=
+re:</span></span></span><br></td></tr><tr><td height=3D"5"><br></td></tr><t=
+r><td><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tbody><tr><t=
+d width=3D"20" valign=3D"top"><span class=3D"font" style=3D"font-family:Ari=
+al"><span class=3D"size" style=3D"font-size:10px"><span class=3D"colour" st=
+yle=3D"color:#000000">1.</span></span></span><br></td><td width=3D"520" val=
+ign=3D"top"><span class=3D"font" style=3D"font-family:Arial"><span class=3D=
+"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#0000=
+00">The original receipt (invoice) from your purchase.</span></span></span>=
+<br></td></tr><tr><td width=3D"20" valign=3D"top"><span class=3D"font" styl=
+e=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:10px"><span=
+ class=3D"colour" style=3D"color:#000000">2.</span></span></span><br></td><=
+td width=3D"520" valign=3D"top"><span class=3D"font" style=3D"font-family:A=
+rial"><span class=3D"size" style=3D"font-size:10px"><span class=3D"colour" =
+style=3D"color:#000000">The original method of payment. Payment card purcha=
+ses will be refunded to the original payment card. Store credit will be giv=
+en for returns with gift receipts.</span></span></span><br></td></tr><tr><t=
+d width=3D"20" valign=3D"top"><span class=3D"font" style=3D"font-family:Ari=
+al"><span class=3D"size" style=3D"font-size:10px"><span class=3D"colour" st=
+yle=3D"color:#000000">3.</span></span></span><br></td><td width=3D"520" val=
+ign=3D"top"><span class=3D"font" style=3D"font-family:Arial"><span class=3D=
+"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#0000=
+00">Original packaging and all items originally included by the manufacture=
+r or Best Buy (including all manuals, accessories, gifts with purchase, bon=
+us and included items).</span></span></span><br></td></tr><tr><td width=3D"=
+20" valign=3D"top"><span class=3D"font" style=3D"font-family:Arial"><span c=
+lass=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"colo=
+r:#000000">4.</span></span></span><br></td><td width=3D"520" valign=3D"top"=
+><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" styl=
+e=3D"font-size:10px"><span class=3D"colour" style=3D"color:#000000">Your na=
+me, address, phone number and signature. Valid government-issued photo ID m=
+ay be requested to confirm this information.</span></span></span><br></td><=
+/tr></tbody></table></td></tr><tr><td height=3D"10"><br></td></tr><tr><td><=
+span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=
+=3D"font-size:10px"><span class=3D"colour" style=3D"color:#000000">*Some co=
+nditions and exclusions apply. Certain items have a 14-day or 15-day return=
+ policy. Some items may not be returned if opened or assembled, or may not =
+be eligible for return or exchange (such as food). A list of these items an=
+d full details on our return and exchange policy can be found on BestBuy.ca=
+.</span></span></span><br></td></tr><tr><td height=3D"10"><br></td></tr><tr=
+><td><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" =
+style=3D"font-size:10px"><span class=3D"colour" style=3D"color:#000000">The=
+ information in this e-mail message including any attachments is intended o=
+nly for the named recipients above and may contain confidential or privileg=
+ed information. If you have received this message in error, or are not the =
+intended email recipient(s), please immediately notify the sender by emaili=
+ng <a href=3D"mailto:customerservice@bestbuycanada.ca" style=3D"text-decora=
+tion :  none;" target=3D"_blank"><span class=3D"colour" style=3D"color:#041=
+88f">customerservice@bestbuycanada.ca</span></a> and delete all copies of i=
+t from your computer.</span></span></span><br></td></tr><tr><td height=3D"1=
+0"><br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Arial"><=
+span class=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=
+=3D"color:#000000">This email was sent from an outgoing-only address that c=
+annot accept incoming emails. If you haven't found the information you are =
+looking for and still have questions please visit our <a href=3D"https://ww=
+w.bestbuy.ca/en-ca/help/" style=3D"text-decoration :  none;" target=3D"_bla=
+nk"><span class=3D"colour" style=3D"color:#04188f">help centre</span></a> t=
+o access general information, frequently asked questions, contact us inform=
+ation, and more.</span></span></span><br></td></tr><tr><td height=3D"10"><b=
+r></td></tr><tr><td><span class=3D"font" style=3D"font-family:Arial"><span =
+class=3D"size" style=3D"font-size:10px"><span class=3D"colour" style=3D"col=
+or:#000000">At Best Buy we know how important it is to protect your persona=
+l information. A copy of our privacy notice can be found at <a href=3D"http=
+://www.bestbuy.ca/" target=3D"_blank" style=3D"text-decoration :  none;"><s=
+pan class=3D"colour" style=3D"color:#04188f">www.bestbuy.ca</span></a>.</sp=
+an></span></span><br></td></tr><tr><td height=3D"10"><br></td></tr><tr><td>=
+<span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=
+=3D"font-size:13px"><span class=3D"colour" style=3D"color:#000000"><b>Promo=
+tional Emails:</b> As a customer of Best Buy Canada, we may send you promot=
+ional emails. If you do not wish to receive promotional emails from Best Bu=
+y Canada, please click here to <a href=3D"https://www-ssl.bestbuy.ca/en-CA/=
+secure/newsletter-unsubscribe.aspx" name=3D"unsub" target=3D"_blank" style=
+=3D"text-decoration :  none;"><span class=3D"colour" style=3D"color:#04188f=
+">unsubscribe</span></a>.</span></span></span><br></td></tr><tr><td height=
+=3D"10"><br></td></tr><tr><td><span class=3D"font" style=3D"font-family:Ari=
+al"><span class=3D"size" style=3D"font-size:13px"><span class=3D"colour" st=
+yle=3D"color:#000000">Best Buy Canada Ltd.<br> #102 425 West 6th Avenue,<br=
+> Vancouver, BC V5Y 1L3<br> <a href=3D"http://www.bestbuy.ca/en-CA/home.asp=
+x" target=3D"_blank" style=3D"text-decoration :  none;"><span class=3D"colo=
+ur" style=3D"color:#04188f">BestBuy.ca</span></a></span></span></span> <br>=
+<br></td></tr><tr><td height=3D"20"><br></td></tr></tbody></table></td><td =
+width=3D"10"><br></td></tr></tbody></table></div></blockquote></div><div><b=
+r></div><div class=3D"zmail_signature_below"><div id=3D"" data-zbluepencil-=
+ignore=3D"true" data-sigid=3D"6189300000000739006"><div>Regards,<br></div><=
+div><br></div><div>John E. Estrada<br></div><div><br></div><div>-----------=
+----------------------------<br></div><div><br></div><p style=3D"font-style=
+: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent=
+: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: =
+0px"><span class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)=
+"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" =
+style=3D"font-family:Verdana, Arial, Helvetica, sans-serif"><span class=3D"=
+size" style=3D"font-size:13.3333px"><span class=3D"highlight" style=3D"back=
+ground-color:rgb(255, 255, 255)"><b><span class=3D"colour" style=3D"color:r=
+gb(0, 102, 0)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, =
+Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.6=
+6px">START SHREDDING INC. (shredEX)</span></span></span></b><span class=3D"=
+colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-=
+family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size=
+" style=3D"font-size:14.66px"><br>208 Evans Ave, Toronto, ON M8Z 1J7<br></s=
+pan></span></span><b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"=
+><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-se=
+rif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">E:<span>&=
+nbsp;<a href=3D"mailto:john@shredex.ca" target=3D"_blank" style=3D"color: r=
+gb(0, 0, 238)">john@shredex.ca</a>&nbsp;</span>W: <a target=3D"_blank" href=
+=3D"http://www.startshredding.com" style=3D"color: rgb(0, 0, 238)">www.star=
+tshredding.com</a><br></span></span></span></b><span class=3D"colour" style=
+=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibr=
+i, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"fo=
+nt-size:14.66px">DIRECT:&nbsp;</span></span></span><a style=3D"color: rgb(1=
+7, 85, 204); cursor: default" target=3D"_blank"><span class=3D"colour" styl=
+e=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calib=
+ri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"f=
+ont-size:14.66px">416.255.1500</span></span></span></a><span class=3D"colou=
+r" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-famil=
+y:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" sty=
+le=3D"font-size:14.66px"><br>TOLL FREE:&nbsp;</span></span></span><a style=
+=3D"color: rgb(17, 85, 204); cursor: default" target=3D"_blank"><span class=
+=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"f=
+ont-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"=
+size" style=3D"font-size:14.66px">1.866.868.9585</span></span></span></a></=
+span></span></span></span></span></p><p style=3D"font-style: normal; font-w=
+eight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-tran=
+sform: none; white-space: normal; widows: 2; word-spacing: 0px"><span class=
+=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><span class=3D=
+"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-fa=
+mily:Verdana, Arial, Helvetica, sans-serif"><span class=3D"size" style=3D"f=
+ont-size:13.3333px"><span class=3D"highlight" style=3D"background-color:rgb=
+(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(34, 34, 34)"><sp=
+an class=3D"font" style=3D"font-family:arial, sans-serif"><span class=3D"si=
+ze" style=3D"font-size:small"><span class=3D"colour" style=3D"color:gray"><=
+span class=3D"font" style=3D"font-family:Arial, sans-serif"><span class=3D"=
+size" style=3D"font-size:7.5pt">This message and any attachments are the pr=
+operty of the&nbsp;SHREDEX INC.&nbsp;or its affiliates. It may be legally p=
+rivileged and/or confidential and is intended only for the use of the addre=
+ssee(s). No addressee should store, forward, print, copy, or otherwise repr=
+oduce this message in any manner that would allow it to be viewed by any in=
+dividual not originally listed as a recipient. If the reader of this messag=
+e is not the intended recipient, you are hereby notified that any unauthori=
+zed storage, disclosure, dissemination, distribution, copying or the taking=
+ of any action in reliance on the information herein is strictly prohibited=
+. If you have received this communication in error, please immediately noti=
+fy the sender and delete this message.</span></span></span></span></span></=
+span></span></span></span></span></span><br></p><div id=3D""><div><br></div=
+></div><div><br></div></div></div><div><br></div></div><br></body></html>
+------=_Part_654185_1880681372.1717125043838--
+

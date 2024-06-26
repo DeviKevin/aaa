@@ -1,0 +1,1196 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp185539rbd;
+        Thu, 30 May 2024 20:10:15 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFmV2patqdmHOa2Wqoc3hn5kcx6I43W84fCjZbzGyizICrt0VRgrZCNKjTPmQ9ZnpvfByF4
+X-Received: by 2002:a05:6830:106:b0:6f0:fb0a:a87f with SMTP id 46e09a7af769-6f911f23cdamr715914a34.7.1717125014719;
+        Thu, 30 May 2024 20:10:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125014; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=OYMh7WcyWw92HlqSo+kH4sYMrn3nJcEh71bASuGnZveLw2Y21eGyyCF6913GzV0Pui
+         Fh+KtbXQGbAE6hN5V7uwlMr1baJEFlHoYILKSBQqvTutqsnHKM8y5/3ngSzPM8nm1EiJ
+         XoJEO9Rst2ggxE57UmbVy+pkojthQovvK7U3wBqJP/F6uQgY8mztCTpRamX3MgGs9nMC
+         l39GU/r0+uFFmLND1T59tlY5ruRKx4VI6W56/HZd7DF8NVuT1/xHDUxXRkxVX2+2KYvD
+         3mMZ3hvl20LnasapinIyfC8q7NInrN4MCU748SUHwhKi6WbDL60xW1oBNmLswcdnyTj4
+         SdVw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=FQlaY03CMr7WXgxQAe8gKKx9Gw9rbVp8oAtnZD4ADZw=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=pK5pzZ40qgEALdvL90FIKARJHam07vRGuJkSHTgC/aJANLChLqXPEld+8R5/sTMNwI
+         YmpBAh+rxq+p9hYBETiSCLJRje7+aOkqVl+gLNowgWfH0VmGjyuGXHhk3NvEcTxc4hjD
+         ipXNANGpu7wS8K+ks+Y7NPmhQgcNsGzEfDcjucXKENKZ08kvSVz3OcUaJh1ooQJx7Ycf
+         nIcSj/TUCbw0kUmo+0wsvQ1np86OKC4u5cLfRwD4EyRW6PVuLhDPhpoEIXb8Y/+Ur8Ep
+         bTe42BR3lonvPMX0G0WKlErXBdWsqzpSqDUGOD0FUXCeTmzcEJiClf5E9mKRDPUMpFtA
+         HZWA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=eodoMiBh;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o19.zoho.com (sender3-op-o19.zoho.com. [136.143.184.19])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-6c35d694a59si694448a12.806.2024.05.30.20.10.14
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:10:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) client-ip=136.143.184.19;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=eodoMiBh;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125013; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=BXrptRt1ti2yHbHAKBK74++wmCQQ8KqOEvGTAEh+TV+1Y9s879Wvzr5ifoYKzsc02imPUbhAP+O3MVQgoyhUu3/NwQKaUgpwc4A60swz4jph6M/vrVA75kWCE13KHFh2rxjLCEs1PuYv1GgT5Q2Rt5VYt5a3NkqrdZJmXGWQGUM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125013; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=FQlaY03CMr7WXgxQAe8gKKx9Gw9rbVp8oAtnZD4ADZw=; 
+	b=F0R7hUrdk1wVdMMb+wckwF7L6G8R8ZGMYLPfq/44justkrjoKKiywPkICvct8D9dAbN5a+otyvJ2Dsttd03G54DlDJejMbilxs7oKVzc2cPqTQ3pu/opUcc7xEXyMZTD2wickorTMBdoiujyIKpM8YRkrzHOybpazYRFJbcLHZY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125013;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=FQlaY03CMr7WXgxQAe8gKKx9Gw9rbVp8oAtnZD4ADZw=;
+	b=eodoMiBhNBgR46iT9kb1Vge8s+x+27fpynUSwrts69Oe1eiauM62Awk/wnSCsJal
+	DhEp4OOaAzyxa2Qrg11zVm/etfAA9agR3DQy7jTWhH0QfI/+UYnWd5pmDwvFFKKLNur
+	AZeJOTezz+miL5GFJnFOUucQasSOVsoczpFZImx8=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717125012262401.3016067213973; Thu, 30 May 2024 20:10:12 -0700 (PDT)
+Date: Thu, 30 May 2024 23:10:12 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcca05ac0.10d103163201665.1408520413616026810@shredex.ca>
+In-Reply-To: <0101018c27c4b681-1623adbc-d34a-4943-b636-522dbd827d9d-000000@us-west-2.amazonses.com>
+References: <messenger@messaging.squareup.com> <0101018c27c4b681-1623adbc-d34a-4943-b636-522dbd827d9d-000000@us-west-2.amazonses.com>
+Subject: Fwd: Receipt from Riley's
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_654005_1833212931.1717125012162"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_654005_1833212931.1717125012162
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Riley's <messenger@messaging.squareup.com>
+To: <john@backpocket.ca>
+Date: Fri, 01 Dec 2023 18:44:12 -0500
+Subject: Receipt from Riley's
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Riley's
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://a.squareupmessaging.com/CL0/https:%2F%2Faccount.squareup.com%2Fresp=
+onse%2Fr1EJX06R3RXZAHM%2F1%3Fmerchant_token=3DZMVNDTJJXZGM7/1/0101018c27c4b=
+681-1623adbc-d34a-4943-b636-522dbd827d9d-000000/MC-NYHQ6SNAVlF2_qNxuH46puFh=
+Jzhp1g9HknPVJSms=3D329
+https://a.squareupmessaging.com/CL0/https:%2F%2Faccount.squareup.com%2Fresp=
+onse%2Fr1EJX06R3RXZAHM%2F-1%3Fmerchant_token=3DZMVNDTJJXZGM7/1/0101018c27c4=
+b681-1623adbc-d34a-4943-b636-522dbd827d9d-000000/257_KEd0-HNKwE-1iC3rjvFe_b=
+MLCL8oNE_OVDut-30=3D329
+
+
+
+
+
+
+
+
+Let Riley's know how your experience was
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$267.23
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Custom Amount
+
+
+$222.69
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Purchase Subtotal
+
+
+$222.69
+
+
+
+Tip
+
+
+$44.54
+
+
+
+
+
+
+
+
+
+
+
+
+Total
+
+
+$267.23
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Riley's
+
+251 George Street North
+
+PETERBOROUGH, ON K9J 3G9
+
+
+http://a.squareupmessaging.com/CL0/tel:705-750-0375/1/0101018c27c4b681-1623=
+adbc-d34a-4943-b636-522dbd827d9d-000000/rn1-nhKnhxdSlKxcjtUSiatNrl4Jz-V_Rlq=
+jGtkpuIk=3D329
+
+
+
+
+
+
+http://a.squareupmessaging.com/CL0/http:%2F%2Frileysptbo..com/1/0101018c27c=
+4b681-1623adbc-d34a-4943-b636-522dbd827d9d-000000/dUFaBssHQSa_GMLOFWML497pv=
+aAFw7puzW4KIs7yWKk=3D329
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Interac 2376 (Chip)
+
+
+
+2023-12-01-18:38
+
+Chequing
+
+#Tzhc
+
+Auth code: 183813
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AID: A0000002771010
+
+PIN Verified
+
+
+Ref No.: 275106697044
+
+Terminal ID: SQ027WGV
+
+Purchase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=C2=A9 2023 Square Canada, Inc.
+
+
+
+
+
+
+
+
+Please contact Riley's about its privacy practices. =C2=B7 https://a.square=
+upmessaging.com/CL0/https:%2F%2Faccount.squareup.com%2Fnot-your-receipt%2Fr=
+1EJX06R3RXZAHM/1/0101018c27c4b681-1623adbc-d34a-4943-b636-522dbd827d9d-0000=
+00/rQTaEbZ3UkosbLs_MuRG8mruiI4OHF1bOgQsyStJp7A=3D329
+
+
+
+
+
+
+https://a.squareupmessaging.com/CL0/https:%2F%2Fsquareup.com/1/0101018c27c4=
+b681-1623adbc-d34a-4943-b636-522dbd827d9d-000000/tzmlbEkCWxYpVF5fh-2TFGgfQ4=
+kxXQ9e9ZsF-Lm9gO8=3D329
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=20
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_654005_1833212931.1717125012162
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Riley's &lt;messenger@messaging.squareup.com&gt=
+;<br>To: &lt;john@backpocket.ca&gt;<br>Date: Fri, 01 Dec 2023 18:44:12 -050=
+0<br>Subject: Receipt from Riley's<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =
+Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><div><br></=
+div><blockquote id=3D"blockquote_zmail" style=3D"margin: 0px;"><style>div.z=
+m_-8133408602749007693_parse_5212516329750477022.x_361817143sensitive-data =
+.x_361817143table-footer .x_361817143footer-link a {
+  color: rgb(61, 69, 77);
+}</style><div style=3D"font-family :  SQMarket,  HelveticaNeue,  &quot;Helv=
+etica Neue&quot;,  Helvetica,  Arial,  sans-serif; font-size :  14px; line-=
+height :  30px; color :  #3d454d; font-weight :  normal; width :  100%; min=
+-height :  400px; margin-top :  0; margin-right :  0; margin-bottom :  0; m=
+argin-left :  0; padding-top :  0; padding-right :  0; padding-bottom :  0;=
+ padding-left :  0;" class=3D"zm_-8133408602749007693_parse_521251632975047=
+7022"><div class=3D"x_361817143preheader" style=3D"font-size: 0px; max-heig=
+ht: 0px; display: none;"><span class=3D"overFlow" style=3D"overflow:hidden"=
+>Receipt for $267.23 at Riley's on 2023-12-01-18:38.</span><br></div><div c=
+lass=3D"x_361817143pseudo-body x_361817143ExternalClass" style=3D"min-heigh=
+t :  400px; background-color :  #f2f4f5; width :  100%; line-height :  100%=
+;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" s=
+tyle=3D"border :  0; border-collapse :  collapse; border-spacing :  0; bord=
+er-top-width :  0; border-right-width :  0; border-bottom-width :  0; borde=
+r-left-width :  0;"><tbody><tr><td align=3D"center" style=3D"line-height : =
+ 0px; font-size :  0px; border-collapse :  collapse; padding-top :  0; padd=
+ing-right :  0; padding-bottom :  0; padding-left :  0;" valign=3D"top"><ta=
+ble align=3D"center" class=3D"x_361817143receipt-content-wrapper x_36181714=
+3receipt-content-wrapper--546476" style=3D"border :  0; border-collapse :  =
+collapse; border-spacing :  0; text-align :  left; margin-left :  auto; mar=
+gin-right :  auto; margin-top :  16px; width :  100%; min-width :  320px; m=
+ax-width :  375px; border-top-width :  0; border-right-width :  0; border-b=
+ottom-width :  0; border-left-width :  0;" width=3D"100%" cellpadding=3D"0"=
+ cellspacing=3D"0"><tbody><tr><td align=3D"center" style=3D"line-height :  =
+0px; font-size :  0px; border-collapse :  collapse; padding-top :  0; paddi=
+ng-right :  0; padding-bottom :  0; padding-left :  0;"><table border=3D"0"=
+ cellspacing=3D"0" cellpadding=3D"0" class=3D"x_361817143merchant-header-wr=
+apper" style=3D"border :  0; border-collapse :  collapse; border-spacing : =
+ 0; overflow :  hidden; width :  100%; border-top-width :  0; border-right-=
+width :  0; border-bottom-width :  0; border-left-width :  0;" width=3D"100=
+%"><tbody><tr><td align=3D"center" valign=3D"top" class=3D"x_361817143feedb=
+ack-visible" style=3D"line-height :  0px; font-size :  0px; border-collapse=
+ :  collapse; padding-top :  0; padding-right :  0; padding-bottom :  0; pa=
+dding-left :  0;"><table class=3D"x_361817143merchant-header-v2" style=3D"f=
+ont-family :  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Helve=
+tica,  Arial,  sans-serif; font-size :  14px; line-height :  30px; color : =
+ #3d454d; font-weight :  normal; border :  0; border-collapse :  collapse; =
+border-spacing :  0; table-layout :  fixed; width :  100%; height :  100%; =
+border-top-width :  0; border-right-width :  0; border-bottom-width :  0; b=
+order-left-width :  0;" width=3D"100%" height=3D"100%" cellpadding=3D"0" ce=
+llspacing=3D"0"><tbody><tr><td align=3D"center" style=3D"line-height :  0px=
+; font-size :  0px; border-collapse :  collapse; padding-top :  0; padding-=
+right :  0; padding-bottom :  0; padding-left :  0;"><table align=3D"center=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"70" style=3D"border :  0; bo=
+rder-collapse :  collapse; border-spacing :  0; border-top-width :  0; bord=
+er-right-width :  0; border-bottom-width :  0; border-left-width :  0;"><tb=
+ody><tr><td align=3D"center" class=3D"x_361817143merchant-header-top-v2" st=
+yle=3D"line-height :  0px; font-size :  0px; border-collapse :  collapse; w=
+idth :  100%; padding-top :  0; padding-right :  0; padding-bottom :  0; pa=
+dding-left :  0;" valign=3D"middle" bgcolor=3D"#546476" width=3D"100%"><div=
+ class=3D"x_361817143faux_absolute" style=3D"max-height :  0; position :  r=
+elative; opacity :  0.999;"><div class=3D"x_361817143profile_image_position=
+" style=3D"margin-top :  52px; margin-left :  0em; display :  inline-block;=
+"><img width=3D"64" height=3D"64" border=3D"0" alt=3D"Logo" style=3D"border=
+-top-width :  3px; border-right-width :  3px; border-bottom-width :  3px; b=
+order-left-width :  3px; border-top-color :  #ffffff; border-right-color : =
+ #ffffff; border-bottom-color :  #ffffff; border-left-color :  #ffffff; bor=
+der-top-style :  solid; border-right-style :  solid; border-bottom-style : =
+ solid; border-left-style :  solid; border-radius :  11px; background-color=
+ :  #4c5a6a;" id=3D"1701474256049000001_imgsrc_url_0"></div><br></div></td>=
+</tr></tbody></table></td></tr><tr><td width=3D"100%" height=3D"87" colspan=
+=3D"1" style=3D"line-height :  0; font-size :  0; border-collapse :  collap=
+se; padding-top :  0; padding-right :  0; padding-bottom :  0; padding-left=
+ :  0;" bgcolor=3D"#546476"><br></td></tr><tr><td width=3D"100%" height=3D"=
+43" colspan=3D"1" style=3D"line-height :  0; font-size :  0; border-collaps=
+e :  collapse; padding-top :  0; padding-right :  0; padding-bottom :  0; p=
+adding-left :  0;" bgcolor=3D"#ffffff"><br></td></tr><tr><td align=3D"cente=
+r" class=3D"x_361817143merchant-header-v2__name" style=3D"line-height :  26=
+px; font-size :  16px; border-collapse :  collapse; color :  #3d454d; font-=
+family :  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Helvetica=
+,  Arial,  sans-serif; font-weight :  bold; letter-spacing :  0.2px; paddin=
+g-top :  0; padding-right :  0; padding-bottom :  0; padding-left :  0;" bg=
+color=3D"white">Riley's<br></td></tr></tbody></table></td></tr></tbody></ta=
+ble><table class=3D"x_361817143table-container-section" style=3D"border :  =
+0; border-collapse :  collapse; border-spacing :  0; width :  100%; min-wid=
+th :  100%; border-top-width :  0; border-right-width :  0; border-bottom-w=
+idth :  0; border-left-width :  0;" bgcolor=3D"white" width=3D"100%" cellpa=
+dding=3D"0" cellspacing=3D"0"><tbody><tr><td width=3D"100%" height=3D"13" c=
+olspan=3D"1" style=3D"line-height :  0; font-size :  0; border-collapse :  =
+collapse; padding-top :  0; padding-right :  0; padding-bottom :  0; paddin=
+g-left :  0;"><br></td></tr><tr><td align=3D"center" style=3D"line-height :=
+  0px; font-size :  0px; border-collapse :  collapse; padding-top :  0; pad=
+ding-right :  0; padding-bottom :  0; padding-left :  0;"><table style=3D"b=
+order :  0; border-collapse :  collapse; border-spacing :  0; border-top-wi=
+dth :  0; border-right-width :  0; border-bottom-width :  0; border-left-wi=
+dth :  0;" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td width=3D"39" =
+style=3D"line-height :  0px; font-size :  0px; border-collapse :  collapse;=
+ padding-top :  0; padding-right :  0; padding-bottom :  0; padding-left : =
+ 0;"><br></td></tr><tr><td width=3D"297" style=3D"line-height :  0px; font-=
+size :  0px; border-collapse :  collapse; padding-top :  0; padding-right :=
+  0; padding-bottom :  0; padding-left :  0;"><table class=3D"x_361817143fe=
+edback-tile-box" style=3D"border :  0; border-collapse :  collapse; border-=
+spacing :  0; width :  100%; border-radius :  6px; border-top-width :  0; b=
+order-right-width :  0; border-bottom-width :  0; border-left-width :  0;" =
+bgcolor=3D"#f8f9fa" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"><tbo=
+dy><tr><td width=3D"100%" height=3D"21" colspan=3D"1" style=3D"line-height =
+:  0; font-size :  0; border-collapse :  collapse; padding-top :  0; paddin=
+g-right :  0; padding-bottom :  0; padding-left :  0;"><br></td></tr><tr><t=
+d style=3D"line-height :  0px; font-size :  0px; border-collapse :  collaps=
+e; padding-top :  0; padding-right :  0; padding-bottom :  0; padding-left =
+:  0;"><table class=3D"x_361817143table-feedback-choices" style=3D"border :=
+  0; border-collapse :  collapse; border-spacing :  24px 0; table-layout : =
+ fixed; width :  100%; border-top-width :  0; border-right-width :  0; bord=
+er-bottom-width :  0; border-left-width :  0;" width=3D"100%" cellpadding=
+=3D"0" cellspacing=3D"0"><tbody><tr><td class=3D"x_361817143choice x_361817=
+143feedback-positive" style=3D"line-height :  0px; font-size :  0px; border=
+-collapse :  collapse; padding-top :  0; padding-right :  9px; padding-bott=
+om :  0; padding-left :  0;" align=3D"right" valign=3D"middle"><a id=3D"x_3=
+61817143question-positive" href=3D"https://a.squareupmessaging.com/CL0/http=
+s:%2F%2Faccount.squareup.com%2Fresponse%2Fr1EJX06R3RXZAHM%2F1%3Fmerchant_to=
+ken=3DZMVNDTJJXZGM7/1/0101018c27c4b681-1623adbc-d34a-4943-b636-522dbd827d9d=
+-000000/MC-NYHQ6SNAVlF2_qNxuH46puFhJzhp1g9HknPVJSms=3D329" style=3D"text-de=
+coration :  none; vertical-align :  middle; display :  block; width :  100%=
+; min-height:  100%;" target=3D"_blank"><div><img alt=3D"Positive" title=3D=
+"Positive" width=3D"56" height=3D"56" border=3D"0" id=3D"170147425604900000=
+1_imgsrc_url_1" style=3D"vertical-align :  middle; display :  inline-block;=
+"><br></div></a></td><td class=3D"x_361817143choice x_361817143feedback-neg=
+ative" style=3D"line-height :  0px; font-size :  0px; border-collapse :  co=
+llapse; padding-top :  0; padding-right :  0; padding-bottom :  0; padding-=
+left :  9px;" align=3D"left" valign=3D"middle"><a id=3D"x_361817143question=
+-negative" href=3D"https://a.squareupmessaging.com/CL0/https:%2F%2Faccount.=
+squareup.com%2Fresponse%2Fr1EJX06R3RXZAHM%2F-1%3Fmerchant_token=3DZMVNDTJJX=
+ZGM7/1/0101018c27c4b681-1623adbc-d34a-4943-b636-522dbd827d9d-000000/257_KEd=
+0-HNKwE-1iC3rjvFe_bMLCL8oNE_OVDut-30=3D329" style=3D"text-decoration :  non=
+e; vertical-align :  middle; display :  block; width :  100%; min-height:  =
+100%;" target=3D"_blank"><div><img alt=3D"Negative" title=3D"Negative" widt=
+h=3D"56" height=3D"56" border=3D"0" id=3D"1701474256049000001_imgsrc_url_2"=
+ style=3D"vertical-align :  middle; display :  inline-block;"><br></div></a=
+></td></tr></tbody></table></td></tr><tr><td width=3D"100%" height=3D"13" c=
+olspan=3D"1" style=3D"line-height :  0; font-size :  0; border-collapse :  =
+collapse; padding-top :  0; padding-right :  0; padding-bottom :  0; paddin=
+g-left :  0;"><br></td></tr><tr><td class=3D"x_361817143question-text-v2" s=
+tyle=3D"line-height :  0px; font-size :  0px; border-collapse :  collapse; =
+width :  100%; padding-top :  0; padding-right :  43px; padding-bottom :  0=
+; padding-left :  43px;" align=3D"center" width=3D"100%"><div style=3D"font=
+-family :  SQMarket,  HelveticaNeue-Medium,  &quot;Helvetica Neue Medium&qu=
+ot;,  Helvetica-Bold,  Helvetica,  Arial,  sans-serif; font-weight :  500; =
+font-size :  12px; line-height :  18px; color :  #3d454d;">Let Riley's know=
+ how your experience was<br></div></td></tr><tr><td width=3D"100%" height=
+=3D"22" colspan=3D"1" style=3D"line-height :  0; font-size :  0; border-col=
+lapse :  collapse; padding-top :  0; padding-right :  0; padding-bottom :  =
+0; padding-left :  0;"><br></td></tr></tbody></table></td></tr><tr><td widt=
+h=3D"39" style=3D"line-height :  0px; font-size :  0px; border-collapse :  =
+collapse; padding-top :  0; padding-right :  0; padding-bottom :  0; paddin=
+g-left :  0;"><br></td></tr></tbody></table></td></tr><tr><td width=3D"100%=
+" height=3D"6" colspan=3D"1" style=3D"line-height :  0; font-size :  0; bor=
+der-collapse :  collapse; padding-top :  0; padding-right :  0; padding-bot=
+tom :  0; padding-left :  0;"><br></td></tr></tbody></table><table class=3D=
+"x_361817143table-container-section x_361817143table-payment-header" style=
+=3D"border :  0; border-collapse :  collapse; border-spacing :  0; width : =
+ 100%; min-width :  100%; border-top-width :  0; border-right-width :  0; b=
+order-bottom-width :  0; border-left-width :  0;" bgcolor=3D"white" width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td width=3D"100%"=
+ height=3D"24" colspan=3D"1" style=3D"line-height :  0; font-size :  0; fon=
+t-family :  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Helveti=
+ca,  Arial,  sans-serif; color :  #3d454d; font-weight :  normal; border-co=
+llapse :  collapse; padding-top :  0; padding-right :  0; padding-bottom : =
+ 0; padding-left :  0;"><br></td></tr><tr><td align=3D"center" style=3D"fon=
+t-family :  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Helveti=
+ca,  Arial,  sans-serif; font-size :  14px; line-height :  30px; color :  #=
+3d454d; font-weight :  normal; border-collapse :  collapse; padding-top :  =
+0; padding-right :  0; padding-bottom :  0; padding-left :  0;"><div class=
+=3D"x_361817143h1 x_361817143 x_361817143language-en x_361817143currency-CA=
+D" style=3D"font-family :  SQMarket,  HelveticaNeue-Medium,  &quot;Helvetic=
+a Neue Medium&quot;,  Helvetica-Bold,  Helvetica,  Arial,  sans-serif; font=
+-weight :  500; color :  #3d454d; font-size :  64px; line-height :  64px; w=
+hite-space :  nowrap;" align=3D"center"><div class=3D"x_361817143p x_361817=
+143currency" style=3D"white-space :  nowrap;"><span class=3D"font" style=3D=
+"font-family:SQMarket, HelveticaNeue-Medium, &quot;Helvetica Neue Medium&qu=
+ot;, Helvetica-Bold, Helvetica, Arial, sans-serif"><span class=3D"size" sty=
+le=3D"font-size: 26px; font-weight: 500; vertical-align: super; line-height=
+: 1;">$</span></span><span class=3D"x_361817143money-whole">267</span><span=
+ class=3D"x_361817143money-decimal-mark">.</span><span class=3D"x_361817143=
+money-decimal">23</span><br></div></div></td></tr><tr><td width=3D"100%" he=
+ight=3D"8" colspan=3D"1" style=3D"line-height :  0; font-size :  0; font-fa=
+mily :  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Helvetica, =
+ Arial,  sans-serif; color :  #3d454d; font-weight :  normal; border-collap=
+se :  collapse; padding-top :  0; padding-right :  0; padding-bottom :  0; =
+padding-left :  0;"><br></td></tr></tbody></table><table border=3D"0" cells=
+pacing=3D"0" cellpadding=3D"0" class=3D"x_361817143table-container-section"=
+ style=3D"border :  0; border-collapse :  collapse; border-spacing :  0; wi=
+dth :  100%; min-width :  100%; border-top-width :  0; border-right-width :=
+  0; border-bottom-width :  0; border-left-width :  0;" bgcolor=3D"white" w=
+idth=3D"100%"><tbody><tr><td bgcolor=3D"#ffffff" width=3D"16" style=3D"line=
+-height :  0px; font-size :  0px; border-collapse :  collapse; padding-top =
+:  0; padding-right :  0; padding-bottom :  0; padding-left :  0;"><img wid=
+th=3D"16" height=3D"1" border=3D"0" alt=3D"" style=3D"line-height :  0; fon=
+t-size :  0;" id=3D"1701474256049000001_imgsrc_url_3"><br></td><td style=3D=
+"line-height :  0px; font-size :  0px; border-collapse :  collapse; padding=
+-top :  0; padding-right :  0; padding-bottom :  0; padding-left :  0;"><ta=
+ble border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"x_361817143ta=
+ble-container-section x_361817143table-payment-info" style=3D"border :  0; =
+border-collapse :  separate; border-spacing :  0; width :  100%; min-width =
+:  100%; border-top-width :  0; border-right-width :  0; border-bottom-widt=
+h :  0; border-left-width :  0;" bgcolor=3D"white" width=3D"100%"><tbody><t=
+r><td align=3D"center" valign=3D"top" style=3D"line-height :  0px; font-siz=
+e :  0px; border-collapse :  collapse; padding-top :  0; padding-right :  0=
+; padding-bottom :  0; padding-left :  0;"><br></td></tr><tr><td width=3D"1=
+00%" height=3D"8" colspan=3D"1" style=3D"line-height :  0; font-size :  0; =
+border-collapse :  collapse; padding-top :  0; padding-right :  0; padding-=
+bottom :  0; padding-left :  0;"><br></td></tr><tr><td width=3D"100%" heigh=
+t=3D"3.5" colspan=3D"3" style=3D"line-height :  0px; font-size :  0px; bord=
+er-collapse :  collapse; padding-top :  0; padding-right :  0; padding-bott=
+om :  0; padding-left :  0;"><br></td></tr><tr><td colspan=3D"3" style=3D"b=
+order-top-width :  1px; border-top-color :  #e0e1e2; border-top-style :  da=
+shed; line-height :  0px; font-size :  0px; border-collapse :  collapse; pa=
+dding-top :  0; padding-right :  0; padding-bottom :  0; padding-left :  0;=
+" height=3D"1"><img width=3D"1" height=3D"1" border=3D"0" alt=3D"" style=3D=
+"line-height :  0; font-size :  0;" id=3D"1701474256049000001_imgsrc_url_4"=
+><br></td></tr><tr><td width=3D"100%" height=3D"11" colspan=3D"3" style=3D"=
+line-height :  0px; font-size :  0px; border-collapse :  collapse; padding-=
+top :  0; padding-right :  0; padding-bottom :  0; padding-left :  0;"><br>=
+</td></tr><tr class=3D"x_361817143item-row"><td align=3D"left" class=3D"x_3=
+61817143half-col-left x_361817143payment-info-item" valign=3D"top" style=3D=
+"line-height :  0px; font-size :  0px; border-collapse :  collapse; width :=
+  70%; max-width :  305px; padding-top :  0; padding-right :  0; padding-bo=
+ttom :  0; padding-left :  0;" width=3D"70%"><div class=3D"x_361817143p x_3=
+61817143item-name" style=3D"font-family :  SQMarket,  HelveticaNeue,  &quot=
+;Helvetica Neue&quot;,  Helvetica,  Arial,  sans-serif; font-size :  14px; =
+line-height :  21px; color :  #3d454d; font-weight :  500; letter-spacing :=
+  0.2px; margin-top :  0; margin-right :  0; margin-bottom :  0; margin-lef=
+t :  0; padding-top :  8px; padding-right :  0; padding-bottom :  8px; padd=
+ing-left :  0;">Custom Amount<br></div></td><td align=3D"right" class=3D"x_=
+361817143half-col-right" valign=3D"top" style=3D"line-height :  0px; font-s=
+ize :  0px; border-collapse :  collapse; width :  30%; padding-top :  0; pa=
+dding-right :  0; padding-bottom :  0; padding-left :  0;" width=3D"30%"><d=
+iv class=3D"x_361817143p x_361817143currency" style=3D"font-family :  SQMar=
+ket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Helvetica,  Arial,  sans=
+-serif; font-size :  14px; line-height :  21px; color :  #3d454d; font-weig=
+ht :  500; letter-spacing :  0.2px; white-space :  nowrap; margin-top :  0;=
+ margin-right :  0; margin-bottom :  0; margin-left :  0; padding-top :  8p=
+x; padding-right :  0; padding-bottom :  8px; padding-left :  0;">$222.69<b=
+r></div></td></tr></tbody></table></td><td bgcolor=3D"#ffffff" width=3D"16"=
+ style=3D"line-height :  0px; font-size :  0px; border-collapse :  collapse=
+; padding-top :  0; padding-right :  0; padding-bottom :  0; padding-left :=
+  0;"><img width=3D"16" height=3D"1" border=3D"0" alt=3D"" style=3D"line-he=
+ight :  0; font-size :  0;" id=3D"1701474256049000001_imgsrc_url_5"><br></t=
+d></tr></tbody></table><table border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" class=3D"x_361817143table-container-section" style=3D"border :  0; bord=
+er-collapse :  collapse; border-spacing :  0; width :  100%; min-width :  1=
+00%; border-top-width :  0; border-right-width :  0; border-bottom-width : =
+ 0; border-left-width :  0;" bgcolor=3D"white" width=3D"100%"><tbody><tr><t=
+d bgcolor=3D"#ffffff" width=3D"16" style=3D"line-height :  0px; font-size :=
+  0px; border-collapse :  collapse; padding-top :  0; padding-right :  0; p=
+adding-bottom :  0; padding-left :  0;"><img width=3D"16" height=3D"1" bord=
+er=3D"0" alt=3D"" style=3D"line-height :  0; font-size :  0;" id=3D"1701474=
+256049000001_imgsrc_url_6"><br></td><td style=3D"line-height :  0px; font-s=
+ize :  0px; border-collapse :  collapse; padding-top :  0; padding-right : =
+ 0; padding-bottom :  0; padding-left :  0;"><table border=3D"0" cellspacin=
+g=3D"0" cellpadding=3D"0" class=3D"x_361817143table-container-section x_361=
+817143table-payment-info" style=3D"border :  0; border-collapse :  separate=
+; border-spacing :  0; width :  100%; min-width :  100%; border-top-width :=
+  0; border-right-width :  0; border-bottom-width :  0; border-left-width :=
+  0;" bgcolor=3D"white" width=3D"100%"><tbody><tr><td align=3D"center" vali=
+gn=3D"top" style=3D"line-height :  0px; font-size :  0px; border-collapse :=
+  collapse; padding-top :  0; padding-right :  0; padding-bottom :  0; padd=
+ing-left :  0;"><br></td></tr><tr><td width=3D"100%" height=3D"8" colspan=
+=3D"1" style=3D"line-height :  0; font-size :  0; border-collapse :  collap=
+se; padding-top :  0; padding-right :  0; padding-bottom :  0; padding-left=
+ :  0;"><br></td></tr><tr><td width=3D"100%" height=3D"11" colspan=3D"3" st=
+yle=3D"line-height :  0px; font-size :  0px; border-collapse :  collapse; p=
+adding-top :  0; padding-right :  0; padding-bottom :  0; padding-left :  0=
+;"><br></td></tr><tr><td colspan=3D"3" style=3D"border-top-width :  1px; bo=
+rder-top-color :  #e0e1e2; border-top-style :  dashed; line-height :  0px; =
+font-size :  0px; border-collapse :  collapse; padding-top :  0; padding-ri=
+ght :  0; padding-bottom :  0; padding-left :  0;" height=3D"1"><img width=
+=3D"1" height=3D"1" border=3D"0" alt=3D"" style=3D"line-height :  0; font-s=
+ize :  0;" id=3D"1701474256049000001_imgsrc_url_7"><br></td></tr><tr><td wi=
+dth=3D"100%" height=3D"11" colspan=3D"3" style=3D"line-height :  0px; font-=
+size :  0px; border-collapse :  collapse; padding-top :  0; padding-right :=
+  0; padding-bottom :  0; padding-left :  0;"><br></td></tr><tr><td align=
+=3D"left" class=3D"x_361817143half-col-left" style=3D"line-height :  0px; f=
+ont-size :  0px; border-collapse :  collapse; width :  70%; padding-top :  =
+0; padding-right :  0; padding-bottom :  0; padding-left :  0;" width=3D"70=
+%"><div class=3D"x_361817143p" style=3D"font-family :  SQMarket,  Helvetica=
+Neue,  &quot;Helvetica Neue&quot;,  Helvetica,  Arial,  sans-serif; font-si=
+ze :  14px; line-height :  21px; color :  #3d454d; font-weight :  normal; l=
+etter-spacing :  0.2px; margin-top :  0; margin-right :  0; margin-bottom :=
+  0; margin-left :  0; padding-top :  -0.5px; padding-right :  0; padding-b=
+ottom :  -0.5px; padding-left :  0;">Purchase Subtotal<br></div></td><td al=
+ign=3D"right" class=3D"x_361817143half-col-right" style=3D"line-height :  0=
+px; font-size :  0px; border-collapse :  collapse; width :  30%; padding-to=
+p :  0; padding-right :  0; padding-bottom :  0; padding-left :  0;" width=
+=3D"30%"><div class=3D"x_361817143p x_361817143currency" style=3D"font-fami=
+ly :  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Helvetica,  A=
+rial,  sans-serif; font-size :  14px; line-height :  21px; color :  #3d454d=
+; font-weight :  normal; letter-spacing :  0.2px; white-space :  nowrap; ma=
+rgin-top :  0; margin-right :  0; margin-bottom :  0; margin-left :  0; pad=
+ding-top :  -0.5px; padding-right :  0; padding-bottom :  -0.5px; padding-l=
+eft :  0;">$222.69<br></div></td></tr><tr><td align=3D"left" class=3D"x_361=
+817143half-col-left" style=3D"line-height :  0px; font-size :  0px; border-=
+collapse :  collapse; width :  70%; padding-top :  0; padding-right :  0; p=
+adding-bottom :  0; padding-left :  0;" width=3D"70%"><div class=3D"x_36181=
+7143p" style=3D"font-family :  SQMarket,  HelveticaNeue,  &quot;Helvetica N=
+eue&quot;,  Helvetica,  Arial,  sans-serif; font-size :  14px; line-height =
+:  21px; color :  #3d454d; font-weight :  normal; letter-spacing :  0.2px; =
+margin-top :  0; margin-right :  0; margin-bottom :  0; margin-left :  0; p=
+adding-top :  -0.5px; padding-right :  0; padding-bottom :  -0.5px; padding=
+-left :  0;">Tip<br></div></td><td align=3D"right" class=3D"x_361817143half=
+-col-right" style=3D"line-height :  0px; font-size :  0px; border-collapse =
+:  collapse; width :  30%; padding-top :  0; padding-right :  0; padding-bo=
+ttom :  0; padding-left :  0;" width=3D"30%"><div class=3D"x_361817143p x_3=
+61817143currency" style=3D"font-family :  SQMarket,  HelveticaNeue,  &quot;=
+Helvetica Neue&quot;,  Helvetica,  Arial,  sans-serif; font-size :  14px; l=
+ine-height :  21px; color :  #3d454d; font-weight :  normal; letter-spacing=
+ :  0.2px; white-space :  nowrap; margin-top :  0; margin-right :  0; margi=
+n-bottom :  0; margin-left :  0; padding-top :  -0.5px; padding-right :  0;=
+ padding-bottom :  -0.5px; padding-left :  0;">$44.54<br></div></td></tr><t=
+r><td width=3D"100%" height=3D"11" colspan=3D"3" style=3D"line-height :  0p=
+x; font-size :  0px; border-collapse :  collapse; padding-top :  0; padding=
+-right :  0; padding-bottom :  0; padding-left :  0;"><br></td></tr><tr><td=
+ colspan=3D"3" style=3D"border-top-width :  1px; border-top-color :  #e0e1e=
+2; border-top-style :  dashed; line-height :  0px; font-size :  0px; border=
+-collapse :  collapse; padding-top :  0; padding-right :  0; padding-bottom=
+ :  0; padding-left :  0;" height=3D"1"><img width=3D"1" height=3D"1" borde=
+r=3D"0" alt=3D"" style=3D"line-height :  0; font-size :  0;" id=3D"17014742=
+56049000001_imgsrc_url_8"><br></td></tr><tr><td width=3D"100%" height=3D"11=
+" colspan=3D"3" style=3D"line-height :  0px; font-size :  0px; border-colla=
+pse :  collapse; padding-top :  0; padding-right :  0; padding-bottom :  0;=
+ padding-left :  0;"><br></td></tr><tr class=3D"x_361817143tr-payment-total=
+"><td align=3D"left" class=3D"x_361817143half-col-left" style=3D"line-heigh=
+t :  0px; font-size :  0px; border-collapse :  collapse; width :  70%; padd=
+ing-top :  0; padding-right :  0; padding-bottom :  0; padding-left :  0;" =
+width=3D"70%"><div class=3D"x_361817143p x_361817143purchase-total" style=
+=3D"font-family :  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  =
+Helvetica,  Arial,  sans-serif; font-size :  14px; line-height :  21px; col=
+or :  #3d454d; font-weight :  bold; letter-spacing :  0.2px; white-space : =
+ nowrap; margin-top :  0; margin-right :  0; margin-bottom :  0; margin-lef=
+t :  0; padding-top :  -0.5px; padding-right :  0; padding-bottom :  -0.5px=
+; padding-left :  0;">Total<br></div></td><td align=3D"right" class=3D"x_36=
+1817143half-col-right" style=3D"line-height :  0px; font-size :  0px; borde=
+r-collapse :  collapse; width :  30%; padding-top :  0; padding-right :  0;=
+ padding-bottom :  0; padding-left :  0;" width=3D"30%"><div class=3D"x_361=
+817143p x_361817143currency x_361817143purchase-total" style=3D"font-family=
+ :  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Helvetica,  Ari=
+al,  sans-serif; font-size :  14px; line-height :  21px; color :  #3d454d; =
+font-weight :  bold; letter-spacing :  0.2px; white-space :  nowrap; margin=
+-top :  0; margin-right :  0; margin-bottom :  0; margin-left :  0; padding=
+-top :  -0.5px; padding-right :  0; padding-bottom :  -0.5px; padding-left =
+:  0;">$267.23<br></div></td></tr></tbody></table></td><td bgcolor=3D"#ffff=
+ff" width=3D"16" style=3D"line-height :  0px; font-size :  0px; border-coll=
+apse :  collapse; padding-top :  0; padding-right :  0; padding-bottom :  0=
+; padding-left :  0;"><img width=3D"16" height=3D"1" border=3D"0" alt=3D"" =
+style=3D"line-height :  0; font-size :  0;" id=3D"1701474256049000001_imgsr=
+c_url_9"><br></td></tr></tbody></table><table border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0" class=3D"x_361817143table-container-section" style=3D"b=
+order :  0; border-collapse :  collapse; border-spacing :  0; width :  100%=
+; min-width :  100%; border-top-width :  0; border-right-width :  0; border=
+-bottom-width :  0; border-left-width :  0;" bgcolor=3D"white" width=3D"100=
+%"><tbody><tr><td bgcolor=3D"#ffffff" width=3D"16" style=3D"line-height :  =
+0px; font-size :  0px; border-collapse :  collapse; padding-top :  0; paddi=
+ng-right :  0; padding-bottom :  0; padding-left :  0;"><img width=3D"16" h=
+eight=3D"1" border=3D"0" alt=3D"" style=3D"line-height :  0; font-size :  0=
+;" id=3D"1701474256049000001_imgsrc_url_10"><br></td><td style=3D"line-heig=
+ht :  0px; font-size :  0px; border-collapse :  collapse; padding-top :  0;=
+ padding-right :  0; padding-bottom :  0; padding-left :  0;"><table border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"x_361817143table-contai=
+ner-section x_361817143table-payment-info" style=3D"border :  0; border-col=
+lapse :  separate; border-spacing :  0; width :  100%; min-width :  100%; b=
+order-top-width :  0; border-right-width :  0; border-bottom-width :  0; bo=
+rder-left-width :  0;" bgcolor=3D"white" width=3D"100%"><tbody><tr><td alig=
+n=3D"center" valign=3D"top" style=3D"line-height :  0px; font-size :  0px; =
+border-collapse :  collapse; padding-top :  0; padding-right :  0; padding-=
+bottom :  0; padding-left :  0;"><br></td></tr><tr><td width=3D"100%" heigh=
+t=3D"16" colspan=3D"2" style=3D"line-height :  0; font-size :  0; border-co=
+llapse :  collapse; padding-top :  0; padding-right :  0; padding-bottom : =
+ 0; padding-left :  0;"><br></td></tr></tbody></table></td><td bgcolor=3D"#=
+ffffff" width=3D"16" style=3D"line-height :  0px; font-size :  0px; border-=
+collapse :  collapse; padding-top :  0; padding-right :  0; padding-bottom =
+:  0; padding-left :  0;"><img width=3D"16" height=3D"1" border=3D"0" alt=
+=3D"" style=3D"line-height :  0; font-size :  0;" id=3D"1701474256049000001=
+_imgsrc_url_11"><br></td></tr></tbody></table><table class=3D"x_361817143ta=
+ble-container-section x_361817143table-merchant-info" style=3D"border :  0;=
+ border-collapse :  collapse; border-spacing :  0; width :  100%; min-width=
+ :  100%; table-layout :  fixed; border-top-width :  0; border-right-width =
+:  0; border-bottom-width :  0; border-left-width :  0;" bgcolor=3D"white" =
+width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td align=3D"=
+center" class=3D"x_361817143td-map-container" valign=3D"top" style=3D"line-=
+height :  0px; font-size :  0px; border-collapse :  collapse; width :  100%=
+; padding-top :  0; padding-right :  0; padding-bottom :  0; padding-left :=
+  0;" width=3D"100%"><img align=3D"center" border=3D"0" class=3D"x_36181714=
+3merchant-info__map" id=3D"1701474256049000001_imgsrc_url_12" width=3D"100%=
+" style=3D"display :  block; max-width :  375px; width :  100%; max-height =
+:  120px;"></td></tr><tr><td width=3D"100%" height=3D"24" colspan=3D"1" sty=
+le=3D"line-height :  0; font-size :  0; border-collapse :  collapse; paddin=
+g-top :  0; padding-right :  0; padding-bottom :  0; padding-left :  0;"><b=
+r></td></tr><tr><td align=3D"center" class=3D"x_361817143td-receipt-address=
+" style=3D"line-height :  0px; font-size :  0px; border-collapse :  collaps=
+e; padding-top :  0; padding-right :  0; padding-bottom :  0; padding-left =
+:  0;"><div class=3D"x_361817143p x_361817143receipt-profile-name" style=3D=
+"font-family :  SQMarket,  HelveticaNeue-Medium,  &quot;Helvetica Neue Medi=
+um&quot;,  Helvetica-Bold,  Helvetica,  Arial,  sans-serif; font-size :  14=
+px; line-height :  23px; color :  #3d454d; font-weight :  500; letter-spaci=
+ng :  0.2px; text-decoration :  none; margin-top :  0; margin-right :  0; m=
+argin-bottom :  0; margin-left :  0; padding-top :  0; padding-right :  0; =
+padding-bottom :  0; padding-left :  0;" align=3D"center">Riley's<br></div>=
+<div class=3D"x_361817143p x_361817143receipt-address" style=3D"font-family=
+ :  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Helvetica,  Ari=
+al,  sans-serif; font-size :  14px; line-height :  23px; color :  #3d454d; =
+font-weight :  normal; letter-spacing :  0.2px; text-decoration :  none; ma=
+rgin-top :  0; margin-right :  0; margin-bottom :  0; margin-left :  0; pad=
+ding-top :  0; padding-right :  0; padding-bottom :  0; padding-left :  0;"=
+ align=3D"center"><div class=3D"x_361817143p x_361817143receipt-address" st=
+yle=3D"color :  #3d454d; font-family :  SQMarket,  HelveticaNeue,  &quot;He=
+lvetica Neue&quot;,  Helvetica,  Arial,  sans-serif; font-size :  14px; fon=
+t-weight :  normal; letter-spacing :  0.2px; line-height :  23px; text-deco=
+ration :  none;" align=3D"center">251 George Street North<br></div><div cla=
+ss=3D"x_361817143p x_361817143receipt-address" style=3D"color :  #3d454d; f=
+ont-family :  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Helve=
+tica,  Arial,  sans-serif; font-size :  14px; font-weight :  normal; letter=
+-spacing :  0.2px; line-height :  23px; text-decoration :  none;" align=3D"=
+center">PETERBOROUGH, ON K9J 3G9<br></div></div><div class=3D"x_361817143p =
+x_361817143receipt-address" id=3D"x_361817143receipt-phone-number" style=3D=
+"font-family :  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Hel=
+vetica,  Arial,  sans-serif; font-size :  14px; line-height :  23px; color =
+:  #3d454d; font-weight :  normal; letter-spacing :  0.2px; text-decoration=
+ :  none; margin-top :  0; margin-right :  0; margin-bottom :  0; margin-le=
+ft :  0; padding-top :  0; padding-right :  0; padding-bottom :  0; padding=
+-left :  0;" align=3D"center"><a href=3D"http://a.squareupmessaging.com/CL0=
+/tel:705-750-0375/1/0101018c27c4b681-1623adbc-d34a-4943-b636-522dbd827d9d-0=
+00000/rn1-nhKnhxdSlKxcjtUSiatNrl4Jz-V_RlqjGtkpuIk=3D329" style=3D"text-deco=
+ration :  none; color :  #3d454d;" target=3D"_blank">705-750-0375</a><br></=
+div></td></tr><tr><td width=3D"100%" height=3D"16" colspan=3D"1" style=3D"l=
+ine-height :  0; font-size :  0; border-collapse :  collapse; padding-top :=
+  0; padding-right :  0; padding-bottom :  0; padding-left :  0;"><br></td>=
+</tr><tr><td align=3D"center" style=3D"line-height :  0px; font-size :  0px=
+; border-collapse :  collapse; padding-top :  0; padding-right :  0; paddin=
+g-bottom :  0; padding-left :  0;"><table align=3D"center" style=3D"border =
+:  0; border-collapse :  collapse; border-spacing :  0; border-top-width : =
+ 0; border-right-width :  0; border-bottom-width :  0; border-left-width : =
+ 0;" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td class=3D"x_36181714=
+3td-social-link" id=3D"x_361817143receipt-website-url" style=3D"line-height=
+ :  0px; font-size :  0px; border-collapse :  collapse; height :  32px; wid=
+th :  56px; padding-top :  0; padding-right :  0; padding-bottom :  0; padd=
+ing-left :  0;" align=3D"center" valign=3D"middle" width=3D"56" height=3D"3=
+2"><a href=3D"http://a.squareupmessaging.com/CL0/http:%2F%2Frileysptbo..com=
+/1/0101018c27c4b681-1623adbc-d34a-4943-b636-522dbd827d9d-000000/dUFaBssHQSa=
+_GMLOFWML497pvaAFw7puzW4KIs7yWKk=3D329" style=3D"text-decoration :  none; v=
+ertical-align :  middle;" target=3D"_blank"><img width=3D"32" height=3D"32"=
+ border=3D"0" id=3D"1701474256049000001_imgsrc_url_13" style=3D"display :  =
+inline-block; vertical-align :  middle;"></a><br></td></tr></tbody></table>=
+</td></tr><tr><td width=3D"100%" height=3D"20" colspan=3D"1" style=3D"line-=
+height :  0; font-size :  0; border-collapse :  collapse; padding-top :  0;=
+ padding-right :  0; padding-bottom :  0; padding-left :  0;"><br></td></tr=
+></tbody></table><table style=3D"border :  0; border-collapse :  collapse; =
+border-spacing :  0; border-top-width :  0; border-right-width :  0; border=
+-bottom-width :  0; border-left-width :  0;" cellpadding=3D"0" cellspacing=
+=3D"0"><tbody><tr><td colspan=3D"2" height=3D"1" style=3D"line-height :  0p=
+x; font-size :  0px; border-collapse :  collapse; padding-top :  0; padding=
+-right :  0; padding-bottom :  0; padding-left :  0;"><br></td></tr></tbody=
+></table><table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"x=
+_361817143table-container-section" style=3D"border :  0; border-collapse : =
+ collapse; border-spacing :  0; width :  100%; min-width :  100%; border-to=
+p-width :  0; border-right-width :  0; border-bottom-width :  0; border-lef=
+t-width :  0;" bgcolor=3D"white" width=3D"100%"><tbody><tr><td bgcolor=3D"#=
+ffffff" width=3D"16" style=3D"line-height :  0px; font-size :  0px; border-=
+collapse :  collapse; padding-top :  0; padding-right :  0; padding-bottom =
+:  0; padding-left :  0;"><img width=3D"16" height=3D"1" border=3D"0" alt=
+=3D"" style=3D"line-height :  0; font-size :  0;" id=3D"1701474256049000001=
+_imgsrc_url_14"><br></td><td style=3D"line-height :  0px; font-size :  0px;=
+ border-collapse :  collapse; padding-top :  0; padding-right :  0; padding=
+-bottom :  0; padding-left :  0;"><table border=3D"0" cellspacing=3D"0" cel=
+lpadding=3D"0" class=3D"x_361817143table-container-section x_361817143table=
+-date-and-tenders" style=3D"border :  0; border-collapse :  collapse; borde=
+r-spacing :  0; width :  100%; min-width :  100%; border-top-width :  0; bo=
+rder-right-width :  0; border-bottom-width :  0; border-left-width :  0;" b=
+gcolor=3D"white" width=3D"100%"><tbody><tr><td align=3D"center" valign=3D"t=
+op" style=3D"line-height :  0px; font-size :  0px; border-collapse :  colla=
+pse; width :  140px; padding-top :  0; padding-right :  0; padding-bottom :=
+  0; padding-left :  0;" width=3D"140"><br></td></tr><tr><td width=3D"100%"=
+ height=3D"16" colspan=3D"1" style=3D"line-height :  0; font-size :  0; bor=
+der-collapse :  collapse; width :  140px; padding-top :  0; padding-right :=
+  0; padding-bottom :  0; padding-left :  0;" valign=3D"top"><br></td></tr>=
+<tr><td align=3D"left" class=3D"x_361817143half-col-left" style=3D"line-hei=
+ght :  0px; font-size :  0px; border-collapse :  collapse; width :  140px; =
+padding-top :  0; padding-right :  0; padding-bottom :  0; padding-left :  =
+0;" valign=3D"top" width=3D"140"><div class=3D"x_361817143p" style=3D"font-=
+family :  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Helvetica=
+,  Arial,  sans-serif; font-size :  14px; line-height :  21px; color :  #85=
+898c; font-weight :  normal; vertical-align :  top; letter-spacing :  0.2px=
+; margin-top :  0; margin-right :  0; margin-bottom :  0; margin-left :  0;=
+ padding-top :  3.5px; padding-right :  0; padding-bottom :  3.5px; padding=
+-left :  0;">Interac 2376 (Chip)<br></div><div class=3D"x_361817143p x_3618=
+17143card-icon" style=3D"font-family :  SQMarket,  HelveticaNeue,  &quot;He=
+lvetica Neue&quot;,  Helvetica,  Arial,  sans-serif; font-size :  14px; lin=
+e-height :  21px; color :  #85898c; font-weight :  normal; vertical-align :=
+  top; letter-spacing :  0.2px; margin-top :  0; margin-right :  0; margin-=
+bottom :  0; margin-left :  0; padding-top :  3px; padding-right :  0; padd=
+ing-bottom :  3.5px; padding-left :  0;"><img width=3D"40" height=3D"16" bo=
+rder=3D"0" style=3D"display :  block; vertical-align :  top;" alt=3D"" id=
+=3D"1701474256049000001_imgsrc_url_15"></div></td><td align=3D"right" class=
+=3D"x_361817143half-col-right" style=3D"line-height :  0px; font-size :  0p=
+x; border-collapse :  collapse; width :  140px; padding-top :  0; padding-r=
+ight :  0; padding-bottom :  0; padding-left :  0;" valign=3D"top" width=3D=
+"140"><div class=3D"x_361817143p x_361817143td-payment-time" style=3D"font-=
+family :  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Helvetica=
+,  Arial,  sans-serif; font-size :  14px; line-height :  21px; color :  #85=
+898c; font-weight :  normal; vertical-align :  top; letter-spacing :  0.2px=
+; white-space :  nowrap; margin-top :  0; margin-right :  0; margin-bottom =
+:  0; margin-left :  0; padding-top :  3.5px; padding-right :  0; padding-b=
+ottom :  3.5px; padding-left :  0;">2023-12-01-18:38<br></div><div class=3D=
+"x_361817143p" style=3D"font-family :  SQMarket,  HelveticaNeue,  &quot;Hel=
+vetica Neue&quot;,  Helvetica,  Arial,  sans-serif; font-size :  14px; line=
+-height :  21px; color :  #85898c; font-weight :  normal; vertical-align : =
+ top; letter-spacing :  0.2px; margin-top :  0; margin-right :  0; margin-b=
+ottom :  0; margin-left :  0; padding-top :  3.5px; padding-right :  0; pad=
+ding-bottom :  3.5px; padding-left :  0;">Chequing<br></div><div class=3D"x=
+_361817143p" style=3D"font-family :  SQMarket,  HelveticaNeue,  &quot;Helve=
+tica Neue&quot;,  Helvetica,  Arial,  sans-serif; font-size :  14px; line-h=
+eight :  21px; color :  #85898c; font-weight :  normal; vertical-align :  t=
+op; letter-spacing :  0.2px; margin-top :  0; margin-right :  0; margin-bot=
+tom :  0; margin-left :  0; padding-top :  3.5px; padding-right :  0; paddi=
+ng-bottom :  3.5px; padding-left :  0;">#Tzhc<br></div><div class=3D"x_3618=
+17143p" style=3D"font-family :  SQMarket,  HelveticaNeue,  &quot;Helvetica =
+Neue&quot;,  Helvetica,  Arial,  sans-serif; font-size :  14px; line-height=
+ :  21px; color :  #85898c; font-weight :  normal; vertical-align :  top; l=
+etter-spacing :  0.2px; margin-top :  0; margin-right :  0; margin-bottom :=
+  0; margin-left :  0; padding-top :  3.5px; padding-right :  0; padding-bo=
+ttom :  3.5px; padding-left :  0;">Auth code: 183813<br></div></td></tr><tr=
+><td align=3D"left" class=3D"x_361817143half-col-left" colspan=3D"2" style=
+=3D"line-height :  0px; font-size :  0px; border-collapse :  collapse; widt=
+h :  140px; padding-top :  0; padding-right :  0; padding-bottom :  0; padd=
+ing-left :  0;" valign=3D"top" width=3D"140"><br></td></tr><tr><td width=3D=
+"100%" height=3D"11" colspan=3D"3" style=3D"line-height :  0px; font-size :=
+  0px; border-collapse :  collapse; width :  140px; padding-top :  0; paddi=
+ng-right :  0; padding-bottom :  0; padding-left :  0;" valign=3D"top"><br>=
+</td></tr><tr><td colspan=3D"3" style=3D"border-top-width :  1px; border-to=
+p-color :  #e0e1e2; border-top-style :  dashed; line-height :  0px; font-si=
+ze :  0px; border-collapse :  collapse; width :  140px; padding-top :  0; p=
+adding-right :  0; padding-bottom :  0; padding-left :  0;" height=3D"1" va=
+lign=3D"top" width=3D"140"><img width=3D"1" height=3D"1" border=3D"0" alt=
+=3D"" style=3D"line-height :  0; font-size :  0; vertical-align :  top;" id=
+=3D"1701474256049000001_imgsrc_url_16"><br></td></tr><tr><td width=3D"100%"=
+ height=3D"11" colspan=3D"3" style=3D"line-height :  0px; font-size :  0px;=
+ border-collapse :  collapse; width :  140px; padding-top :  0; padding-rig=
+ht :  0; padding-bottom :  0; padding-left :  0;" valign=3D"top"><br></td><=
+/tr><tr class=3D"x_361817143payment-tenders"><td align=3D"left" class=3D"x_=
+361817143half-col-left" style=3D"line-height :  0px; font-size :  0px; bord=
+er-collapse :  collapse; width :  140px; padding-top :  0; padding-right : =
+ 0; padding-bottom :  0; padding-left :  0;" valign=3D"top" width=3D"140"><=
+div class=3D"x_361817143p" style=3D"font-family :  SQMarket,  HelveticaNeue=
+,  &quot;Helvetica Neue&quot;,  Helvetica,  Arial,  sans-serif; font-size :=
+  14px; line-height :  21px; color :  #85898c; font-weight :  normal; verti=
+cal-align :  top; letter-spacing :  0.2px; margin-top :  0; margin-right : =
+ 0; margin-bottom :  0; margin-left :  0; padding-top :  3.5px; padding-rig=
+ht :  0; padding-bottom :  3.5px; padding-left :  0;">AID: <span>A000000277=
+1010</span><br></div><div class=3D"x_361817143p" style=3D"font-family :  SQ=
+Market,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Helvetica,  Arial,  s=
+ans-serif; font-size :  14px; line-height :  21px; color :  #85898c; font-w=
+eight :  normal; vertical-align :  top; letter-spacing :  0.2px; margin-top=
+ :  0; margin-right :  0; margin-bottom :  0; margin-left :  0; padding-top=
+ :  3.5px; padding-right :  0; padding-bottom :  3.5px; padding-left :  0;"=
+>PIN Verified<br></div></td><td align=3D"right" class=3D"x_361817143half-co=
+l-right" style=3D"line-height :  0px; font-size :  0px; border-collapse :  =
+collapse; width :  140px; padding-top :  0; padding-right :  0; padding-bot=
+tom :  0; padding-left :  0;" valign=3D"top" width=3D"140"><div class=3D"x_=
+361817143p" style=3D"font-family :  SQMarket,  HelveticaNeue,  &quot;Helvet=
+ica Neue&quot;,  Helvetica,  Arial,  sans-serif; font-size :  14px; line-he=
+ight :  21px; color :  #85898c; font-weight :  normal; vertical-align :  to=
+p; letter-spacing :  0.2px; margin-top :  0; margin-right :  0; margin-bott=
+om :  0; margin-left :  0; padding-top :  3.5px; padding-right :  0; paddin=
+g-bottom :  3.5px; padding-left :  0;">Ref No.: <span>275106697044</span><b=
+r></div><div class=3D"x_361817143p" style=3D"font-family :  SQMarket,  Helv=
+eticaNeue,  &quot;Helvetica Neue&quot;,  Helvetica,  Arial,  sans-serif; fo=
+nt-size :  14px; line-height :  21px; color :  #85898c; font-weight :  norm=
+al; vertical-align :  top; letter-spacing :  0.2px; margin-top :  0; margin=
+-right :  0; margin-bottom :  0; margin-left :  0; padding-top :  3.5px; pa=
+dding-right :  0; padding-bottom :  3.5px; padding-left :  0;">Terminal ID:=
+ <span>SQ027WGV</span><br></div><div class=3D"x_361817143p" style=3D"font-f=
+amily :  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Helvetica,=
+  Arial,  sans-serif; font-size :  14px; line-height :  21px; color :  #858=
+98c; font-weight :  normal; vertical-align :  top; letter-spacing :  0.2px;=
+ margin-top :  0; margin-right :  0; margin-bottom :  0; margin-left :  0; =
+padding-top :  3.5px; padding-right :  0; padding-bottom :  3.5px; padding-=
+left :  0;">Purchase<br></div></td></tr></tbody></table></td><td bgcolor=3D=
+"#ffffff" width=3D"16" style=3D"line-height :  0px; font-size :  0px; borde=
+r-collapse :  collapse; padding-top :  0; padding-right :  0; padding-botto=
+m :  0; padding-left :  0;"><img width=3D"16" height=3D"1" border=3D"0" alt=
+=3D"" style=3D"line-height :  0; font-size :  0;" id=3D"1701474256049000001=
+_imgsrc_url_17"><br></td></tr></tbody></table><table class=3D"x_361817143ta=
+ble-receipt-bottom-edge" style=3D"border :  0; border-collapse :  collapse;=
+ border-spacing :  0; border-top-width :  0; border-right-width :  0; borde=
+r-bottom-width :  0; border-left-width :  0;" bgcolor=3D"#f2f4f5" cellpaddi=
+ng=3D"0" cellspacing=3D"0"><tbody><tr><td valign=3D"top" style=3D"line-heig=
+ht :  0px; font-size :  0px; border-collapse :  collapse; padding-top :  0;=
+ padding-right :  0; padding-bottom :  0; padding-left :  0;"><img alt=3D""=
+ width=3D"100%" height=3D"4" class=3D"x_361817143receipt-bottom-edge" id=3D=
+"1701474256049000001_imgsrc_url_18" style=3D"border-top-width :  0; border-=
+right-width :  0; border-bottom-width :  0; border-left-width :  0; display=
+ :  block; max-width :  375px; width :  100%;"></td></tr></tbody></table><t=
+able class=3D"x_361817143table-footer" style=3D"border :  0; border-collaps=
+e :  collapse; border-spacing :  0; border-top-width :  0; border-right-wid=
+th :  0; border-bottom-width :  0; border-left-width :  0;" bgcolor=3D"#f2f=
+4f5" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td width=3D"100%" heig=
+ht=3D"24" colspan=3D"1" style=3D"line-height :  0; font-size :  0; border-c=
+ollapse :  collapse; padding-top :  0; padding-right :  0; padding-bottom :=
+  0; padding-left :  0;"><br></td></tr><tr><td align=3D"center" valign=3D"t=
+op" style=3D"line-height :  0px; font-size :  0px; border-collapse :  colla=
+pse; padding-top :  0; padding-right :  0; padding-bottom :  0; padding-lef=
+t :  0;"><br></td></tr><tr><td width=3D"100%" height=3D"10" colspan=3D"1" s=
+tyle=3D"line-height :  0; font-size :  0; border-collapse :  collapse; padd=
+ing-top :  0; padding-right :  0; padding-bottom :  0; padding-left :  0;">=
+<br></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"line-height =
+:  0px; font-size :  0px; border-collapse :  collapse; padding-top :  0; pa=
+dding-right :  0; padding-bottom :  0; padding-left :  0;"><div class=3D"x_=
+361817143p" style=3D"font-family :  SQMarket,  HelveticaNeue,  &quot;Helvet=
+ica Neue&quot;,  Helvetica,  Arial,  sans-serif; font-size :  12px; line-he=
+ight :  18px; color :  #85898c; font-weight :  normal; letter-spacing :  0.=
+2px; margin-top :  0; margin-right :  0; margin-bottom :  0; margin-left : =
+ 0; padding-top :  0; padding-right :  0; padding-bottom :  0; padding-left=
+ :  0;">=C2=A9 2023 Square Canada, Inc.<br></div></td></tr><tr><td width=3D=
+"100%" height=3D"10" colspan=3D"1" style=3D"line-height :  0; font-size :  =
+0; border-collapse :  collapse; padding-top :  0; padding-right :  0; paddi=
+ng-bottom :  0; padding-left :  0;"><br></td></tr><tr><td align=3D"center" =
+valign=3D"top" style=3D"line-height :  0px; font-size :  0px; border-collap=
+se :  collapse; padding-top :  0; padding-right :  0; padding-bottom :  0; =
+padding-left :  0;"><div class=3D"x_361817143p x_361817143footer-link" styl=
+e=3D"font-family :  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;, =
+ Helvetica,  Arial,  sans-serif; font-size :  12px; line-height :  18px; co=
+lor :  #85898c; font-weight :  normal; letter-spacing :  0.2px; margin-top =
+:  0; margin-right :  0; margin-bottom :  0; margin-left :  0; padding-top =
+:  0; padding-right :  0; padding-bottom :  0; padding-left :  0;"><br></di=
+v><div class=3D"x_361817143p x_361817143footer-link" style=3D"font-family :=
+  SQMarket,  HelveticaNeue,  &quot;Helvetica Neue&quot;,  Helvetica,  Arial=
+,  sans-serif; font-size :  12px; line-height :  18px; color :  #85898c; fo=
+nt-weight :  normal; letter-spacing :  0.2px; margin-top :  0; margin-right=
+ :  0; margin-bottom :  0; margin-left :  0; padding-top :  0; padding-righ=
+t :  0; padding-bottom :  0; padding-left :  0;">Please contact Riley's abo=
+ut its privacy practices. =C2=B7 <a id=3D"x_361817143not-your-receipt" href=
+=3D"https://a.squareupmessaging.com/CL0/https:%2F%2Faccount.squareup.com%2F=
+not-your-receipt%2Fr1EJX06R3RXZAHM/1/0101018c27c4b681-1623adbc-d34a-4943-b6=
+36-522dbd827d9d-000000/rQTaEbZ3UkosbLs_MuRG8mruiI4OHF1bOgQsyStJp7A=3D329" s=
+tyle=3D"text-decoration :  underline; color :  #85898c;" target=3D"_blank">=
+Not your receipt?</a><br></div></td></tr><tr><td width=3D"100%" height=3D"2=
+0" colspan=3D"1" style=3D"line-height :  0; font-size :  0; border-collapse=
+ :  collapse; padding-top :  0; padding-right :  0; padding-bottom :  0; pa=
+dding-left :  0;"><br></td></tr><tr><td align=3D"center" valign=3D"top" sty=
+le=3D"line-height :  0px; font-size :  0px; border-collapse :  collapse; pa=
+dding-top :  0; padding-right :  0; padding-bottom :  0; padding-left :  0;=
+"><a id=3D"x_361817143receipt-square-logo" href=3D"https://a.squareupmessag=
+ing.com/CL0/https:%2F%2Fsquareup.com/1/0101018c27c4b681-1623adbc-d34a-4943-=
+b636-522dbd827d9d-000000/tzmlbEkCWxYpVF5fh-2TFGgfQ4kxXQ9e9ZsF-Lm9gO8=3D329"=
+ style=3D"color :  #85898c;" target=3D"_blank"><img width=3D"24" height=3D"=
+24" border=3D"0" id=3D"1701474256049000001_imgsrc_url_19"></a><br></td></tr=
+><tr><td width=3D"100%" height=3D"30" colspan=3D"1" style=3D"line-height : =
+ 0; font-size :  0; border-collapse :  collapse; padding-top :  0; padding-=
+right :  0; padding-bottom :  0; padding-left :  0;"><br></td></tr></tbody>=
+</table></td></tr></tbody></table></td></tr></tbody></table></div><img alt=
+=3D"" id=3D"1701474256049000001_imgsrc_url_20" style=3D"display :  none; wi=
+dth :  1px; height :  1px;" width=3D"1" height=3D"1"> </div></blockquote></=
+div><div><br></div><div class=3D"zmail_signature_below"><div id=3D"" data-z=
+bluepencil-ignore=3D"true" data-sigid=3D"6189300000000739006"><div>Regards,=
+<br></div><div><br></div><div>John E. Estrada<br></div><div><br></div><div>=
+---------------------------------------<br></div><div><br></div><p style=3D=
+"font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; =
+text-indent: 0px; text-transform: none; white-space: normal; widows: 2; wor=
+d-spacing: 0px"><span class=3D"highlight" style=3D"background-color:rgb(255=
+, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span clas=
+s=3D"font" style=3D"font-family:Verdana, Arial, Helvetica, sans-serif"><spa=
+n class=3D"size" style=3D"font-size:13.3333px"><span class=3D"highlight" st=
+yle=3D"background-color:rgb(255, 255, 255)"><b><span class=3D"colour" style=
+=3D"color:rgb(0, 102, 0)"><span class=3D"font" style=3D"font-family:Calibri=
+, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"fon=
+t-size:14.66px">START SHREDDING INC. (shredEX)</span></span></span></b><spa=
+n class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" sty=
+le=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span cl=
+ass=3D"size" style=3D"font-size:14.66px"><br>208 Evans Ave, Toronto, ON M8Z=
+ 1J7<br></span></span></span><b><span class=3D"colour" style=3D"color:rgb(5=
+1, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Ari=
+al, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px=
+">E:<span>&nbsp;<a href=3D"mailto:john@shredex.ca" target=3D"_blank" style=
+=3D"color: rgb(0, 0, 238)">john@shredex.ca</a>&nbsp;</span>W: <a target=3D"=
+_blank" href=3D"http://www.startshredding.com" style=3D"color: rgb(0, 0, 23=
+8)">www.startshredding.com</a><br></span></span></span></b><span class=3D"c=
+olour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-f=
+amily:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size"=
+ style=3D"font-size:14.66px">DIRECT:&nbsp;</span></span></span><a style=3D"=
+color: rgb(17, 85, 204); cursor: default" target=3D"_blank"><span class=3D"=
+colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-=
+family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size=
+" style=3D"font-size:14.66px">416.255.1500</span></span></span></a><span cl=
+ass=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=
+=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span clas=
+s=3D"size" style=3D"font-size:14.66px"><br>TOLL FREE:&nbsp;</span></span></=
+span><a style=3D"color: rgb(17, 85, 204); cursor: default" target=3D"_blank=
+"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"fon=
+t" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><s=
+pan class=3D"size" style=3D"font-size:14.66px">1.866.868.9585</span></span>=
+</span></a></span></span></span></span></span></p><p style=3D"font-style: n=
+ormal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0=
+px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px=
+"><span class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><=
+span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" sty=
+le=3D"font-family:Verdana, Arial, Helvetica, sans-serif"><span class=3D"siz=
+e" style=3D"font-size:13.3333px"><span class=3D"highlight" style=3D"backgro=
+und-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(34,=
+ 34, 34)"><span class=3D"font" style=3D"font-family:arial, sans-serif"><spa=
+n class=3D"size" style=3D"font-size:small"><span class=3D"colour" style=3D"=
+color:gray"><span class=3D"font" style=3D"font-family:Arial, sans-serif"><s=
+pan class=3D"size" style=3D"font-size:7.5pt">This message and any attachmen=
+ts are the property of the&nbsp;SHREDEX INC.&nbsp;or its affiliates. It may=
+ be legally privileged and/or confidential and is intended only for the use=
+ of the addressee(s). No addressee should store, forward, print, copy, or o=
+therwise reproduce this message in any manner that would allow it to be vie=
+wed by any individual not originally listed as a recipient. If the reader o=
+f this message is not the intended recipient, you are hereby notified that =
+any unauthorized storage, disclosure, dissemination, distribution, copying =
+or the taking of any action in reliance on the information herein is strict=
+ly prohibited. If you have received this communication in error, please imm=
+ediately notify the sender and delete this message.</span></span></span></s=
+pan></span></span></span></span></span></span></span><br></p><div id=3D""><=
+div><br></div></div><div><br></div></div></div><div><br></div></div><br></b=
+ody></html>
+------=_Part_654005_1833212931.1717125012162--
+

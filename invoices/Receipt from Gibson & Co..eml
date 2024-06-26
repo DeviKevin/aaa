@@ -1,0 +1,1130 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp189671rbd;
+        Thu, 30 May 2024 20:24:26 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFQKUV0gjP7lGHA5kPKOQMk3PzHKSjkXOa1tbPAwwNPufAl049VEeinwFtsWc3QiaZy+ir3
+X-Received: by 2002:a05:6871:7412:b0:24c:b3c0:6cb7 with SMTP id 586e51a60fabf-2508bc51971mr922989fac.54.1717125865988;
+        Thu, 30 May 2024 20:24:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125865; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=NGx0L6EaXmzxRRECxJ11vvEWO0S0XTlO7Qy37YbKhkX+MxykEr7OZDqfdxXOICu9tp
+         xdRNGxzHSeifMugrSuqaUvgQ+l3wvtsK6SKucIAQbKMMkDKZI4NGaM/xadjUo8Onf9Yx
+         o1sLboHebj04rCkPp4O31WVm9RsG0HinerLl59FCwkz/n59GXoypBTSyKHk0WEbi1Fa5
+         mqdEn5ujpOYMft8oCwsvJ/Tu6LG7ljMaNxkZ9NT+Lqu0yDEBgT+8nuNhh7sM2M6U8xuJ
+         EvPEBG6HKQIM8XlXguOp13rg7jufwuapUnuWJiO/bvtMhg1GTiidatxNeL596S2TnTGe
+         PgwA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=jZ/iKVOJMlwKp8VqEhBUq0/skMZORhOOG4YFBjVyiSs=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=lxoE1z+J7wUfJlDh+PaEPBdxZFJdRZKXLM+ZUy28BRaTOlZZojrNyFBKibl3kzZXzZ
+         iuDSqkK1ZoCm3c5ZsCBRXW6tTGH5pfS7YIOiyFBEKlbo1OCViN3SWZpTIS6tuXY8cDr4
+         QwsGuMzYnsRbC5FdylId7c+q2azgp3AjcWBY1LvjyXkbOY6FGHGz0J2n9QLjJMCYDHMD
+         UbQCUCWuG8RbMkma0RxR0B4/HH8Fpfufn30AqAeAHqVV0EHfC1Uy4BeoY4PtsB0XxeLt
+         6ZwCJytOtfijQ0s7obSHcnIcQxhMX+r1WboHUv1nPhKy8WkIKICc+w03VzFxLHd+7gMX
+         UfoQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=tyeG60aj;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o18.zoho.com (sender3-op-o18.zoho.com. [136.143.184.18])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-702423e358fsi741650b3a.61.2024.05.30.20.24.25
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:24:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) client-ip=136.143.184.18;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=tyeG60aj;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125865; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Ih5N1BxWF1/qt8hmAg7V7RHR2YaK0RXAyDQgtoj54r5vOCcYCY2tDEx+hXTVe2jHBs/zKhbPRbmkPj9MLNKF6ZUoh+hFEp2Ym+ryxsWYqjfhEJ0BzvD2zzYOa4OMwCw7tlWdJGTxXxMtVYhJa5wrmFkCZ1gBLWe8m0qma29yjKM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125865; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=jZ/iKVOJMlwKp8VqEhBUq0/skMZORhOOG4YFBjVyiSs=; 
+	b=GlyYMGAAA9R50dqrqvWCoc7Al54kRDIQkga3kcQdO/1mloz2XwhbIJOv+iltNNi8j9AogkcKCtUHRfvpPs1luH9YrW10QivWZLnDMURiWdHGo9nR5jmdcwvQHwMbPoPpgXZDzYRa6cq0IM5Xf4zBn3yglJ4etuc00pwi77rB/HM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125865;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=jZ/iKVOJMlwKp8VqEhBUq0/skMZORhOOG4YFBjVyiSs=;
+	b=tyeG60aj6AY123BFzez4A/6cDup/IqhL4wZ6TFBhR8c33tYHdlSSXTsyffNbZ8Z2
+	NIyUJ5YIftvTQe7yewl+MoFy1u8ao1PM3e+Xb14kUTgAgVv0uJfytfUeGLoCAp7p3jc
+	FfRm6QRSc3mwuFpixMnLzgElUt8bROOCEbfqmYXM=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717125863242119.37165096734043; Thu, 30 May 2024 20:24:23 -0700 (PDT)
+Date: Thu, 30 May 2024 23:24:23 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fccad56d6.119d6005c203264.3316099184939632649@shredex.ca>
+In-Reply-To: <010101810bbfb265-1bf6f6a0-22a1-47e7-8ab5-71455834fce1-000000@us-west-2.amazonses.com>
+References: <010101810bbfb265-1bf6f6a0-22a1-47e7-8ab5-71455834fce1-000000@us-west-2.amazonses.com>
+Subject: Fwd: Receipt from Gibson & Co.
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_659274_593288829.1717125863128"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_659274_593288829.1717125863128
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Gibson & Co. via Square <receipts@messaging.squareup.com>
+To: <john@backpocket.ca>
+Date: Sat, 28 May 2022 13:38:41 -0400
+Subject: Receipt from Gibson & Co.
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+
+
+
+
+
+
+
+=20
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_659274_593288829.1717125863128
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Gibson &amp; Co. via Square &lt;receipts@messag=
+ing.squareup.com&gt;<br>To: &lt;john@backpocket.ca&gt;<br>Date: Sat, 28 May=
+ 2022 13:38:41 -0400<br>Subject: Receipt from Gibson &amp; Co.<br>=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D<br></div><div><br></div><blockquote id=3D"blockquote_zmail" style=
+=3D"margin: 0px;"><style>@font-face {
+  font-family: SQMarket;
+  font-weight: 300;
+  font-style: normal;}
+@font-face {
+  font-family: SQMarket;
+  font-weight: 400;
+  font-style: normal;}
+@font-face {
+  font-family: SQMarket;
+  font-weight: 500;
+  font-style: normal;}
+@font-face {
+  font-family: SQMarket;
+  font-weight: 700;
+  font-style: normal;}</style><style>div.zm_-7187449565314129669_parse_5914=
+177829578019980.x_-1642793605sensitive-data *.x_-1642793605table-footer *.x=
+_-1642793605footer-link a {
+  color: rgb(61, 69, 77);
+}</style><div style=3D"background-color: rgb(242, 244, 245); margin: 0; pad=
+ding: 0; font-family: SQMarket, HelveticaNeue, &quot; undefined: HelveticaN=
+eue&quot; undefined: ,Helvetica,Arial,sans-serif; font-size: 14.0px; line-h=
+eight: 30.0px; color: rgb(61,69,77); font-weight: normal; width: 100.0%; mi=
+n-height: 400.0px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin=
+-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left=
+: 0;" class=3D"zm_-7187449565314129669_parse_5914177829578019980"><div clas=
+s=3D"x_-1642793605preheader" style=3D"font-size: 0px; max-height: 0px; disp=
+lay: none;"><span class=3D"overFlow" style=3D"overflow:hidden">Receipt for =
+$79.92 at Gibson &amp; Co. on 2022-05-28-13:31.</span><br></div><div class=
+=3D"x_-1642793605pseudo-body x_-1642793605ExternalClass" style=3D"min-heigh=
+t: 400.0px;background-color: rgb(242,244,245);width: 100.0%;line-height: 10=
+0.0%;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100=
+%" style=3D"border: 0;border-collapse: collapse;border-spacing: 0;border-to=
+p-width: 0;border-right-width: 0;border-bottom-width: 0;border-left-width: =
+0;"><tbody><tr><td align=3D"center" style=3D"line-height: 0.0px;font-size: =
+0.0px;border-collapse: collapse;padding-top: 0;padding-right: 0;padding-bot=
+tom: 0;padding-left: 0;" valign=3D"top"><table align=3D"center" class=3D"x_=
+-1642793605receipt-content-wrapper x_-1642793605receipt-content-wrapper--54=
+6476" style=3D"border: 0;border-collapse: collapse;border-spacing: 0;text-a=
+lign: left;margin-left: auto;margin-right: auto;margin-top: 16.0px;width: 1=
+00.0%;min-width: 320.0px;max-width: 375.0px;border-top-width: 0;border-righ=
+t-width: 0;border-bottom-width: 0;border-left-width: 0;" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0"><tbody><tr><td align=3D"center" style=3D"l=
+ine-height: 0.0px;font-size: 0.0px;border-collapse: collapse;padding-top: 0=
+;padding-right: 0;padding-bottom: 0;padding-left: 0;"><table border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" class=3D"x_-1642793605merchant-header-wr=
+apper" style=3D"border: 0;border-collapse: collapse;border-spacing: 0;overf=
+low: hidden;width: 100.0%;border-top-width: 0;border-right-width: 0;border-=
+bottom-width: 0;border-left-width: 0;" width=3D"100%"><tbody><tr><td align=
+=3D"center" valign=3D"top" class=3D"x_-1642793605feedback-visible" style=3D=
+"line-height: 0.0px;font-size: 0.0px;border-collapse: collapse;padding-top:=
+ 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><table class=3D"x_-=
+1642793605merchant-header-v2" style=3D"font-family: SQMarket, HelveticaNeue=
+, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 14.0p=
+x;line-height: 30.0px;color: rgb(61,69,77);font-weight: normal;border: 0;bo=
+rder-collapse: collapse;border-spacing: 0;table-layout: fixed;width: 100.0%=
+;height: 100.0%;border-top-width: 0;border-right-width: 0;border-bottom-wid=
+th: 0;border-left-width: 0;" width=3D"100%" height=3D"100%" cellpadding=3D"=
+0" cellspacing=3D"0"><tbody><tr><td align=3D"center" style=3D"line-height: =
+0.0px;font-size: 0.0px;border-collapse: collapse;padding-top: 0;padding-rig=
+ht: 0;padding-bottom: 0;padding-left: 0;"><table align=3D"center" cellpaddi=
+ng=3D"0" cellspacing=3D"0" width=3D"70" style=3D"border: 0;border-collapse:=
+ collapse;border-spacing: 0;border-top-width: 0;border-right-width: 0;borde=
+r-bottom-width: 0;border-left-width: 0;"><tbody><tr><td align=3D"center" cl=
+ass=3D"x_-1642793605merchant-header-top-v2" style=3D"line-height: 0.0px;fon=
+t-size: 0.0px;border-collapse: collapse;width: 100.0%;padding-top: 0;paddin=
+g-right: 0;padding-bottom: 0;padding-left: 0;" valign=3D"middle" bgcolor=3D=
+"#546476" width=3D"100%"><div class=3D"x_-1642793605faux_absolute" style=3D=
+"max-height: 0;position: relative;opacity: 0.999;"><div class=3D"x_-1642793=
+605profile_image_position" style=3D"margin-top: 52.0px;margin-left: 0.0em;d=
+isplay: inline-block;"><img width=3D"64" height=3D"64" border=3D"0" alt=3D"=
+Logo" style=3D"border-top-width: 3.0px;border-right-width: 3.0px;border-bot=
+tom-width: 3.0px;border-left-width: 3.0px;border-top-color: rgb(255,255,255=
+);border-right-color: rgb(255,255,255);border-bottom-color: rgb(255,255,255=
+);border-left-color: rgb(255,255,255);border-top-style: solid;border-right-=
+style: solid;border-bottom-style: solid;border-left-style: solid;border-rad=
+ius: 11.0px;background-color: rgb(76,90,106);" id=3D"1653759524400100001_im=
+gsrc_url_0" src=3D"https://square-web-production-f.squarecdn.com/files/6213=
+7c3144d55fbb8bd1e097d3e49ae1e031a8f1/original.png?width=3D128&amp;height=3D=
+128&amp;enable=3Dupscale&amp;fit=3Dcrop&amp;quality=3D100&amp;format=3Dpng"=
+></div><br></div></td></tr></tbody></table></td></tr><tr><td width=3D"100%"=
+ height=3D"87" colspan=3D"1" style=3D"line-height: 0;font-size: 0;border-co=
+llapse: collapse;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-=
+left: 0;" bgcolor=3D"#546476"><br></td></tr><tr><td width=3D"100%" height=
+=3D"43" colspan=3D"1" style=3D"line-height: 0;font-size: 0;border-collapse:=
+ collapse;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0=
+;" bgcolor=3D"#ffffff"><br></td></tr><tr><td align=3D"center" class=3D"x_-1=
+642793605merchant-header-v2__name" style=3D"line-height: 26.0px;font-size: =
+16.0px;border-collapse: collapse;color: rgb(61,69,77);font-family: SQMarket=
+, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;f=
+ont-weight: bold;letter-spacing: 0.2px;padding-top: 0;padding-right: 0;padd=
+ing-bottom: 0;padding-left: 0;" bgcolor=3D"white">Gibson &amp; Co.<br></td>=
+</tr></tbody></table></td></tr></tbody></table><table class=3D"x_-164279360=
+5table-container-section" style=3D"border: 0;border-collapse: collapse;bord=
+er-spacing: 0;width: 100.0%;min-width: 100.0%;border-top-width: 0;border-ri=
+ght-width: 0;border-bottom-width: 0;border-left-width: 0;" bgcolor=3D"white=
+" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td width=
+=3D"100%" height=3D"13" colspan=3D"1" style=3D"line-height: 0;font-size: 0;=
+border-collapse: collapse;padding-top: 0;padding-right: 0;padding-bottom: 0=
+;padding-left: 0;"><br></td></tr><tr><td align=3D"center" style=3D"line-hei=
+ght: 0.0px;font-size: 0.0px;border-collapse: collapse;padding-top: 0;paddin=
+g-right: 0;padding-bottom: 0;padding-left: 0;"><table style=3D"border: 0;bo=
+rder-collapse: collapse;border-spacing: 0;border-top-width: 0;border-right-=
+width: 0;border-bottom-width: 0;border-left-width: 0;" cellpadding=3D"0" ce=
+llspacing=3D"0"><tbody><tr><td width=3D"39" style=3D"line-height: 0.0px;fon=
+t-size: 0.0px;border-collapse: collapse;padding-top: 0;padding-right: 0;pad=
+ding-bottom: 0;padding-left: 0;"><br></td></tr><tr><td width=3D"297" style=
+=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: collapse;padding-t=
+op: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><table class=3D"=
+x_-1642793605feedback-tile-box" style=3D"border: 0;border-collapse: collaps=
+e;border-spacing: 0;width: 100.0%;border-radius: 6.0px;border-top-width: 0;=
+border-right-width: 0;border-bottom-width: 0;border-left-width: 0;" bgcolor=
+=3D"#f8f9fa" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr>=
+<td width=3D"100%" height=3D"21" colspan=3D"1" style=3D"line-height: 0;font=
+-size: 0;border-collapse: collapse;padding-top: 0;padding-right: 0;padding-=
+bottom: 0;padding-left: 0;"><br></td></tr><tr><td style=3D"line-height: 0.0=
+px;font-size: 0.0px;border-collapse: collapse;padding-top: 0;padding-right:=
+ 0;padding-bottom: 0;padding-left: 0;"><table class=3D"x_-1642793605table-f=
+eedback-choices" style=3D"border: 0;border-collapse: collapse;border-spacin=
+g: 24.0px 0;table-layout: fixed;width: 100.0%;border-top-width: 0;border-ri=
+ght-width: 0;border-bottom-width: 0;border-left-width: 0;" width=3D"100%" c=
+ellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td class=3D"x_-1642793605cho=
+ice x_-1642793605feedback-positive" style=3D"line-height: 0.0px;font-size: =
+0.0px;border-collapse: collapse;padding-top: 0;padding-right: 9.0px;padding=
+-bottom: 0;padding-left: 0;" align=3D"right" valign=3D"middle"><a id=3D"x_-=
+1642793605question-positive" href=3D"https://rfrtpc7s.r.us-west-2.awstrack.=
+me/L0/https:%2F%2Faccount.squareup.com%2Fresponse%2Fr5NBF5CM8RAE4KB%2F1%3Fm=
+erchant_token=3DNZYEKJ9ZZ9A8T/1/010101810bbfb265-1bf6f6a0-22a1-47e7-8ab5-71=
+455834fce1-000000/KXqVzhFIJua43M5zLuireCC1r60=3D272" style=3D"text-decorati=
+on: none;vertical-align: middle;display: block;width: 100.0%;min-height: 10=
+0.0%;" target=3D"_blank"><div><img alt=3D"Positive" title=3D"Positive" widt=
+h=3D"56" height=3D"56" border=3D"0" id=3D"1653759524400100001_imgsrc_url_1"=
+ style=3D"vertical-align: middle;display: inline-block;" src=3D"https://rec=
+eipts-production-f.squarecdn.com/receipts/assets/feedback-positive-v2-09773=
+e374d247d8a044ade582bd9eec927c595e44c9cf8111209bbb57b55ab22.png?width=3D56&=
+amp;height=3D56&amp;canvas=3D56,56&amp;format=3Dpng"><br></div></a></td><td=
+ class=3D"x_-1642793605choice x_-1642793605feedback-negative" style=3D"line=
+-height: 0.0px;font-size: 0.0px;border-collapse: collapse;padding-top: 0;pa=
+dding-right: 0;padding-bottom: 0;padding-left: 9.0px;" align=3D"left" valig=
+n=3D"middle"><a id=3D"x_-1642793605question-negative" href=3D"https://rfrtp=
+c7s.r.us-west-2.awstrack.me/L0/https:%2F%2Faccount.squareup.com%2Fresponse%=
+2Fr5NBF5CM8RAE4KB%2F-1%3Fmerchant_token=3DNZYEKJ9ZZ9A8T/1/010101810bbfb265-=
+1bf6f6a0-22a1-47e7-8ab5-71455834fce1-000000/YCaEurYE9_bZG1aOMwDkWxdifKA=3D2=
+72" style=3D"text-decoration: none;vertical-align: middle;display: block;wi=
+dth: 100.0%;min-height: 100.0%;" target=3D"_blank"><div><img alt=3D"Negativ=
+e" title=3D"Negative" width=3D"56" height=3D"56" border=3D"0" id=3D"1653759=
+524400100001_imgsrc_url_2" style=3D"vertical-align: middle;display: inline-=
+block;" src=3D"https://receipts-production-f.squarecdn.com/receipts/assets/=
+feedback-negative-v2-587d1eda2f91ac786e117237de356e331f499767f5fc0148d411b4=
+63909b2399.png?width=3D56&amp;height=3D56&amp;canvas=3D56,56&amp;format=3Dp=
+ng"><br></div></a></td></tr></tbody></table></td></tr><tr><td width=3D"100%=
+" height=3D"13" colspan=3D"1" style=3D"line-height: 0;font-size: 0;border-c=
+ollapse: collapse;padding-top: 0;padding-right: 0;padding-bottom: 0;padding=
+-left: 0;"><br></td></tr><tr><td class=3D"x_-1642793605question-text-v2" st=
+yle=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: collapse;width:=
+ 100.0%;padding-top: 0;padding-right: 43.0px;padding-bottom: 0;padding-left=
+: 43.0px;" align=3D"center" width=3D"100%"><div style=3D"font-family: SQMar=
+ket, HelveticaNeue-Medium, &quot;Helvetica Neue Medium&quot;, Helvetica-Bol=
+d, Helvetica, Arial, sans-serif;font-weight: 500;font-size: 12.0px;line-hei=
+ght: 18.0px;color: rgb(61,69,77);">Let Gibson &amp; Co. know how your exper=
+ience was<br></div></td></tr><tr><td width=3D"100%" height=3D"22" colspan=
+=3D"1" style=3D"line-height: 0;font-size: 0;border-collapse: collapse;paddi=
+ng-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><br></td></t=
+r></tbody></table></td></tr><tr><td width=3D"39" style=3D"line-height: 0.0p=
+x;font-size: 0.0px;border-collapse: collapse;padding-top: 0;padding-right: =
+0;padding-bottom: 0;padding-left: 0;"><br></td></tr></tbody></table></td></=
+tr><tr><td width=3D"100%" height=3D"6" colspan=3D"1" style=3D"line-height: =
+0;font-size: 0;border-collapse: collapse;padding-top: 0;padding-right: 0;pa=
+dding-bottom: 0;padding-left: 0;"><br></td></tr></tbody></table><table clas=
+s=3D"x_-1642793605table-container-section x_-1642793605table-payment-header=
+" style=3D"border: 0;border-collapse: collapse;border-spacing: 0;width: 100=
+.0%;min-width: 100.0%;border-top-width: 0;border-right-width: 0;border-bott=
+om-width: 0;border-left-width: 0;" bgcolor=3D"white" width=3D"100%" cellpad=
+ding=3D"0" cellspacing=3D"0"><tbody><tr><td width=3D"100%" height=3D"24" co=
+lspan=3D"1" style=3D"line-height: 0;font-size: 0;font-family: SQMarket, Hel=
+veticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;color:=
+ rgb(61,69,77);font-weight: normal;border-collapse: collapse;padding-top: 0=
+;padding-right: 0;padding-bottom: 0;padding-left: 0;"><br></td></tr><tr><td=
+ align=3D"center" style=3D"font-family: SQMarket, HelveticaNeue, &quot;Helv=
+etica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 14.0px;line-heigh=
+t: 30.0px;color: rgb(61,69,77);font-weight: normal;border-collapse: collaps=
+e;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><div =
+class=3D"x_-1642793605h1 x_-1642793605 x_-1642793605language-en x_-16427936=
+05currency-CAD" style=3D"font-family: SQMarket, HelveticaNeue-Medium, &quot=
+;Helvetica Neue Medium&quot;, Helvetica-Bold, Helvetica, Arial, sans-serif;=
+font-weight: 500;color: rgb(61,69,77);font-size: 64.0px;line-height: 64.0px=
+;white-space: nowrap;" align=3D"center"><div class=3D"x_-1642793605p x_-164=
+2793605currency" style=3D"white-space: nowrap;"><span class=3D"font" style=
+=3D"font-family:SQMarket, HelveticaNeue-Medium, &quot;Helvetica Neue Medium=
+&quot;, Helvetica-Bold, Helvetica, Arial, sans-serif"><span class=3D"size" =
+style=3D"font-size: 26px; font-weight: 500; vertical-align: super; line-hei=
+ght: 1;">$</span></span><span class=3D"x_-1642793605money-whole">79</span><=
+span class=3D"x_-1642793605money-decimal-mark">.</span><span class=3D"x_-16=
+42793605money-decimal">92</span><br></div></div></td></tr><tr><td width=3D"=
+100%" height=3D"8" colspan=3D"1" style=3D"line-height: 0;font-size: 0;font-=
+family: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Ari=
+al, sans-serif;color: rgb(61,69,77);font-weight: normal;border-collapse: co=
+llapse;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;">=
+<br></td></tr></tbody></table><table border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" class=3D"x_-1642793605table-container-section" style=3D"border: =
+0;border-collapse: collapse;border-spacing: 0;width: 100.0%;min-width: 100.=
+0%;border-top-width: 0;border-right-width: 0;border-bottom-width: 0;border-=
+left-width: 0;" bgcolor=3D"white" width=3D"100%"><tbody><tr><td bgcolor=3D"=
+#ffffff" width=3D"16" style=3D"line-height: 0.0px;font-size: 0.0px;border-c=
+ollapse: collapse;padding-top: 0;padding-right: 0;padding-bottom: 0;padding=
+-left: 0;"><img width=3D"16" height=3D"1" border=3D"0" alt=3D"" style=3D"li=
+ne-height: 0;font-size: 0;" id=3D"1653759524400100001_imgsrc_url_3" src=3D"=
+https://d3g64w74of3jgu.cloudfront.net/receipts/assets/spacer-17af9e65317bbb=
+fbbd0bcdc729f14faadf37cd08cf30cc0fe0b72443e78cbffb.png"><br></td><td style=
+=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: collapse;padding-t=
+op: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><table border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"x_-1642793605table-contain=
+er-section x_-1642793605table-payment-info" style=3D"border: 0;border-colla=
+pse: separate;border-spacing: 0;width: 100.0%;min-width: 100.0%;border-top-=
+width: 0;border-right-width: 0;border-bottom-width: 0;border-left-width: 0;=
+" bgcolor=3D"white" width=3D"100%"><tbody><tr><td align=3D"center" valign=
+=3D"top" style=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: coll=
+apse;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><b=
+r></td></tr><tr><td width=3D"100%" height=3D"8" colspan=3D"1" style=3D"line=
+-height: 0;font-size: 0;border-collapse: collapse;padding-top: 0;padding-ri=
+ght: 0;padding-bottom: 0;padding-left: 0;"><br></td></tr><tr><td width=3D"1=
+00%" height=3D"3.5" colspan=3D"3" style=3D"line-height: 0.0px;font-size: 0.=
+0px;border-collapse: collapse;padding-top: 0;padding-right: 0;padding-botto=
+m: 0;padding-left: 0;"><br></td></tr><tr><td colspan=3D"3" style=3D"border-=
+top-width: 1.0px;border-top-color: rgb(224,225,226);border-top-style: dashe=
+d;line-height: 0.0px;font-size: 0.0px;border-collapse: collapse;padding-top=
+: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" height=3D"1"><img =
+width=3D"1" height=3D"1" border=3D"0" alt=3D"" style=3D"line-height: 0;font=
+-size: 0;" id=3D"1653759524400100001_imgsrc_url_4" src=3D"https://d3g64w74o=
+f3jgu.cloudfront.net/receipts/assets/spacer-17af9e65317bbbfbbd0bcdc729f14fa=
+adf37cd08cf30cc0fe0b72443e78cbffb.png"><br></td></tr><tr><td width=3D"100%"=
+ height=3D"11" colspan=3D"3" style=3D"line-height: 0.0px;font-size: 0.0px;b=
+order-collapse: collapse;padding-top: 0;padding-right: 0;padding-bottom: 0;=
+padding-left: 0;"><br></td></tr><tr class=3D"x_-1642793605item-row"><td ali=
+gn=3D"left" class=3D"x_-1642793605half-col-left x_-1642793605payment-info-i=
+tem" valign=3D"top" style=3D"line-height: 0.0px;font-size: 0.0px;border-col=
+lapse: collapse;width: 70.0%;max-width: 305.0px;padding-top: 0;padding-righ=
+t: 0;padding-bottom: 0;padding-left: 0;" width=3D"70%"><div class=3D"x_-164=
+2793605p x_-1642793605item-name" style=3D"font-family: SQMarket, HelveticaN=
+eue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 14=
+.0px;line-height: 21.0px;color: rgb(61,69,77);font-weight: bold;letter-spac=
+ing: 0.2px;margin-top: 0;margin-right: 0;margin-bottom: 0;margin-left: 0;pa=
+dding-top: 8.0px;padding-right: 0;padding-bottom: 8.0px;padding-left: 0;">S=
+an Pellegrino =C3=97 1<br></div></td><td align=3D"right" class=3D"x_-164279=
+3605half-col-right" valign=3D"top" style=3D"line-height: 0.0px;font-size: 0=
+.0px;border-collapse: collapse;width: 30.0%;padding-top: 0;padding-right: 0=
+;padding-bottom: 0;padding-left: 0;" width=3D"30%"><div class=3D"x_-1642793=
+605p x_-1642793605currency" style=3D"font-family: SQMarket, HelveticaNeue, =
+&quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 14.0px;=
+line-height: 21.0px;color: rgb(61,69,77);font-weight: bold;letter-spacing: =
+0.2px;white-space: nowrap;margin-top: 0;margin-right: 0;margin-bottom: 0;ma=
+rgin-left: 0;padding-top: 8.0px;padding-right: 0;padding-bottom: 8.0px;padd=
+ing-left: 0;">$2.25<br></div></td></tr><tr class=3D"x_-1642793605item-row">=
+<td align=3D"left" class=3D"x_-1642793605half-col-left x_-1642793605payment=
+-info-item" valign=3D"top" style=3D"line-height: 0.0px;font-size: 0.0px;bor=
+der-collapse: collapse;width: 70.0%;max-width: 305.0px;padding-top: 0;paddi=
+ng-right: 0;padding-bottom: 0;padding-left: 0;" width=3D"70%"><div class=3D=
+"x_-1642793605p x_-1642793605item-name" style=3D"font-family: SQMarket, Hel=
+veticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-s=
+ize: 14.0px;line-height: 21.0px;color: rgb(61,69,77);font-weight: bold;lett=
+er-spacing: 0.2px;margin-top: 0;margin-right: 0;margin-bottom: 0;margin-lef=
+t: 0;padding-top: 8.0px;padding-right: 0;padding-bottom: 8.0px;padding-left=
+: 0;">Grilled Cheese =C3=97 2<br></div></td><td align=3D"right" class=3D"x_=
+-1642793605half-col-right" valign=3D"top" style=3D"line-height: 0.0px;font-=
+size: 0.0px;border-collapse: collapse;width: 30.0%;padding-top: 0;padding-r=
+ight: 0;padding-bottom: 0;padding-left: 0;" width=3D"30%"><div class=3D"x_-=
+1642793605p x_-1642793605currency" style=3D"font-family: SQMarket, Helvetic=
+aNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: =
+14.0px;line-height: 21.0px;color: rgb(61,69,77);font-weight: bold;letter-sp=
+acing: 0.2px;white-space: nowrap;margin-top: 0;margin-right: 0;margin-botto=
+m: 0;margin-left: 0;padding-top: 8.0px;padding-right: 0;padding-bottom: 8.0=
+px;padding-left: 0;">$16.00<br></div></td></tr><tr class=3D"x_-1642793605it=
+em-row"><td align=3D"left" class=3D"x_-1642793605half-col-left x_-164279360=
+5payment-info-item" valign=3D"top" style=3D"line-height: 0.0px;font-size: 0=
+.0px;border-collapse: collapse;width: 70.0%;max-width: 305.0px;padding-top:=
+ 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" width=3D"70%"><div =
+class=3D"x_-1642793605p x_-1642793605item-name" style=3D"font-family: SQMar=
+ket, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-seri=
+f;font-size: 14.0px;line-height: 21.0px;color: rgb(61,69,77);font-weight: b=
+old;letter-spacing: 0.2px;margin-top: 0;margin-right: 0;margin-bottom: 0;ma=
+rgin-left: 0;padding-top: 8.0px;padding-right: 0;padding-bottom: 8.0px;padd=
+ing-left: 0;">Salami Sandwich =C3=97 1<br></div></td><td align=3D"right" cl=
+ass=3D"x_-1642793605half-col-right" valign=3D"top" style=3D"line-height: 0.=
+0px;font-size: 0.0px;border-collapse: collapse;width: 30.0%;padding-top: 0;=
+padding-right: 0;padding-bottom: 0;padding-left: 0;" width=3D"30%"><div cla=
+ss=3D"x_-1642793605p x_-1642793605currency" style=3D"font-family: SQMarket,=
+ HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;fo=
+nt-size: 14.0px;line-height: 21.0px;color: rgb(61,69,77);font-weight: bold;=
+letter-spacing: 0.2px;white-space: nowrap;margin-top: 0;margin-right: 0;mar=
+gin-bottom: 0;margin-left: 0;padding-top: 8.0px;padding-right: 0;padding-bo=
+ttom: 8.0px;padding-left: 0;">$12.00<br></div></td></tr><tr><td align=3D"le=
+ft" class=3D"x_-1642793605half-col-left x_-1642793605payment-info-item" sty=
+le=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: collapse;width: =
+70.0%;max-width: 305.0px;padding-top: 0;padding-right: 0;padding-bottom: 0;=
+padding-left: 0;" width=3D"70%"><div align=3D"left" class=3D"x_-1642793605i=
+tem-modifier-name" style=3D"padding-left: 6.0px;padding-right: 6.0px;color:=
+ rgb(61,69,77);"><div class=3D"x_-1642793605p x_-1642793605item-description=
+" style=3D"color: rgb(61,69,77);font-family: SQMarket, HelveticaNeue, &quot=
+;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 14.0px;font-=
+weight: normal;letter-spacing: 0.2px;line-height: 21.0px;padding-top: -0.5p=
+x;padding-right: 0;padding-bottom: -0.5px;padding-left: 0;">No pickles<br><=
+/div></div></td></tr><tr class=3D"x_-1642793605item-row"><td align=3D"left"=
+ class=3D"x_-1642793605half-col-left x_-1642793605payment-info-item" valign=
+=3D"top" style=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: coll=
+apse;width: 70.0%;max-width: 305.0px;padding-top: 0;padding-right: 0;paddin=
+g-bottom: 0;padding-left: 0;" width=3D"70%"><div class=3D"x_-1642793605p x_=
+-1642793605item-name" style=3D"font-family: SQMarket, HelveticaNeue, &quot;=
+Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 14.0px;line-h=
+eight: 21.0px;color: rgb(61,69,77);font-weight: bold;letter-spacing: 0.2px;=
+margin-top: 0;margin-right: 0;margin-bottom: 0;margin-left: 0;padding-top: =
+8.0px;padding-right: 0;padding-bottom: 8.0px;padding-left: 0;">Smoked Trout=
+ Sandwich =C3=97 1<br></div></td><td align=3D"right" class=3D"x_-1642793605=
+half-col-right" valign=3D"top" style=3D"line-height: 0.0px;font-size: 0.0px=
+;border-collapse: collapse;width: 30.0%;padding-top: 0;padding-right: 0;pad=
+ding-bottom: 0;padding-left: 0;" width=3D"30%"><div class=3D"x_-1642793605p=
+ x_-1642793605currency" style=3D"font-family: SQMarket, HelveticaNeue, &quo=
+t;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 14.0px;line=
+-height: 21.0px;color: rgb(61,69,77);font-weight: bold;letter-spacing: 0.2p=
+x;white-space: nowrap;margin-top: 0;margin-right: 0;margin-bottom: 0;margin=
+-left: 0;padding-top: 8.0px;padding-right: 0;padding-bottom: 8.0px;padding-=
+left: 0;">$13.00<br></div></td></tr><tr class=3D"x_-1642793605item-row"><td=
+ align=3D"left" class=3D"x_-1642793605half-col-left x_-1642793605payment-in=
+fo-item" valign=3D"top" style=3D"line-height: 0.0px;font-size: 0.0px;border=
+-collapse: collapse;width: 70.0%;max-width: 305.0px;padding-top: 0;padding-=
+right: 0;padding-bottom: 0;padding-left: 0;" width=3D"70%"><div class=3D"x_=
+-1642793605p x_-1642793605item-name" style=3D"font-family: SQMarket, Helvet=
+icaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size=
+: 14.0px;line-height: 21.0px;color: rgb(61,69,77);font-weight: bold;letter-=
+spacing: 0.2px;margin-top: 0;margin-right: 0;margin-bottom: 0;margin-left: =
+0;padding-top: 8.0px;padding-right: 0;padding-bottom: 8.0px;padding-left: 0=
+;">Maple Bourbon Sour =C3=97 1<br></div></td><td align=3D"right" class=3D"x=
+_-1642793605half-col-right" valign=3D"top" style=3D"line-height: 0.0px;font=
+-size: 0.0px;border-collapse: collapse;width: 30.0%;padding-top: 0;padding-=
+right: 0;padding-bottom: 0;padding-left: 0;" width=3D"30%"><div class=3D"x_=
+-1642793605p x_-1642793605currency" style=3D"font-family: SQMarket, Helveti=
+caNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size:=
+ 14.0px;line-height: 21.0px;color: rgb(61,69,77);font-weight: bold;letter-s=
+pacing: 0.2px;white-space: nowrap;margin-top: 0;margin-right: 0;margin-bott=
+om: 0;margin-left: 0;padding-top: 8.0px;padding-right: 0;padding-bottom: 8.=
+0px;padding-left: 0;">$12.00<br></div></td></tr><tr class=3D"x_-1642793605i=
+tem-row"><td align=3D"left" class=3D"x_-1642793605half-col-left x_-16427936=
+05payment-info-item" valign=3D"top" style=3D"line-height: 0.0px;font-size: =
+0.0px;border-collapse: collapse;width: 70.0%;max-width: 305.0px;padding-top=
+: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" width=3D"70%"><div=
+ class=3D"x_-1642793605p x_-1642793605item-name" style=3D"font-family: SQMa=
+rket, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-ser=
+if;font-size: 14.0px;line-height: 21.0px;color: rgb(61,69,77);font-weight: =
+bold;letter-spacing: 0.2px;margin-top: 0;margin-right: 0;margin-bottom: 0;m=
+argin-left: 0;padding-top: 8.0px;padding-right: 0;padding-bottom: 8.0px;pad=
+ding-left: 0;">Hot Chocolate (Regular) =C3=97 1<br></div></td><td align=3D"=
+right" class=3D"x_-1642793605half-col-right" valign=3D"top" style=3D"line-h=
+eight: 0.0px;font-size: 0.0px;border-collapse: collapse;width: 30.0%;paddin=
+g-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" width=3D"30%"=
+><div class=3D"x_-1642793605p x_-1642793605currency" style=3D"font-family: =
+SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans=
+-serif;font-size: 14.0px;line-height: 21.0px;color: rgb(61,69,77);font-weig=
+ht: bold;letter-spacing: 0.2px;white-space: nowrap;margin-top: 0;margin-rig=
+ht: 0;margin-bottom: 0;margin-left: 0;padding-top: 8.0px;padding-right: 0;p=
+adding-bottom: 8.0px;padding-left: 0;">$4.00<br></div></td></tr><tr class=
+=3D"x_-1642793605item-row"><td align=3D"left" class=3D"x_-1642793605half-co=
+l-left x_-1642793605payment-info-item" valign=3D"top" style=3D"line-height:=
+ 0.0px;font-size: 0.0px;border-collapse: collapse;width: 70.0%;max-width: 3=
+05.0px;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" =
+width=3D"70%"><div class=3D"x_-1642793605p x_-1642793605item-name" style=3D=
+"font-family: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetic=
+a, Arial, sans-serif;font-size: 14.0px;line-height: 21.0px;color: rgb(61,69=
+,77);font-weight: bold;letter-spacing: 0.2px;margin-top: 0;margin-right: 0;=
+margin-bottom: 0;margin-left: 0;padding-top: 8.0px;padding-right: 0;padding=
+-bottom: 8.0px;padding-left: 0;">San Pellegrino =C3=97 1<br></div></td><td =
+align=3D"right" class=3D"x_-1642793605half-col-right" valign=3D"top" style=
+=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: collapse;width: 30=
+.0%;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" wid=
+th=3D"30%"><div class=3D"x_-1642793605p x_-1642793605currency" style=3D"fon=
+t-family: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, A=
+rial, sans-serif;font-size: 14.0px;line-height: 21.0px;color: rgb(61,69,77)=
+;font-weight: bold;letter-spacing: 0.2px;white-space: nowrap;margin-top: 0;=
+margin-right: 0;margin-bottom: 0;margin-left: 0;padding-top: 8.0px;padding-=
+right: 0;padding-bottom: 8.0px;padding-left: 0;">$2.25<br></div></td></tr><=
+/tbody></table></td><td bgcolor=3D"#ffffff" width=3D"16" style=3D"line-heig=
+ht: 0.0px;font-size: 0.0px;border-collapse: collapse;padding-top: 0;padding=
+-right: 0;padding-bottom: 0;padding-left: 0;"><img width=3D"16" height=3D"1=
+" border=3D"0" alt=3D"" style=3D"line-height: 0;font-size: 0;" id=3D"165375=
+9524400100001_imgsrc_url_5" src=3D"https://d3g64w74of3jgu.cloudfront.net/re=
+ceipts/assets/spacer-17af9e65317bbbfbbd0bcdc729f14faadf37cd08cf30cc0fe0b724=
+43e78cbffb.png"><br></td></tr></tbody></table><table border=3D"0" cellspaci=
+ng=3D"0" cellpadding=3D"0" class=3D"x_-1642793605table-container-section" s=
+tyle=3D"border: 0;border-collapse: collapse;border-spacing: 0;width: 100.0%=
+;min-width: 100.0%;border-top-width: 0;border-right-width: 0;border-bottom-=
+width: 0;border-left-width: 0;" bgcolor=3D"white" width=3D"100%"><tbody><tr=
+><td bgcolor=3D"#ffffff" width=3D"16" style=3D"line-height: 0.0px;font-size=
+: 0.0px;border-collapse: collapse;padding-top: 0;padding-right: 0;padding-b=
+ottom: 0;padding-left: 0;"><img width=3D"16" height=3D"1" border=3D"0" alt=
+=3D"" style=3D"line-height: 0;font-size: 0;" id=3D"1653759524400100001_imgs=
+rc_url_6" src=3D"https://d3g64w74of3jgu.cloudfront.net/receipts/assets/spac=
+er-17af9e65317bbbfbbd0bcdc729f14faadf37cd08cf30cc0fe0b72443e78cbffb.png"><b=
+r></td><td style=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: co=
+llapse;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;">=
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"x_-1642793=
+605table-container-section x_-1642793605table-payment-info" style=3D"border=
+: 0;border-collapse: separate;border-spacing: 0;width: 100.0%;min-width: 10=
+0.0%;border-top-width: 0;border-right-width: 0;border-bottom-width: 0;borde=
+r-left-width: 0;" bgcolor=3D"white" width=3D"100%"><tbody><tr><td align=3D"=
+center" valign=3D"top" style=3D"line-height: 0.0px;font-size: 0.0px;border-=
+collapse: collapse;padding-top: 0;padding-right: 0;padding-bottom: 0;paddin=
+g-left: 0;"><br></td></tr><tr><td width=3D"100%" height=3D"8" colspan=3D"1"=
+ style=3D"line-height: 0;font-size: 0;border-collapse: collapse;padding-top=
+: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><br></td></tr><tr>=
+<td width=3D"100%" height=3D"11" colspan=3D"3" style=3D"line-height: 0.0px;=
+font-size: 0.0px;border-collapse: collapse;padding-top: 0;padding-right: 0;=
+padding-bottom: 0;padding-left: 0;"><br></td></tr><tr><td colspan=3D"3" sty=
+le=3D"border-top-width: 1.0px;border-top-color: rgb(224,225,226);border-top=
+-style: dashed;line-height: 0.0px;font-size: 0.0px;border-collapse: collaps=
+e;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" heigh=
+t=3D"1"><img width=3D"1" height=3D"1" border=3D"0" alt=3D"" style=3D"line-h=
+eight: 0;font-size: 0;" id=3D"1653759524400100001_imgsrc_url_7" src=3D"http=
+s://d3g64w74of3jgu.cloudfront.net/receipts/assets/spacer-17af9e65317bbbfbbd=
+0bcdc729f14faadf37cd08cf30cc0fe0b72443e78cbffb.png"><br></td></tr><tr><td w=
+idth=3D"100%" height=3D"11" colspan=3D"3" style=3D"line-height: 0.0px;font-=
+size: 0.0px;border-collapse: collapse;padding-top: 0;padding-right: 0;paddi=
+ng-bottom: 0;padding-left: 0;"><br></td></tr><tr><td align=3D"left" class=
+=3D"x_-1642793605half-col-left" style=3D"line-height: 0.0px;font-size: 0.0p=
+x;border-collapse: collapse;width: 70.0%;padding-top: 0;padding-right: 0;pa=
+dding-bottom: 0;padding-left: 0;" width=3D"70%"><div class=3D"x_-1642793605=
+p" style=3D"font-family: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot=
+;, Helvetica, Arial, sans-serif;font-size: 14.0px;line-height: 21.0px;color=
+: rgb(61,69,77);font-weight: normal;letter-spacing: 0.2px;margin-top: 0;mar=
+gin-right: 0;margin-bottom: 0;margin-left: 0;padding-top: -0.5px;padding-ri=
+ght: 0;padding-bottom: -0.5px;padding-left: 0;">Purchase Subtotal<br></div>=
+</td><td align=3D"right" class=3D"x_-1642793605half-col-right" style=3D"lin=
+e-height: 0.0px;font-size: 0.0px;border-collapse: collapse;width: 30.0%;pad=
+ding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" width=3D"3=
+0%"><div class=3D"x_-1642793605p x_-1642793605currency" style=3D"font-famil=
+y: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, s=
+ans-serif;font-size: 14.0px;line-height: 21.0px;color: rgb(61,69,77);font-w=
+eight: normal;letter-spacing: 0.2px;white-space: nowrap;margin-top: 0;margi=
+n-right: 0;margin-bottom: 0;margin-left: 0;padding-top: -0.5px;padding-righ=
+t: 0;padding-bottom: -0.5px;padding-left: 0;">$61.50<br></div></td></tr><tr=
+><td align=3D"left" class=3D"x_-1642793605half-col-left" style=3D"line-heig=
+ht: 0.0px;font-size: 0.0px;border-collapse: collapse;width: 70.0%;padding-t=
+op: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" width=3D"70%"><d=
+iv class=3D"x_-1642793605p" style=3D"font-family: SQMarket, HelveticaNeue, =
+&quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 14.0px;=
+line-height: 21.0px;color: rgb(61,69,77);font-weight: normal;letter-spacing=
+: 0.2px;margin-top: 0;margin-right: 0;margin-bottom: 0;margin-left: 0;paddi=
+ng-top: -0.5px;padding-right: 0;padding-bottom: -0.5px;padding-left: 0;">HS=
+T (13%) (13%)<br></div></td><td align=3D"right" class=3D"x_-1642793605half-=
+col-right" style=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: co=
+llapse;width: 30.0%;padding-top: 0;padding-right: 0;padding-bottom: 0;paddi=
+ng-left: 0;" width=3D"30%"><div class=3D"x_-1642793605p x_-1642793605curren=
+cy" style=3D"font-family: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quo=
+t;, Helvetica, Arial, sans-serif;font-size: 14.0px;line-height: 21.0px;colo=
+r: rgb(61,69,77);font-weight: normal;letter-spacing: 0.2px;white-space: now=
+rap;margin-top: 0;margin-right: 0;margin-bottom: 0;margin-left: 0;padding-t=
+op: -0.5px;padding-right: 0;padding-bottom: -0.5px;padding-left: 0;">$8.00<=
+br></div></td></tr><tr><td align=3D"left" class=3D"x_-1642793605half-col-le=
+ft" style=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: collapse;=
+width: 70.0%;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left=
+: 0;" width=3D"70%"><div class=3D"x_-1642793605p" style=3D"font-family: SQM=
+arket, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-se=
+rif;font-size: 14.0px;line-height: 21.0px;color: rgb(61,69,77);font-weight:=
+ normal;letter-spacing: 0.2px;margin-top: 0;margin-right: 0;margin-bottom: =
+0;margin-left: 0;padding-top: -0.5px;padding-right: 0;padding-bottom: -0.5p=
+x;padding-left: 0;">Tip<br></div></td><td align=3D"right" class=3D"x_-16427=
+93605half-col-right" style=3D"line-height: 0.0px;font-size: 0.0px;border-co=
+llapse: collapse;width: 30.0%;padding-top: 0;padding-right: 0;padding-botto=
+m: 0;padding-left: 0;" width=3D"30%"><div class=3D"x_-1642793605p x_-164279=
+3605currency" style=3D"font-family: SQMarket, HelveticaNeue, &quot;Helvetic=
+a Neue&quot;, Helvetica, Arial, sans-serif;font-size: 14.0px;line-height: 2=
+1.0px;color: rgb(61,69,77);font-weight: normal;letter-spacing: 0.2px;white-=
+space: nowrap;margin-top: 0;margin-right: 0;margin-bottom: 0;margin-left: 0=
+;padding-top: -0.5px;padding-right: 0;padding-bottom: -0.5px;padding-left: =
+0;">$10.42<br></div></td></tr><tr><td width=3D"100%" height=3D"11" colspan=
+=3D"3" style=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: collap=
+se;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><br>=
+</td></tr><tr><td colspan=3D"3" style=3D"border-top-width: 1.0px;border-top=
+-color: rgb(224,225,226);border-top-style: dashed;line-height: 0.0px;font-s=
+ize: 0.0px;border-collapse: collapse;padding-top: 0;padding-right: 0;paddin=
+g-bottom: 0;padding-left: 0;" height=3D"1"><img width=3D"1" height=3D"1" bo=
+rder=3D"0" alt=3D"" style=3D"line-height: 0;font-size: 0;" id=3D"1653759524=
+400100001_imgsrc_url_8" src=3D"https://d3g64w74of3jgu.cloudfront.net/receip=
+ts/assets/spacer-17af9e65317bbbfbbd0bcdc729f14faadf37cd08cf30cc0fe0b72443e7=
+8cbffb.png"><br></td></tr><tr><td width=3D"100%" height=3D"11" colspan=3D"3=
+" style=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: collapse;pa=
+dding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><br></td>=
+</tr><tr class=3D"x_-1642793605tr-payment-total"><td align=3D"left" class=
+=3D"x_-1642793605half-col-left" style=3D"line-height: 0.0px;font-size: 0.0p=
+x;border-collapse: collapse;width: 70.0%;padding-top: 0;padding-right: 0;pa=
+dding-bottom: 0;padding-left: 0;" width=3D"70%"><div class=3D"x_-1642793605=
+p" style=3D"font-family: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot=
+;, Helvetica, Arial, sans-serif;font-size: 14.0px;line-height: 21.0px;color=
+: rgb(61,69,77);font-weight: normal;letter-spacing: 0.2px;margin-top: 0;mar=
+gin-right: 0;margin-bottom: 0;margin-left: 0;padding-top: -0.5px;padding-ri=
+ght: 0;padding-bottom: -0.5px;padding-left: 0;">Total<br></div></td><td ali=
+gn=3D"right" class=3D"x_-1642793605half-col-right" style=3D"line-height: 0.=
+0px;font-size: 0.0px;border-collapse: collapse;width: 30.0%;padding-top: 0;=
+padding-right: 0;padding-bottom: 0;padding-left: 0;" width=3D"30%"><div cla=
+ss=3D"x_-1642793605p x_-1642793605currency x_-1642793605purchase-total" sty=
+le=3D"font-family: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot;, Hel=
+vetica, Arial, sans-serif;font-size: 14.0px;line-height: 21.0px;color: rgb(=
+61,69,77);font-weight: bold;letter-spacing: 0.2px;white-space: nowrap;margi=
+n-top: 0;margin-right: 0;margin-bottom: 0;margin-left: 0;padding-top: -0.5p=
+x;padding-right: 0;padding-bottom: -0.5px;padding-left: 0;">$79.92<br></div=
+></td></tr></tbody></table></td><td bgcolor=3D"#ffffff" width=3D"16" style=
+=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: collapse;padding-t=
+op: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><img width=3D"16=
+" height=3D"1" border=3D"0" alt=3D"" style=3D"line-height: 0;font-size: 0;"=
+ id=3D"1653759524400100001_imgsrc_url_9" src=3D"https://d3g64w74of3jgu.clou=
+dfront.net/receipts/assets/spacer-17af9e65317bbbfbbd0bcdc729f14faadf37cd08c=
+f30cc0fe0b72443e78cbffb.png"><br></td></tr></tbody></table><table border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"x_-1642793605table-contain=
+er-section" style=3D"border: 0;border-collapse: collapse;border-spacing: 0;=
+width: 100.0%;min-width: 100.0%;border-top-width: 0;border-right-width: 0;b=
+order-bottom-width: 0;border-left-width: 0;" bgcolor=3D"white" width=3D"100=
+%"><tbody><tr><td bgcolor=3D"#ffffff" width=3D"16" style=3D"line-height: 0.=
+0px;font-size: 0.0px;border-collapse: collapse;padding-top: 0;padding-right=
+: 0;padding-bottom: 0;padding-left: 0;"><img width=3D"16" height=3D"1" bord=
+er=3D"0" alt=3D"" style=3D"line-height: 0;font-size: 0;" id=3D"165375952440=
+0100001_imgsrc_url_10" src=3D"https://d3g64w74of3jgu.cloudfront.net/receipt=
+s/assets/spacer-17af9e65317bbbfbbd0bcdc729f14faadf37cd08cf30cc0fe0b72443e78=
+cbffb.png"><br></td><td style=3D"line-height: 0.0px;font-size: 0.0px;border=
+-collapse: collapse;padding-top: 0;padding-right: 0;padding-bottom: 0;paddi=
+ng-left: 0;"><table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=
+=3D"x_-1642793605table-container-section x_-1642793605table-payment-info" s=
+tyle=3D"border: 0;border-collapse: separate;border-spacing: 0;width: 100.0%=
+;min-width: 100.0%;border-top-width: 0;border-right-width: 0;border-bottom-=
+width: 0;border-left-width: 0;" bgcolor=3D"white" width=3D"100%"><tbody><tr=
+><td align=3D"center" valign=3D"top" style=3D"line-height: 0.0px;font-size:=
+ 0.0px;border-collapse: collapse;padding-top: 0;padding-right: 0;padding-bo=
+ttom: 0;padding-left: 0;"><br></td></tr><tr><td width=3D"100%" height=3D"16=
+" colspan=3D"2" style=3D"line-height: 0;font-size: 0;border-collapse: colla=
+pse;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><br=
+></td></tr></tbody></table></td><td bgcolor=3D"#ffffff" width=3D"16" style=
+=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: collapse;padding-t=
+op: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><img width=3D"16=
+" height=3D"1" border=3D"0" alt=3D"" style=3D"line-height: 0;font-size: 0;"=
+ id=3D"1653759524400100001_imgsrc_url_11" src=3D"https://d3g64w74of3jgu.clo=
+udfront.net/receipts/assets/spacer-17af9e65317bbbfbbd0bcdc729f14faadf37cd08=
+cf30cc0fe0b72443e78cbffb.png"><br></td></tr></tbody></table><table class=3D=
+"x_-1642793605table-container-section x_-1642793605table-merchant-info" sty=
+le=3D"border: 0;border-collapse: collapse;border-spacing: 0;width: 100.0%;m=
+in-width: 100.0%;table-layout: fixed;border-top-width: 0;border-right-width=
+: 0;border-bottom-width: 0;border-left-width: 0;" bgcolor=3D"white" width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td align=3D"cente=
+r" class=3D"x_-1642793605td-map-container" valign=3D"top" style=3D"line-hei=
+ght: 0.0px;font-size: 0.0px;border-collapse: collapse;width: 100.0%;padding=
+-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" width=3D"100%"=
+><img align=3D"center" border=3D"0" class=3D"x_-1642793605merchant-info__ma=
+p" id=3D"1653759524400100001_imgsrc_url_12" width=3D"100%" style=3D"display=
+: block;max-width: 375.0px;width: 100.0%;max-height: 120.0px;" src=3D"https=
+://api.mapbox.com/styles/v1/square/ck93u4swt1ztg1ip8o9brpbk8/static/url-htt=
+p%3A%2F%2Fs3.amazonaws.com%2Fsquare-receipts-production%2Freceipts%2Fstatic=
+-assets%2Fmap-pin-140924-546476.png(-80.217,44.500)/-80.217,44.500,15/375x1=
+20@2x?access_token=3Dpk.eyJ1Ijoic3F1YXJlIiwiYSI6IlBvOHNOSGcifQ.UEuIIhAN8OO4=
+uCCqLShcJw&amp;attribution=3Dfalse&amp;logo=3Dfalse"></td></tr><tr><td widt=
+h=3D"100%" height=3D"24" colspan=3D"1" style=3D"line-height: 0;font-size: 0=
+;border-collapse: collapse;padding-top: 0;padding-right: 0;padding-bottom: =
+0;padding-left: 0;"><br></td></tr><tr><td align=3D"center" class=3D"x_-1642=
+793605td-receipt-address" style=3D"line-height: 0.0px;font-size: 0.0px;bord=
+er-collapse: collapse;padding-top: 0;padding-right: 0;padding-bottom: 0;pad=
+ding-left: 0;"><div class=3D"x_-1642793605p x_-1642793605receipt-profile-na=
+me" style=3D"font-family: SQMarket, HelveticaNeue-Medium, &quot;Helvetica N=
+eue Medium&quot;, Helvetica-Bold, Helvetica, Arial, sans-serif;font-size: 1=
+4.0px;line-height: 23.0px;color: rgb(61,69,77);font-weight: 500;letter-spac=
+ing: 0.2px;text-decoration: none;margin-top: 0;margin-right: 0;margin-botto=
+m: 0;margin-left: 0;padding-top: 0;padding-right: 0;padding-bottom: 0;paddi=
+ng-left: 0;" align=3D"center">Gibson &amp; Co.<br></div><div class=3D"x_-16=
+42793605p x_-1642793605receipt-address" style=3D"font-family: SQMarket, Hel=
+veticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-s=
+ize: 14.0px;line-height: 23.0px;color: rgb(61,69,77);font-weight: normal;le=
+tter-spacing: 0.2px;text-decoration: none;margin-top: 0;margin-right: 0;mar=
+gin-bottom: 0;margin-left: 0;padding-top: 0;padding-right: 0;padding-bottom=
+: 0;padding-left: 0;" align=3D"center"><div class=3D"x_-1642793605p x_-1642=
+793605receipt-address" style=3D"color: rgb(61,69,77);font-family: SQMarket,=
+ HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;fo=
+nt-size: 14.0px;font-weight: normal;letter-spacing: 0.2px;line-height: 23.0=
+px;text-decoration: none;" align=3D"center">93 Hurontario Street, Unit 3<br=
+></div><div class=3D"x_-1642793605p x_-1642793605receipt-address" style=3D"=
+color: rgb(61,69,77);font-family: SQMarket, HelveticaNeue, &quot;Helvetica =
+Neue&quot;, Helvetica, Arial, sans-serif;font-size: 14.0px;font-weight: nor=
+mal;letter-spacing: 0.2px;line-height: 23.0px;text-decoration: none;" align=
+=3D"center">Collingwood, ON L9Y 2L9<br></div></div><div class=3D"x_-1642793=
+605p x_-1642793605receipt-address" id=3D"x_-1642793605receipt-phone-number"=
+ style=3D"font-family: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot;,=
+ Helvetica, Arial, sans-serif;font-size: 14.0px;line-height: 23.0px;color: =
+rgb(61,69,77);font-weight: normal;letter-spacing: 0.2px;text-decoration: no=
+ne;margin-top: 0;margin-right: 0;margin-bottom: 0;margin-left: 0;padding-to=
+p: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" align=3D"center">=
+<a href=3D"http://rfrtpc7s.r.us-west-2.awstrack.me/L0/tel:705-293-3500/1/01=
+0101810bbfb265-1bf6f6a0-22a1-47e7-8ab5-71455834fce1-000000/d3V5ZKgnvzOYBH_W=
+gxrapfIemk8=3D272" style=3D"text-decoration: none;color: rgb(61,69,77);" ta=
+rget=3D"_blank">705-293-3500</a><br></div></td></tr><tr><td width=3D"100%" =
+height=3D"16" colspan=3D"1" style=3D"line-height: 0;font-size: 0;border-col=
+lapse: collapse;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-l=
+eft: 0;"><br></td></tr><tr><td align=3D"center" style=3D"line-height: 0.0px=
+;font-size: 0.0px;border-collapse: collapse;padding-top: 0;padding-right: 0=
+;padding-bottom: 0;padding-left: 0;"><table align=3D"center" style=3D"borde=
+r: 0;border-collapse: collapse;border-spacing: 0;border-top-width: 0;border=
+-right-width: 0;border-bottom-width: 0;border-left-width: 0;" cellpadding=
+=3D"0" cellspacing=3D"0"><tbody><tr><td class=3D"x_-1642793605td-social-lin=
+k" id=3D"x_-1642793605receipt-facebook-url" style=3D"line-height: 0.0px;fon=
+t-size: 0.0px;border-collapse: collapse;height: 32.0px;width: 56.0px;paddin=
+g-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" align=3D"cent=
+er" valign=3D"middle" width=3D"56" height=3D"32"><a href=3D"https://rfrtpc7=
+s.r.us-west-2.awstrack.me/L0/https:%2F%2Ffacebook.com%2Fgibsonandcompany/1/=
+010101810bbfb265-1bf6f6a0-22a1-47e7-8ab5-71455834fce1-000000/tvMtyD5rg_PgxW=
+5EeoFFr6lWEAk=3D272" style=3D"text-decoration: none;vertical-align: middle;=
+" target=3D"_blank"><img width=3D"32" height=3D"32" border=3D"0" id=3D"1653=
+759524400100001_imgsrc_url_13" style=3D"display: inline-block;vertical-alig=
+n: middle;" src=3D"https://d3g64w74of3jgu.cloudfront.net/receipts/assets/fa=
+cebook-icon-dc5f255a317a610b8e969871cc60812c7c5f7f705cb3e0583b478840f8a524c=
+d.png"></a><br></td><td class=3D"x_-1642793605td-social-link" id=3D"x_-1642=
+793605receipt-instagram-url" style=3D"line-height: 0.0px;font-size: 0.0px;b=
+order-collapse: collapse;height: 32.0px;width: 56.0px;padding-top: 0;paddin=
+g-right: 0;padding-bottom: 0;padding-left: 0;" align=3D"center" valign=3D"m=
+iddle" width=3D"56" height=3D"32"><a href=3D"https://rfrtpc7s.r.us-west-2.a=
+wstrack.me/L0/https:%2F%2Finstagram.com%2Fgibsonandcompany/1/010101810bbfb2=
+65-1bf6f6a0-22a1-47e7-8ab5-71455834fce1-000000/7PEpCbmIduXcgObT6aIoeap_cNs=
+=3D272" style=3D"text-decoration: none;vertical-align: middle;" target=3D"_=
+blank"><img width=3D"32" height=3D"32" border=3D"0" id=3D"16537595244001000=
+01_imgsrc_url_14" style=3D"display: inline-block;vertical-align: middle;" s=
+rc=3D"https://d3g64w74of3jgu.cloudfront.net/receipts/assets/instagram-icon-=
+3cb64d48df35738814fd6547e7d152b29badf335ce32e3fad56a7998f77c340c.png"></a><=
+br></td><td class=3D"x_-1642793605td-social-link" id=3D"x_-1642793605receip=
+t-website-url" style=3D"line-height: 0.0px;font-size: 0.0px;border-collapse=
+: collapse;height: 32.0px;width: 56.0px;padding-top: 0;padding-right: 0;pad=
+ding-bottom: 0;padding-left: 0;" align=3D"center" valign=3D"middle" width=
+=3D"56" height=3D"32"><a href=3D"http://rfrtpc7s.r.us-west-2.awstrack.me/L0=
+/http:%2F%2Fgibsonandcompany.ca/1/010101810bbfb265-1bf6f6a0-22a1-47e7-8ab5-=
+71455834fce1-000000/uNjFZCZHqbRx_41csp0g32y5OuM=3D272" style=3D"text-decora=
+tion: none;vertical-align: middle;" target=3D"_blank"><img width=3D"32" hei=
+ght=3D"32" border=3D"0" id=3D"1653759524400100001_imgsrc_url_15" style=3D"d=
+isplay: inline-block;vertical-align: middle;" src=3D"https://d3g64w74of3jgu=
+.cloudfront.net/receipts/assets/website-icon-f3f91153be499f8f6b26f76c2ab373=
+97899a1aa719a22d8a8f2785286d2cef18.png"></a><br></td></tr></tbody></table><=
+/td></tr><tr><td width=3D"100%" height=3D"20" colspan=3D"1" style=3D"line-h=
+eight: 0;font-size: 0;border-collapse: collapse;padding-top: 0;padding-righ=
+t: 0;padding-bottom: 0;padding-left: 0;"><br></td></tr></tbody></table><tab=
+le style=3D"border: 0;border-collapse: collapse;border-spacing: 0;border-to=
+p-width: 0;border-right-width: 0;border-bottom-width: 0;border-left-width: =
+0;" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td colspan=3D"2" height=
+=3D"1" style=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: collap=
+se;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><br>=
+</td></tr></tbody></table><table border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" class=3D"x_-1642793605table-container-section" style=3D"border: 0;bo=
+rder-collapse: collapse;border-spacing: 0;width: 100.0%;min-width: 100.0%;b=
+order-top-width: 0;border-right-width: 0;border-bottom-width: 0;border-left=
+-width: 0;" bgcolor=3D"white" width=3D"100%"><tbody><tr><td bgcolor=3D"#fff=
+fff" width=3D"16" style=3D"line-height: 0.0px;font-size: 0.0px;border-colla=
+pse: collapse;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-lef=
+t: 0;"><img width=3D"16" height=3D"1" border=3D"0" alt=3D"" style=3D"line-h=
+eight: 0;font-size: 0;" id=3D"1653759524400100001_imgsrc_url_16" src=3D"htt=
+ps://d3g64w74of3jgu.cloudfront.net/receipts/assets/spacer-17af9e65317bbbfbb=
+d0bcdc729f14faadf37cd08cf30cc0fe0b72443e78cbffb.png"><br></td><td style=3D"=
+line-height: 0.0px;font-size: 0.0px;border-collapse: collapse;padding-top: =
+0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><table border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0" class=3D"x_-1642793605table-container-s=
+ection x_-1642793605table-date-and-tenders" style=3D"border: 0;border-colla=
+pse: collapse;border-spacing: 0;width: 100.0%;min-width: 100.0%;border-top-=
+width: 0;border-right-width: 0;border-bottom-width: 0;border-left-width: 0;=
+" bgcolor=3D"white" width=3D"100%"><tbody><tr><td align=3D"center" valign=
+=3D"top" style=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: coll=
+apse;width: 140.0px;padding-top: 0;padding-right: 0;padding-bottom: 0;paddi=
+ng-left: 0;" width=3D"140"><br></td></tr><tr><td width=3D"100%" height=3D"1=
+6" colspan=3D"1" style=3D"line-height: 0;font-size: 0;border-collapse: coll=
+apse;width: 140.0px;padding-top: 0;padding-right: 0;padding-bottom: 0;paddi=
+ng-left: 0;" valign=3D"top"><br></td></tr><tr><td align=3D"left" class=3D"x=
+_-1642793605half-col-left" style=3D"line-height: 0.0px;font-size: 0.0px;bor=
+der-collapse: collapse;width: 140.0px;padding-top: 0;padding-right: 0;paddi=
+ng-bottom: 0;padding-left: 0;" valign=3D"top" width=3D"140"><div class=3D"x=
+_-1642793605p" style=3D"font-family: SQMarket, HelveticaNeue, &quot;Helveti=
+ca Neue&quot;, Helvetica, Arial, sans-serif;font-size: 14.0px;line-height: =
+21.0px;color: rgb(133,137,140);font-weight: normal;vertical-align: top;lett=
+er-spacing: 0.2px;margin-top: 0;margin-right: 0;margin-bottom: 0;margin-lef=
+t: 0;padding-top: 3.5px;padding-right: 0;padding-bottom: 3.5px;padding-left=
+: 0;">Interac 9801 (Contactless)<br></div><div class=3D"x_-1642793605p x_-1=
+642793605card-icon" style=3D"font-family: SQMarket, HelveticaNeue, &quot;He=
+lvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 14.0px;line-hei=
+ght: 21.0px;color: rgb(133,137,140);font-weight: normal;vertical-align: top=
+;letter-spacing: 0.2px;margin-top: 0;margin-right: 0;margin-bottom: 0;margi=
+n-left: 0;padding-top: 3.0px;padding-right: 0;padding-bottom: 3.5px;padding=
+-left: 0;"><img width=3D"40" height=3D"16" border=3D"0" style=3D"display: b=
+lock;vertical-align: top;" alt=3D"" id=3D"1653759524400100001_imgsrc_url_17=
+" src=3D"https://d3g64w74of3jgu.cloudfront.net/receipts/assets/tender-inter=
+ac-a21ccf0c145c20751e143cbc9af3159cfe1f308b4994751250cc04800a2c572c.png"></=
+div></td><td align=3D"right" class=3D"x_-1642793605half-col-right" style=3D=
+"line-height: 0.0px;font-size: 0.0px;border-collapse: collapse;width: 140.0=
+px;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" vali=
+gn=3D"top" width=3D"140"><div class=3D"x_-1642793605p x_-1642793605td-payme=
+nt-time" style=3D"font-family: SQMarket, HelveticaNeue, &quot;Helvetica Neu=
+e&quot;, Helvetica, Arial, sans-serif;font-size: 14.0px;line-height: 21.0px=
+;color: rgb(133,137,140);font-weight: normal;vertical-align: top;letter-spa=
+cing: 0.2px;white-space: nowrap;margin-top: 0;margin-right: 0;margin-bottom=
+: 0;margin-left: 0;padding-top: 3.5px;padding-right: 0;padding-bottom: 3.5p=
+x;padding-left: 0;">2022-05-28-13:31<br></div><div class=3D"x_-1642793605p"=
+ style=3D"font-family: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot;,=
+ Helvetica, Arial, sans-serif;font-size: 14.0px;line-height: 21.0px;color: =
+rgb(133,137,140);font-weight: normal;vertical-align: top;letter-spacing: 0.=
+2px;margin-top: 0;margin-right: 0;margin-bottom: 0;margin-left: 0;padding-t=
+op: 3.5px;padding-right: 0;padding-bottom: 3.5px;padding-left: 0;">#NWkU<br=
+></div><div class=3D"x_-1642793605p" style=3D"font-family: SQMarket, Helvet=
+icaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size=
+: 14.0px;line-height: 21.0px;color: rgb(133,137,140);font-weight: normal;ve=
+rtical-align: top;letter-spacing: 0.2px;margin-top: 0;margin-right: 0;margi=
+n-bottom: 0;margin-left: 0;padding-top: 3.5px;padding-right: 0;padding-bott=
+om: 3.5px;padding-left: 0;">Auth code: 001592<br></div></td></tr><tr><td al=
+ign=3D"left" class=3D"x_-1642793605half-col-left" colspan=3D"2" style=3D"li=
+ne-height: 0.0px;font-size: 0.0px;border-collapse: collapse;width: 140.0px;=
+padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" valign=
+=3D"top" width=3D"140"><br></td></tr><tr><td width=3D"100%" height=3D"11" c=
+olspan=3D"3" style=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: =
+collapse;width: 140.0px;padding-top: 0;padding-right: 0;padding-bottom: 0;p=
+adding-left: 0;" valign=3D"top"><br></td></tr><tr><td colspan=3D"3" style=
+=3D"border-top-width: 1.0px;border-top-color: rgb(224,225,226);border-top-s=
+tyle: dashed;line-height: 0.0px;font-size: 0.0px;border-collapse: collapse;=
+width: 140.0px;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-le=
+ft: 0;" height=3D"1" valign=3D"top" width=3D"140"><img width=3D"1" height=
+=3D"1" border=3D"0" alt=3D"" style=3D"line-height: 0;font-size: 0;vertical-=
+align: top;" id=3D"1653759524400100001_imgsrc_url_18" src=3D"https://d3g64w=
+74of3jgu.cloudfront.net/receipts/assets/spacer-17af9e65317bbbfbbd0bcdc729f1=
+4faadf37cd08cf30cc0fe0b72443e78cbffb.png"><br></td></tr><tr><td width=3D"10=
+0%" height=3D"11" colspan=3D"3" style=3D"line-height: 0.0px;font-size: 0.0p=
+x;border-collapse: collapse;width: 140.0px;padding-top: 0;padding-right: 0;=
+padding-bottom: 0;padding-left: 0;" valign=3D"top"><br></td></tr><tr class=
+=3D"x_-1642793605payment-tenders"><td align=3D"left" class=3D"x_-1642793605=
+half-col-left" style=3D"line-height: 0.0px;font-size: 0.0px;border-collapse=
+: collapse;width: 140.0px;padding-top: 0;padding-right: 0;padding-bottom: 0=
+;padding-left: 0;" valign=3D"top" width=3D"140"><div class=3D"x_-1642793605=
+p" style=3D"font-family: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot=
+;, Helvetica, Arial, sans-serif;font-size: 14.0px;line-height: 21.0px;color=
+: rgb(133,137,140);font-weight: normal;vertical-align: top;letter-spacing: =
+0.2px;margin-top: 0;margin-right: 0;margin-bottom: 0;margin-left: 0;padding=
+-top: 3.5px;padding-right: 0;padding-bottom: 3.5px;padding-left: 0;">AID: <=
+span>A0000002771010</span><br></div><div class=3D"x_-1642793605p" style=3D"=
+font-family: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica=
+, Arial, sans-serif;font-size: 14.0px;line-height: 21.0px;color: rgb(133,13=
+7,140);font-weight: normal;vertical-align: top;letter-spacing: 0.2px;margin=
+-top: 0;margin-right: 0;margin-bottom: 0;margin-left: 0;padding-top: 3.5px;=
+padding-right: 0;padding-bottom: 3.5px;padding-left: 0;">No CVM<br></div></=
+td><td align=3D"right" class=3D"x_-1642793605half-col-right" style=3D"line-=
+height: 0.0px;font-size: 0.0px;border-collapse: collapse;width: 140.0px;pad=
+ding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" valign=3D"=
+top" width=3D"140"><div class=3D"x_-1642793605p" style=3D"font-family: SQMa=
+rket, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-ser=
+if;font-size: 14.0px;line-height: 21.0px;color: rgb(133,137,140);font-weigh=
+t: normal;vertical-align: top;letter-spacing: 0.2px;margin-top: 0;margin-ri=
+ght: 0;margin-bottom: 0;margin-left: 0;padding-top: 3.5px;padding-right: 0;=
+padding-bottom: 3.5px;padding-left: 0;">Ref No.: <span>137534157113</span><=
+br></div><div class=3D"x_-1642793605p" style=3D"font-family: SQMarket, Helv=
+eticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-si=
+ze: 14.0px;line-height: 21.0px;color: rgb(133,137,140);font-weight: normal;=
+vertical-align: top;letter-spacing: 0.2px;margin-top: 0;margin-right: 0;mar=
+gin-bottom: 0;margin-left: 0;padding-top: 3.5px;padding-right: 0;padding-bo=
+ttom: 3.5px;padding-left: 0;">Terminal ID: <span>SQ028AM9</span><br></div><=
+div class=3D"x_-1642793605p" style=3D"font-family: SQMarket, HelveticaNeue,=
+ &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 14.0px=
+;line-height: 21.0px;color: rgb(133,137,140);font-weight: normal;vertical-a=
+lign: top;letter-spacing: 0.2px;margin-top: 0;margin-right: 0;margin-bottom=
+: 0;margin-left: 0;padding-top: 3.5px;padding-right: 0;padding-bottom: 3.5p=
+x;padding-left: 0;">Purchase<br></div></td></tr><tr><td align=3D"left" cols=
+pan=3D"2" style=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: col=
+lapse;width: 140.0px;padding-top: 0;padding-right: 0;padding-bottom: 0;padd=
+ing-left: 0;" valign=3D"top" width=3D"140"><div class=3D"x_-1642793605p" st=
+yle=3D"font-family: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot;, He=
+lvetica, Arial, sans-serif;font-size: 14.0px;line-height: 21.0px;color: rgb=
+(133,137,140);font-weight: normal;vertical-align: top;letter-spacing: 0.2px=
+;margin-top: 0;margin-right: 0;margin-bottom: 0;margin-left: 0;padding-top:=
+ 3.5px;padding-right: 0;padding-bottom: 3.5px;padding-left: 0;">GST/HST: <s=
+pan>728707522RT0001</span><br></div></td></tr></tbody></table></td><td bgco=
+lor=3D"#ffffff" width=3D"16" style=3D"line-height: 0.0px;font-size: 0.0px;b=
+order-collapse: collapse;padding-top: 0;padding-right: 0;padding-bottom: 0;=
+padding-left: 0;"><img width=3D"16" height=3D"1" border=3D"0" alt=3D"" styl=
+e=3D"line-height: 0;font-size: 0;" id=3D"1653759524400100001_imgsrc_url_19"=
+ src=3D"https://d3g64w74of3jgu.cloudfront.net/receipts/assets/spacer-17af9e=
+65317bbbfbbd0bcdc729f14faadf37cd08cf30cc0fe0b72443e78cbffb.png"><br></td></=
+tr></tbody></table><table class=3D"x_-1642793605table-receipt-bottom-edge" =
+style=3D"border: 0;border-collapse: collapse;border-spacing: 0;border-top-w=
+idth: 0;border-right-width: 0;border-bottom-width: 0;border-left-width: 0;"=
+ bgcolor=3D"#f2f4f5" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td val=
+ign=3D"top" style=3D"line-height: 0.0px;font-size: 0.0px;border-collapse: c=
+ollapse;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"=
+><img alt=3D"" width=3D"100%" height=3D"4" class=3D"x_-1642793605receipt-bo=
+ttom-edge" id=3D"1653759524400100001_imgsrc_url_20" style=3D"border-top-wid=
+th: 0;border-right-width: 0;border-bottom-width: 0;border-left-width: 0;dis=
+play: block;max-width: 375.0px;width: 100.0%;" src=3D"https://d3g64w74of3jg=
+u.cloudfront.net/receipts/assets/receipt-bottom-edge-9546851a9ee332ff84de94=
+e1862dc33629fdbd525713db3affdd72287acb5ae7.png"></td></tr></tbody></table><=
+table align=3D"center" class=3D"x_-1642793605table-container-section x_-164=
+2793605table-program x_-1642793605register-upsell-tile" style=3D"border: 0;=
+border-collapse: collapse;border-spacing: 0;width: 100.0%;min-width: 100.0%=
+;height: 120.0px;border-top-width: 0;border-right-width: 0;border-bottom-wi=
+dth: 0;border-left-width: 0;" bgcolor=3D"#f2f4f5" width=3D"100%" height=3D"=
+120" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td align=3D"center" cl=
+ass=3D"x_-1642793605register-upsell-tile-header" style=3D"line-height: 21.0=
+px;font-size: 14.0px;border-collapse: collapse;color: rgb(61,69,77);font-fa=
+mily: SQMarket, HelveticaNeue-Medium, &quot;Helvetica Neue Medium&quot;, He=
+lvetica-Bold, Helvetica, Arial, sans-serif;font-weight: 500;letter-spacing:=
+ 0.2px;padding-top: 24.0px;padding-right: 45.0px;padding-bottom: 2.0px;padd=
+ing-left: 45.0px;">Run your own business?<br></td></tr><tr><td align=3D"cen=
+ter" class=3D"x_-1642793605register-upsell-tile-body" style=3D"line-height:=
+ 21.0px;font-size: 14.0px;border-collapse: collapse;color: rgb(133,137,140)=
+;font-family: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetic=
+a, Arial, sans-serif;font-weight: normal;letter-spacing: 0.2px;padding-top:=
+ 0;padding-right: 45.0px;padding-bottom: 12.0px;padding-left: 45.0px;">Star=
+t using Square and process $1,000 in sales for free.<br></td></tr><tr><td a=
+lign=3D"center" class=3D"x_-1642793605register-upsell-tile-button" style=3D=
+"line-height: 16.0px;font-size: 12.0px;border-collapse: collapse;padding-to=
+p: 0;padding-right: 0;padding-bottom: 24.0px;padding-left: 0;" valign=3D"to=
+p"><div class=3D"x_-1642793605primary-button"><a href=3D"https://rfrtpc7s.r=
+.us-west-2.awstrack.me/L0/https:%2F%2Fsquareup.com%2Ft%2Ff_referrals%2Fd_re=
+ceipt%3Froute=3Dsignup%253Fsignup_token%253DGIBSONCO02/1/010101810bbfb265-1=
+bf6f6a0-22a1-47e7-8ab5-71455834fce1-000000/SwTgc1sTnHAPfd26TXfZEZqDS44=3D27=
+2" class=3D"x_-1642793605primary-button__link" id=3D"" style=3D"background-=
+color: rgb(128,128,128);color: rgb(255,255,255);text-decoration: none;borde=
+r-radius: 5.0px;display: inline-block;font-size: 14.0px;min-height: 40.0px;=
+letter-spacing: 0.3px;line-height: 40.0px;padding-left: 24.0px;padding-righ=
+t: 24.0px;white-space: nowrap;font-family: SQMarket, HelveticaNeue-Medium, =
+&quot;Helvetica Neue Medium&quot;, Helvetica-Bold, Helvetica, Arial, sans-s=
+erif;font-weight: 500;border-top-width: 1.0px;border-right-width: 1.0px;bor=
+der-bottom-width: 1.0px;border-left-width: 1.0px;border-top-color: rgb(128,=
+128,128);border-right-color: rgb(128,128,128);border-bottom-color: rgb(128,=
+128,128);border-left-color: rgb(128,128,128);border-top-style: solid;border=
+-right-style: solid;border-bottom-style: solid;border-left-style: solid;" t=
+arget=3D"_blank">Get Started with Square</a><br></div></td></tr><tr><td cla=
+ss=3D"x_-1642793605footer-line-break" style=3D"line-height: 16.0px;font-siz=
+e: 12.0px;border-collapse: collapse;height: 1.0px;display: block;padding-to=
+p: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;" bgcolor=3D"#e0e2e=
+3" height=3D"1"><br></td></tr></tbody></table><table class=3D"x_-1642793605=
+table-footer" style=3D"border: 0;border-collapse: collapse;border-spacing: =
+0;border-top-width: 0;border-right-width: 0;border-bottom-width: 0;border-l=
+eft-width: 0;" bgcolor=3D"#f2f4f5" cellpadding=3D"0" cellspacing=3D"0"><tbo=
+dy><tr><td width=3D"100%" height=3D"24" colspan=3D"1" style=3D"line-height:=
+ 0;font-size: 0;border-collapse: collapse;padding-top: 0;padding-right: 0;p=
+adding-bottom: 0;padding-left: 0;"><br></td></tr><tr><td align=3D"center" v=
+align=3D"top" style=3D"line-height: 0.0px;font-size: 0.0px;border-collapse:=
+ collapse;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0=
+;"><br></td></tr><tr><td width=3D"100%" height=3D"10" colspan=3D"1" style=
+=3D"line-height: 0;font-size: 0;border-collapse: collapse;padding-top: 0;pa=
+dding-right: 0;padding-bottom: 0;padding-left: 0;"><br></td></tr><tr><td al=
+ign=3D"center" valign=3D"top" style=3D"line-height: 0.0px;font-size: 0.0px;=
+border-collapse: collapse;padding-top: 0;padding-right: 0;padding-bottom: 0=
+;padding-left: 0;"><div class=3D"x_-1642793605p" style=3D"font-family: SQMa=
+rket, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-ser=
+if;font-size: 12.0px;line-height: 18.0px;color: rgb(133,137,140);font-weigh=
+t: normal;letter-spacing: 0.2px;margin-top: 0;margin-right: 0;margin-bottom=
+: 0;margin-left: 0;padding-top: 0;padding-right: 0;padding-bottom: 0;paddin=
+g-left: 0;">=C2=A9 2022 Block, Inc.<br></div></td></tr><tr><td width=3D"100=
+%" height=3D"10" colspan=3D"1" style=3D"line-height: 0;font-size: 0;border-=
+collapse: collapse;padding-top: 0;padding-right: 0;padding-bottom: 0;paddin=
+g-left: 0;"><br></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"=
+line-height: 0.0px;font-size: 0.0px;border-collapse: collapse;padding-top: =
+0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><div class=3D"x_-164=
+2793605p x_-1642793605footer-link" style=3D"font-family: SQMarket, Helvetic=
+aNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: =
+12.0px;line-height: 18.0px;color: rgb(133,137,140);font-weight: normal;lett=
+er-spacing: 0.2px;margin-top: 0;margin-right: 0;margin-bottom: 0;margin-lef=
+t: 0;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><b=
+r></div><div class=3D"x_-1642793605p x_-1642793605footer-link" style=3D"fon=
+t-family: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, A=
+rial, sans-serif;font-size: 12.0px;line-height: 18.0px;color: rgb(133,137,1=
+40);font-weight: normal;letter-spacing: 0.2px;margin-top: 0;margin-right: 0=
+;margin-bottom: 0;margin-left: 0;padding-top: 0;padding-right: 0;padding-bo=
+ttom: 0;padding-left: 0;">Please contact Gibson &amp; Co. about its privacy=
+ practices. =C2=B7 <a id=3D"x_-1642793605not-your-receipt" href=3D"https://=
+rfrtpc7s.r.us-west-2.awstrack.me/L0/https:%2F%2Faccount.squareup.com%2Fnot-=
+your-receipt%2Fr5NBF5CM8RAE4KB/1/010101810bbfb265-1bf6f6a0-22a1-47e7-8ab5-7=
+1455834fce1-000000/kj7H5V2jftJlH0d2-o2p4PvMw18=3D272" style=3D"text-decorat=
+ion: underline;color: rgb(133,137,140);" target=3D"_blank">Not your receipt=
+?</a><br></div></td></tr><tr><td width=3D"100%" height=3D"20" colspan=3D"1"=
+ style=3D"line-height: 0;font-size: 0;border-collapse: collapse;padding-top=
+: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><br></td></tr><tr>=
+<td align=3D"center" valign=3D"top" style=3D"line-height: 0.0px;font-size: =
+0.0px;border-collapse: collapse;padding-top: 0;padding-right: 0;padding-bot=
+tom: 0;padding-left: 0;"><a id=3D"x_-1642793605receipt-square-logo" href=3D=
+"https://rfrtpc7s.r.us-west-2.awstrack.me/L0/https:%2F%2Fsquareup.com/1/010=
+101810bbfb265-1bf6f6a0-22a1-47e7-8ab5-71455834fce1-000000/eY0qQh8DRQ5Eh-ocO=
+jePqXe1Tbo=3D272" style=3D"color: rgb(133,137,140);" target=3D"_blank"><img=
+ width=3D"24" height=3D"24" border=3D"0" id=3D"1653759524400100001_imgsrc_u=
+rl_21" src=3D"https://d3g64w74of3jgu.cloudfront.net/receipts/assets/footer-=
+logo-d354ee4f8b2a914ed1959eaa77323e1f444494f53a4d44f56b1abad8f028e8e8.png">=
+</a><br></td></tr><tr><td width=3D"100%" height=3D"30" colspan=3D"1" style=
+=3D"line-height: 0;font-size: 0;border-collapse: collapse;padding-top: 0;pa=
+dding-right: 0;padding-bottom: 0;padding-left: 0;"><br></td></tr><tr><td al=
+ign=3D"center" valign=3D"top" style=3D"line-height: 0.0px;font-size: 0.0px;=
+border-collapse: collapse;padding-top: 0;padding-right: 0;padding-bottom: 0=
+;padding-left: 0;"><div class=3D"x_-1642793605p x_-1642793605footer-link" s=
+tyle=3D"font-family: SQMarket, HelveticaNeue, &quot;Helvetica Neue&quot;, H=
+elvetica, Arial, sans-serif;font-size: 12.0px;line-height: 18.0px;color: rg=
+b(133,137,140);font-weight: normal;letter-spacing: 0.2px;margin-top: 0;marg=
+in-right: 0;margin-bottom: 0;margin-left: 0;padding-top: 0;padding-right: 0=
+;padding-bottom: 0;padding-left: 0;">Map data <a href=3D"https://rfrtpc7s.r=
+.us-west-2.awstrack.me/L0/https:%2F%2Fwww.openstreetmap.org%2Fcopyright/1/0=
+10101810bbfb265-1bf6f6a0-22a1-47e7-8ab5-71455834fce1-000000/YnfGtHXEsDC_T6p=
+eXJPV-9YtG8U=3D272" style=3D"text-decoration: underline;color: rgb(133,137,=
+140);" target=3D"_blank">=C2=A9 OpenStreetMap</a> contributors<br></div><di=
+v class=3D"x_-1642793605p x_-1642793605footer-link" style=3D"font-family: S=
+QMarket, HelveticaNeue, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-=
+serif;font-size: 12.0px;line-height: 18.0px;color: rgb(133,137,140);font-we=
+ight: normal;letter-spacing: 0.2px;margin-top: 0;margin-right: 0;margin-bot=
+tom: 0;margin-left: 0;padding-top: 0;padding-right: 0;padding-bottom: 0;pad=
+ding-left: 0;"><a href=3D"https://rfrtpc7s.r.us-west-2.awstrack.me/L0/https=
+:%2F%2Fwww.mapbox.com%2Fabout%2Fmaps%2F/1/010101810bbfb265-1bf6f6a0-22a1-47=
+e7-8ab5-71455834fce1-000000/fmD2q2PwzVxG5u9ZCvRJ3gaOaYo=3D272" style=3D"tex=
+t-decoration: underline;color: rgb(133,137,140);" target=3D"_blank">=C2=A9 =
+Mapbox</a> <a href=3D"https://rfrtpc7s.r.us-west-2.awstrack.me/L0/https:%2F=
+%2Fwww.mapbox.com%2Fmap-feedback/1/010101810bbfb265-1bf6f6a0-22a1-47e7-8ab5=
+-71455834fce1-000000/tko4tDb2n8UMhTcFPMj8r_tK6fg=3D272" style=3D"text-decor=
+ation: underline;color: rgb(133,137,140);" target=3D"_blank">Improve this m=
+ap</a><br></div></td></tr><tr><td width=3D"100%" height=3D"30" colspan=3D"1=
+" style=3D"line-height: 0;font-size: 0;border-collapse: collapse;padding-to=
+p: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;"><br></td></tr></t=
+body></table></td></tr></tbody></table></td></tr></tbody></table></div><img=
+ alt=3D"" id=3D"1653759524400100001_imgsrc_url_22" style=3D"display: none;w=
+idth: 1.0px;height: 1.0px;" src=3D"http://rfrtpc7s.r.us-west-2.awstrack.me/=
+I0/010101810bbfb265-1bf6f6a0-22a1-47e7-8ab5-71455834fce1-000000/Yv9hYcdkcg1=
+uyws5jJKFSxEIJWY=3D272" width=3D"1" height=3D"1"> </div></blockquote></div>=
+<div><br></div><div class=3D"zmail_signature_below"><div id=3D"" data-zblue=
+pencil-ignore=3D"true" data-sigid=3D"6189300000000739006"><div>Regards,<br>=
+</div><div><br></div><div>John E. Estrada<br></div><div><br></div><div>----=
+-----------------------------------<br></div><div><br></div><p style=3D"fon=
+t-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text=
+-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-sp=
+acing: 0px"><span class=3D"highlight" style=3D"background-color:rgb(255, 25=
+5, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D=
+"font" style=3D"font-family:Verdana, Arial, Helvetica, sans-serif"><span cl=
+ass=3D"size" style=3D"font-size:13.3333px"><span class=3D"highlight" style=
+=3D"background-color:rgb(255, 255, 255)"><b><span class=3D"colour" style=3D=
+"color:rgb(0, 102, 0)"><span class=3D"font" style=3D"font-family:Calibri, V=
+erdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-s=
+ize:14.66px">START SHREDDING INC. (shredEX)</span></span></span></b><span c=
+lass=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=
+=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span clas=
+s=3D"size" style=3D"font-size:14.66px"><br>208 Evans Ave, Toronto, ON M8Z 1=
+J7<br></span></span></span><b><span class=3D"colour" style=3D"color:rgb(51,=
+ 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial=
+, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">=
+E:<span>&nbsp;<a href=3D"mailto:john@shredex.ca" target=3D"_blank" style=3D=
+"color: rgb(0, 0, 238)">john@shredex.ca</a>&nbsp;</span>W: <a target=3D"_bl=
+ank" href=3D"http://www.startshredding.com" style=3D"color: rgb(0, 0, 238)"=
+>www.startshredding.com</a><br></span></span></span></b><span class=3D"colo=
+ur" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-fami=
+ly:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" st=
+yle=3D"font-size:14.66px">DIRECT:&nbsp;</span></span></span><a style=3D"col=
+or: rgb(17, 85, 204); cursor: default" target=3D"_blank"><span class=3D"col=
+our" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-fam=
+ily:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" s=
+tyle=3D"font-size:14.66px">416.255.1500</span></span></span></a><span class=
+=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"f=
+ont-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"=
+size" style=3D"font-size:14.66px"><br>TOLL FREE:&nbsp;</span></span></span>=
+<a style=3D"color: rgb(17, 85, 204); cursor: default" target=3D"_blank"><sp=
+an class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" st=
+yle=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span c=
+lass=3D"size" style=3D"font-size:14.66px">1.866.868.9585</span></span></spa=
+n></a></span></span></span></span></span></p><p style=3D"font-style: normal=
+; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; t=
+ext-transform: none; white-space: normal; widows: 2; word-spacing: 0px"><sp=
+an class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><span =
+class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D=
+"font-family:Verdana, Arial, Helvetica, sans-serif"><span class=3D"size" st=
+yle=3D"font-size:13.3333px"><span class=3D"highlight" style=3D"background-c=
+olor:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(34, 34, =
+34)"><span class=3D"font" style=3D"font-family:arial, sans-serif"><span cla=
+ss=3D"size" style=3D"font-size:small"><span class=3D"colour" style=3D"color=
+:gray"><span class=3D"font" style=3D"font-family:Arial, sans-serif"><span c=
+lass=3D"size" style=3D"font-size:7.5pt">This message and any attachments ar=
+e the property of the&nbsp;SHREDEX INC.&nbsp;or its affiliates. It may be l=
+egally privileged and/or confidential and is intended only for the use of t=
+he addressee(s). No addressee should store, forward, print, copy, or otherw=
+ise reproduce this message in any manner that would allow it to be viewed b=
+y any individual not originally listed as a recipient. If the reader of thi=
+s message is not the intended recipient, you are hereby notified that any u=
+nauthorized storage, disclosure, dissemination, distribution, copying or th=
+e taking of any action in reliance on the information herein is strictly pr=
+ohibited. If you have received this communication in error, please immediat=
+ely notify the sender and delete this message.</span></span></span></span><=
+/span></span></span></span></span></span></span><br></p><div id=3D""><div><=
+br></div></div><div><br></div></div></div><div><br></div></div><br></body><=
+/html>
+------=_Part_659274_593288829.1717125863128--
+

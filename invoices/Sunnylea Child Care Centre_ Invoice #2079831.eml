@@ -1,0 +1,280 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp186673rbd;
+        Thu, 30 May 2024 20:13:53 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGTlWPKSEAmWpdRZb255DIGoEPQ/33pN1ci9H4ZiNBFYdjqDLObl24TNG+WC/iTbWX6OfOo
+X-Received: by 2002:a05:6a00:3d12:b0:6f8:c94f:578a with SMTP id d2e1a72fcca58-702457ab147mr1353703b3a.12.1717125233554;
+        Thu, 30 May 2024 20:13:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125233; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=HOIPWu4H78PWWdGpESr2VOjlZQc0f1uVMmJ9k0qTFahcgAtX6SaeJj3GLcNWtJvZvG
+         4HJC0MyNZRb/HNAUTVqXupqWul1lhmcv3V8bdq0kcFLtliNcsFzYyiL0ooJq2/GEQPSl
+         R6smntKN3C2edT3Ca8dZITBPFHiPIfF7aRPInL+FLD53Q6/4RumvPsixuymj1VzsEphZ
+         CqlyJG4+WWoyOyWNwK+MXe4AZSVsDQi0Ihnl6YzU5xvXcXal4PvaL5FgrpLGTMcyBgWT
+         juNWmAoel++gs/YLPCsYwQqiUSx+X4MWaNCezrc0zLiv9VuY5P9Vn2TZoOT0UBE8fBDy
+         SoCA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=1+bwFcrB9y1VSoa+HW2b/znhWtDhEtZ88uN8ComL+Do=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=tQbK9wFlqcfjGIlw5reZBmrCpP1sXOwH33SVgHX3Wq2zDu5hnRg+CJGE3LG5g+gcc6
+         smWMkbhle2PX/Kh9gyvw2LDxubfgDUi/fAFilApdLVAEJVCoK7N5fmIa2+u+T+7bZZlR
+         XyctJ81OygnTJphgq5xSVcXBCNlaAALqppZ6yjfWyqqNSDgUxrryBwiaEdQHW1Qeq0mC
+         1pkGre3bfwoZojY8hTc7A2owKlQEoZ/tzZq1cS0JgPFo1s7GST8exsP1lqefngt7TN3n
+         g8AjY4LZxzR4jBzsoDVRIvzldgAZtKrLpPGZAHalxfHIwNuOFhH6lxmEo0GBQnXjlPlm
+         yc+Q==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=k8bE5Xat;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender4-op-o14.zoho.com (sender4-op-o14.zoho.com. [136.143.188.14])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-6c35c552910si730499a12.691.2024.05.30.20.13.53
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:13:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) client-ip=136.143.188.14;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=k8bE5Xat;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125232; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=fulaUBPSmFdZvSDn7S/9XcUchthFWJ2yESpxXzJHy8oanvWiBdsO9aCIhoa3Z/FJAV+4YQBS+Mt2+sFOomUbB/Wpinlm790QI3sQvrTSW1ZRWkjy4bTJyMeWTu/F7BW69xcQERritFZk5HlX8XxXpEh9JZiEsdWEPagpfAkxPTs=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125232; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=1+bwFcrB9y1VSoa+HW2b/znhWtDhEtZ88uN8ComL+Do=; 
+	b=b9dG+REU/vWkO0knGvQOPjC77qkmL2qYHSdHQp6tmujgHfgAowVp3swCWqQt8jFk2iJLd3txqM0kx5ydki473SEHWVrp60l307pascWl17Muer/uwxSpzTmCfeCoGuTBQx7Bf8nHKcYJS+eL215G9H9sdNSsljc9k4i/OVL8f/4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125232;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=1+bwFcrB9y1VSoa+HW2b/znhWtDhEtZ88uN8ComL+Do=;
+	b=k8bE5XatULpU86TFFFbVcOQFDkICzThu3iZGH5eISX0SMt21HY2510Cf5EAjnyXB
+	Ku1zjoEX/NUi6wOnzt/g+XVXjPq5pE6VxOum9OL1CFzlqKfjIKwPSqZE+TLD4vpkTtJ
+	Fqah0DLt/nxLiaWyMn4XCt3oKHkk5r5OZP9bse6Q=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 171712523064237.84581904303957; Thu, 30 May 2024 20:13:50 -0700 (PDT)
+Date: Thu, 30 May 2024 23:13:50 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcca3b00a.dd509844202079.7415328645179910167@shredex.ca>
+In-Reply-To: <4856f077-0096-4304-b506-3285cc7794b7@mtasv.net>
+References: <4856f077-0096-4304-b506-3285cc7794b7@mtasv.net>
+Subject: Fwd: Sunnylea Child Care Centre: Invoice #2079831
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_655402_1083639001.1717125230602"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_655402_1083639001.1717125230602
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: TUIO <noreply@tuiopay.com>
+To: <john@shredex.ca>
+Date: Wed, 28 Jun 2023 21:13:40 -0400
+Subject: Sunnylea Child Care Centre: Invoice #2079831
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+
+
+
+  Dear John Estrada,
+
+An invoice has been issued for Riley Estrada 1's School Age Program B/A pro=
+gram.
+
+Invoice Details
+
+To view the invoice use the following link:
+
+https://click.pstmrk.it/3s/app.tuiopay.com%2Fparent%2Fenrollments%2F2079824=
+/DOqI/CkWuAQ/AQ/4856f077-0096-4304-b506-3285cc7794b7/1/jmXrGHYUw6 Invoice t=
+otal: $280.67
+ Payment due: July 1, 2023
+Payment Instructions
+
+You are setup for automatic bank account payment from account ending in 944=
+6 on the payment due date.  No further action is required.
+
+Thank you,
+ Sunnylea Childcare Centre
+ 35 Glenroy Avenue, Toronto, ON, CA, M8Y 2M2
+ 4162336509 | mailto:info@sunnylea.ca
+
+=C2=A9 2023 TUIO Payments Inc. All rights reserved.
+
+https://click.pstmrk.it/3s/tuiopay.com%2Fapp-terms-of-service%2F/DOqI/CkWuA=
+Q/AQ/4856f077-0096-4304-b506-3285cc7794b7/2/68k0T_8Yht | https://click.pstm=
+rk.it/3s/tuiopay.com%2Fprivacy%2F/DOqI/CkWuAQ/AQ/4856f077-0096-4304-b506-32=
+85cc7794b7/3/-gSy31VZXC
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_655402_1083639001.1717125230602
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: TUIO &lt;noreply@tuiopay.com&gt;<br>To: &lt;joh=
+n@shredex.ca&gt;<br>Date: Wed, 28 Jun 2023 21:13:40 -0400<br>Subject: Sunny=
+lea Child Care Centre: Invoice #2079831<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><div=
+><br></div><blockquote id=3D"blockquote_zmail" style=3D"margin: 0px;"><div =
+style=3D"font-family :  &quot;Poppins&quot;, sans-serif; background-color :=
+  #f5f5f5; margin :  0; padding :  0;"><div class=3D"x_-568820419container"=
+ style=3D"width: 600px; margin: 0px auto; background-color: rgb(255, 255, 2=
+55); padding: 20px; box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;"><span clas=
+s=3D"overFlow" style=3D"overflow:hidden;max-width:600px"><div style=3D"widt=
+h :  100%; max-width :  600px;"><img id=3D"1688001223495100001_imgsrc_url_0=
+" alt=3D"TUIO Header" style=3D"width :  100%;" width=3D"100%"><br></div><di=
+v class=3D"x_-568820419main-content" style=3D"margin-top :  20px; font-size=
+ :  16px; line-height :  1.5; color :  #004269;"><p><br></p><img id=3D"1688=
+001223495100001_imgsrc_url_1" alt=3D"Organization Logo" style=3D"display : =
+ block; width :  75px; height :  75px; border-radius :  50%;" width=3D"75" =
+height=3D"75">  <p>Dear John Estrada,<br></p><p>An invoice has been issued =
+for Riley Estrada 1's School Age Program B/A program.<br></p><h3>Invoice De=
+tails<br></h3><p>To view the invoice use the following link:<br></p><a href=
+=3D"https://click.pstmrk.it/3s/app.tuiopay.com%2Fparent%2Fenrollments%2F207=
+9824/DOqI/CkWuAQ/AQ/4856f077-0096-4304-b506-3285cc7794b7/1/jmXrGHYUw6" styl=
+e=3D"color :  #1a73e8; text-decoration :  none;" target=3D"_blank">View Inv=
+oice</a> <p>Invoice total: $280.67<br> Payment due: July 1, 2023</p><h3>Pay=
+ment Instructions<br></h3><p>You are setup for automatic bank account payme=
+nt from account ending in 9446 on the payment due date.  No further action =
+is required.<br></p><p>Thank you,<br> Sunnylea Childcare Centre<br> 35 Glen=
+roy Avenue, Toronto, ON, CA, M8Y 2M2<br> 4162336509 | <a href=3D"mailto:inf=
+o@sunnylea.ca" target=3D"_blank">info@sunnylea.ca</a></p></div><div class=
+=3D"x_-568820419footer" style=3D"margin-top :  20px; font-size :  14px; col=
+or :  #777; text-align :  center;" align=3D"center"><p>=C2=A9 2023 TUIO Pay=
+ments Inc. All rights reserved.<br></p><p><a href=3D"https://click.pstmrk.i=
+t/3s/tuiopay.com%2Fapp-terms-of-service%2F/DOqI/CkWuAQ/AQ/4856f077-0096-430=
+4-b506-3285cc7794b7/2/68k0T_8Yht" style=3D"color :  #1a73e8; text-decoratio=
+n :  none;" target=3D"_blank">Terms of Service</a> | <a href=3D"https://cli=
+ck.pstmrk.it/3s/tuiopay.com%2Fprivacy%2F/DOqI/CkWuAQ/AQ/4856f077-0096-4304-=
+b506-3285cc7794b7/3/-gSy31VZXC" style=3D"color :  #1a73e8; text-decoration =
+:  none;" target=3D"_blank">Privacy Policy</a><br></p></div><div style=3D"w=
+idth :  100%; max-width :  600px;"><img id=3D"1688001223495100001_imgsrc_ur=
+l_2" alt=3D"TUIO Header" style=3D"width :  100%;" width=3D"100%"><br></div>=
+</span></div><img id=3D"1688001223495100001_imgsrc_url_3" width=3D"1" heigh=
+t=3D"1" border=3D"0" alt=3D""></div></blockquote></div><div><br></div><div =
+class=3D"zmail_signature_below"><div id=3D"" data-zbluepencil-ignore=3D"tru=
+e" data-sigid=3D"6189300000000739006"><div>Regards,<br></div><div><br></div=
+><div>John E. Estrada<br></div><div><br></div><div>------------------------=
+---------------<br></div><div><br></div><p style=3D"font-style: normal; fon=
+t-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-t=
+ransform: none; white-space: normal; widows: 2; word-spacing: 0px"><span cl=
+ass=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><span class=
+=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font=
+-family:Verdana, Arial, Helvetica, sans-serif"><span class=3D"size" style=
+=3D"font-size:13.3333px"><span class=3D"highlight" style=3D"background-colo=
+r:rgb(255, 255, 255)"><b><span class=3D"colour" style=3D"color:rgb(0, 102, =
+0)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans=
+-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">START =
+SHREDDING INC. (shredEX)</span></span></span></b><span class=3D"colour" sty=
+le=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Cali=
+bri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"=
+font-size:14.66px"><br>208 Evans Ave, Toronto, ON M8Z 1J7<br></span></span>=
+</span><b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span clas=
+s=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-s=
+erif"><span class=3D"size" style=3D"font-size:14.66px">E:<span>&nbsp;<a hre=
+f=3D"mailto:john@shredex.ca" target=3D"_blank" style=3D"color: rgb(0, 0, 23=
+8)">john@shredex.ca</a>&nbsp;</span>W: <a target=3D"_blank" href=3D"http://=
+www.startshredding.com" style=3D"color: rgb(0, 0, 238)">www.startshredding.=
+com</a><br></span></span></span></b><span class=3D"colour" style=3D"color:r=
+gb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana,=
+ Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.=
+66px">DIRECT:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, 204)=
+; cursor: default" target=3D"_blank"><span class=3D"colour" style=3D"color:=
+rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana=
+, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14=
+.66px">416.255.1500</span></span></span></a><span class=3D"colour" style=3D=
+"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, =
+Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-=
+size:14.66px"><br>TOLL FREE:&nbsp;</span></span></span><a style=3D"color: r=
+gb(17, 85, 204); cursor: default" target=3D"_blank"><span class=3D"colour" =
+style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:C=
+alibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=
+=3D"font-size:14.66px">1.866.868.9585</span></span></span></a></span></span=
+></span></span></span></p><p style=3D"font-style: normal; font-weight: 400;=
+ letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none=
+; white-space: normal; widows: 2; word-spacing: 0px"><span class=3D"highlig=
+ht" style=3D"background-color:rgb(255, 255, 255)"><span class=3D"colour" st=
+yle=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:Verdan=
+a, Arial, Helvetica, sans-serif"><span class=3D"size" style=3D"font-size:13=
+.3333px"><span class=3D"highlight" style=3D"background-color:rgb(255, 255, =
+255)"><span class=3D"colour" style=3D"color:rgb(34, 34, 34)"><span class=3D=
+"font" style=3D"font-family:arial, sans-serif"><span class=3D"size" style=
+=3D"font-size:small"><span class=3D"colour" style=3D"color:gray"><span clas=
+s=3D"font" style=3D"font-family:Arial, sans-serif"><span class=3D"size" sty=
+le=3D"font-size:7.5pt">This message and any attachments are the property of=
+ the&nbsp;SHREDEX INC.&nbsp;or its affiliates. It may be legally privileged=
+ and/or confidential and is intended only for the use of the addressee(s). =
+No addressee should store, forward, print, copy, or otherwise reproduce thi=
+s message in any manner that would allow it to be viewed by any individual =
+not originally listed as a recipient. If the reader of this message is not =
+the intended recipient, you are hereby notified that any unauthorized stora=
+ge, disclosure, dissemination, distribution, copying or the taking of any a=
+ction in reliance on the information herein is strictly prohibited. If you =
+have received this communication in error, please immediately notify the se=
+nder and delete this message.</span></span></span></span></span></span></sp=
+an></span></span></span></span><br></p><div id=3D""><div><br></div></div><d=
+iv><br></div></div></div><div><br></div></div><br></body></html>
+------=_Part_655402_1083639001.1717125230602--
+

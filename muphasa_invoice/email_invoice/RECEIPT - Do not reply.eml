@@ -1,0 +1,369 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp185405rbd;
+        Thu, 30 May 2024 20:09:52 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEDsCf1S9XD7TvpFAuRBiFj9Dff8zfP7DRCzyACzXd4IeNRwaSGTbdd8xvNgRE/+D3d1zEv
+X-Received: by 2002:a05:6a00:80b:b0:702:4519:9902 with SMTP id d2e1a72fcca58-70247919822mr795498b3a.34.1717124992111;
+        Thu, 30 May 2024 20:09:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717124992; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=IgFrDWkVLNDSzX6X5k3dOBIW7MZ9gc+XJmsyluIxpCVBNOVN9CKc99PoicJHh+YyBs
+         3ppWfZ6G+ZVcOH2DgecRYvSI54eIAWtT9an23bV1zc0GXBE2tTdJcROrH5edPPpP80Ha
+         c+2WiiQNf+5JMandnsEg1qLcC8kdxt1Ge564Q82MAk7P6hH9myCyOb752jWZTo/7MFeq
+         nfHBu4xh0LOYvUZlKdCzuvX1FjCEN0NgLMMQUjMsqY38Ti+7kjEV0zTeq5FoentY04OT
+         dr2X9wG41R2/YNBijFqwgYpL95k4xq8fdSxYxhUXMZwI0bounLYTOshoSY/sCWfO+vNZ
+         yqew==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=Vw+1VvY0we8YXev7L5ZeeKKIj6I3lhTQmb+CkFOJfYc=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=elKt5raHSbe3JF7x2xLnG7OZvek5W1Wpit75S6SuFYb+8ZB00jq3y4Dv/gq5PbxsQO
+         +FuKkjWrssmGB8bFuFNuV+fZCmixCXvXx2vCiGV3eUf5gN4UrRv6Np1bCl68K+cIVtNt
+         vVq8n0daYHAvdLMqsnrVy//i74Bk/ZgfTs0+z9+/xTmgJUaWFRTo6nGPvvBegsoo4fOn
+         oEOCVGIsZm0JiW2XsW8Mz9ywxJkBAUaxiRjSizsdI4p/uMaxiHM5PqXi0PmlDgGz11iw
+         1UgsJf4t+OvJFZV4G65NbwsV2wpowf4GwFb1ffzTsRIy8qN/S0S7ttUDsA/N96Sg5+R6
+         rIlw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=PRvUpBUl;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender4-op-o14.zoho.com (sender4-op-o14.zoho.com. [136.143.188.14])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-702425f15a1si727741b3a.114.2024.05.30.20.09.51
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:09:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) client-ip=136.143.188.14;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=PRvUpBUl;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717124991; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=lWO3kgWwyF4KsGEL4hxnuNhJom9Zraes6k1QWC2k1iKNKpc7+lYzD3mzTSn17WuPUHRTFKvEfiSpQ3d2wkrMlC1mvPPWWZ6odn7dmdWPh7nFGi/UWA/8ofm42+zYdQq3F6wvhoKgysclBCasXK0pVbAcIJViQg2lMNYY9n32Ylg=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717124991; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=Vw+1VvY0we8YXev7L5ZeeKKIj6I3lhTQmb+CkFOJfYc=; 
+	b=Zlww3OTayQSs7AE7hkNzaUYS3briFIRKchWlhBxZ5giXoEXXH49sgMhPqLcsphmlhcTFhQZJv2MGA/iA3xvh2VXqc8rpRIDrBjjmM08LFNL4n+CzPYZhD1TvHdH/d45YWZRRRdZM6FQgMuAelvm0MCeqwEfXaVCZPZWIgd3PSu8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717124991;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=Vw+1VvY0we8YXev7L5ZeeKKIj6I3lhTQmb+CkFOJfYc=;
+	b=PRvUpBUl+SojjRg28pwdpqra8anB9zLuPJWJLOv/u2XCATTUF3NmUyvwIQoH9lZ2
+	izCfP6nKbKAYcxCE3hDi+GX5YTkpZSZF8Pfp+67yJ7NZrmXb7aoBuf2g4qAzEU6GPgv
+	1hgaVP1R0v7SN104TWwS5TA5vvjUd4kUC9dh20xg=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717124989294687.1796160375112; Thu, 30 May 2024 20:09:49 -0700 (PDT)
+Date: Thu, 30 May 2024 23:09:49 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcca00147.ae4fddf8201617.1571508248802114002@shredex.ca>
+In-Reply-To: <20231206010525.AFA991004860@vq9berepr11.localdomain>
+References: <20231206010525.AFA991004860@vq9berepr11.localdomain>
+Subject: Fwd: RECEIPT - Do not reply
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_653856_721246932.1717124989255"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_653856_721246932.1717124989255
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: CLIO TORONTO <receipts@moneris.com>
+To: <john@backpocket.ca>
+Date: Tue, 05 Dec 2023 20:05:25 -0500
+Subject: RECEIPT - Do not reply
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+TRANSACTION RECORD
+
+
+=C2=A0
+
+
+CLIO TORONTO
+
+
+UNIT 4 - 600 KING ST W
+
+
+TORONTO      ON
+
+
+=C2=A0
+
+
+TYPE
+
+PURCHASE
+
+
+ACCT
+
+VISA
+
+
+=C2=A0
+
+
+AMOUNT
+
+$58.76
+
+
+TIP
+
+$11.75
+
+
+TOTAL
+
+$70.51
+
+
+=C2=A0
+
+
+CARD NUMBER
+
+************3631
+
+
+DATE / TIME
+
+Dec 05 2023  08:04:29 PM
+
+
+REFERENCE #
+
+001001788N H
+
+
+AUTH #
+
+028783
+
+
+=C2=A0
+
+
+VISA CREDIT
+
+
+A0000000031010
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+01 APPROVED - THANK YOU 027
+
+
+=C2=A0
+
+
+FF / DT
+
+20
+
+
+=C2=A0
+
+
+NO SIGNATURE TRANSACTION
+
+
+=C2=A0
+
+
+* IMPORTANT - RETAIN THIS COPY FOR YOUR RECORDS *
+
+
+=C2=A0
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_653856_721246932.1717124989255
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: CLIO TORONTO &lt;receipts@moneris.com&gt;<br>To=
+: &lt;john@backpocket.ca&gt;<br>Date: Tue, 05 Dec 2023 20:05:25 -0500<br>Su=
+bject: RECEIPT - Do not reply<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwa=
+rded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><div><br></div><=
+blockquote id=3D"blockquote_zmail" style=3D"margin: 0px;"><div class=3D"zm_=
+-3480032086431206088_parse_-5693483169754607949"><table style=3D"min-width:=
+ 200px; max-width: 300px; background: rgb(250, 250, 250); padding: 10px;"><=
+tbody><tr><td colspan=3D"2" style=3D"font-size: 9pt; text-align: center;" a=
+lign=3D"center"><span class=3D"size" style=3D"font-size:9pt">TRANSACTION RE=
+CORD</span><br></td></tr><tr><td style=3D"font-size: 9pt; line-height: 24px=
+;">&nbsp;<br></td></tr><tr><td colspan=3D"2" style=3D"font-size: 9pt; text-=
+align: center;" align=3D"center"><span class=3D"">CLIO TORONTO</span><br></=
+td></tr><tr><td colspan=3D"2" style=3D"font-size: 9pt; text-align: center;"=
+ align=3D"center"><span class=3D"">UNIT 4 - 600 KING ST W</span><br></td></=
+tr><tr><td colspan=3D"2" style=3D"font-size: 9pt; text-align: center;" alig=
+n=3D"center"><span class=3D"">TORONTO      ON</span><br></td></tr><tr><td s=
+tyle=3D"font-size: 9pt; line-height: 24px;">&nbsp;<br></td></tr><tr><td sty=
+le=3D"font-size: 9pt;">TYPE<br></td><td style=3D"font-size: 9pt; text-align=
+: right;" class=3D"" align=3D"right">PURCHASE<br></td></tr><tr><td style=3D=
+"font-size: 9pt;">ACCT<br></td><td style=3D"font-size: 9pt; text-align: rig=
+ht;" class=3D"" align=3D"right">VISA<br></td></tr><tr><td style=3D"font-siz=
+e: 9pt; line-height: 24px;">&nbsp;<br></td></tr><tr><td style=3D"font-size:=
+ 9pt;">AMOUNT<br></td><td style=3D"font-size: 9pt; text-align: right;" clas=
+s=3D"" align=3D"right">$58.76<br></td></tr><tr><td style=3D"font-size: 9pt;=
+">TIP<br></td><td style=3D"font-size: 9pt; text-align: right;" class=3D"" a=
+lign=3D"right">$11.75<br></td></tr><tr><td style=3D"font-size: 9pt;">TOTAL<=
+br></td><td style=3D"font-size: 9pt; text-align: right;" class=3D"" align=
+=3D"right">$70.51<br></td></tr><tr><td style=3D"font-size: 9pt; line-height=
+: 24px;">&nbsp;<br></td></tr><tr><td style=3D"font-size: 9pt;">CARD NUMBER<=
+br></td><td style=3D"font-size: 9pt; text-align: right;" class=3D"" align=
+=3D"right">************3631<br></td></tr><tr><td style=3D"font-size: 9pt;">=
+DATE / TIME<br></td><td style=3D"font-size: 9pt; text-align: right;" class=
+=3D"" align=3D"right">Dec 05 2023  08:04:29 PM<br></td></tr><tr><td style=
+=3D"font-size: 9pt;">REFERENCE #<br></td><td style=3D"font-size: 9pt; text-=
+align: right;" class=3D"" align=3D"right">001001788N H<br></td></tr><tr><td=
+ style=3D"font-size: 9pt;">AUTH #<br></td><td style=3D"font-size: 9pt; text=
+-align: right;" class=3D"" align=3D"right">028783<br></td></tr><tr><td styl=
+e=3D"font-size: 9pt; line-height: 24px;">&nbsp;<br></td></tr><tr><td colspa=
+n=3D"2" style=3D"font-size: 9pt;"><span class=3D"">VISA CREDIT</span><br></=
+td></tr><tr><td colspan=3D"2" style=3D"font-size: 9pt;"><span class=3D"">A0=
+000000031010</span><br></td></tr><tr><td style=3D"font-size: 9pt; line-heig=
+ht: 24px;">&nbsp;<br></td></tr><tr><td style=3D"font-size: 9pt; line-height=
+: 24px;">&nbsp;<br></td></tr><tr><td colspan=3D"2" style=3D"font-size: 9pt;=
+ text-align: center;" align=3D"center"><span class=3D"size" style=3D"font-s=
+ize:12pt">01 APPROVED - THANK YOU 027</span><br></td></tr><tr><td style=3D"=
+font-size: 9pt; line-height: 24px;">&nbsp;<br></td></tr><tr><td style=3D"fo=
+nt-size: 9pt;">FF / DT<br></td><td style=3D"font-size: 9pt; text-align: rig=
+ht;" class=3D"" align=3D"right">20<br></td></tr><tr><td style=3D"font-size:=
+ 9pt; line-height: 24px;">&nbsp;<br></td></tr><tr><td colspan=3D"2" style=
+=3D"font-size: 9pt; text-align: center;" align=3D"center"><span class=3D"">=
+NO SIGNATURE TRANSACTION</span><br></td></tr><tr><td style=3D"font-size: 9p=
+t; line-height: 24px;">&nbsp;<br></td></tr><tr><td colspan=3D"2" style=3D"f=
+ont-size: 9pt; text-align: center;" align=3D"center"><span class=3D"">* IMP=
+ORTANT - RETAIN THIS COPY FOR YOUR RECORDS *</span><br></td></tr><tr><td st=
+yle=3D"font-size: 9pt; line-height: 24px;">&nbsp;<br></td></tr></tbody></ta=
+ble></div></blockquote></div><div><br></div><div class=3D"zmail_signature_b=
+elow"><div id=3D"" data-zbluepencil-ignore=3D"true" data-sigid=3D"618930000=
+0000739006"><div>Regards,<br></div><div><br></div><div>John E. Estrada<br><=
+/div><div><br></div><div>---------------------------------------<br></div><=
+div><br></div><p style=3D"font-style: normal; font-weight: 400; letter-spac=
+ing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-spac=
+e: normal; widows: 2; word-spacing: 0px"><span class=3D"highlight" style=3D=
+"background-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color=
+:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:Verdana, Arial, He=
+lvetica, sans-serif"><span class=3D"size" style=3D"font-size:13.3333px"><sp=
+an class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><b><sp=
+an class=3D"colour" style=3D"color:rgb(0, 102, 0)"><span class=3D"font" sty=
+le=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span cl=
+ass=3D"size" style=3D"font-size:14.66px">START SHREDDING INC. (shredEX)</sp=
+an></span></span></b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"=
+><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-se=
+rif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br>208 E=
+vans Ave, Toronto, ON M8Z 1J7<br></span></span></span><b><span class=3D"col=
+our" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-fam=
+ily:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" s=
+tyle=3D"font-size:14.66px">E:<span>&nbsp;<a href=3D"mailto:john@shredex.ca"=
+ target=3D"_blank" style=3D"color: rgb(0, 0, 238)">john@shredex.ca</a>&nbsp=
+;</span>W: <a target=3D"_blank" href=3D"http://www.startshredding.com" styl=
+e=3D"color: rgb(0, 0, 238)">www.startshredding.com</a><br></span></span></s=
+pan></b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=
+=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-se=
+rif"><span class=3D"size" style=3D"font-size:14.66px">DIRECT:&nbsp;</span><=
+/span></span><a style=3D"color: rgb(17, 85, 204); cursor: default" target=
+=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span cl=
+ass=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans=
+-serif"><span class=3D"size" style=3D"font-size:14.66px">416.255.1500</span=
+></span></span></a><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><=
+span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-seri=
+f, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br>TOLL FR=
+EE:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, 204); cursor: =
+default" target=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51=
+, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, s=
+ans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">1.8=
+66.868.9585</span></span></span></a></span></span></span></span></span></p>=
+<p style=3D"font-style: normal; font-weight: 400; letter-spacing: normal; o=
+rphans: 2; text-indent: 0px; text-transform: none; white-space: normal; wid=
+ows: 2; word-spacing: 0px"><span class=3D"highlight" style=3D"background-co=
+lor:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"=
+><span class=3D"font" style=3D"font-family:Verdana, Arial, Helvetica, sans-=
+serif"><span class=3D"size" style=3D"font-size:13.3333px"><span class=3D"hi=
+ghlight" style=3D"background-color:rgb(255, 255, 255)"><span class=3D"colou=
+r" style=3D"color:rgb(34, 34, 34)"><span class=3D"font" style=3D"font-famil=
+y:arial, sans-serif"><span class=3D"size" style=3D"font-size:small"><span c=
+lass=3D"colour" style=3D"color:gray"><span class=3D"font" style=3D"font-fam=
+ily:Arial, sans-serif"><span class=3D"size" style=3D"font-size:7.5pt">This =
+message and any attachments are the property of the&nbsp;SHREDEX INC.&nbsp;=
+or its affiliates. It may be legally privileged and/or confidential and is =
+intended only for the use of the addressee(s). No addressee should store, f=
+orward, print, copy, or otherwise reproduce this message in any manner that=
+ would allow it to be viewed by any individual not originally listed as a r=
+ecipient. If the reader of this message is not the intended recipient, you =
+are hereby notified that any unauthorized storage, disclosure, disseminatio=
+n, distribution, copying or the taking of any action in reliance on the inf=
+ormation herein is strictly prohibited. If you have received this communica=
+tion in error, please immediately notify the sender and delete this message=
+.</span></span></span></span></span></span></span></span></span></span></sp=
+an><br></p><div id=3D""><div><br></div></div><div><br></div></div></div><di=
+v><br></div></div><br></body></html>
+------=_Part_653856_721246932.1717124989255--
+

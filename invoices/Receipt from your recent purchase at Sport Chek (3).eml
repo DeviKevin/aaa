@@ -1,0 +1,713 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp186630rbd;
+        Thu, 30 May 2024 20:13:45 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGIaaugfXzR0nvhHEPqYLftzMpxDRlXaLTzR9L2N0ygfRd8cCRnODkKP1WgAh5VKg8l1cmU
+X-Received: by 2002:a17:90b:1012:b0:2bf:e473:7045 with SMTP id 98e67ed59e1d1-2c1acd998dcmr5116007a91.21.1717125225337;
+        Thu, 30 May 2024 20:13:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125225; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=i4NpjfsejwCs10tZgOy5MqpVvvsNlBEUTXfW7XuqpYQd8XiWMaH+DIsHJz1pGBB7//
+         h4fJCIIcuhlytzGiJiR29pTr1RxxV32rLhQ5yUaM40KOAglIEo8dezJxTcZj97PwHvFF
+         OvFmjMOetQSMH0atQLaovWXyZpkfZM5z3rwcr1Gs7WZ5HN4NI7Wb4iZz3bPejd1tT1YP
+         v5xHT3ig2X2vdU+ELVxva9zGQNNaAdmqOpoZdbaF8X3gyN+0YDV+BQSxQUcYqKPXIfEz
+         OQ1EmIqZajJO2aUfQAgbUxCGIS+Rw2ICSVS29ljAb1QoUriLmllwQr3yIdOvJ2DXhKb0
+         CAEQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=QcJBFDs1hhuUPGjdecAekp+KWevBroY4ZvWaiWlXPBU=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=YJph1gVwYL++lNC38aXFw1Gyw4ei+cGOPZITKxj5iLY6yDWBWzzGyJjKkrFbeHLz9/
+         YjEB93pUMV27YmQA+iyj5VBCgadNvbYK2ZBmkYGCEzXKLAG2298GISgGnf+wric8R/U1
+         JFt/H+oamgUtJ/AshKTyEZaEEyxpPJFG8/zsqWQg5CPJJj7Cd7lv5osviRwMSkdz3v30
+         Jux7Nd4rYLdQXcha5aH/VSoAEJ79hnvtLgHJia3ZhgKcNq08tiNdJwlx7qBnUiUnlRj3
+         J6tGpXC7/EtggWiAYKJCio3fBl3/hRtva3fXNUuq6L4yylhoQ76c1HA6YRBf767wXSWT
+         3s0Q==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b="RBfTaV/6";
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o18.zoho.com (sender3-op-o18.zoho.com. [136.143.184.18])
+        by mx.google.com with ESMTPS id 98e67ed59e1d1-2c1c282bf79si763311a91.123.2024.05.30.20.13.45
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:13:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) client-ip=136.143.184.18;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b="RBfTaV/6";
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125224; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=UZ8MUsiWh6klhYXN7yOWBydN/nkcT8X5ISmOmxbB/0QPWD0wFzz/i1rkvDpj9WikCqnxBszVNuk3ddmvy/VGz9R7J1G9dburwMIh1LKpVIxupI5MDExYy5/B/T2l02DOXiC1Qtyc99mn5HCPQ8IjhdvpCknjd6yYyOmOekxFNMQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125224; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=QcJBFDs1hhuUPGjdecAekp+KWevBroY4ZvWaiWlXPBU=; 
+	b=Y1N0eQc8w+2aGjKWHJHS3Ws3ZvnjkR1NYrUByA0V0G8LZyHQpDht9uSAwHCQUas/oqExDzbW4grR9SYor+eqlfRIc52Y8Vw8VFAbBisLGeIG2F5nUpaZGjht5MsrYQ1cBS2d33RVcGhgkzje13AefEHgzj/qJXbsAwpwBHcIbBo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125224;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=QcJBFDs1hhuUPGjdecAekp+KWevBroY4ZvWaiWlXPBU=;
+	b=RBfTaV/6EM3+GgbayyzLVCMoJo0fK2MZFRm1U3q+PaLBNW52Q3kmjqThFsEPNmCM
+	NWkOGOBHq/g1D/LsIqmJfQlj0nk0mTQ4fuovwNn6tvmu7eK524LmK5wSBTJLizDTt1+
+	3c3J6m9McC++lWor/BdyNOV27//eIACbJ4JgNaNY=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717125222137768.6335486356323; Thu, 30 May 2024 20:13:42 -0700 (PDT)
+Date: Thu, 30 May 2024 23:13:42 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcca38e75.d8d8566c202065.6154482699921216683@shredex.ca>
+In-Reply-To: <1601217797.7501.1688079336851.JavaMail.fmposcss@p9icwpf1css02.unix.ctcwest.ctc>
+References: <1601217797.7501.1688079336851.JavaMail.fmposcss@p9icwpf1css02.unix.ctcwest.ctc>
+Subject: Fwd: Receipt from your recent purchase at Sport Chek
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_655349_821778225.1717125222005"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.1.0/216.549.56
+
+------=_Part_655349_821778225.1717125222005
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_655350_513065763.1717125222005"
+
+------=_Part_655350_513065763.1717125222005
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Sport Chek <do-not-reply@sportchek.ca>
+To: <JOHN@SHREDEX.CA>
+Date: Thu, 29 Jun 2023 18:55:36 -0400
+Subject: Receipt from your recent purchase at Sport Chek
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+
+
+
+
+=20
+
+=20
+
+THIS IS YOUR E-RECEIPT
+=20
+ Thank you for shopping with us!
+=20
+ Please find attached a detailed copy of your receipt.
+
+=20
+
+
+
+=20
+
+
+
+
+
+
+
+
+
+
+ =20
+
+TELL US HOW WE DID TODAY
+
+
+Take our short survey to get $10 off your next purchase of $50 or more & be=
+ entered in our monthly draw for 1 of 2 $500 gift cards!
+ See complete Contest Rules online.
+
+https://survey.medallia.ca/?cantire-sportchek&OfferCode=3D0298&DateOfServic=
+e=3D06/29/2023&Transaction=3D009206&Register=3D104
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=20
+
+EXCLUSIVE PROMOTIONS,
+ NEW RELEASES & WEEKLY DEALS!=20
+
+
+https://www.sportchek.ca/#showJoinOurCommunityModal=3Dtrue
+
+
+
+
+
+
+
+
+
+https://www.sportchek.ca/help-desk/returns-and-warranties/online-return-pol=
+icy.html
+
+
+https://www.sportchek.ca/help-desk/returns-and-warranties/online-return-pol=
+icy.html
+
+
+
+
+https://www.sportchek.ca/help-desk/corporate-information/contact-us.html
+
+
+tel:+01-877-977-2435
+
+
+
+
+https://www.sportchek.ca/store-locator.html
+
+
+https://www.sportchek.ca/store-locator.html
+
+
+
+
+
+
+
+
+
+Please do not reply to this email; this address is not monitored.
+ Please call us at 1-877-977-CHEK (2435) or contact us on our website.
+=20
+ For the SportChek.ca Privacy Policy, https://www.sportchek.ca/help-desk/sa=
+fety-and-security/privacy-policy.html.
+=20
+ FGL Sports Ltd.
+ #110, 205 Quarry Park Blvd SE Calgary, Alberta, T2C 3E7
+ Copyright =E2=92=B8 2023. FGL Sports Ltd. All Rights Reserved.
+
+
+
+
+
+
+
+
+
+
+
+This message, including any attachments, is privileged and may contain conf=
+idential information intended only for the person(s) named above. If you ar=
+e not the intended recipient or have received this message in error, please=
+ notify the sender immediately
+ by reply email and permanently delete the original transmission from the s=
+ender, including any attachments, without making a copy. Thank you.=20
+=20
+ Ce message, y compris toutes ses pi=C3=A8ces jointes, est confidentiel et =
+peut contenir des renseignements destin=C3=A9s uniquement aux personnes don=
+t le nom est indiqu=C3=A9 ci-dessus. Si vous n'=C3=AAtes pas le destinatair=
+e pr=C3=A9vu ou si vous avez re=C3=A7u ce message par erreur, veuillez
+ en aviser l'exp=C3=A9diteur imm=C3=A9diatement, en lui r=C3=A9pondant par =
+courriel. Veuillez aussi supprimer d=C3=A9finitivement le message original =
+de l'exp=C3=A9diteur, y compris toute pi=C3=A8ce jointe, sans faire de copi=
+e. Merci.
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_655350_513065763.1717125222005
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Sport Chek &lt;do-not-reply@sportchek.ca&gt;<br=
+>To: &lt;JOHN@SHREDEX.CA&gt;<br>Date: Thu, 29 Jun 2023 18:55:36 -0400<br>Su=
+bject: Receipt from your recent purchase at Sport Chek<br>=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D<br></div><div><br></div><blockquote id=3D"blockquote_zmail" style=3D"ma=
+rgin: 0px;"><style>div.zm_3729011285483775239_parse_8044080601415251717 .x_=
+945740443button-td:hover,
+div.zm_3729011285483775239_parse_8044080601415251717 .x_945740443button-a:h=
+over {
+  background: rgb(240, 241, 240);
+  border-color: rgb(240, 241, 240);
+}</style><style>div.zm_3729011285483775239_parse_8044080601415251717 .x_945=
+740443button-td2:hover,
+div.zm_3729011285483775239_parse_8044080601415251717 .x_945740443button-b:h=
+over {
+  background: rgb(241, 41, 40);
+  border-color: rgb(241, 41, 40);
+}</style><div style=3D"padding: 0; height: 100%; width: 100%; margin: 0;" c=
+lass=3D"zm_3729011285483775239_parse_8044080601415251717"><table cellpaddin=
+g=3D"0" cellspacing=3D"0" border=3D"0" height=3D"100%" width=3D"100%" bgcol=
+or=3D"#E0E0E0" style=3D"border-spacing: 0; table-layout: fixed; margin: 0 a=
+uto; border-collapse: collapse;"><tbody><tr><td><div style=3D"max-width: 64=
+0px; width: 640px;"><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0"=
+ align=3D"center" width=3D"100%" style=3D"border-spacing: 0; border-collaps=
+e: collapse; table-layout: fixed; margin: 0 auto; max-width: 640px;"><tbody=
+><tr><td style=3D"padding: 60px 0 50px 0;"><table cellspacing=3D"0" cellpad=
+ding=3D"0" border=3D"0" width=3D"100%" style=3D"border-spacing: 0; border-c=
+ollapse: collapse; margin: 0 auto; table-layout: auto; background-color: #f=
+fffff;" bgcolor=3D"#ffffff"><tbody><tr><td><br></td></tr><tr><td style=3D"p=
+adding-top: 65px;"><img src=3D"https://media-www.canadiantire.ca/icon/sport=
+chek-logo-no-box-c7cb7c55-5594-4dc8-a0ee-6d6a19c6fe62.png" width=3D"125"> <=
+/td></tr><tr><td style=3D"padding-top: 32px;"><img src=3D"https://media-www=
+.canadiantire.ca/icon/dotted-line-1--facac35e-fc7d-49f0-ba0a-27266ca4da9a.p=
+ng" width=3D"300"> </td></tr><tr><td style=3D"padding-top: 25px; padding-bo=
+ttom: 35px; text-align: center; font-family: sans-serif; font-size: 18px; l=
+ine-height: 20px; color: #404041;" align=3D"center"><b><span class=3D"colou=
+r" style=3D"color:rgb(64, 64, 65)"><span class=3D"size" style=3D"font-size:=
+ 26px; line-height: 60px;">THIS IS YOUR E-RECEIPT</span></span></b><br> <br=
+> <i>Thank you for shopping with us!</i><br> <br> Please find attached a de=
+tailed copy of your receipt.</td></tr><tr><td style=3D"padding-bottom: 35px=
+;"><img src=3D"https://media-www.canadiantire.ca/icon/dotted-line-1--facac3=
+5e-fc7d-49f0-ba0a-27266ca4da9a.png" width=3D"300"> </td></tr></tbody></tabl=
+e><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"640" sty=
+le=3D"border-spacing: 0; border-collapse: collapse; margin: 0 auto; table-l=
+ayout: auto;"><tbody><tr><td><img src=3D"https://media-www.canadiantire.ca/=
+icon/paper-edge-68db457c-4397-4e83-9f6b-022f5e9ff299.png" width=3D"640"> </=
+td></tr></tbody></table></td></tr></tbody></table></div></td></tr><tr><td><=
+div style=3D"min-width: 640px; width: 640px; max-width: 640px; text-align: =
+center; margin: 0 auto;"><table cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" width=3D"100%" height=3D"375" style=3D"border-spacing: 0; border-col=
+lapse: collapse; table-layout: fixed; margin: 0 auto; background-color: #e6=
+2320;" bgcolor=3D"#e62320"><tbody><tr><td style=3D"padding-top: 50px;"><img=
+ src=3D"https://media-www.canadiantire.ca/icon/thumbs-up-c702c996-b613-408c=
+-aff3-c5af256ae26d.png" width=3D"120"> <img src=3D"https://media-www.canadi=
+antire.ca/icon/thumbs-down-5f546966-7169-4212-a4ae-5c798b53b2bd.png" width=
+=3D"120"> </td></tr><tr><td style=3D"padding-top: 20px; text-align: center;=
+ font-family: sans-serif; font-size: 18px; line-height: 20px; color: #fffff=
+f;" align=3D"center"><b><span class=3D"colour" style=3D"color:rgb(255, 255,=
+ 255)"><span class=3D"size" style=3D"font-size: 26px; line-height: 60px;">T=
+ELL US HOW WE DID TODAY</span></span></b><br></td></tr><tr><td style=3D"pad=
+ding: 10px 30px 0 30px; text-align: center; font-family: sans-serif; font-s=
+ize: 18px; line-height: 30px; color: #ffffff;" align=3D"center">Take our sh=
+ort survey to get <b>$10 off your next purchase of $50</b> or more &amp; be=
+ entered in our monthly draw for 1 of 2 $500 gift cards!<br> See complete C=
+ontest Rules online.</td></tr><tr><td><table align=3D"center" style=3D"bord=
+er-spacing: 0; border-collapse: collapse; margin: 0 auto; table-layout: aut=
+o;"><tbody><tr><td style=3D"padding: 30px 0 50px;"><table cellspacing=3D"0"=
+ cellpadding=3D"0" border=3D"0" align=3D"center" style=3D"border-spacing: 0=
+; border-collapse: collapse; table-layout: auto; margin: auto;"><tbody><tr>=
+<td style=3D"border-radius: 3px; background: #222222; text-align: center;" =
+class=3D"x_945740443button-td" align=3D"center"><a href=3D"https://survey.m=
+edallia.ca/?cantire-sportchek&amp;OfferCode=3D0298&amp;DateOfService=3D06/2=
+9/2023&amp;Transaction=3D009206&amp;Register=3D104" target=3D"_blank" style=
+=3D"border: 18px solid #fff; background-color: #fff; padding: 0 22px; color=
+: #404041; font-family: sans-serif; font-size: 14px; line-height: 1.1; text=
+-align: center; text-decoration: none; display: block; border-radius: 0px; =
+font-weight: bold;" class=3D"x_945740443button-a">TAKE
+ OUR SURVEY<br></a></td></tr></tbody></table></td></tr></tbody></table></td=
+></tr></tbody></table></div></td></tr><tr><td><table cellspacing=3D"0" cell=
+padding=3D"0" border=3D"0" width=3D"640" height=3D"428" style=3D"border-spa=
+cing: 0; border-collapse: collapse; table-layout: fixed; margin: 0 auto; ba=
+ckground-color: #cecece;" bgcolor=3D"#cecece"><tbody><tr><td style=3D"paddi=
+ng-top: 50px; padding-bottom: 0px;"><img src=3D"https://media-www.sportchek=
+.ca/icon/tag-147253ce-77ee-4441-a062-41956c3b4eb7.png" width=3D"120" height=
+=3D"120"> </td></tr><tr><td style=3D"padding: 40px; text-align: center; fon=
+t-family: sans-serif; font-size: 18px; color: #404041;" align=3D"center"><b=
+><span class=3D"colour" style=3D"color:rgb(64, 64, 65)"><span class=3D"size=
+" style=3D"font-size: 26px; line-height: 28px;">EXCLUSIVE PROMOTIONS,<br> N=
+EW RELEASES &amp; WEEKLY DEALS!</span></span></b> <table style=3D"border-sp=
+acing: 0; border-collapse: collapse; margin: 0 auto; table-layout: auto;"><=
+tbody><tr><td style=3D"padding-top: 30px;"><br></td></tr><tr><td style=3D"b=
+order-radius: 3px; background: #e62320; text-align: center;" class=3D"x_945=
+740443button-td2" align=3D"center"><a href=3D"https://www.sportchek.ca/#sho=
+wJoinOurCommunityModal=3Dtrue" target=3D"_blank" style=3D"background: #e623=
+20; border: 18px solid #e62320; padding: 0 10px; color: #ffffff; font-famil=
+y: sans-serif; font-size: 14px; line-height: 1.1; text-align: center; text-=
+decoration: none; display: block; border-radius: 0px; font-weight: bold;" c=
+lass=3D"x_945740443button-b">JOIN
+ NOW<br></a></td></tr></tbody></table></td></tr></tbody></table></td></tr><=
+tr><td><table width=3D"640" cellspacing=3D"0" cellpadding=3D"0" border=3D"0=
+" bgcolor=3D"#ffffff" style=3D"border-spacing: 0; border-collapse: collapse=
+; table-layout: fixed; margin: 0 auto; background-color: #ffffff; width: 64=
+0px; max-width: 640px; min-width: 640px;"><tbody><tr><td align=3D"center" v=
+align=3D"top" width=3D"640px" style=3D"margin-top: 60px; padding-top: 40px;=
+ margin-bottom: 60px;"><table cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" width=3D"100%" style=3D"border-spacing: 0; border-collapse: collapse; m=
+argin: 0 auto; table-layout: auto;"><tbody><tr><td width=3D"33.33%" class=
+=3D"x_945740443stack-column-center" style=3D"width: 33.33%; max-width: 33.3=
+3%;"><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"cente=
+r" style=3D"border-spacing: 0; border-collapse: collapse; margin: 0 auto; t=
+able-layout: auto;"><tbody><tr><td style=3D"padding: 10px; text-align: cent=
+er;" align=3D"center"><a href=3D"https://www.sportchek.ca/help-desk/returns=
+-and-warranties/online-return-policy.html" target=3D"_blank"><img src=3D"ht=
+tps://media-www.canadiantire.ca/icon/easy-returns-f79503df-5750-4a01-8eb7-c=
+f8a70f77d7f.png" width=3D"40" height=3D"40" alt=3D"alt_text" border=3D"0" c=
+lass=3D"x_945740443fluid"></a><br></td></tr><tr><td style=3D"font-family: s=
+ans-serif; font-size: 15px; line-height: 20px; color: #555555; padding: 0 1=
+0px 10px; text-align: center;" class=3D"x_945740443center-on-narrow" align=
+=3D"center"><b><a href=3D"https://www.sportchek.ca/help-desk/returns-and-wa=
+rranties/online-return-policy.html" style=3D"text-decoration: none;" target=
+=3D"_blank"><span class=3D"colour" style=3D"color:rgb(147, 149, 151)"><span=
+ class=3D"size" style=3D"font-size: 18px; line-height: 18px;">EASY<br> RETU=
+RNS</span></span></a></b></td></tr></tbody></table></td><td width=3D"33.33%=
+" class=3D"x_945740443stack-column-center" style=3D"width: 33.33%; max-widt=
+h: 33.33%;"><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=
+=3D"center" style=3D"border-spacing: 0; border-collapse: collapse; margin: =
+0 auto; table-layout: auto;"><tbody><tr><td style=3D"padding: 10px; text-al=
+ign: center;" align=3D"center"><a href=3D"https://www.sportchek.ca/help-des=
+k/corporate-information/contact-us.html" target=3D"_blank"><img src=3D"http=
+s://media-www.canadiantire.ca/icon/customer-service-be728bf5-d60c-4a82-b987=
+-4ffc4d358f09.png" width=3D"40" height=3D"40" alt=3D"alt_text" border=3D"0"=
+ class=3D"x_945740443fluid x_945740443middle-image"></a><br></td></tr><tr><=
+td style=3D"font-family: sans-serif; font-size: 15px; line-height: 20px; co=
+lor: #555555; padding: 0 10px 10px; text-align: center;" class=3D"x_9457404=
+43center-on-narrow" align=3D"center"><b><a style=3D"color: #939597; text-de=
+coration: none;" href=3D"tel:+01-877-977-2435" target=3D"_blank"><span clas=
+s=3D"colour" style=3D"color:rgb(147, 149, 151)"><span class=3D"size" style=
+=3D"font-size: 18px; line-height: 18px;">CUSTOMER SERVICE<br> 1-877-977-243=
+5</span></span></a></b></td></tr></tbody></table></td><td width=3D"33.33%" =
+class=3D"x_945740443stack-column-center" style=3D"width: 33.33%; max-width:=
+ 33.33%;"><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"=
+center" style=3D"border-spacing: 0; border-collapse: collapse; margin: 0 au=
+to; table-layout: auto;"><tbody><tr><td style=3D"padding: 10px; text-align:=
+ center;" align=3D"center"><a href=3D"https://www.sportchek.ca/store-locato=
+r.html" target=3D"_blank"><img src=3D"https://media-www.canadiantire.ca/ico=
+n/store-a0e940f1-11a4-46c7-bf57-a391237ecc81.png" width=3D"40" height=3D"40=
+" alt=3D"alt_text" border=3D"0" class=3D"x_945740443fluid"></a><br></td></t=
+r><tr><td style=3D"font-family: sans-serif; font-size: 15px; line-height: 2=
+0px; color: #555555; padding: 0 10px 10px; text-align: center;" class=3D"x_=
+945740443center-on-narrow" align=3D"center"><b><a href=3D"https://www.sport=
+chek.ca/store-locator.html" style=3D"text-decoration: none;" target=3D"_bla=
+nk"><span class=3D"colour" style=3D"color:rgb(147, 149, 151)"><span class=
+=3D"size" style=3D"font-size: 18px; line-height: 18px;">STORE<br> LOCATOR</=
+span></span></a></b></td></tr></tbody></table></td></tr></tbody></table></t=
+d></tr><tr><td><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" alig=
+n=3D"center" width=3D"100%" style=3D"border-spacing: 0; border-collapse: co=
+llapse; margin: 0 auto; table-layout: auto; max-width: 640px;"><tbody><tr><=
+td style=3D"padding: 40px 63px 40px 63px; width: 100%; font-size: 12px; fon=
+t-family: sans-serif; line-height: 18px; text-align: left; color: #888888;"=
+ width=3D"100%" align=3D"left">Please do not reply to this email; this addr=
+ess is not monitored.<br> Please call us at 1-877-977-CHEK (2435) or contac=
+t us on our website.<br> <br> For the SportChek.ca Privacy Policy, <a href=
+=3D"https://www.sportchek.ca/help-desk/safety-and-security/privacy-policy.h=
+tml" target=3D"_blank"> click here</a>.<br> <br> FGL Sports Ltd.<br> #110, =
+205 Quarry Park Blvd SE Calgary, Alberta, T2C 3E7<br> Copyright =E2=92=B8 2=
+023. FGL Sports Ltd. All Rights Reserved.</td></tr></tbody></table></td></t=
+r></tbody></table></td></tr></tbody></table><p>This message, including any =
+attachments, is privileged and may contain confidential information intende=
+d only for the person(s) named above. If you are not the intended recipient=
+ or have received this message in error, please notify the sender immediate=
+ly
+ by reply email and permanently delete the original transmission from the s=
+ender, including any attachments, without making a copy. Thank you. <br> <b=
+r> Ce message, y compris toutes ses pi=C3=A8ces jointes, est confidentiel e=
+t peut contenir des renseignements destin=C3=A9s uniquement aux personnes d=
+ont le nom est indiqu=C3=A9 ci-dessus. Si vous n'=C3=AAtes pas le destinata=
+ire pr=C3=A9vu ou si vous avez re=C3=A7u ce message par erreur, veuillez
+ en aviser l'exp=C3=A9diteur imm=C3=A9diatement, en lui r=C3=A9pondant par =
+courriel. Veuillez aussi supprimer d=C3=A9finitivement le message original =
+de l'exp=C3=A9diteur, y compris toute pi=C3=A8ce jointe, sans faire de copi=
+e. Merci.</p></div></blockquote></div><div><br></div><div class=3D"zmail_si=
+gnature_below"><div id=3D"" data-zbluepencil-ignore=3D"true" data-sigid=3D"=
+6189300000000739006"><div>Regards,<br></div><div><br></div><div>John E. Est=
+rada<br></div><div><br></div><div>---------------------------------------<b=
+r></div><div><br></div><p style=3D"font-style: normal; font-weight: 400; le=
+tter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; w=
+hite-space: normal; widows: 2; word-spacing: 0px"><span class=3D"highlight"=
+ style=3D"background-color:rgb(255, 255, 255)"><span class=3D"colour" style=
+=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:Verdana, =
+Arial, Helvetica, sans-serif"><span class=3D"size" style=3D"font-size:13.33=
+33px"><span class=3D"highlight" style=3D"background-color:rgb(255, 255, 255=
+)"><b><span class=3D"colour" style=3D"color:rgb(0, 102, 0)"><span class=3D"=
+font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"=
+><span class=3D"size" style=3D"font-size:14.66px">START SHREDDING INC. (shr=
+edEX)</span></span></span></b><span class=3D"colour" style=3D"color:rgb(51,=
+ 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial=
+, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">=
+<br>208 Evans Ave, Toronto, ON M8Z 1J7<br></span></span></span><b><span cla=
+ss=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D=
+"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=
+=3D"size" style=3D"font-size:14.66px">E:<span>&nbsp;<a href=3D"mailto:john@=
+shredex.ca" target=3D"_blank" style=3D"color: rgb(0, 0, 238)">john@shredex.=
+ca</a>&nbsp;</span>W: <a target=3D"_blank" href=3D"http://www.startshreddin=
+g.com" style=3D"color: rgb(0, 0, 238)">www.startshredding.com</a><br></span=
+></span></span></b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><=
+span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-seri=
+f, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">DIRECT:&nbs=
+p;</span></span></span><a style=3D"color: rgb(17, 85, 204); cursor: default=
+" target=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)">=
+<span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-ser=
+if, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">416.255.15=
+00</span></span></span></a><span class=3D"colour" style=3D"color:rgb(51, 51=
+, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, s=
+ans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br=
+>TOLL FREE:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, 204); =
+cursor: default" target=3D"_blank"><span class=3D"colour" style=3D"color:rg=
+b(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, =
+Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.6=
+6px">1.866.868.9585</span></span></span></a></span></span></span></span></s=
+pan></p><p style=3D"font-style: normal; font-weight: 400; letter-spacing: n=
+ormal; orphans: 2; text-indent: 0px; text-transform: none; white-space: nor=
+mal; widows: 2; word-spacing: 0px"><span class=3D"highlight" style=3D"backg=
+round-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0=
+, 0, 0)"><span class=3D"font" style=3D"font-family:Verdana, Arial, Helvetic=
+a, sans-serif"><span class=3D"size" style=3D"font-size:13.3333px"><span cla=
+ss=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><span class=
+=3D"colour" style=3D"color:rgb(34, 34, 34)"><span class=3D"font" style=3D"f=
+ont-family:arial, sans-serif"><span class=3D"size" style=3D"font-size:small=
+"><span class=3D"colour" style=3D"color:gray"><span class=3D"font" style=3D=
+"font-family:Arial, sans-serif"><span class=3D"size" style=3D"font-size:7.5=
+pt">This message and any attachments are the property of the&nbsp;SHREDEX I=
+NC.&nbsp;or its affiliates. It may be legally privileged and/or confidentia=
+l and is intended only for the use of the addressee(s). No addressee should=
+ store, forward, print, copy, or otherwise reproduce this message in any ma=
+nner that would allow it to be viewed by any individual not originally list=
+ed as a recipient. If the reader of this message is not the intended recipi=
+ent, you are hereby notified that any unauthorized storage, disclosure, dis=
+semination, distribution, copying or the taking of any action in reliance o=
+n the information herein is strictly prohibited. If you have received this =
+communication in error, please immediately notify the sender and delete thi=
+s message.</span></span></span></span></span></span></span></span></span></=
+span></span><br></p><div id=3D""><div><br></div></div><div><br></div></div>=
+</div><div><br></div></div><br></body></html>
+------=_Part_655350_513065763.1717125222005--
+
+------=_Part_655349_821778225.1717125222005
+Content-Type: application/octet-stream; 
+	name=Your_eReceipt_029810420230629009206.pdf
+Content-Transfer-Encoding: base64
+X-ZM_AttachId: 139073721438870000
+Content-Disposition: attachment; 
+	filename=Your_eReceipt_029810420230629009206.pdf
+
+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
+piIRTtFV3aGMWW6oIhGO1VWrO6tIhMN0ZVJRrHurSIQDdFWX7yEqEnEnuvIwFYnooq7O713lcSoS
+0Wld1ZtUJPwQwVNhv65MKloYZbtCT4JdurpgUpHsPyt5OoL3eVVkGakWdNV6amdPU5EIia56qopE
+MLqqz89M6MEqEgG68qpIitgTe1fFeaaK/g+7ls4aCmVuZHN0cmVhbQplbmRvYmoKMyAwIG9iago8
+PC9Db2xvclNwYWNlWy9DYWxSR0I8PC9HYW1tYVsyLjIgMi4yIDIuMl0vV2hpdGVQb2ludFswLjk1
+MDQzIDEgMS4wOV0vTWF0cml4WzAuNDEyMzkgMC4yMTI2NCAwLjAxOTMzIDAuMzU3NTggMC43MTUx
+NyAwLjExOTE5IDAuMTgwNDUgMC4wNzIxOCAwLjk1MDRdPj5dL0ludGVudC9QZXJjZXB0dWFsL1N1
+YnR5cGUvSW1hZ2UvSGVpZ2h0IDkyL0ZpbHRlci9GbGF0ZURlY29kZS9UeXBlL1hPYmplY3QvV2lk
+dGggMjg0L1NNYXNrIDIgMCBSL0xlbmd0aCAzMTMzL0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFt
+Cnic7V3LkuMqDPWfdQA7nUdNKpveZ9XfMX/eI4kknTECBNhxHjrFXcytjs1DBw5CyF3Ho+97i+id
+cW7ljMF/fn19Rf5c8ZQYhgEGujc9jC8MNI344Jxbr9dLV+11AJ3Z294aa1ZMsdTtQLHPz8+la6qo
+BEyMgxlgtrQwVXKjfBlr61m2dH2fGD8/Pwb60KT6+b9i+u/v76VrrSgAjJdL8ig2kcJCtnTdnw+n
+0yk9a7HF2WHpiiukAFFXMGGG5cOqOJHj79+/IOgq+hnkwdJ1V+SBy5Mb6tl0s2AZo7QSwdVOX866
+peuuyMA5IIJQzOfNQEWgBIfDwfId6H19axgUdP+Rawj+8vaPgYzph9OApgr6FfFvNpO0hSZkZz7g
+sQ6krPWvMGQt8N/K/fnzp+7JBpv/W2e+UIcUOc2ijxIUiXlvt9uk3kO6eY+TrzP0j/f3mhW/s068
+dFQ9eKykB3a73eiHJtkuGOK67oKuiD0T2j4yS+iEbM1hyQ7tGQwA+hCNkFnl+5hhQP87b6g0s2Xe
+uzJyGQmdWe2rt3YHT4BqZ9ULOotN8TbQlWpjcpplfTgtGxy7yow7SPrU0mNcwsw6sjQcaDmnzKh6
+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
+cXY3SSBMHuPKVG80yhfoU1S3manM4etxaMtHm4VECs1/yX8MK/9qGsJy2smzZAl+PpkkozIZQ5SP
+4+UGbg9zzTYz8bVjNRM9M1+XhkxsJquJ6STPFnN4k4zMBtMJw2bC/mP7STyJs1GyA8lQAcfIdPV6
+4Fl5ERj94wDPS1z+Pgfx8VnvfXi8T7Lq6BiZ2EtoHfdZvHHgZotidB/PE3hMy3uIwY+zeIxJBlFa
+JOa3Med5ilpnZieel0kxwuwksO/Hk9FiEldZMCuSwzL+hzR4xVlPUVFSTOfwG5aIbJyWaZ7NIZ7N
+JksCOAmlpXnIk+vJqVxpR0b59Mn2cVWBJvO1NtUb9pX1L6auMYUKZW5kc3RyZWFtCmVuZG9iagox
+IDAgb2JqCjw8L0NvbnRlbnRzIDUgMCBSL1R5cGUvUGFnZS9SZXNvdXJjZXM8PC9Qcm9jU2V0IFsv
+UERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJXS9Gb250PDwvRjEgNCAwIFI+Pi9YT2Jq
+ZWN0PDwvaW1nMSAzIDAgUi9pbWcwIDIgMCBSPj4+Pi9QYXJlbnQgNiAwIFIvTWVkaWFCb3hbMCAw
+IDU5NS4yOCA4NDEuODhdPj4KZW5kb2JqCjcgMCBvYmoKPDwvQ29sb3JTcGFjZS9EZXZpY2VSR0Iv
+U3VidHlwZS9JbWFnZS9IZWlnaHQgNDAvRmlsdGVyL0ZsYXRlRGVjb2RlL1R5cGUvWE9iamVjdC9E
+ZWNvZGVQYXJtczw8L0NvbHVtbnMgMjI2L0NvbG9ycyAzL1ByZWRpY3RvciAxNS9CaXRzUGVyQ29t
+cG9uZW50IDg+Pi9XaWR0aCAyMjYvTGVuZ3RoIDIxOC9CaXRzUGVyQ29tcG9uZW50IDg+PnN0cmVh
+bQp42u3SMQrAIAwF0Nz/0nYoOERN026F5yASPiGRFxExxpj3PLN4n1Q5BVIxJYv8tv/pvcYeB66b
+9/cqtutM+OpPmvn+XkXDbx9V75VQreHTGKvDwBRTTDHFFFNMMcUUU0wxxRRTTDHFFFNMMcUUU0wx
+xRRTTDHFFFNMMcUUU0wxxRRTTDHFFFNMMcUUU0wxxRRTTDHFFFNMMcUUU0wxxRRTTDHFFFNMMcUU
+U0wxxRRTTDHFFFNMMcUUU0wxxRRTTDHFFFNMMcUUU0wxxRRTTDHFFNM/ML0AKBxiMAplbmRzdHJl
+YW0KZW5kb2JqCjggMCBvYmoKPDwvRmlsdGVyL0ZsYXRlRGVjb2RlL0xlbmd0aCA5NDQ+PnN0cmVh
+bQp4nK2WXXObOBSG7/kVZzuZTutJZCGEgN7sZG1vNjtpnNhk0kzbCwyyTQMIg2jqf79HcYiTdKfQ
+meAL8/no1Xt0ztHG+iu0KPjcJr4PYWJNQuvS2liUUMdz4c5i8C8+/2bZFD5an79SSCxHgE9d835u
+uW5AmN9eZ+21IwjleImvPjl9fGttXVsFYs2vWhkJw79tCAiOGC4t+/6+DZyBF3jEtyHMrXeD3sf7
+8JuZxi+ovkdocE+F9ggnZ2dwNYd/ptdwPYHx6RjC6fj45o+H591QTxCc4yM0jG4lqKaCeq0qDXVT
+fZdb0ApWUsMB2tkLKlwi+B6qlkvYGmghf2gomypeRzUOs4QDl4Kq+kFdTgL7yfRzVUl4CwsJstCy
+komReZcW+DqSWT8o58R+4SlqwlWjCr3OtnCSLjWMoiqpW0t7QB2HcPEUeqLutd3dkXmJto7W8nZ+
+7yyJo75QxojHnyvdHTsSjFQiPzx/0g21GaH2z1CHUR4wRn0mAkoD8XtQahO293QuJcQqLzOpJYrE
+UNUaZk0ma1BFlhaS9IEKLyA+f+2UEtwjYhepo95HNxWLR/D6WpkgbB+r4wITJ12lRZRBJWOZlhrS
+Gk83TWpyYWnSqhtqu4TvY1VJ3VRFTWAml02R1JhOeo0Z5WABjbY1RJhxPaCUE2/nalSWWYpqFlF8
+a1JAryXUUS4hl3qtEpOoZbTNMYE7qW7ATUl+kBrV++m3BeUn2d1SXd8hzoOp+I8KxZOpturxdi7N
+GEWS1rIb6jHiPpoaYzRSvddmwIXSIDOUv8hkz0i5AnudeJGq7czRjO+yetTeO1Vd1yb2i6Iym4RX
+s3O4mJ6djm5g8mk0uQhPp+fzD72hnBLeLtQ4k1EVFbGEL+8k2lesAANzQLGjfnl/CG9UKYujhfrx
+phvLAiL2S1VmMtaVKtK4PoSyUkkTazS3rlWcRnoXtB5abZ8Eravr7SqVhekpZbPI0hhX6lLq7SEU
+ja5SnSqz2N72gFKfsJ2rS4WLvFVH4DhJWs6mwTqIp/Wfu+7QSeW4qXCf12rTUGrTUGJsKNhKhmuZ
+lUeJrG/7xor7gnjBa5cqjpsK+uplleOuwvmfDjgYjK7m4fTjZAaj6cXNYPA7zYrjrkLsXJ2HM2CB
+jwlwArapNLNP54Ddj1HRjeEO8Xc+jnH1AaPMGVIxZMHDpxtgLjW91nyCmw7mms9ws0pcBnEOwzRf
+MRgruPzFKA6Kpd79KBSVokgzDhUseCbT7IQvrf8ABj6IWQplbmRzdHJlYW0KZW5kb2JqCjkgMCBv
+YmoKPDwvQ29udGVudHMgOCAwIFIvVHlwZS9QYWdlL1Jlc291cmNlczw8L1Byb2NTZXQgWy9QREYg
+L1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUldL0ZvbnQ8PC9GMSA0IDAgUj4+L1hPYmplY3Q8
+PC9pbWcyIDcgMCBSPj4+Pi9QYXJlbnQgNiAwIFIvTWVkaWFCb3hbMCAwIDU5NS4yOCA4NDEuODhd
+Pj4KZW5kb2JqCjQgMCBvYmoKPDwvU3VidHlwZS9UeXBlMS9UeXBlL0ZvbnQvQmFzZUZvbnQvQ291
+cmllci9FbmNvZGluZy9XaW5BbnNpRW5jb2Rpbmc+PgplbmRvYmoKNiAwIG9iago8PC9LaWRzWzEg
+MCBSIDkgMCBSXS9UeXBlL1BhZ2VzL0NvdW50IDIvSVRYVCgyLjEuNyk+PgplbmRvYmoKMTAgMCBv
+YmoKPDwvVHlwZS9DYXRhbG9nL1BhZ2VzIDYgMCBSPj4KZW5kb2JqCjExIDAgb2JqCjw8L01vZERh
+dGUoRDoyMDIzMDYyOTIyNTUzNFopL0NyZWF0aW9uRGF0ZShEOjIwMjMwNjI5MjI1NTM0WikvUHJv
+ZHVjZXIoaVRleHQgMi4xLjcgYnkgMVQzWFQpPj4KZW5kb2JqCnhyZWYKMCAxMgowMDAwMDAwMDAw
+IDY1NTM1IGYgCjAwMDAwMDc1ODAgMDAwMDAgbiAKMDAwMDAwMDAxNSAwMDAwMCBuIAowMDAwMDAy
+ODk4IDAwMDAwIG4gCjAwMDAwMDk0MTUgMDAwMDAgbiAKMDAwMDAwNjM0NCAwMDAwMCBuIAowMDAw
+MDA5NTAxIDAwMDAwIG4gCjAwMDAwMDc3NzcgMDAwMDAgbiAKMDAwMDAwODIxOCAwMDAwMCBuIAow
+MDAwMDA5MjI5IDAwMDAwIG4gCjAwMDAwMDk1NzAgMDAwMDAgbiAKMDAwMDAwOTYxNiAwMDAwMCBu
+IAp0cmFpbGVyCjw8L0luZm8gMTEgMCBSL0lEIFs8Y2Q0Nzc5MjE0YzBjOTQyNzE0YThiNDU3ODM3
+ZmY4MmU+PGU0YTE0YjAyZjlkOWEzNTA1NmEwODFmMzdkNDEyNzYwPl0vUm9vdCAxMCAwIFIvU2l6
+ZSAxMj4+CnN0YXJ0eHJlZgo5NzI3CiUlRU9GCg==
+------=_Part_655349_821778225.1717125222005--
+

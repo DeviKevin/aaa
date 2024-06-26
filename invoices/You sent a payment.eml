@@ -1,0 +1,1150 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp190878rbd;
+        Thu, 30 May 2024 20:28:43 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGfyEluNwGa7M2H8u+fpWo2Z0dAT429G5XEdZRyWnxq3KV/+67bFjbDWQWpAeNYM3VZUetV
+X-Received: by 2002:a05:6a20:2583:b0:1a7:9b0e:ded3 with SMTP id adf61e73a8af0-1b26f122a9dmr1232809637.11.1717126122851;
+        Thu, 30 May 2024 20:28:42 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717126122; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=WuuIQ0r3AF/eAu2LWRNgnUxsAAKoKNOkH9IMFwJK2ShwiKaEmfDrwtXpXl5ufnGUEi
+         DE+ydpSWly5Ii1WNSrrjc6SO9f8vJQvptAnok6UzJHNoU2LxLdwFfW8UfZwxrVj6t+8r
+         8muPZdFj1e4tNUNApTcAnyBC2whqUsN6sSPJX7n96/XAMQOKSX88BO/a4IEIqmc+8nUl
+         axhS6VJp4avdAxVhwIU0fQxwjA900jzVW64Z6j823sZtWoCY33MPsCyUudSgPRzd6s8j
+         m+prFf5OK2Z5D25ynRB0Dq8KPDUVhHTEfLtqlZ6JstOlVXT8X+KLb8VnL9NuV/z8ga39
+         w2Fw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=7YRcPmMW5DYfFMIsAjvo3pfsGcsRBeEs+Cgn9cwq+ho=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=swXW7eylfoBeHpGv8Hnf9G9j61/FShnRjxoUX7nJMqpEIDoCl2w6AsdkbpcdCZW1Or
+         N8zYyA+TSEwWwAlcOI5QHgm9hSnCb2XASpIawO56UU0NE8LvDnfFuB3wZgeAUEdGGbCp
+         Z88UPFukMZM9PyBpQSr/FtRXlK8xxuAM4vOrIkEf+a5HZIfZr4olw+qIn0IS8JG7/G3F
+         Tvw+Ultp4poQhB6Tc39gcqiqZNR0LSzAyFqbEJRcmaTzcMd8ONU5rgyeW4t95wDRoEQK
+         5qe8kfsqh7cs/qO/XcS5b1I8waLWPgVKxAMXQsbHzXABhmdqDLxb4aP3abwgF1WTCdW1
+         rIyg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=nPGYlcaD;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o18.zoho.com (sender3-op-o18.zoho.com. [136.143.184.18])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-6c359e09c3csi722813a12.372.2024.05.30.20.28.42
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:28:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) client-ip=136.143.184.18;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=nPGYlcaD;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717126121; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=CBBJVSr0+g8b9d55x2WbxbKVoFJ3+QMgQYrJgxlNfCgNuzAmsuar6l1jOrbX7Bw8rOlOzcAbQYK1e2SjJJlrAUey69AYkvFXdw0L9sz+gF5em0j0QEibt3+FZ+2dqA10kGu28eR5FnCQ5Zu8kmBKjioLYl2slwes3M7RllNzUhE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717126121; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=7YRcPmMW5DYfFMIsAjvo3pfsGcsRBeEs+Cgn9cwq+ho=; 
+	b=TveLLHD0Y7hPmNEX9Bfc3g93iAyIo5vffRc2OYlEBOAYwhNa1s9sgmQRJrv6tLjqEoQeqmOF1qzug2/qdtO+7o1hsCFd7KUmytyBBSiLOfxwaZcwdP2gK+AR2fKW0Jh0pW+mwKV8SYqGoNYnxEQ6aR/9tMbPzYGpzM9s5RqEhg0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717126121;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=7YRcPmMW5DYfFMIsAjvo3pfsGcsRBeEs+Cgn9cwq+ho=;
+	b=nPGYlcaDOlmn19GhWmXjxJ7lOwXqhDgGe2NSQZNe6fnXz5726HUm0y154OwBzoNr
+	TgiBhLl/Hjpg8elu/TFfxNH9rfooqCMq6PScPT2YcFLDosMW/sQJZ5OgPUpCrASaHed
+	YrNI0hjpIeysUd5pONGwrk+yACTt2jLlO5jmOUrE=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 171712611895455.12567171441185; Thu, 30 May 2024 20:28:38 -0700 (PDT)
+Date: Thu, 30 May 2024 23:28:38 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fccb13dd8.e890418f203808.6248738578152388601@shredex.ca>
+In-Reply-To: <1641311987.30500@paypal.com>
+References: <1641311987.30500@paypal.com>
+Subject: Fwd: You sent a payment
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_661067_1564593853.1717126118873"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_661067_1564593853.1717126118873
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From:  <service@intl.paypal.com>
+To: "John Estrada"<info@shredex.ca>
+Date: Tue, 04 Jan 2022 10:59:47 -0500
+Subject: You sent a payment
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+
+
+Hello, SHREDEX DOCUMENT MANAGEMENT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You sent $200.00=C2=A0CAD to Arshdeep  Singh
+
+
+
+
+
+YOUR NOTE TO Arshdeep  Singh
+
+
+
+
+
+
+52017 - Bank Statement - work till 03 Jan 2021 excluding future development=
+ things
+
+
+
+
+
+
+Transaction Details
+
+
+
+
+
+
+
+
+
+
+
+
+Transaction ID
+0C410038P5789294W
+Transaction date
+January 4, 2022
+
+
+
+
+
+
+
+
+
+
+
+
+
+Money sent
+
+$200.00=C2=A0CAD
+
+
+
+
+
+
+
+
+Paid with:
+
+
+
+
+
+VISA x-8945
+
+$200.00=C2=A0CAD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You paid
+
+$200.00=C2=A0CAD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Shipping Address
+
+
+
+
+
+327 Evans Avenue
+Toronto ON M8Z1K2
+Canada
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PayPal Buyer Protection
+
+
+
+
+
+
+
+
+
+
+
+
+Your eligible purchases are covered by our free Buyer Protection. https://w=
+ww.paypal.com/ca/webapps/mpp/paypal-safety-and-security?v=3D1&utm_source=3D=
+unp&utm_medium=3Demail&utm_campaign=3DRT000417&utm_unptid=3D53e22874-6d77-1=
+1ec-929a-ac1f6bdab413&ppid=3DRT000417&cnac=3DCA&rsta=3Den_US%28en-CA%29&cus=
+t=3DA45R8ZUA43WQL&unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&calc=3Da857=
+226092656&unp_tpcid=3Dsendmoney-push-sender&page=3Dmain%3Aemail%3ART000417&=
+pgrp=3Dmain%3Aemail&e=3Dcl&mchn=3Dem&s=3Dci&mail=3Dsys&appVersion=3D1.69.0&=
+xt=3D104038.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://www.paypal.com/ca/smarthelp/home?v=3D1&utm_source=3Dunp&utm_medium=
+=3Demail&utm_campaign=3DRT000417&utm_unptid=3D53e22874-6d77-11ec-929a-ac1f6=
+bdab413&ppid=3DRT000417&cnac=3DCA&rsta=3Den_US%28en-CA%29&cust=3DA45R8ZUA43=
+WQL&unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&calc=3Da857226092656&unp_=
+tpcid=3Dsendmoney-push-sender&page=3Dmain%3Aemail%3ART000417&pgrp=3Dmain%3A=
+email&e=3Dcl&mchn=3Dem&s=3Dci&mail=3Dsys&appVersion=3D1.69.0&xt=3D104038 | =
+https://www.paypal.com/ca/webapps/mpp/paypal-safety-and-security?v=3D1&utm_=
+source=3Dunp&utm_medium=3Demail&utm_campaign=3DRT000417&utm_unptid=3D53e228=
+74-6d77-11ec-929a-ac1f6bdab413&ppid=3DRT000417&cnac=3DCA&rsta=3Den_US%28en-=
+CA%29&cust=3DA45R8ZUA43WQL&unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&ca=
+lc=3Da857226092656&unp_tpcid=3Dsendmoney-push-sender&page=3Dmain%3Aemail%3A=
+RT000417&pgrp=3Dmain%3Aemail&e=3Dcl&mchn=3Dem&s=3Dci&mail=3Dsys&appVersion=
+=3D1.69.0&xt=3D104038 | https://www.paypal.com/ca/webapps/mpp/mobile-apps?v=
+=3D1&utm_source=3Dunp&utm_medium=3Demail&utm_campaign=3DRT000417&utm_unptid=
+=3D53e22874-6d77-11ec-929a-ac1f6bdab413&ppid=3DRT000417&cnac=3DCA&rsta=3Den=
+_US%28en-CA%29&cust=3DA45R8ZUA43WQL&unptid=3D53e22874-6d77-11ec-929a-ac1f6b=
+dab413&calc=3Da857226092656&unp_tpcid=3Dsendmoney-push-sender&page=3Dmain%3=
+Aemail%3ART000417&pgrp=3Dmain%3Aemail&e=3Dcl&mchn=3Dem&s=3Dci&mail=3Dsys&ap=
+pVersion=3D1.69.0&xt=3D104038
+
+
+https://twitter.com/PayPal?v=3D1%2C0.1&utm_source=3Dunp&utm_medium=3Demail&=
+utm_campaign=3DRT000417&utm_unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&p=
+pid=3DRT000417&cnac=3DCA&rsta=3Den_US%28en-CA%29&cust=3DA45R8ZUA43WQL&unpti=
+d=3D53e22874-6d77-11ec-929a-ac1f6bdab413&calc=3Da857226092656&unp_tpcid=3Ds=
+endmoney-push-sender&page=3Dmain%3Aemail%3ART000417&pgrp=3Dmain%3Aemail&e=
+=3Dcl&mchn=3Dem&s=3Dci&mail=3Dsys&appVersion=3D1.69.0&xt=3D104038
+https://www.instagram.com/paypal/?v=3D1%2C0.1&utm_source=3Dunp&utm_medium=
+=3Demail&utm_campaign=3DRT000417&utm_unptid=3D53e22874-6d77-11ec-929a-ac1f6=
+bdab413&ppid=3DRT000417&cnac=3DCA&rsta=3Den_US%28en-CA%29&cust=3DA45R8ZUA43=
+WQL&unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&calc=3Da857226092656&unp_=
+tpcid=3Dsendmoney-push-sender&page=3Dmain%3Aemail%3ART000417&pgrp=3Dmain%3A=
+email&e=3Dcl&mchn=3Dem&s=3Dci&mail=3Dsys&appVersion=3D1.69.0&xt=3D104038
+https://www.facebook.com/PayPalUSA?v=3D1%2C0.1&utm_source=3Dunp&utm_medium=
+=3Demail&utm_campaign=3DRT000417&utm_unptid=3D53e22874-6d77-11ec-929a-ac1f6=
+bdab413&ppid=3DRT000417&cnac=3DCA&rsta=3Den_US%28en-CA%29&cust=3DA45R8ZUA43=
+WQL&unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&calc=3Da857226092656&unp_=
+tpcid=3Dsendmoney-push-sender&page=3Dmain%3Aemail%3ART000417&pgrp=3Dmain%3A=
+email&e=3Dcl&mchn=3Dem&s=3Dci&mail=3Dsys&appVersion=3D1.69.0&xt=3D104038
+http://www.linkedin.com/company/1482?trk=3Dtyah&v=3D1&utm_source=3Dunp&utm_=
+medium=3Demail&utm_campaign=3DRT000417&utm_unptid=3D53e22874-6d77-11ec-929a=
+-ac1f6bdab413&ppid=3DRT000417&cnac=3DCA&rsta=3Den_US%28en-CA%29&cust=3DA45R=
+8ZUA43WQL&unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&calc=3Da85722609265=
+6&unp_tpcid=3Dsendmoney-push-sender&page=3Dmain%3Aemail%3ART000417&pgrp=3Dm=
+ain%3Aemail&e=3Dcl&mchn=3Dem&s=3Dci&mail=3Dsys&appVersion=3D1.69.0&xt=3D104=
+038
+
+
+
+
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+PayPal is committed to preventing fraudulent emails. Emails from PayPal wil=
+l always contain your full name. https://www.paypal.com/us/webapps/mpp/secu=
+rity/suspicious-activity?v=3D1&utm_source=3Dunp&utm_medium=3Demail&utm_camp=
+aign=3DRT000417&utm_unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&ppid=3DRT=
+000417&cnac=3DCA&rsta=3Den_US%28en-CA%29&cust=3DA45R8ZUA43WQL&unptid=3D53e2=
+2874-6d77-11ec-929a-ac1f6bdab413&calc=3Da857226092656&unp_tpcid=3Dsendmoney=
+-push-sender&page=3Dmain%3Aemail%3ART000417&pgrp=3Dmain%3Aemail&e=3Dcl&mchn=
+=3Dem&s=3Dci&mail=3Dsys&appVersion=3D1.69.0&xt=3D104038
+
+
+
+
+
+This email was sent to you for the ongoing support and maintenance of your =
+account. To manage your communication preferences, please visit our https:/=
+/www.paypal.com/cgi-bin/customerprofileweb?cmd=3D_profile-notify&v=3D1&utm_=
+source=3Dunp&utm_medium=3Demail&utm_campaign=3DRT000417&utm_unptid=3D53e228=
+74-6d77-11ec-929a-ac1f6bdab413&ppid=3DRT000417&cnac=3DCA&rsta=3Den_US%28en-=
+CA%29&cust=3DA45R8ZUA43WQL&unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&ca=
+lc=3Da857226092656&unp_tpcid=3Dsendmoney-push-sender&page=3Dmain%3Aemail%3A=
+RT000417&pgrp=3Dmain%3Aemail&e=3Dcl&mchn=3Dem&s=3Dci&mail=3Dsys&appVersion=
+=3D1.69.0&xt=3D104038.
+
+
+
+
+
+Please do not reply to this email. We are unable to respond to inquiries se=
+nt to this address. For immediate answers to your questions, visit our Help=
+ Centre by clicking Help & Contact located on any PayPal page or email.  Pa=
+yPal is committed to your privacy, learn more about our https://www.paypal.=
+com/ca/webapps/mpp/ua/privacy-full?locale.x=3Den_CA&v=3D1&utm_source=3Dunp&=
+utm_medium=3Demail&utm_campaign=3DRT000417&utm_unptid=3D53e22874-6d77-11ec-=
+929a-ac1f6bdab413&ppid=3DRT000417&cnac=3DCA&rsta=3Den_US%28en-CA%29&cust=3D=
+A45R8ZUA43WQL&unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&calc=3Da8572260=
+92656&unp_tpcid=3Dsendmoney-push-sender&page=3Dmain%3Aemail%3ART000417&pgrp=
+=3Dmain%3Aemail&e=3Dcl&mchn=3Dem&s=3Dci&mail=3Dsys&appVersion=3D1.69.0&xt=
+=3D104038.
+
+
+
+
+
+Not sure why you received this email? https://www.paypal.com/ca/smarthelp/a=
+rticle/why-am-i-receiving-emails-from-paypal-when-i-dont-have-an-account-fa=
+q4172?v=3D1&utm_source=3Dunp&utm_medium=3Demail&utm_campaign=3DRT000417&utm=
+_unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&ppid=3DRT000417&cnac=3DCA&rs=
+ta=3Den_US%28en-CA%29&cust=3DA45R8ZUA43WQL&unptid=3D53e22874-6d77-11ec-929a=
+-ac1f6bdab413&calc=3Da857226092656&unp_tpcid=3Dsendmoney-push-sender&page=
+=3Dmain%3Aemail%3ART000417&pgrp=3Dmain%3Aemail&e=3Dcl&mchn=3Dem&s=3Dci&mail=
+=3Dsys&appVersion=3D1.69.0&xt=3D104038
+
+
+
+
+
+
+
+Copyright =C2=A9 2022 PayPal Canada Co., 661 University Ave., Toronto, ON M=
+5G 1M1. All rights reserved.
+
+PayPal RT000417:en_US(en-CA):1.1.0:a857226092656
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_661067_1564593853.1717126118873
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From:  &lt;service@intl.paypal.com&gt;<br>To: "John E=
+strada"&lt;info@shredex.ca&gt;<br>Date: Tue, 04 Jan 2022 10:59:47 -0500<br>=
+Subject: You sent a payment<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forward=
+ed message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><div><br></div><bl=
+ockquote id=3D"blockquote_zmail" style=3D"margin: 0px;"><style>@font-face {
+  font-family: PayPal-Sans;
+  font-style: normal;
+  font-weight: 400;}
+@font-face {
+  font-family: PayPal-Sans;
+  font-style: normal;
+  font-weight: 500;}
+div.zm_-2216389504357973801_parse_-2946818047570825744 a:active,
+div.zm_-2216389504357973801_parse_-2946818047570825744 a:focus,
+div.zm_-2216389504357973801_parse_-2946818047570825744 a:hover {
+  color: rgb(0, 94, 166);
+  text-decoration: underline;
+}</style><div class=3D"zm_-2216389504357973801_parse_-2946818047570825744" =
+style=3D"height: 100%; font-size: inherit; margin: 0; padding: 0; font-fami=
+ly: PayPal-Sans, Calibri, Trebuchet, Arial, sans-serif; background: rgb(242=
+, 242, 242); color: rgb(44, 46, 47);"><h4 id=3D"x_1775918869preHeader" styl=
+e=3D"box-sizing: inherit; display: none; color: rgb(255,255,255); font-size=
+: 0.0px; line-height: 0.0px;">SHREDEX DOCUMENT MANAGEMENT, here's your rece=
+ipt.<br></h4><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=
+=3D"100%" class=3D"x_1775918869marginFix" style=3D"box-sizing: inherit;"><t=
+body style=3D"box-sizing: inherit;"><tr style=3D"box-sizing: inherit;"><td =
+bgcolor=3D"#ffffff" class=3D"x_1775918869mobMargin" style=3D"box-sizing: in=
+herit; font-size: 0.0px;"><br></td><td bgcolor=3D"#ffffff" width=3D"660" al=
+ign=3D"center" class=3D"x_1775918869mobContent" style=3D"box-sizing: inheri=
+t;"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" =
+dir=3D"ltr" style=3D"box-sizing: inherit;"><tbody style=3D"box-sizing: inhe=
+rit;"><tr style=3D"box-sizing: inherit;"><td style=3D"box-sizing: inherit;"=
+><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" sty=
+le=3D"box-sizing: inherit;"><tbody style=3D"box-sizing: inherit;"><tr style=
+=3D"box-sizing: inherit;"><td align=3D"center" colspan=3D"3" class=3D"x_177=
+5918869greetingText" width=3D"600" style=3D"box-sizing: inherit;"><table wi=
+dth=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" bgcolor=3D"#f=
+5f7fa" dir=3D"ltr" style=3D"box-sizing: inherit;"><tbody style=3D"box-sizin=
+g: inherit;"><tr style=3D"box-sizing: inherit;"><td align=3D"center" style=
+=3D"box-sizing: inherit; font-size: 14.0px; line-height: 24.0px; color: rgb=
+(104,113,115); padding: 20.0px;"><span style=3D"box-sizing: inherit;">Hello=
+, SHREDEX DOCUMENT MANAGEMENT</span><br></td></tr><tr style=3D"box-sizing: =
+inherit;"><td align=3D"center" valign=3D"bottom" style=3D"box-sizing: inher=
+it;"><img id=3D"1641311990946100003_imgsrc_url_0" width=3D"116" height=3D"1=
+6" style=3D"box-sizing: inherit; display: block;" border=3D"0" alt=3D""></t=
+d></tr></tbody></table></td></tr><tr style=3D"box-sizing: inherit;"><td cla=
+ss=3D"x_1775918869mobMargin" style=3D"box-sizing: inherit;"><br></td><td al=
+ign=3D"center" width=3D"600" style=3D"box-sizing: inherit;"><img id=3D"1641=
+311990946100003_imgsrc_url_1" width=3D"116" height=3D"71" style=3D"box-sizi=
+ng: inherit; display: block;" border=3D"0" alt=3D"PayPal" title=3D"PayPal">=
+</td><td class=3D"x_1775918869mobMargin" style=3D"box-sizing: inherit;"><br=
+></td></tr><tr style=3D"box-sizing: inherit;"><td class=3D"x_1775918869mobM=
+argin" align=3D"center" valign=3D"top" style=3D"box-sizing: inherit; min-wi=
+dth: 10.0px;" bgcolor=3D"#004f9b"><img width=3D"100%" height=3D"81" class=
+=3D"x_1775918869imgWidth" id=3D"1641311990946100003_imgsrc_url_2" style=3D"=
+box-sizing: inherit; display: block;" border=3D"0" alt=3D""></td><td align=
+=3D"center" width=3D"600" style=3D"box-sizing: inherit;"><table width=3D"10=
+0%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"box-sizing: i=
+nherit;"><tbody style=3D"box-sizing: inherit;"><tr style=3D"box-sizing: inh=
+erit;"><td width=3D"12" align=3D"center" valign=3D"top" style=3D"box-sizing=
+: inherit;"><img width=3D"12" height=3D"81" id=3D"1641311990946100003_imgsr=
+c_url_3" style=3D"box-sizing: inherit; display: block;" border=3D"0" alt=3D=
+""></td><td width=3D"229" align=3D"center" valign=3D"top" style=3D"box-sizi=
+ng: inherit;"><img width=3D"100%" height=3D"81" id=3D"1641311990946100003_i=
+mgsrc_url_4" style=3D"box-sizing: inherit; display: block;" border=3D"0" al=
+t=3D""></td><td width=3D"118" align=3D"center" valign=3D"top" style=3D"box-=
+sizing: inherit;"><img width=3D"118" height=3D"81" id=3D"164131199094610000=
+3_imgsrc_url_5" style=3D"box-sizing: inherit; display: block;" border=3D"0"=
+ alt=3D""></td><td width=3D"229" align=3D"center" valign=3D"top" style=3D"b=
+ox-sizing: inherit;"><img width=3D"100%" height=3D"81" id=3D"16413119909461=
+00003_imgsrc_url_6" style=3D"box-sizing: inherit; display: block;" border=
+=3D"0" alt=3D""></td><td width=3D"12" align=3D"center" valign=3D"top" style=
+=3D"box-sizing: inherit;"><img width=3D"12" height=3D"81" id=3D"16413119909=
+46100003_imgsrc_url_7" style=3D"box-sizing: inherit; display: block;" borde=
+r=3D"0" alt=3D""></td></tr></tbody></table></td><td class=3D"x_1775918869mo=
+bMargin" align=3D"center" valign=3D"top" style=3D"box-sizing: inherit; min-=
+width: 10.0px;" bgcolor=3D"#004f9b"><img width=3D"100%" height=3D"81" class=
+=3D"x_1775918869imgWidth" id=3D"1641311990946100003_imgsrc_url_8" style=3D"=
+box-sizing: inherit; display: block;" border=3D"0" alt=3D""></td></tr></tbo=
+dy></table></td></tr></tbody></table><table cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" width=3D"100%" class=3D"x_1775918869ppsans" dir=3D"ltr"=
+ style=3D"box-sizing: inherit;"><tbody style=3D"box-sizing: inherit;"><tr s=
+tyle=3D"box-sizing: inherit;"><td class=3D"x_1775918869mobMargin" align=3D"=
+left" valign=3D"top" style=3D"box-sizing: inherit; min-width: 10.0px;"><tab=
+le width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D=
+"box-sizing: inherit;"><tbody style=3D"box-sizing: inherit;"><tr style=3D"b=
+ox-sizing: inherit;"><td align=3D"center" valign=3D"top" bgcolor=3D"#004f9b=
+" style=3D"box-sizing: inherit;"><img class=3D"x_1775918869imgWidth" id=3D"=
+1641311990946100003_imgsrc_url_9" width=3D"100%" height=3D"96" style=3D"box=
+-sizing: inherit; display: block;" border=3D"0" alt=3D""></td></tr><tr styl=
+e=3D"box-sizing: inherit;"><td align=3D"right" valign=3D"top" style=3D"box-=
+sizing: inherit;"><img id=3D"1641311990946100003_imgsrc_url_10" width=3D"1"=
+ height=3D"100" style=3D"box-sizing: inherit; display: block;" alt=3D""></t=
+d></tr></tbody></table></td><td width=3D"600" valign=3D"top" align=3D"cente=
+r" style=3D"box-sizing: inherit;"><br style=3D"box-sizing: inherit;"><table=
+ width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"b=
+ox-sizing: inherit; padding: 0.0px 20.0px 30.0px 20.0px;"><tbody style=3D"b=
+ox-sizing: inherit;"><tr style=3D"box-sizing: inherit;"><td align=3D"center=
+" style=3D"box-sizing: inherit;"><p class=3D"x_1775918869ppsans" style=3D"b=
+ox-sizing: inherit; font-weight: 400; text-transform: none; line-height: 40=
+px; margin: 0px;" dir=3D"ltr"><span class=3D"colour" style=3D"color:rgb(44,=
+ 46, 47)"><span class=3D"font" style=3D"font-family:PayPal-Sans, Calibri, T=
+rebuchet, Arial, sans-serif"><span class=3D"size" style=3D"font-size: 32px;=
+ box-sizing: inherit; font-weight: 400; text-transform: none; line-height: =
+40px; margin: 0px;"><span style=3D"box-sizing: inherit;">You sent $200.00&n=
+bsp;CAD to Arshdeep  Singh</span></span></span></span><br></p></td></tr></t=
+body></table><table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bord=
+er=3D"0" style=3D"box-sizing: inherit; padding: 0.0px 20.0px 20.0px 20.0px;=
+"><tbody style=3D"box-sizing: inherit;"><tr style=3D"box-sizing: inherit;">=
+<td align=3D"center" valign=3D"top" style=3D"box-sizing: inherit;"><p class=
+=3D"x_1775918869vx_legal-text x_1775918869ppsans" style=3D"box-sizing: inhe=
+rit; font-weight: 400; text-transform: none; line-height: 28px; margin: 0px=
+;" dir=3D"ltr"><span class=3D"colour" style=3D"color:rgb(104, 113, 115)"><s=
+pan class=3D"font" style=3D"font-family:PayPal-Sans, sans-serif"><span clas=
+s=3D"size" style=3D"font-size: 20px; box-sizing: inherit; font-weight: 400;=
+ text-transform: none; line-height: 28px; margin: 0px;"><span style=3D"box-=
+sizing: inherit;">YOUR NOTE TO Arshdeep  Singh</span></span></span></span><=
+br></p></td></tr></tbody></table><table width=3D"100%" cellspacing=3D"0" ce=
+llpadding=3D"0" border=3D"0" style=3D"box-sizing: inherit; padding: 0.0px 2=
+0.0px 20.0px 20.0px;"><tbody style=3D"box-sizing: inherit;"><tr style=3D"bo=
+x-sizing: inherit;"><td align=3D"left" valign=3D"top" style=3D"box-sizing: =
+inherit; padding-top: 10.0px;" width=3D"40"><img id=3D"1641311990946100003_=
+imgsrc_url_11" width=3D"26" height=3D"22" style=3D"box-sizing: inherit; dis=
+play: block;" alt=3D"quote"></td><td align=3D"center" valign=3D"top" style=
+=3D"box-sizing: inherit;"><p class=3D"x_1775918869vx_legal-text x_177591886=
+9ppsans" style=3D"box-sizing: inherit; font-weight: 400; text-transform: no=
+ne; line-height: 32px; margin: 0px;" dir=3D"ltr"><span class=3D"colour" sty=
+le=3D"color:rgb(44, 46, 47)"><span class=3D"font" style=3D"font-family:PayP=
+al-Sans, sans-serif"><span class=3D"size" style=3D"font-size: 24px; box-siz=
+ing: inherit; font-weight: 400; text-transform: none; line-height: 32px; ma=
+rgin: 0px;"><span style=3D"box-sizing: inherit;">52017 - Bank Statement - w=
+ork till 03 Jan 2021 excluding future development things</span></span></spa=
+n></span><br></p></td><td align=3D"right" valign=3D"top" style=3D"box-sizin=
+g: inherit; padding-top: 10.0px;" width=3D"40"><img id=3D"16413119909461000=
+03_imgsrc_url_12" width=3D"26" height=3D"22" style=3D"box-sizing: inherit; =
+display: block;" alt=3D"quote"></td></tr></tbody></table><table id=3D"x_177=
+5918869transactionDetails" width=3D"100%" cellspacing=3D"0" cellpadding=3D"=
+0" border=3D"0" style=3D"box-sizing: inherit;"><tbody style=3D"box-sizing: =
+inherit;"><tr style=3D"box-sizing: inherit;"><td align=3D"center" class=3D"=
+x_1775918869ppsans" style=3D"box-sizing: inherit; vertical-align: top; padd=
+ing: 0.0px 20.0px;" valign=3D"top"><table width=3D"100%" cellspacing=3D"0" =
+cellpadding=3D"0" border=3D"0" style=3D"box-sizing: inherit; padding: 0.0px=
+ 20.0px 20.0px 20.0px;"><tbody style=3D"box-sizing: inherit;"><tr style=3D"=
+box-sizing: inherit;"><td align=3D"center" valign=3D"top" style=3D"box-sizi=
+ng: inherit;"><p class=3D"x_1775918869vx_legal-text x_1775918869ppsans" sty=
+le=3D"box-sizing: inherit; font-weight: 400; text-transform: none; line-hei=
+ght: 28px; margin: 0px;" dir=3D"ltr"><span class=3D"colour" style=3D"color:=
+rgb(0, 156, 222)"><span class=3D"font" style=3D"font-family:PayPal-Sans, sa=
+ns-serif"><span class=3D"size" style=3D"font-size: 20px; box-sizing: inheri=
+t; font-weight: 400; text-transform: none; line-height: 28px; margin: 0px;"=
+><span style=3D"box-sizing: inherit;">Transaction Details</span></span></sp=
+an></span><br></p></td></tr></tbody></table></td></tr><tr style=3D"box-sizi=
+ng: inherit;"><td align=3D"center" style=3D"box-sizing: inherit; padding: 0=
+.0px 20.0px;"><br></td></tr></tbody></table><table width=3D"100%" cellspaci=
+ng=3D"0" cellpadding=3D"0" border=3D"0" style=3D"box-sizing: inherit;"><tbo=
+dy style=3D"box-sizing: inherit;"><tr style=3D"box-sizing: inherit;"><td st=
+yle=3D"box-sizing: inherit; padding: 0.0px 10.0px 20.0px 10.0px;"><table id=
+=3D"x_1775918869cartDetails" cellspacing=3D"0" cellpadding=3D"0" border=3D"=
+0" width=3D"100%" dir=3D"ltr" style=3D"box-sizing: inherit; font-size: 16.0=
+px;"><tbody style=3D"box-sizing: inherit;"><tr style=3D"box-sizing: inherit=
+;"><td style=3D"box-sizing: inherit; padding: 10.0px 10.0px; text-align: le=
+ft; border-top: 0.0px; width: 50.0%; vertical-align: top;" width=3D"50.0%" =
+align=3D"left" valign=3D"top"><span style=3D"box-sizing: inherit;"><b>Trans=
+action ID</b></span><br style=3D"box-sizing: inherit;"><span style=3D"box-s=
+izing: inherit;">0C410038P5789294W</span></td><td style=3D"box-sizing: inhe=
+rit; padding: 10.0px 10.0px; text-align: right; border-top: 0.0px; width: 5=
+0.0%; vertical-align: top;" width=3D"50.0%" align=3D"right" valign=3D"top">=
+<span style=3D"box-sizing: inherit;"><b>Transaction date</b></span><br styl=
+e=3D"box-sizing: inherit;"><span style=3D"box-sizing: inherit;">January 4, =
+2022</span></td></tr></tbody></table></td></tr></tbody></table><table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"box-siz=
+ing: inherit;"><tbody style=3D"box-sizing: inherit;"><tr style=3D"box-sizin=
+g: inherit;"><td style=3D"box-sizing: inherit; padding: 10.0px 20.0px;"><hr=
+ style=3D"box-sizing: inherit; border-top: 1.0px solid rgb(104,113,115);"><=
+br></td></tr></tbody></table><table width=3D"100%" cellspacing=3D"0" cellpa=
+dding=3D"0" border=3D"0" style=3D"box-sizing: inherit;"><tbody style=3D"box=
+-sizing: inherit;"><tr style=3D"box-sizing: inherit;"><td style=3D"box-sizi=
+ng: inherit; padding: 0.0px 10.0px 20.0px 10.0px;"><table id=3D"x_177591886=
+9cartDetails" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100=
+%" dir=3D"ltr" style=3D"box-sizing: inherit; font-size: 16.0px; padding: 0.=
+0px 10.0px;"><tbody style=3D"box-sizing: inherit;"><tr style=3D"box-sizing:=
+ inherit;"><td style=3D"box-sizing: inherit;"><b>Money sent</b><br></td><td=
+ align=3D"right" style=3D"box-sizing: inherit;"><span class=3D"colour" styl=
+e=3D"color:rgb(44, 46, 47)"><span class=3D"size" style=3D"font-size: 16px; =
+box-sizing: inherit;"><span style=3D"box-sizing: inherit;">$200.00&nbsp;CAD=
+</span></span></span><br></td></tr></tbody></table></td></tr></tbody></tabl=
+e><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" st=
+yle=3D"box-sizing: inherit;"><tbody style=3D"box-sizing: inherit;"><tr styl=
+e=3D"box-sizing: inherit;"><td class=3D"x_1775918869ppsans" style=3D"box-si=
+zing: inherit; padding: 0.0px 20.0px 20.0px 20.0px;"><p class=3D"x_17759188=
+69ppsans" style=3D"box-sizing: inherit; font-weight: 400; text-transform: n=
+one; line-height: 24px; margin: 0px;" dir=3D"ltr"><span class=3D"colour" st=
+yle=3D"color:rgb(44, 46, 47)"><span class=3D"font" style=3D"font-family:Pay=
+Pal-Sans, Calibri, Trebuchet, Arial, sans-serif"><span class=3D"size" style=
+=3D"font-size: 16px; box-sizing: inherit; font-weight: 400; text-transform:=
+ none; line-height: 24px; margin: 0px;"><span style=3D"box-sizing: inherit;=
+">Paid with:</span></span></span></span><br></p></td></tr></tbody></table><=
+table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=
+=3D"box-sizing: inherit;"><tbody style=3D"box-sizing: inherit;"><tr style=
+=3D"box-sizing: inherit;"><td style=3D"box-sizing: inherit; padding: 0.0px =
+10.0px 20.0px 10.0px;"><table id=3D"x_1775918869cartDetails" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0" width=3D"100%" dir=3D"ltr" style=3D"box-=
+sizing: inherit; font-size: 16.0px; padding: 0.0px 10.0px;"><tbody style=3D=
+"box-sizing: inherit;"><tr style=3D"box-sizing: inherit;"><td style=3D"box-=
+sizing: inherit;">VISA x-8945<br></td><td align=3D"right" style=3D"box-sizi=
+ng: inherit;">$200.00&nbsp;CAD<br></td></tr></tbody></table></td></tr></tbo=
+dy></table><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" style=3D"box-sizing: inherit;"><tbody style=3D"box-sizing: inherit;"=
+><tr style=3D"box-sizing: inherit;"><td style=3D"box-sizing: inherit; paddi=
+ng: 10.0px 20.0px;"><hr style=3D"box-sizing: inherit; border-top: 1.0px sol=
+id rgb(104,113,115);"><br></td></tr></tbody></table><table width=3D"100%" c=
+ellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"box-sizing: inheri=
+t;"><tbody style=3D"box-sizing: inherit;"><tr style=3D"box-sizing: inherit;=
+"><td style=3D"box-sizing: inherit; padding: 0.0px 10.0px 20.0px 10.0px;"><=
+table id=3D"x_1775918869cartDetails" cellspacing=3D"0" cellpadding=3D"0" bo=
+rder=3D"0" width=3D"100%" dir=3D"ltr" style=3D"box-sizing: inherit; font-si=
+ze: 16.0px; padding: 0.0px 10.0px;"><tbody style=3D"box-sizing: inherit;"><=
+tr style=3D"box-sizing: inherit;"><td style=3D"box-sizing: inherit;"><b>You=
+ paid</b><br></td><td align=3D"right" style=3D"box-sizing: inherit;">$200.0=
+0&nbsp;CAD<br></td></tr></tbody></table></td></tr></tbody></table><table wi=
+dth=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"box-=
+sizing: inherit;"><tbody style=3D"box-sizing: inherit;"><tr style=3D"box-si=
+zing: inherit;"><td style=3D"box-sizing: inherit; padding: 10.0px 20.0px;">=
+<hr style=3D"box-sizing: inherit; border-top: 1.0px dotted rgb(104,113,115)=
+;"><br></td></tr></tbody></table><table width=3D"100%" cellspacing=3D"0" ce=
+llpadding=3D"0" border=3D"0" style=3D"box-sizing: inherit; padding: 0.0px 2=
+0.0px 10.0px 20.0px;"><tbody style=3D"box-sizing: inherit;"><tr style=3D"bo=
+x-sizing: inherit;"><td valign=3D"top" style=3D"box-sizing: inherit;"><p cl=
+ass=3D"x_1775918869vx_legal-text x_1775918869ppsans" style=3D"box-sizing: i=
+nherit; font-weight: 400; text-transform: none; line-height: 28px; margin: =
+0px;" dir=3D"ltr"><span class=3D"colour" style=3D"color:rgb(0, 156, 222)"><=
+span class=3D"font" style=3D"font-family:PayPal-Sans, sans-serif"><span cla=
+ss=3D"size" style=3D"font-size: 20px; box-sizing: inherit; font-weight: 400=
+; text-transform: none; line-height: 28px; margin: 0px;"><span style=3D"box=
+-sizing: inherit;">Shipping Address</span></span></span></span><br></p></td=
+></tr></tbody></table><table width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"box-sizing: inherit;"><tbody style=3D"box-sizi=
+ng: inherit;"><tr style=3D"box-sizing: inherit;"><td class=3D"x_1775918869p=
+psans" style=3D"box-sizing: inherit; padding: 0.0px 20.0px 20.0px 20.0px;">=
+<p class=3D"x_1775918869ppsans" style=3D"box-sizing: inherit; font-weight: =
+400; text-transform: none; line-height: 24px; margin: 0px;" dir=3D"ltr"><sp=
+an class=3D"colour" style=3D"color:rgb(44, 46, 47)"><span class=3D"font" st=
+yle=3D"font-family:PayPal-Sans, Calibri, Trebuchet, Arial, sans-serif"><spa=
+n class=3D"size" style=3D"font-size: 16px; box-sizing: inherit; font-weight=
+: 400; text-transform: none; line-height: 24px; margin: 0px;"><span style=
+=3D"box-sizing: inherit;">327 Evans Avenue<br style=3D"box-sizing: inherit;=
+">Toronto ON M8Z1K2<br style=3D"box-sizing: inherit;">Canada</span></span><=
+/span></span></p></td></tr></tbody></table><table width=3D"100%" cellpaddin=
+g=3D"0" cellspacing=3D"0" border=3D"0" style=3D"box-sizing: inherit;"><tbod=
+y style=3D"box-sizing: inherit;"><tr style=3D"box-sizing: inherit;"><td sty=
+le=3D"box-sizing: inherit; padding: 10.0px 20.0px;"><hr style=3D"box-sizing=
+: inherit; border-top: 1.0px solid rgb(104,113,115);"><br></td></tr></tbody=
+></table><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" style=3D"box-sizing: inherit;"><tbody style=3D"box-sizing: inherit;"=
+><tr style=3D"box-sizing: inherit;"><td style=3D"box-sizing: inherit; paddi=
+ng: 10.0px 20.0px;"><hr style=3D"box-sizing: inherit; border-top: 1.0px sol=
+id rgb(104,113,115);"><br></td></tr></tbody></table><table width=3D"100%" c=
+ellspacing=3D"0" cellpadding=3D"0" style=3D"box-sizing: inherit; padding: 0=
+.0px 20.0px 20.0px 20.0px;" border=3D"0" dir=3D"ltr"><tbody style=3D"box-si=
+zing: inherit;"><tr style=3D"box-sizing: inherit;"><td align=3D"center" cla=
+ss=3D"x_1775918869ppsans" colspan=3D"2" style=3D"box-sizing: inherit; paddi=
+ng: 0.0px;"><table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" borde=
+r=3D"0" style=3D"box-sizing: inherit; padding: 0.0px 20.0px 20.0px 20.0px;"=
+><tbody style=3D"box-sizing: inherit;"><tr style=3D"box-sizing: inherit;"><=
+td align=3D"center" valign=3D"top" style=3D"box-sizing: inherit;"><p class=
+=3D"x_1775918869vx_legal-text x_1775918869ppsans" style=3D"box-sizing: inhe=
+rit; font-weight: 400; text-transform: none; line-height: 28px; margin: 0px=
+;" dir=3D"ltr"><span class=3D"colour" style=3D"color:rgb(0, 156, 222)"><spa=
+n class=3D"font" style=3D"font-family:PayPal-Sans, sans-serif"><span class=
+=3D"size" style=3D"font-size: 20px; box-sizing: inherit; font-weight: 400; =
+text-transform: none; line-height: 28px; margin: 0px;"><span style=3D"box-s=
+izing: inherit;">PayPal Buyer Protection</span></span></span></span><br></p=
+></td></tr></tbody></table></td></tr><tr style=3D"box-sizing: inherit;"><td=
+ class=3D"x_1775918869ppsans" valign=3D"top" style=3D"box-sizing: inherit;"=
+><table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" dir=
+=3D"ltr" style=3D"box-sizing: inherit;"><tbody style=3D"box-sizing: inherit=
+;"><tr style=3D"box-sizing: inherit;"><td align=3D"center" class=3D"x_17759=
+18869ppsans" style=3D"box-sizing: inherit; padding: 5.0px 0.0px 0.0px 0.0px=
+;"><img id=3D"1641311990946100003_imgsrc_url_13" style=3D"box-sizing: inher=
+it; display: block;" border=3D"0" alt=3D"security" width=3D"90"></td></tr><=
+/tbody></table></td><td class=3D"x_1775918869ppsans" width=3D"75%" style=3D=
+"box-sizing: inherit; padding: 0.0px;"><table width=3D"100%" cellpadding=3D=
+"0" cellspacing=3D"0" border=3D"0" style=3D"box-sizing: inherit;"><tbody st=
+yle=3D"box-sizing: inherit;"><tr style=3D"box-sizing: inherit;"><td class=
+=3D"x_1775918869ppsans" style=3D"box-sizing: inherit; padding: 0.0px 20.0px=
+ 20.0px 20.0px;"><p class=3D"x_1775918869ppsans" style=3D"box-sizing: inher=
+it; font-weight: 400; text-transform: none; line-height: 24px; margin: 0px;=
+" dir=3D"ltr"><span class=3D"colour" style=3D"color:rgb(44, 46, 47)"><span =
+class=3D"font" style=3D"font-family:PayPal-Sans, Calibri, Trebuchet, Arial,=
+ sans-serif"><span class=3D"size" style=3D"font-size: 16px; box-sizing: inh=
+erit; font-weight: 400; text-transform: none; line-height: 24px; margin: 0p=
+x;"><span style=3D"box-sizing: inherit;">Your eligible purchases are covere=
+d by our free Buyer Protection. <a href=3D"https://www.paypal.com/ca/webapp=
+s/mpp/paypal-safety-and-security?v=3D1&amp;utm_source=3Dunp&amp;utm_medium=
+=3Demail&amp;utm_campaign=3DRT000417&amp;utm_unptid=3D53e22874-6d77-11ec-92=
+9a-ac1f6bdab413&amp;ppid=3DRT000417&amp;cnac=3DCA&amp;rsta=3Den_US%28en-CA%=
+29&amp;cust=3DA45R8ZUA43WQL&amp;unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab4=
+13&amp;calc=3Da857226092656&amp;unp_tpcid=3Dsendmoney-push-sender&amp;page=
+=3Dmain%3Aemail%3ART000417&amp;pgrp=3Dmain%3Aemail&amp;e=3Dcl&amp;mchn=3Dem=
+&amp;s=3Dci&amp;mail=3Dsys&amp;appVersion=3D1.69.0&amp;xt=3D104038" target=
+=3D"_blank" style=3D"box-sizing: inherit; font-weight: 500; font-family: Pa=
+yPal-Sans, Calibri, Trebuchet, Arial, sans-serif; color: rgb(0,112,186); te=
+xt-decoration: none;">Check eligibility</a>.</span></span></span></span><br=
+></p></td></tr></tbody></table></td></tr><tr style=3D"box-sizing: inherit;"=
+><td colspan=3D"2" style=3D"box-sizing: inherit;"><table width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"box-sizing: inherit;=
+"><tbody style=3D"box-sizing: inherit;"><tr style=3D"box-sizing: inherit;">=
+<td style=3D"box-sizing: inherit; padding: 0.0px;"><hr style=3D"box-sizing:=
+ inherit; border-top: 1.0px dotted rgb(104,113,115);"><br></td></tr></tbody=
+></table></td></tr></tbody></table><table width=3D"100%" cellpadding=3D"0" =
+cellspacing=3D"0" border=3D"0" style=3D"box-sizing: inherit;"><tbody style=
+=3D"box-sizing: inherit;"><tr style=3D"box-sizing: inherit;"><td style=3D"b=
+ox-sizing: inherit; padding: 10.0px 20.0px;"><hr style=3D"box-sizing: inher=
+it; border-top: 1.0px solid rgb(104,113,115);"><br></td></tr></tbody></tabl=
+e></td><td valign=3D"top" align=3D"left" class=3D"x_1775918869mobMargin" st=
+yle=3D"box-sizing: inherit; min-width: 10.0px;"><table width=3D"100%" cells=
+pacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"box-sizing: inherit;">=
+<tbody style=3D"box-sizing: inherit;"><tr style=3D"box-sizing: inherit;"><t=
+d valign=3D"top" align=3D"center" bgcolor=3D"#004f9b" style=3D"box-sizing: =
+inherit;"><img width=3D"100%" border=3D"0" height=3D"96" class=3D"x_1775918=
+869imgWidth" style=3D"box-sizing: inherit; display: block;" id=3D"164131199=
+0946100003_imgsrc_url_14"></td></tr><tr style=3D"box-sizing: inherit;"><td =
+valign=3D"top" align=3D"left" style=3D"box-sizing: inherit;"><img width=3D"=
+1" height=3D"100" style=3D"box-sizing: inherit; display: block;" id=3D"1641=
+311990946100003_imgsrc_url_15"></td></tr></tbody></table></td></tr><tr styl=
+e=3D"box-sizing: inherit;"><td class=3D"x_1775918869mobMargin" style=3D"box=
+-sizing: inherit;"><br></td><td align=3D"center" width=3D"600" style=3D"box=
+-sizing: inherit;"><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0=
+" border=3D"0" dir=3D"ltr" style=3D"box-sizing: inherit;"><tbody style=3D"b=
+ox-sizing: inherit;"><tr style=3D"box-sizing: inherit;"><td style=3D"box-si=
+zing: inherit;"><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0" style=3D"box-sizing: inherit;"><tbody style=3D"box-sizing: inhe=
+rit;"><tr style=3D"box-sizing: inherit;"><td width=3D"12" align=3D"center" =
+valign=3D"top" style=3D"box-sizing: inherit;"><img id=3D"164131199094610000=
+3_imgsrc_url_16" width=3D"12" height=3D"141" style=3D"box-sizing: inherit; =
+display: block;" border=3D"0" alt=3D""></td><td align=3D"center" valign=3D"=
+top" style=3D"box-sizing: inherit;"><img id=3D"1641311990946100003_imgsrc_u=
+rl_17" width=3D"100%" height=3D"141" style=3D"box-sizing: inherit; display:=
+ block;" border=3D"0" alt=3D""></td><td width=3D"120" align=3D"center" vali=
+gn=3D"top" style=3D"box-sizing: inherit;"><img id=3D"1641311990946100003_im=
+gsrc_url_18" width=3D"120" height=3D"141" style=3D"box-sizing: inherit; dis=
+play: block;" border=3D"0" alt=3D"PayPal"></td><td align=3D"center" valign=
+=3D"top" style=3D"box-sizing: inherit;"><img id=3D"1641311990946100003_imgs=
+rc_url_19" width=3D"100%" height=3D"141" style=3D"box-sizing: inherit; disp=
+lay: block;" border=3D"0" alt=3D""></td><td width=3D"12" align=3D"center" v=
+align=3D"top" style=3D"box-sizing: inherit;"><img id=3D"1641311990946100003=
+_imgsrc_url_20" width=3D"12" height=3D"141" style=3D"box-sizing: inherit; d=
+isplay: block;" border=3D"0" alt=3D""></td></tr></tbody></table></td></tr><=
+/tbody></table><table id=3D"x_1775918869body_footer_links" width=3D"100%" c=
+ellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"box-sizing: inheri=
+t;"><tbody style=3D"box-sizing: inherit;"><tr style=3D"box-sizing: inherit;=
+"><td align=3D"center" style=3D"box-sizing: inherit; font-size: 15.0px; lin=
+e-height: 22.0px; color: rgb(68,68,68); padding: 20.0px;" class=3D"x_177591=
+8869ppsans"><a href=3D"https://www.paypal.com/ca/smarthelp/home?v=3D1&amp;u=
+tm_source=3Dunp&amp;utm_medium=3Demail&amp;utm_campaign=3DRT000417&amp;utm_=
+unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&amp;ppid=3DRT000417&amp;cnac=
+=3DCA&amp;rsta=3Den_US%28en-CA%29&amp;cust=3DA45R8ZUA43WQL&amp;unptid=3D53e=
+22874-6d77-11ec-929a-ac1f6bdab413&amp;calc=3Da857226092656&amp;unp_tpcid=3D=
+sendmoney-push-sender&amp;page=3Dmain%3Aemail%3ART000417&amp;pgrp=3Dmain%3A=
+email&amp;e=3Dcl&amp;mchn=3Dem&amp;s=3Dci&amp;mail=3Dsys&amp;appVersion=3D1=
+.69.0&amp;xt=3D104038" target=3D"_blank" class=3D"x_1775918869ppsans" style=
+=3D"box-sizing: inherit; font-weight: 500; font-family: PayPal-Sans, Calibr=
+i, Trebuchet, Arial, sans-serif; color: rgb(0,112,186); text-decoration: no=
+ne;">Help &amp; Contact</a><span style=3D"box-sizing: inherit;"> | </span><=
+a href=3D"https://www.paypal.com/ca/webapps/mpp/paypal-safety-and-security?=
+v=3D1&amp;utm_source=3Dunp&amp;utm_medium=3Demail&amp;utm_campaign=3DRT0004=
+17&amp;utm_unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&amp;ppid=3DRT00041=
+7&amp;cnac=3DCA&amp;rsta=3Den_US%28en-CA%29&amp;cust=3DA45R8ZUA43WQL&amp;un=
+ptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&amp;calc=3Da857226092656&amp;un=
+p_tpcid=3Dsendmoney-push-sender&amp;page=3Dmain%3Aemail%3ART000417&amp;pgrp=
+=3Dmain%3Aemail&amp;e=3Dcl&amp;mchn=3Dem&amp;s=3Dci&amp;mail=3Dsys&amp;appV=
+ersion=3D1.69.0&amp;xt=3D104038" target=3D"_blank" class=3D"x_1775918869pps=
+ans" style=3D"box-sizing: inherit; font-weight: 500; font-family: PayPal-Sa=
+ns, Calibri, Trebuchet, Arial, sans-serif; color: rgb(0,112,186); text-deco=
+ration: none;">Security</a><span style=3D"box-sizing: inherit;"> | </span><=
+a href=3D"https://www.paypal.com/ca/webapps/mpp/mobile-apps?v=3D1&amp;utm_s=
+ource=3Dunp&amp;utm_medium=3Demail&amp;utm_campaign=3DRT000417&amp;utm_unpt=
+id=3D53e22874-6d77-11ec-929a-ac1f6bdab413&amp;ppid=3DRT000417&amp;cnac=3DCA=
+&amp;rsta=3Den_US%28en-CA%29&amp;cust=3DA45R8ZUA43WQL&amp;unptid=3D53e22874=
+-6d77-11ec-929a-ac1f6bdab413&amp;calc=3Da857226092656&amp;unp_tpcid=3Dsendm=
+oney-push-sender&amp;page=3Dmain%3Aemail%3ART000417&amp;pgrp=3Dmain%3Aemail=
+&amp;e=3Dcl&amp;mchn=3Dem&amp;s=3Dci&amp;mail=3Dsys&amp;appVersion=3D1.69.0=
+&amp;xt=3D104038" target=3D"_blank" class=3D"x_1775918869ppsans" style=3D"b=
+ox-sizing: inherit; font-weight: 500; font-family: PayPal-Sans, Calibri, Tr=
+ebuchet, Arial, sans-serif; color: rgb(0,112,186); text-decoration: none;">=
+Apps</a><br></td></tr><tr style=3D"box-sizing: inherit;"><td align=3D"cente=
+r" style=3D"box-sizing: inherit; padding-bottom: 20.0px;"><table align=3D"c=
+enter" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"box-sizing=
+: inherit;"><tbody style=3D"box-sizing: inherit;"><tr style=3D"box-sizing: =
+inherit;"><td align=3D"center" valign=3D"middle" width=3D"50" style=3D"box-=
+sizing: inherit;"><a id=3D"x_1775918869twitter" href=3D"https://twitter.com=
+/PayPal?v=3D1%2C0.1&amp;utm_source=3Dunp&amp;utm_medium=3Demail&amp;utm_cam=
+paign=3DRT000417&amp;utm_unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&amp;=
+ppid=3DRT000417&amp;cnac=3DCA&amp;rsta=3Den_US%28en-CA%29&amp;cust=3DA45R8Z=
+UA43WQL&amp;unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&amp;calc=3Da85722=
+6092656&amp;unp_tpcid=3Dsendmoney-push-sender&amp;page=3Dmain%3Aemail%3ART0=
+00417&amp;pgrp=3Dmain%3Aemail&amp;e=3Dcl&amp;mchn=3Dem&amp;s=3Dci&amp;mail=
+=3Dsys&amp;appVersion=3D1.69.0&amp;xt=3D104038" target=3D"_blank" style=3D"=
+box-sizing: inherit; color: rgb(0, 112, 186); text-decoration: none; font-w=
+eight: 500; font-family: PayPal-Sans, Calibri, Trebuchet, Arial, sans-serif=
+;"><img border=3D"0" id=3D"1641311990946100003_imgsrc_url_21" width=3D"28" =
+height=3D"28" style=3D"box-sizing: inherit; display: block;" alt=3D"Twitter=
+"></a></td><td align=3D"center" valign=3D"middle" width=3D"50" style=3D"box=
+-sizing: inherit;"><a id=3D"x_1775918869instagram" href=3D"https://www.inst=
+agram.com/paypal/?v=3D1%2C0.1&amp;utm_source=3Dunp&amp;utm_medium=3Demail&a=
+mp;utm_campaign=3DRT000417&amp;utm_unptid=3D53e22874-6d77-11ec-929a-ac1f6bd=
+ab413&amp;ppid=3DRT000417&amp;cnac=3DCA&amp;rsta=3Den_US%28en-CA%29&amp;cus=
+t=3DA45R8ZUA43WQL&amp;unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&amp;cal=
+c=3Da857226092656&amp;unp_tpcid=3Dsendmoney-push-sender&amp;page=3Dmain%3Ae=
+mail%3ART000417&amp;pgrp=3Dmain%3Aemail&amp;e=3Dcl&amp;mchn=3Dem&amp;s=3Dci=
+&amp;mail=3Dsys&amp;appVersion=3D1.69.0&amp;xt=3D104038" target=3D"_blank" =
+style=3D"box-sizing: inherit; color: rgb(0, 112, 186); text-decoration: non=
+e; font-weight: 500; font-family: PayPal-Sans, Calibri, Trebuchet, Arial, s=
+ans-serif;"><img border=3D"0" id=3D"1641311990946100003_imgsrc_url_22" widt=
+h=3D"28" height=3D"28" style=3D"box-sizing: inherit; display: block;" alt=
+=3D"Instagram"></a></td><td align=3D"center" valign=3D"middle" width=3D"50"=
+ style=3D"box-sizing: inherit;"><a id=3D"x_1775918869facebook" href=3D"http=
+s://www.facebook.com/PayPalUSA?v=3D1%2C0.1&amp;utm_source=3Dunp&amp;utm_med=
+ium=3Demail&amp;utm_campaign=3DRT000417&amp;utm_unptid=3D53e22874-6d77-11ec=
+-929a-ac1f6bdab413&amp;ppid=3DRT000417&amp;cnac=3DCA&amp;rsta=3Den_US%28en-=
+CA%29&amp;cust=3DA45R8ZUA43WQL&amp;unptid=3D53e22874-6d77-11ec-929a-ac1f6bd=
+ab413&amp;calc=3Da857226092656&amp;unp_tpcid=3Dsendmoney-push-sender&amp;pa=
+ge=3Dmain%3Aemail%3ART000417&amp;pgrp=3Dmain%3Aemail&amp;e=3Dcl&amp;mchn=3D=
+em&amp;s=3Dci&amp;mail=3Dsys&amp;appVersion=3D1.69.0&amp;xt=3D104038" targe=
+t=3D"_blank" style=3D"box-sizing: inherit; color: rgb(0, 112, 186); text-de=
+coration: none; font-weight: 500; font-family: PayPal-Sans, Calibri, Trebuc=
+het, Arial, sans-serif;"><img border=3D"0" id=3D"1641311990946100003_imgsrc=
+_url_23" width=3D"28" height=3D"28" style=3D"box-sizing: inherit; display: =
+block;" alt=3D"Facebook"></a></td><td align=3D"center" valign=3D"middle" wi=
+dth=3D"50" style=3D"box-sizing: inherit;"><a id=3D"x_1775918869linkedin" hr=
+ef=3D"http://www.linkedin.com/company/1482?trk=3Dtyah&amp;v=3D1&amp;utm_sou=
+rce=3Dunp&amp;utm_medium=3Demail&amp;utm_campaign=3DRT000417&amp;utm_unptid=
+=3D53e22874-6d77-11ec-929a-ac1f6bdab413&amp;ppid=3DRT000417&amp;cnac=3DCA&a=
+mp;rsta=3Den_US%28en-CA%29&amp;cust=3DA45R8ZUA43WQL&amp;unptid=3D53e22874-6=
+d77-11ec-929a-ac1f6bdab413&amp;calc=3Da857226092656&amp;unp_tpcid=3Dsendmon=
+ey-push-sender&amp;page=3Dmain%3Aemail%3ART000417&amp;pgrp=3Dmain%3Aemail&a=
+mp;e=3Dcl&amp;mchn=3Dem&amp;s=3Dci&amp;mail=3Dsys&amp;appVersion=3D1.69.0&a=
+mp;xt=3D104038" target=3D"_blank" style=3D"box-sizing: inherit; color: rgb(=
+0, 112, 186); text-decoration: none; font-weight: 500; font-family: PayPal-=
+Sans, Calibri, Trebuchet, Arial, sans-serif;"><img border=3D"0" id=3D"16413=
+11990946100003_imgsrc_url_24" width=3D"28" height=3D"28" style=3D"box-sizin=
+g: inherit; display: block;" alt=3D"LinkedIn"></a></td></tr></tbody></table=
+></td></tr></tbody></table></td><td class=3D"x_1775918869mobMargin" style=
+=3D"box-sizing: inherit;"><br></td></tr></tbody></table><table cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" style=3D"box-sizing: i=
+nherit; padding-bottom: 20.0px;"><tbody style=3D"box-sizing: inherit;"><tr =
+style=3D"box-sizing: inherit;"><td class=3D"x_1775918869hide" style=3D"box-=
+sizing: inherit;">&nbsp;<br></td><td align=3D"center" class=3D"x_1775918869=
+ppsans" width=3D"600" style=3D"box-sizing: inherit;"><table id=3D"x_1775918=
+869hideForTextFooter" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bo=
+rder=3D"0" style=3D"box-sizing: inherit;"><tbody style=3D"box-sizing: inher=
+it;"><tr style=3D"box-sizing: inherit;"><td style=3D"box-sizing: inherit; f=
+ont-size: 13.0px; line-height: 20.0px; color: rgb(104,113,115); padding: 10=
+.0px 30.0px 10.0px 30.0px;"><p class=3D"x_1775918869ppsans" style=3D"box-si=
+zing: inherit; line-height: 1.6; font-weight: 400; text-transform: none; ma=
+rgin: 0px;" dir=3D"ltr"><span class=3D"font" style=3D"font-family:PayPal-Sa=
+ns, Calibri, Trebuchet, Arial, sans-serif"><span class=3D"size" style=3D"fo=
+nt-size: 13px; box-sizing: inherit; line-height: 1.6; font-weight: 400; tex=
+t-transform: none; margin: 0px;"><span style=3D"box-sizing: inherit;">PayPa=
+l is committed to preventing fraudulent emails. Emails from PayPal will alw=
+ays contain your full name. <a href=3D"https://www.paypal.com/us/webapps/mp=
+p/security/suspicious-activity?v=3D1&amp;utm_source=3Dunp&amp;utm_medium=3D=
+email&amp;utm_campaign=3DRT000417&amp;utm_unptid=3D53e22874-6d77-11ec-929a-=
+ac1f6bdab413&amp;ppid=3DRT000417&amp;cnac=3DCA&amp;rsta=3Den_US%28en-CA%29&=
+amp;cust=3DA45R8ZUA43WQL&amp;unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&=
+amp;calc=3Da857226092656&amp;unp_tpcid=3Dsendmoney-push-sender&amp;page=3Dm=
+ain%3Aemail%3ART000417&amp;pgrp=3Dmain%3Aemail&amp;e=3Dcl&amp;mchn=3Dem&amp=
+;s=3Dci&amp;mail=3Dsys&amp;appVersion=3D1.69.0&amp;xt=3D104038" target=3D"_=
+blank" style=3D"box-sizing: inherit; font-weight: 500; font-family: PayPal-=
+Sans, Calibri, Trebuchet, Arial, sans-serif; color: rgb(0,112,186); text-de=
+coration: none;">Learn to identify phishing</a></span></span></span><br></p=
+></td></tr></tbody></table><table id=3D"" width=3D"100%" cellpadding=3D"0" =
+cellspacing=3D"0" border=3D"0" style=3D"box-sizing: inherit;"><tbody style=
+=3D"box-sizing: inherit;"><tr style=3D"box-sizing: inherit;"><td style=3D"b=
+ox-sizing: inherit; font-size: 13.0px; line-height: 20.0px; color: rgb(104,=
+113,115); padding: 10.0px 30.0px 10.0px 30.0px;"><p class=3D"x_1775918869pp=
+sans" style=3D"box-sizing: inherit; line-height: 1.6; font-weight: 400; tex=
+t-transform: none; margin: 0px;" dir=3D"ltr"><span class=3D"font" style=3D"=
+font-family:PayPal-Sans, Calibri, Trebuchet, Arial, sans-serif"><span class=
+=3D"size" style=3D"font-size: 13px; box-sizing: inherit; line-height: 1.6; =
+font-weight: 400; text-transform: none; margin: 0px;"><span style=3D"box-si=
+zing: inherit;">This email was sent to you for the ongoing support and main=
+tenance of your account. To manage your communication preferences, please v=
+isit our <a href=3D"https://www.paypal.com/cgi-bin/customerprofileweb?cmd=
+=3D_profile-notify&amp;v=3D1&amp;utm_source=3Dunp&amp;utm_medium=3Demail&am=
+p;utm_campaign=3DRT000417&amp;utm_unptid=3D53e22874-6d77-11ec-929a-ac1f6bda=
+b413&amp;ppid=3DRT000417&amp;cnac=3DCA&amp;rsta=3Den_US%28en-CA%29&amp;cust=
+=3DA45R8ZUA43WQL&amp;unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&amp;calc=
+=3Da857226092656&amp;unp_tpcid=3Dsendmoney-push-sender&amp;page=3Dmain%3Aem=
+ail%3ART000417&amp;pgrp=3Dmain%3Aemail&amp;e=3Dcl&amp;mchn=3Dem&amp;s=3Dci&=
+amp;mail=3Dsys&amp;appVersion=3D1.69.0&amp;xt=3D104038" target=3D"_blank" s=
+tyle=3D"box-sizing: inherit; font-weight: 500; font-family: PayPal-Sans, Ca=
+libri, Trebuchet, Arial, sans-serif; color: rgb(0,112,186); text-decoration=
+: none;">preference centre</a>.</span></span></span><br></p></td></tr></tbo=
+dy></table><table id=3D"" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0=
+" border=3D"0" style=3D"box-sizing: inherit;"><tbody style=3D"box-sizing: i=
+nherit;"><tr style=3D"box-sizing: inherit;"><td style=3D"box-sizing: inheri=
+t; font-size: 13.0px; line-height: 20.0px; color: rgb(104,113,115); padding=
+: 10.0px 30.0px 10.0px 30.0px;"><p class=3D"x_1775918869ppsans" style=3D"bo=
+x-sizing: inherit; line-height: 1.6; font-weight: 400; text-transform: none=
+; margin: 0px;" dir=3D"ltr"><span class=3D"font" style=3D"font-family:PayPa=
+l-Sans, Calibri, Trebuchet, Arial, sans-serif"><span class=3D"size" style=
+=3D"font-size: 13px; box-sizing: inherit; line-height: 1.6; font-weight: 40=
+0; text-transform: none; margin: 0px;"><span style=3D"box-sizing: inherit;"=
+>Please do not reply to this email. We are unable to respond to inquiries s=
+ent to this address. For immediate answers to your questions, visit our Hel=
+p Centre by clicking <b style=3D"box-sizing: inherit;">Help &amp; Contact</=
+b> located on any PayPal page or email.  PayPal is committed to your privac=
+y, learn more about our <a href=3D"https://www.paypal.com/ca/webapps/mpp/ua=
+/privacy-full?locale.x=3Den_CA&amp;v=3D1&amp;utm_source=3Dunp&amp;utm_mediu=
+m=3Demail&amp;utm_campaign=3DRT000417&amp;utm_unptid=3D53e22874-6d77-11ec-9=
+29a-ac1f6bdab413&amp;ppid=3DRT000417&amp;cnac=3DCA&amp;rsta=3Den_US%28en-CA=
+%29&amp;cust=3DA45R8ZUA43WQL&amp;unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab=
+413&amp;calc=3Da857226092656&amp;unp_tpcid=3Dsendmoney-push-sender&amp;page=
+=3Dmain%3Aemail%3ART000417&amp;pgrp=3Dmain%3Aemail&amp;e=3Dcl&amp;mchn=3Dem=
+&amp;s=3Dci&amp;mail=3Dsys&amp;appVersion=3D1.69.0&amp;xt=3D104038" style=
+=3D"box-sizing: inherit; font-weight: 500; font-family: PayPal-Sans, Calibr=
+i, Trebuchet, Arial, sans-serif; color: rgb(0,112,186); text-decoration: no=
+ne;" target=3D"_blank">privacy statement</a>.</span></span></span><br></p><=
+/td></tr></tbody></table><table id=3D"" width=3D"100%" cellpadding=3D"0" ce=
+llspacing=3D"0" border=3D"0" style=3D"box-sizing: inherit;"><tbody style=3D=
+"box-sizing: inherit;"><tr style=3D"box-sizing: inherit;"><td style=3D"box-=
+sizing: inherit; font-size: 13.0px; line-height: 20.0px; color: rgb(104,113=
+,115); padding: 10.0px 30.0px 10.0px 30.0px;"><p class=3D"x_1775918869ppsan=
+s" style=3D"box-sizing: inherit; line-height: 1.6; font-weight: 400; text-t=
+ransform: none; margin: 0px;" dir=3D"ltr"><span class=3D"font" style=3D"fon=
+t-family:PayPal-Sans, Calibri, Trebuchet, Arial, sans-serif"><span class=3D=
+"size" style=3D"font-size: 13px; box-sizing: inherit; line-height: 1.6; fon=
+t-weight: 400; text-transform: none; margin: 0px;"><span style=3D"box-sizin=
+g: inherit;">Not sure why you received this email? <a href=3D"https://www.p=
+aypal.com/ca/smarthelp/article/why-am-i-receiving-emails-from-paypal-when-i=
+-dont-have-an-account-faq4172?v=3D1&amp;utm_source=3Dunp&amp;utm_medium=3De=
+mail&amp;utm_campaign=3DRT000417&amp;utm_unptid=3D53e22874-6d77-11ec-929a-a=
+c1f6bdab413&amp;ppid=3DRT000417&amp;cnac=3DCA&amp;rsta=3Den_US%28en-CA%29&a=
+mp;cust=3DA45R8ZUA43WQL&amp;unptid=3D53e22874-6d77-11ec-929a-ac1f6bdab413&a=
+mp;calc=3Da857226092656&amp;unp_tpcid=3Dsendmoney-push-sender&amp;page=3Dma=
+in%3Aemail%3ART000417&amp;pgrp=3Dmain%3Aemail&amp;e=3Dcl&amp;mchn=3Dem&amp;=
+s=3Dci&amp;mail=3Dsys&amp;appVersion=3D1.69.0&amp;xt=3D104038" target=3D"_b=
+lank" style=3D"box-sizing: inherit; font-weight: 500; font-family: PayPal-S=
+ans, Calibri, Trebuchet, Arial, sans-serif; color: rgb(0,112,186); text-dec=
+oration: none;">Learn more</a></span></span></span><br></p></td></tr></tbod=
+y></table><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" style=3D"box-sizing: inherit;"><tbody style=3D"box-sizing: inherit;"=
+><tr style=3D"box-sizing: inherit;"><td style=3D"box-sizing: inherit; font-=
+size: 13.0px; line-height: 20.0px; color: rgb(104,113,115); padding: 10.0px=
+ 30.0px 10.0px 30.0px;"><p class=3D"x_1775918869ppsans" style=3D"box-sizing=
+: inherit; line-height: 1.6; font-weight: 400; text-transform: none; margin=
+: 0px;" dir=3D"ltr"><span class=3D"font" style=3D"font-family:PayPal-Sans, =
+Calibri, Trebuchet, Arial, sans-serif"><span class=3D"size" style=3D"font-s=
+ize: 13px; box-sizing: inherit; line-height: 1.6; font-weight: 400; text-tr=
+ansform: none; margin: 0px;"></span></span><br></p><div style=3D"box-sizing=
+: inherit; font-size: 13.0px;" dir=3D"ltr"><span style=3D"box-sizing: inher=
+it;">Copyright =C2=A9 2022 PayPal Canada Co., 661 University Ave., Toronto,=
+ ON M5G 1M1. All rights reserved.</span><br></div><p style=3D"box-sizing: i=
+nherit; line-height: 1.6; font-weight: 400; text-transform: none;" dir=3D"l=
+tr"><span class=3D"font" style=3D"font-family:PayPal-Sans, Calibri, Trebuch=
+et, Arial, sans-serif"><span class=3D"size" style=3D"font-size: 13px; box-s=
+izing: inherit; line-height: 1.6; font-weight: 400; text-transform: none;">=
+PayPal RT000417:en_US(en-CA):1.1.0:a857226092656</span></span><br></p><img =
+alt=3D"" height=3D"1" width=3D"1" border=3D"0" id=3D"1641311990946100003_im=
+gsrc_url_25" style=3D"box-sizing: inherit;"><p style=3D"box-sizing: inherit=
+; line-height: 1.6; font-weight: 400; text-transform: none;"><span class=3D=
+"font" style=3D"font-family:PayPal-Sans, Calibri, Trebuchet, Arial, sans-se=
+rif"><span class=3D"size" style=3D"font-size: 0.9375rem; box-sizing: inheri=
+t; line-height: 1.6; font-weight: 400; text-transform: none;"></span></span=
+><br></p></td></tr></tbody></table></td><td class=3D"x_1775918869hide" styl=
+e=3D"box-sizing: inherit;">&nbsp;<br></td></tr></tbody></table></td><td bgc=
+olor=3D"#ffffff" class=3D"x_1775918869mobMargin" style=3D"box-sizing: inher=
+it; font-size: 0.0px;"><br></td></tr></tbody></table></div></blockquote></d=
+iv><div><br></div><div class=3D"zmail_signature_below"><div id=3D"" data-zb=
+luepencil-ignore=3D"true" data-sigid=3D"6189300000000739006"><div>Regards,<=
+br></div><div><br></div><div>John E. Estrada<br></div><div><br></div><div>-=
+--------------------------------------<br></div><div><br></div><p style=3D"=
+font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; t=
+ext-indent: 0px; text-transform: none; white-space: normal; widows: 2; word=
+-spacing: 0px"><span class=3D"highlight" style=3D"background-color:rgb(255,=
+ 255, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=
+=3D"font" style=3D"font-family:Verdana, Arial, Helvetica, sans-serif"><span=
+ class=3D"size" style=3D"font-size:13.3333px"><span class=3D"highlight" sty=
+le=3D"background-color:rgb(255, 255, 255)"><b><span class=3D"colour" style=
+=3D"color:rgb(0, 102, 0)"><span class=3D"font" style=3D"font-family:Calibri=
+, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"fon=
+t-size:14.66px">START SHREDDING INC. (shredEX)</span></span></span></b><spa=
+n class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" sty=
+le=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span cl=
+ass=3D"size" style=3D"font-size:14.66px"><br>208 Evans Ave, Toronto, ON M8Z=
+ 1J7<br></span></span></span><b><span class=3D"colour" style=3D"color:rgb(5=
+1, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Ari=
+al, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px=
+">E:<span>&nbsp;<a href=3D"mailto:john@shredex.ca" target=3D"_blank" style=
+=3D"color: rgb(0, 0, 238)">john@shredex.ca</a>&nbsp;</span>W: <a target=3D"=
+_blank" href=3D"http://www.startshredding.com" style=3D"color: rgb(0, 0, 23=
+8)">www.startshredding.com</a><br></span></span></span></b><span class=3D"c=
+olour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-f=
+amily:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size"=
+ style=3D"font-size:14.66px">DIRECT:&nbsp;</span></span></span><a style=3D"=
+color: rgb(17, 85, 204); cursor: default" target=3D"_blank"><span class=3D"=
+colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-=
+family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size=
+" style=3D"font-size:14.66px">416.255.1500</span></span></span></a><span cl=
+ass=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=
+=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span clas=
+s=3D"size" style=3D"font-size:14.66px"><br>TOLL FREE:&nbsp;</span></span></=
+span><a style=3D"color: rgb(17, 85, 204); cursor: default" target=3D"_blank=
+"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"fon=
+t" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><s=
+pan class=3D"size" style=3D"font-size:14.66px">1.866.868.9585</span></span>=
+</span></a></span></span></span></span></span></p><p style=3D"font-style: n=
+ormal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0=
+px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px=
+"><span class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><=
+span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" sty=
+le=3D"font-family:Verdana, Arial, Helvetica, sans-serif"><span class=3D"siz=
+e" style=3D"font-size:13.3333px"><span class=3D"highlight" style=3D"backgro=
+und-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(34,=
+ 34, 34)"><span class=3D"font" style=3D"font-family:arial, sans-serif"><spa=
+n class=3D"size" style=3D"font-size:small"><span class=3D"colour" style=3D"=
+color:gray"><span class=3D"font" style=3D"font-family:Arial, sans-serif"><s=
+pan class=3D"size" style=3D"font-size:7.5pt">This message and any attachmen=
+ts are the property of the&nbsp;SHREDEX INC.&nbsp;or its affiliates. It may=
+ be legally privileged and/or confidential and is intended only for the use=
+ of the addressee(s). No addressee should store, forward, print, copy, or o=
+therwise reproduce this message in any manner that would allow it to be vie=
+wed by any individual not originally listed as a recipient. If the reader o=
+f this message is not the intended recipient, you are hereby notified that =
+any unauthorized storage, disclosure, dissemination, distribution, copying =
+or the taking of any action in reliance on the information herein is strict=
+ly prohibited. If you have received this communication in error, please imm=
+ediately notify the sender and delete this message.</span></span></span></s=
+pan></span></span></span></span></span></span></span><br></p><div id=3D""><=
+div><br></div></div><div><br></div></div></div><div><br></div></div><br></b=
+ody></html>
+------=_Part_661067_1564593853.1717126118873--
+

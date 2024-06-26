@@ -1,0 +1,562 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp194626rbd;
+        Thu, 30 May 2024 20:42:43 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFZ0g2ClPXBrF0tOm1rQrIomPQpfG9XtfG5YzyRurhZfCxLszcafeqpSiVpubZhKJ3Ooz/E
+X-Received: by 2002:a05:6a00:4b01:b0:6f8:e998:3c5c with SMTP id d2e1a72fcca58-702478dedf0mr873054b3a.34.1717126963311;
+        Thu, 30 May 2024 20:42:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717126963; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=aW9iOQptJPrMYiBEVpLwR8Jppfd4oXKJwNIIy86p96dbwrMvjbDo2Bvi4TU6XHFgXl
+         cG/UqjD+X57GXRBqIMyk8jlhJNCfCr/NybAIYyTJdWksRsc3ahzZt/cHLoBV1M9be8B1
+         AAtk7QHk3ugvyxdXD0wYki+YPs79JfEy5VVq7tQ9rIs/OXafO7OXu1kLbRsxoYGDKv09
+         TbB+O2AQulSl5ypqkuCkzE+Yrf1Asj1G5SYfoheoeh4yQjjyxoSic3FI7wgmQaCKrTw0
+         AKcAoCs1DnZuSHlWghMh/A5UL0uBG0bWZDklHhM6YqgdVh8JyyNz1gIvqxxmzedJHAde
+         aX4g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=QmSJdtx/wiGtMUWsreDfiPc3A8LcnXr2D7Ys0BN7/P4=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=KBZjX7CqOgHsdjB63wHUDasoCxsS4bQfcjpNoEY00KYHAdZn/UwfTyfUQewf01X+v8
+         T0V1IPcaqXknPwk6duaG4RYLGW/VztNNIPVYlQs4klcvkHnXID5ed+O0X2aR2UZU4YF2
+         FyZwotKurd0TQOQ6Zq3ybHSWjgNQjaAV/tMINcKHH/mnUn6NSQ32Xohxz/ACocUjU9Jc
+         VsP12Uo47k8nqO3VRnXiKUpOWoADfi6RR4AolY+3ThzJZxG2QIeWA9rsNeWjEh3Y/Nei
+         CPa74ws3ZEUR9b2vjyGwqURIpiuIUZd45X8rOxARSvcU22k/k4XNnvJir03t4gChTtic
+         caKQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=DLECn9xo;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o18.zoho.com (sender3-op-o18.zoho.com. [136.143.184.18])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-70242d61663si738982b3a.378.2024.05.30.20.42.43
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:42:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) client-ip=136.143.184.18;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=DLECn9xo;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717126055; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=brOQ1jdOEIa2CQlmRqkq7UjDVY7eijM5UKSvwglyEJLA8TqQk/xf8FZI+hp/A5kWO1ch1F4n88di7qjDAQ3x2r8DypcwQ8gstxsYS0i1sjfO+XulIJpjlcff66bVCumyeycGy99QyAelQDFwH2EzhPzcx5LGSShGJLbUYzFR2Os=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717126055; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=QmSJdtx/wiGtMUWsreDfiPc3A8LcnXr2D7Ys0BN7/P4=; 
+	b=U0+rfJwT/cUkwelOHNK7FfHd3l0ewUFV0pgq8LFQyJnUxrf0nRTxbmG0DsNKzKIlhahs8Ws1hyPKJpoCdfjovrIqu14L4sZKZS7RKnfYFhAZSRxpXvLvR4uUdMFNhwbTWwfG0mOwJ1jFemzN62/cd161wESfRrm2Em1DDbqeIHI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717126055;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=QmSJdtx/wiGtMUWsreDfiPc3A8LcnXr2D7Ys0BN7/P4=;
+	b=DLECn9xoJSBpXeSV0TYKHUUP0mXI45WugPReQypr77RV8LE3pkO0CYQt5WChEaAz
+	++x5tO7BzS+041ToC8wJ5/Bt14ky3SDXMW7eWKDG0mQvD+RJ+lfS384xs9u5jR6rjAR
+	SxW2oEIHtkLvKdIIkaP2IfchS7i8H/znruAiT2a0=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717126055090934.3931082706373; Thu, 30 May 2024 20:27:35 -0700 (PDT)
+Date: Thu, 30 May 2024 23:27:35 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fccb04485.edd8b149203662.4312562628167711734@shredex.ca>
+In-Reply-To: <DM6PR06MB6523EF79EF7E7631D3C3E89AAF3F9@DM6PR06MB6523.namprd06.prod.outlook.com>
+References: <d6d24f04-65e4-492e-8d07-c8b961b76fe9@atl1s07mta2381.xt.local> <DM6PR06MB6523EF79EF7E7631D3C3E89AAF3F9@DM6PR06MB6523.namprd06.prod.outlook.com>
+Subject: Fwd: Your Showcase e-Receipt (Valuable savings inside!)
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_660609_2057655912.1717126055046"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_660609_2057655912.1717126055046
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Karen Wierzbicki <karenmarystar@hotmail.com>
+To: "john@backpocket.ca"<john@backpocket.ca>
+Date: Sat, 26 Feb 2022 08:38:43 -0500
+Subject: Fwd: Your Showcase e-Receipt (Valuable savings inside!)
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+
+
+
+
+
+
+
+Sent from my iPhone
+
+
+
+
+From: Showcase <mailto:Newsletter@shopatshowcase-mail.com>
+ Sent: Friday, February 25, 2022 9:39:06 PM
+ To: mailto:karenmarystar@hotmail.com <mailto:karenmarystar@hotmail.com>
+ Subject: Your Showcase e-Receipt (Valuable savings inside!) =C2=A0
+
+
+
+
+
+
+https://nam12.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fca.shopa=
+tshowcase.com%2Fpages%2Fwin-your-purchase&data=3D04%7C01%7C%7C10f192fc89ec4=
+b5145d808d9f8d12b1e%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C6378143995=
+24129387%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTi=
+I6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=3DYc0QoFIKCTAEtAg0BqbvfbwR6TpK26z46tb=
+2VcCeqJ8%3D&reserved=3D0
+
+
+=C2=A0
+
+
+https://nam12.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fca.shopa=
+tshowcase.com%2F&data=3D04%7C01%7C%7C10f192fc89ec4b5145d808d9f8d12b1e%7C84d=
+f9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C637814399524129387%7CUnknown%7CTWFp=
+bGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%=
+7C3000&sdata=3Dq4Znb%2FcNv9%2BBxmB1uqbi3c8LXcjAqWw54R%2F4IGHI2Bc%3D&reserve=
+d=3D0
+
+
+=C2=A0
+
+
+https://nam12.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fca.shopa=
+tshowcase.com%2Fcollections%2Fprice-drops&data=3D04%7C01%7C%7C10f192fc89ec4=
+b5145d808d9f8d12b1e%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C6378143995=
+24129387%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTi=
+I6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=3DqQDpbHaNZ%2B8GGodpeqtqP6yLceBT3lHbI=
+%2BhdNUpHO9s%3D&reserved=3D0
+
+https://nam12.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fca.shopa=
+tshowcase.com%2Fcollections%2Fwhats-new&data=3D04%7C01%7C%7C10f192fc89ec4b5=
+145d808d9f8d12b1e%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C637814399524=
+129387%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6=
+Ik1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=3DT8GtS%2BLu7lWE%2FpNmgZ2NSgHVoggTfudKy=
+HD9ZgfF4iI%3D&reserved=3D0
+
+https://nam12.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fca.shopa=
+tshowcase.com%2Fpages%2Fflyer&data=3D04%7C01%7C%7C10f192fc89ec4b5145d808d9f=
+8d12b1e%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C637814399524129387%7CU=
+nknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLC=
+JXVCI6Mn0%3D%7C3000&sdata=3DEL7TIA9UQc1lKxGZYFGOcc46UiBodvcvbsgMj%2FSGzLE%3=
+D&reserved=3D0
+
+
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+https://nam12.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fca.shop=
+atshowcase.com%2Fpages%2Ffitness-flyer&data=3D04%7C01%7C%7C10f192fc89ec4b51=
+45d808d9f8d12b1e%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C6378143995241=
+29387%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6I=
+k1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=3D4Muo%2FmSaguvljz43k6IPDb8esHEOIbysNbBd=
+sXxievI%3D&reserved=3D0
+=20
+ Georgian Mall
+ 509 Bayfield Street Barrie ON (705) 797-0087=20
+ Trans ID: T06300193670
+ Trans #: c55961c8-64e7-47e1-aa99-c58b353b3432
+ Trans Date: Feb 24, 2022=C2=A011:08
+ Customer: c06337307
+ Sales Person: 14746
+ =20
+ Sold:=20
+=20
+ Sku:16752 | WORLD'S SMALLEST BLOWER |Rtn Pol: O
+ Org Pr: $4.99 |Qty: 1.00 |Disc: $0.00 |Tol: $4.99   =20
+ Global Discount: $0.00
+ Sub Tol: $4.99 |Tax: $0.65=20
+ Grand Total: $5.64
+  =20
+ Return policy above or 30 day exchange on manufacturer's defect. Final sal=
+e on door crashers and clearance items. This is a system-generated receipt.=
+ In case of discrepancy, your paper receipt will apply.
+ =20
+ Follow Us:
+ https://nam12.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fwww.fa=
+cebook.com%2Fshopatshowcase%2F&data=3D04%7C01%7C%7C10f192fc89ec4b5145d808d9=
+f8d12b1e%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C637814399524129387%7C=
+Unknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiL=
+CJXVCI6Mn0%3D%7C3000&sdata=3DAb4DbHx7Fin8RHl23aTdN%2F%2B8lkj7TA1JBU5mWU4NwC=
+0%3D&reserved=3D0 https://nam12.safelinks.protection.outlook.com/?url=3Dhtt=
+ps%3A%2F%2Fwww.instagram.com%2Fshopatshowcase%2F&data=3D04%7C01%7C%7C10f192=
+fc89ec4b5145d808d9f8d12b1e%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C637=
+814399524129387%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzI=
+iLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=3D1uWvDxmehJoVqMuU8WHNcT5QFRqK=
+frY4QEuKybAMbjE%3D&reserved=3D0 https://nam12.safelinks.protection.outlook.=
+com/?url=3Dhttps%3A%2F%2Ftwitter.com%2FShopAtShowcase&data=3D04%7C01%7C%7C1=
+0f192fc89ec4b5145d808d9f8d12b1e%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%=
+7C637814399524129387%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2=
+luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=3DCG7m%2Bn8JE32SRCEOmeQ8%=
+2Bw2JlmzG1QevVRKK1ik2Cvk%3D&reserved=3D0
+
+https://nam12.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fca.shopa=
+tshowcase.com%2F&data=3D04%7C01%7C%7C10f192fc89ec4b5145d808d9f8d12b1e%7C84d=
+f9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C637814399524129387%7CUnknown%7CTWFp=
+bGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%=
+7C3000&sdata=3Dq4Znb%2FcNv9%2BBxmB1uqbi3c8LXcjAqWw54R%2F4IGHI2Bc%3D&reserve=
+d=3D0
+
+
+This email was sent by: Showcase
+ 1 Wilkinson Road Brampton, ON, L6T 4M6, CA
+=20
+ https://nam12.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fclick.=
+shopatshowcase-mail.com%2Fsubscription_center.aspx%3Fqs%3D6a3160867ee929549=
+3f97dbe61fe6edd4023b1019f3086726d0e5ccda7619ed1fdd1d161a85ae1e6de8383a47148=
+809781b04bec10545b92&data=3D04%7C01%7C%7C10f192fc89ec4b5145d808d9f8d12b1e%7=
+C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C637814399524129387%7CUnknown%7C=
+TWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0=
+%3D%7C3000&sdata=3Db89%2BNH8eDwTHL5M2lk0k1lRwMVgWbIm3zjOOnHAQmBM%3D&reserve=
+d=3D0 https://nam12.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fc=
+lick.shopatshowcase-mail.com%2Funsub_center.aspx%3Fqs%3D6a3160867ee9295493f=
+97dbe61fe6edd4023b1019f3086726d0e5ccda7619ed14113d252e831e5fe176864b9145cad=
+faa89e37d692ec64e22e01903e1dd5ec4b&data=3D04%7C01%7C%7C10f192fc89ec4b5145d8=
+08d9f8d12b1e%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C63781439952412938=
+7%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1ha=
+WwiLCJXVCI6Mn0%3D%7C3000&sdata=3DA4r2h6A%2BiI3sCIlx7LTlAvAFfHR4XrdCTA3tsODY=
+6uc%3D&reserved=3D0=20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_660609_2057655912.1717126055046
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Karen Wierzbicki &lt;karenmarystar@hotmail.com&=
+gt;<br>To: "john@backpocket.ca"&lt;john@backpocket.ca&gt;<br>Date: Sat, 26 =
+Feb 2022 08:38:43 -0500<br>Subject: Fwd: Your Showcase e-Receipt (Valuable =
+savings inside!)<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><div><br></div><blockquote id=
+=3D"blockquote_zmail" style=3D"margin: 0px;"><div class=3D"zm_8108696754448=
+826730_parse_-5096606779276749866"><div dir=3D"ltr"><div><br></div><div><di=
+v><div style=3D"color: rgb(0,0,0);background-color: rgb(255,255,255);" dir=
+=3D"ltr"><span id=3D"x_-1601874140ms-outlook-ios-cursor"></span><br></div><=
+/div></div><div id=3D"x_-1601874140ms-outlook-mobile-signature"><div><br></=
+div><div style=3D"direction: ltr;">Sent from my iPhone<br></div></div></div=
+><hr style=3D"display: inline-block;width: 98.0%;"><div id=3D"x_-1601874140=
+divRplyFwdMsg" dir=3D"ltr"><span class=3D"font" style=3D"font-family:Calibr=
+i, sans-serif"><span class=3D"colour" style=3D"color:#000000"><b>From:</b> =
+Showcase &lt;<a href=3D"mailto:Newsletter@shopatshowcase-mail.com" target=
+=3D"_blank">Newsletter@shopatshowcase-mail.com</a>&gt;<br> <b>Sent:</b> Fri=
+day, February 25, 2022 9:39:06 PM<br> <b>To:</b> <a href=3D"mailto:karenmar=
+ystar@hotmail.com" target=3D"_blank">karenmarystar@hotmail.com</a> &lt;<a h=
+ref=3D"mailto:karenmarystar@hotmail.com" target=3D"_blank">karenmarystar@ho=
+tmail.com</a>&gt;<br> <b>Subject:</b> Your Showcase e-Receipt (Valuable sav=
+ings inside!)</span></span> <div>&nbsp;<br></div></div><div style=3D"margin=
+: 0;padding: 0;width: 100.0%;"><div class=3D"x_preheader" style=3D"font-siz=
+e: 1.0px; display: none;">Thank You For Shopping At Showcase!<br></div><tab=
+le width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><=
+tr><td align=3D"center" bgcolor=3D"#EFEFEF" style=3D"border-collapse: colla=
+pse;"><table width=3D"600" border=3D"0" align=3D"center" cellpadding=3D"0" =
+cellspacing=3D"0" class=3D"x_Container"><tbody><tr><td width=3D"600" valign=
+=3D"top" bgcolor=3D"#FFFFFF" style=3D"border-collapse: collapse;"><table wi=
+dth=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><t=
+d style=3D"border-collapse: collapse; padding: 15.0px 15.0px 15.0px 15.0px;=
+"><br><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+"><tbody><tr></tr></tbody><tbody><tr><td height=3D"39" colspan=3D"3" style=
+=3D"border-collapse: collapse;"><a href=3D"https://nam12.safelinks.protecti=
+on.outlook.com/?url=3Dhttp%3A%2F%2Fca.shopatshowcase.com%2Fpages%2Fwin-your=
+-purchase&amp;data=3D04%7C01%7C%7C10f192fc89ec4b5145d808d9f8d12b1e%7C84df9e=
+7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C637814399524129387%7CUnknown%7CTWFpbGZ=
+sb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3=
+000&amp;sdata=3DYc0QoFIKCTAEtAg0BqbvfbwR6TpK26z46tb2VcCeqJ8%3D&amp;reserved=
+=3D0" target=3D"_blank"><img id=3D"1645882726803100001_imgsrc_url_0" width=
+=3D"638" height=3D"65" alt=3D"" border=3D"0" style=3D"border: none; vertica=
+l-align: bottom;" src=3D"https://image.shopatshowcase-mail.com/lib/fe8b1372=
+7263007b76/m/5/winpurchase0919.jpg"></a><br></td></tr><tr><td height=3D"39"=
+ colspan=3D"3" style=3D"border-collapse: collapse;">&nbsp;<br></td></tr><tr=
+><td colspan=3D"3" style=3D"border-collapse: collapse;"><a href=3D"https://=
+nam12.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fca.shopatshowcas=
+e.com%2F&amp;data=3D04%7C01%7C%7C10f192fc89ec4b5145d808d9f8d12b1e%7C84df9e7=
+fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C637814399524129387%7CUnknown%7CTWFpbGZs=
+b3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C30=
+00&amp;sdata=3Dq4Znb%2FcNv9%2BBxmB1uqbi3c8LXcjAqWw54R%2F4IGHI2Bc%3D&amp;res=
+erved=3D0" target=3D"_blank"><img id=3D"1645882726803100001_imgsrc_url_1" w=
+idth=3D"339" height=3D"72" alt=3D"" border=3D"0" style=3D"border: none; ver=
+tical-align: bottom;" src=3D"http://image.shopatshowcase-mail.com/lib/fe8b1=
+3727263007b76/m/1/New-Full-Showcase-Logo.jpg"></a><br></td></tr><tr><td col=
+span=3D"3" style=3D"border-collapse: collapse;">&nbsp;<br></td></tr><tr><td=
+ height=3D"62" style=3D"border-collapse: collapse;"><a href=3D"https://nam1=
+2.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fca.shopatshowcase.co=
+m%2Fcollections%2Fprice-drops&amp;data=3D04%7C01%7C%7C10f192fc89ec4b5145d80=
+8d9f8d12b1e%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C637814399524129387=
+%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haW=
+wiLCJXVCI6Mn0%3D%7C3000&amp;sdata=3DqQDpbHaNZ%2B8GGodpeqtqP6yLceBT3lHbI%2Bh=
+dNUpHO9s%3D&amp;reserved=3D0" target=3D"_blank"><img id=3D"1645882726803100=
+001_imgsrc_url_2" width=3D"203" height=3D"53" alt=3D"" border=3D"0" style=
+=3D"border: none; vertical-align: bottom;" src=3D"https://image.shopatshowc=
+ase-mail.com/lib/fe8b13727263007b76/m/5/pricedrops0919.jpg"></a><br></td><t=
+d style=3D"border-collapse: collapse;"><a href=3D"https://nam12.safelinks.p=
+rotection.outlook.com/?url=3Dhttp%3A%2F%2Fca.shopatshowcase.com%2Fcollectio=
+ns%2Fwhats-new&amp;data=3D04%7C01%7C%7C10f192fc89ec4b5145d808d9f8d12b1e%7C8=
+4df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C637814399524129387%7CUnknown%7CTW=
+FpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3=
+D%7C3000&amp;sdata=3DT8GtS%2BLu7lWE%2FpNmgZ2NSgHVoggTfudKyHD9ZgfF4iI%3D&amp=
+;reserved=3D0" target=3D"_blank"><img id=3D"1645882726803100001_imgsrc_url_=
+3" width=3D"203" height=3D"53" alt=3D"" border=3D"0" style=3D"border: none;=
+ vertical-align: bottom;" src=3D"https://image.shopatshowcase-mail.com/lib/=
+fe8b13727263007b76/m/5/newarrivals0919.jpg"></a><br></td><td style=3D"borde=
+r-collapse: collapse;"><a href=3D"https://nam12.safelinks.protection.outloo=
+k.com/?url=3Dhttp%3A%2F%2Fca.shopatshowcase.com%2Fpages%2Fflyer&amp;data=3D=
+04%7C01%7C%7C10f192fc89ec4b5145d808d9f8d12b1e%7C84df9e7fe9f640afb435aaaaaaa=
+aaaaa%7C1%7C0%7C637814399524129387%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAw=
+MDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&amp;sdata=3DEL7TI=
+A9UQc1lKxGZYFGOcc46UiBodvcvbsgMj%2FSGzLE%3D&amp;reserved=3D0" target=3D"_bl=
+ank"><img id=3D"1645882726803100001_imgsrc_url_4" width=3D"203" height=3D"5=
+3" alt=3D"" border=3D"0" style=3D"border: none; vertical-align: bottom;" sr=
+c=3D"https://image.shopatshowcase-mail.com/lib/fe8b13727263007b76/m/5/weekl=
+yflyer0919.jpg"></a><br></td></tr><tr><td colspan=3D"3" style=3D"border-col=
+lapse: collapse;"><br></td></tr></tbody></table></td></tr></tbody></table><=
+table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tbod=
+y><tr><td width=3D"5%" style=3D"border-collapse: collapse;">&nbsp;<br></td>=
+<td class=3D"x_Body" style=3D"border-collapse: collapse; font-size: 16.0px;=
+ font-family: Calibri, &quot; undefined: TrebuchetMS&quot; undefined: ,Helv=
+etica,sans-serif; line-height: 24.0px; color: rgb(51,51,51); padding: 20.0p=
+x 0.0px 20.0px 0.0px;"><a href=3D"https://nam12.safelinks.protection.outloo=
+k.com/?url=3Dhttps%3A%2F%2Fca.shopatshowcase.com%2Fpages%2Ffitness-flyer&am=
+p;data=3D04%7C01%7C%7C10f192fc89ec4b5145d808d9f8d12b1e%7C84df9e7fe9f640afb4=
+35aaaaaaaaaaaa%7C1%7C0%7C637814399524129387%7CUnknown%7CTWFpbGZsb3d8eyJWIjo=
+iMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&amp;sdat=
+a=3D4Muo%2FmSaguvljz43k6IPDb8esHEOIbysNbBdsXxievI%3D&amp;reserved=3D0" targ=
+et=3D"_blank"><img border=3D"0" alt=3D"Fitness Guide" id=3D"164588272680310=
+0001_imgsrc_url_5" src=3D"https://image.shopatshowcase-mail.com/lib/fe8b137=
+27263007b76/m/13/V3_Fitness2022_Banner+web.png" style=3D"border: none;"> </=
+a><br> <br> Georgian Mall<br> 509 Bayfield Street Barrie ON (705) 797-0087 =
+<br> Trans ID: T06300193670<br> Trans #: c55961c8-64e7-47e1-aa99-c58b353b34=
+32<br> Trans Date: Feb 24, 2022&nbsp;11:08<br> Customer: c06337307<br> Sale=
+s Person: 14746<br>  <br> Sold: <br> <br> Sku:16752 | WORLD'S SMALLEST BLOW=
+ER |Rtn Pol: O<br> Org Pr: $4.99 |Qty: 1.00 |Disc: $0.00 |Tol: $4.99    <br=
+> Global Discount: $0.00<br> Sub Tol: $4.99 |Tax: $0.65 <br> <b>Grand Total=
+: $5.64<br> </b>  <br> Return policy above or 30 day exchange on manufactur=
+er's defect. Final sale on door crashers and clearance items. This is a sys=
+tem-generated receipt. In case of discrepancy, your paper receipt will appl=
+y.<br>  <br> <table cellpadding=3D"2" cellspacing=3D"0" width=3D"600" id=3D=
+"x_Table5" border=3D"0"><tbody><tr><td colspan=3D"6" align=3D"center" style=
+=3D"border-collapse: collapse;"><span class=3D"font" style=3D"font-family:G=
+otham, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"><span clas=
+s=3D"size" style=3D"font-size:12px"><span class=3D"size" style=3D"font-size=
+:14px">Follow Us:</span><br> <a href=3D"https://nam12.safelinks.protection.=
+outlook.com/?url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fshopatshowcase%2F&amp;d=
+ata=3D04%7C01%7C%7C10f192fc89ec4b5145d808d9f8d12b1e%7C84df9e7fe9f640afb435a=
+aaaaaaaaaaa%7C1%7C0%7C637814399524129387%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC=
+4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&amp;sdata=
+=3DAb4DbHx7Fin8RHl23aTdN%2F%2B8lkj7TA1JBU5mWU4NwC0%3D&amp;reserved=3D0" tar=
+get=3D"_blank"><img id=3D"1645882726803100001_imgsrc_url_6" alt=3D"True Tou=
+ch" width=3D"40" height=3D"40" src=3D"https://image.shopatshowcase-mail.com=
+/lib/fe8b13727263007b76/m/3/facebook1018.jpg" style=3D"border: none;"></a> =
+<a href=3D"https://nam12.safelinks.protection.outlook.com/?url=3Dhttps%3A%2=
+F%2Fwww.instagram.com%2Fshopatshowcase%2F&amp;data=3D04%7C01%7C%7C10f192fc8=
+9ec4b5145d808d9f8d12b1e%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C637814=
+399524129387%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLC=
+JBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&amp;sdata=3D1uWvDxmehJoVqMuU8WHNcT5QFRq=
+KfrY4QEuKybAMbjE%3D&amp;reserved=3D0" target=3D"_blank"> <img id=3D"1645882=
+726803100001_imgsrc_url_7" alt=3D"True Touch" width=3D"40" height=3D"40" sr=
+c=3D"https://image.shopatshowcase-mail.com/lib/fe8b13727263007b76/m/3/insta=
+gram1018.jpg" style=3D"border: none;"></a> <a href=3D"https://nam12.safelin=
+ks.protection.outlook.com/?url=3Dhttps%3A%2F%2Ftwitter.com%2FShopAtShowcase=
+&amp;data=3D04%7C01%7C%7C10f192fc89ec4b5145d808d9f8d12b1e%7C84df9e7fe9f640a=
+fb435aaaaaaaaaaaa%7C1%7C0%7C637814399524129387%7CUnknown%7CTWFpbGZsb3d8eyJW=
+IjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&amp;s=
+data=3DCG7m%2Bn8JE32SRCEOmeQ8%2Bw2JlmzG1QevVRKK1ik2Cvk%3D&amp;reserved=3D0"=
+ target=3D"_blank"> <img id=3D"1645882726803100001_imgsrc_url_8" alt=3D"Tru=
+e Touch" width=3D"40" height=3D"40" src=3D"https://image.shopatshowcase-mai=
+l.com/lib/fe8b13727263007b76/m/3/twitter1018.jpg" style=3D"border: none;"><=
+/a></span></span></td></tr><tr><td colspan=3D"6" align=3D"left" style=3D"bo=
+rder-collapse: collapse;"><a href=3D"https://nam12.safelinks.protection.out=
+look.com/?url=3Dhttp%3A%2F%2Fca.shopatshowcase.com%2F&amp;data=3D04%7C01%7C=
+%7C10f192fc89ec4b5145d808d9f8d12b1e%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%=
+7C0%7C637814399524129387%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIj=
+oiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&amp;sdata=3Dq4Znb%2FcNv9%2B=
+BxmB1uqbi3c8LXcjAqWw54R%2F4IGHI2Bc%3D&amp;reserved=3D0" target=3D"_blank"><=
+img id=3D"1645882726803100001_imgsrc_url_9" width=3D"650" height=3D"190" al=
+t=3D"" border=3D"0" style=3D"border: none; vertical-align: bottom;" src=3D"=
+https://image.shopatshowcase-mail.com/lib/fe8b13727263007b76/m/5/receiptfoo=
+ter0919.jpg"></a><br></td></tr><tr><td align=3D"center" valign=3D"top" styl=
+e=3D"border-collapse: collapse; font-size: 11.0px; font-family: Gotham, &qu=
+ot; undefined: HelveticaNeue&quot; undefined: ,Helvetica,Arial,sans-serif; =
+line-height: 12.0px; color: rgb(153,153,153);">This email was sent by: <b>S=
+howcase</b><br> 1 Wilkinson Road Brampton, ON, L6T 4M6, CA<br> <br> <a></a>=
+<a href=3D"https://nam12.safelinks.protection.outlook.com/?url=3Dhttps%3A%2=
+F%2Fclick.shopatshowcase-mail.com%2Fsubscription_center.aspx%3Fqs%3D6a31608=
+67ee9295493f97dbe61fe6edd4023b1019f3086726d0e5ccda7619ed1fdd1d161a85ae1e6de=
+8383a47148809781b04bec10545b92&amp;data=3D04%7C01%7C%7C10f192fc89ec4b5145d8=
+08d9f8d12b1e%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C63781439952412938=
+7%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1ha=
+WwiLCJXVCI6Mn0%3D%7C3000&amp;sdata=3Db89%2BNH8eDwTHL5M2lk0k1lRwMVgWbIm3zjOO=
+nHAQmBM%3D&amp;reserved=3D0" target=3D"_blank">Manage
+ Subscriptions</a> <a href=3D"https://nam12.safelinks.protection.outlook.co=
+m/?url=3Dhttps%3A%2F%2Fclick.shopatshowcase-mail.com%2Funsub_center.aspx%3F=
+qs%3D6a3160867ee9295493f97dbe61fe6edd4023b1019f3086726d0e5ccda7619ed14113d2=
+52e831e5fe176864b9145cadfaa89e37d692ec64e22e01903e1dd5ec4b&amp;data=3D04%7C=
+01%7C%7C10f192fc89ec4b5145d808d9f8d12b1e%7C84df9e7fe9f640afb435aaaaaaaaaaaa=
+%7C1%7C0%7C637814399524129387%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiL=
+CJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&amp;sdata=3DA4r2h6A%2B=
+iI3sCIlx7LTlAvAFfHR4XrdCTA3tsODY6uc%3D&amp;reserved=3D0" target=3D"_blank">=
+ Unsubscribe</a> <img id=3D"1645882726803100001_imgsrc_url_10" width=3D"1" =
+height=3D"1" alt=3D"" src=3D"https://click.shopatshowcase-mail.com/open.asp=
+x?ffcb10-fec910747467077a-fe231675736c0d7c751178-fe8b13727263007b76-ff92137=
+6-fe25157870620279741176-ffca11&amp;d=3D70166&amp;bmt=3D0"></td></tr></tbod=
+y></table><img id=3D"1645882726803100001_imgsrc_url_11" width=3D"1" height=
+=3D"1" alt=3D"" src=3D"https://click.shopatshowcase-mail.com/open.aspx?ffcb=
+10-fec910747467077a-fe231675736c0d7c751178-fe8b13727263007b76-ff921376-fe25=
+157870620279741176-ffca11&amp;d=3D70166&amp;bmt=3D0"><table width=3D"100%" =
+border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"ce=
+nter" valign=3D"top" style=3D"border-collapse: collapse;"><img id=3D"164588=
+2726803100001_imgsrc_url_12" width=3D"360" height=3D"10" src=3D"http://imag=
+e.shopatshowcase-mail.com/lib/fe8b13727263007b76/m/1/stopper.png"><br></td>=
+</tr><tr><td align=3D"center" valign=3D"top" class=3D"x_Hide" style=3D"bord=
+er-collapse: collapse;"><img id=3D"1645882726803100001_imgsrc_url_13" width=
+=3D"600" height=3D"10" style=3D"min-width: 600.0px;" src=3D"http://image.sh=
+opatshowcase-mail.com/lib/fe8b13727263007b76/m/1/stopper.png"><br></td></tr=
+></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td><=
+/tr></tbody></table></div></div></blockquote></div><div><br></div><div clas=
+s=3D"zmail_signature_below"><div id=3D"" data-zbluepencil-ignore=3D"true" d=
+ata-sigid=3D"6189300000000739006"><div>Regards,<br></div><div><br></div><di=
+v>John E. Estrada<br></div><div><br></div><div>----------------------------=
+-----------<br></div><div><br></div><p style=3D"font-style: normal; font-we=
+ight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-trans=
+form: none; white-space: normal; widows: 2; word-spacing: 0px"><span class=
+=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><span class=3D=
+"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-fa=
+mily:Verdana, Arial, Helvetica, sans-serif"><span class=3D"size" style=3D"f=
+ont-size:13.3333px"><span class=3D"highlight" style=3D"background-color:rgb=
+(255, 255, 255)"><b><span class=3D"colour" style=3D"color:rgb(0, 102, 0)"><=
+span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-seri=
+f, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">START SHRED=
+DING INC. (shredEX)</span></span></span></b><span class=3D"colour" style=3D=
+"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, =
+Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-=
+size:14.66px"><br>208 Evans Ave, Toronto, ON M8Z 1J7<br></span></span></spa=
+n><b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"=
+font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"=
+><span class=3D"size" style=3D"font-size:14.66px">E:<span>&nbsp;<a href=3D"=
+mailto:john@shredex.ca" target=3D"_blank" style=3D"color: rgb(0, 0, 238)">j=
+ohn@shredex.ca</a>&nbsp;</span>W: <a target=3D"_blank" href=3D"http://www.s=
+tartshredding.com" style=3D"color: rgb(0, 0, 238)">www.startshredding.com</=
+a><br></span></span></span></b><span class=3D"colour" style=3D"color:rgb(51=
+, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Aria=
+l, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"=
+>DIRECT:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, 204); cur=
+sor: default" target=3D"_blank"><span class=3D"colour" style=3D"color:rgb(5=
+1, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Ari=
+al, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px=
+">416.255.1500</span></span></span></a><span class=3D"colour" style=3D"colo=
+r:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verda=
+na, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:=
+14.66px"><br>TOLL FREE:&nbsp;</span></span></span><a style=3D"color: rgb(17=
+, 85, 204); cursor: default" target=3D"_blank"><span class=3D"colour" style=
+=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibr=
+i, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"fo=
+nt-size:14.66px">1.866.868.9585</span></span></span></a></span></span></spa=
+n></span></span></p><p style=3D"font-style: normal; font-weight: 400; lette=
+r-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; whit=
+e-space: normal; widows: 2; word-spacing: 0px"><span class=3D"highlight" st=
+yle=3D"background-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D=
+"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:Verdana, Ari=
+al, Helvetica, sans-serif"><span class=3D"size" style=3D"font-size:13.3333p=
+x"><span class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)">=
+<span class=3D"colour" style=3D"color:rgb(34, 34, 34)"><span class=3D"font"=
+ style=3D"font-family:arial, sans-serif"><span class=3D"size" style=3D"font=
+-size:small"><span class=3D"colour" style=3D"color:gray"><span class=3D"fon=
+t" style=3D"font-family:Arial, sans-serif"><span class=3D"size" style=3D"fo=
+nt-size:7.5pt">This message and any attachments are the property of the&nbs=
+p;SHREDEX INC.&nbsp;or its affiliates. It may be legally privileged and/or =
+confidential and is intended only for the use of the addressee(s). No addre=
+ssee should store, forward, print, copy, or otherwise reproduce this messag=
+e in any manner that would allow it to be viewed by any individual not orig=
+inally listed as a recipient. If the reader of this message is not the inte=
+nded recipient, you are hereby notified that any unauthorized storage, disc=
+losure, dissemination, distribution, copying or the taking of any action in=
+ reliance on the information herein is strictly prohibited. If you have rec=
+eived this communication in error, please immediately notify the sender and=
+ delete this message.</span></span></span></span></span></span></span></spa=
+n></span></span></span><br></p><div id=3D""><div><br></div></div><div><br><=
+/div></div></div><div><br></div></div><br></body></html>
+------=_Part_660609_2057655912.1717126055046--
+

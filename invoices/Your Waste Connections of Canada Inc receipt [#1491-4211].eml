@@ -1,0 +1,910 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp188238rbd;
+        Thu, 30 May 2024 20:19:28 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHi4QPz32wdXi2zXXj4uvynoVMAEvQEbtbBYn6QC0b9LF1kEUqiAimqj9l2vTpA3o1/wCH7
+X-Received: by 2002:a9d:74d1:0:b0:6f0:47a2:c1ab with SMTP id 46e09a7af769-6f911f35cedmr725496a34.16.1717125567869;
+        Thu, 30 May 2024 20:19:27 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125567; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=WyTD9zZEvc+mFi/y82yQV/YOCG2jwVgGamdym5rUugidFJRQ5uean5oMTc1W4JVE3p
+         Kax+THccymvqqCDAZAk+XRFKLtYo4kblBXbRyg8BCuwL1aqP9Bgwan8ywQD0O6NUHIrK
+         Jxc7I1UJT45EehwN66UVIOHO6HA5YL8PKSc8mc9uJfPu5UOILM1wPPUmjDHAhWZsBEyI
+         XWQYM3ULibgXIWSzWoZNG/Q1sheUKK9WHbLZfC73Ds2SZ/siWaLjuYQFMJvXTsAEQkgn
+         RJfm100wVPBpZtFyzD6NyXa26oAzojNIIrC19PQBa8toLIpOlB28KLd4LYCZYrZIFA9H
+         Q1Ng==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=jqmVWY4LusZcuCIyQa0Jk8WyjPjoiO6IFeKuTOvimC4=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=ZJ2pRlnRvcf/x3RuTlQRvEEZkcqXl+XcqRBeg97vkRVOW2ya1dTG7EJIOVNWlaNUbn
+         bnISHYp8j1JBOxd7i9oqg+XF4Nbr5WAhWiiLbyo4hrLOB4ZXTz76bgLpt9oHr/S12gT/
+         KKR8Av5nO3WtPEtAijD6gRtVbSAfFvfrh9Mx5u2n4bqfr9EM7BV7giAZ8WVI5jHmeWOa
+         XZarkbCFFdTxkJ2/by1aPTRBpL6phiXXiNiYiT2QJSL/uR+O8sFeUcfVgP1crnS8DB4q
+         VYTMybJDxsARnBXPafGH2bWutgM3XbPeC2MAtvoDLOG82PZKqKh/MelXhNmldEf2aMh1
+         X2/Q==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=HObEGwnY;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender4-op-o14.zoho.com (sender4-op-o14.zoho.com. [136.143.188.14])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-6c35a0e6a25si490518a12.416.2024.05.30.20.19.27
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:19:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) client-ip=136.143.188.14;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=HObEGwnY;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125565; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=gkb6PnK+DPEHe2Dnyyr4VFdakXLYeyX3o0vjdWKm3sybTI3jae6nRiWdSPOdYHiFBnw1aaoO3EJu8DVEOhBBWFCP1SemXY1lXpBjbzUYf1zeIlpo4NWIVrEzSKDJM3MMvI47PYtktFMsgFb6jieylXFFFz3r1IOsevLFt5T9uIQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125565; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=jqmVWY4LusZcuCIyQa0Jk8WyjPjoiO6IFeKuTOvimC4=; 
+	b=XzWAxnpKsRbkL3smr8nMT8d07IKbKGoBDzH1/t3YMLFGV1PXoUiypQOzeQwZ8Uq2FF4wYQvIgv4/GsdFOtKeo8vVmBkZ04aEkJHe+BtadoXCBmA/7AwnCfcRmozJrFr+7zqGarSfeSTHJyRSnqlU9cEtBHo3dCnKT9cm+Jfb9eE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125565;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=jqmVWY4LusZcuCIyQa0Jk8WyjPjoiO6IFeKuTOvimC4=;
+	b=HObEGwnYWfDdIQ3TfAUskmaUSBS3z7tKMXOP9gmUBKUnzeyHXrQ5seY1uPGHvm17
+	236wuZxPYBo6HxFHT1WNoiRfQUffwOXURdQgvUThiLVIVA5yaWg0FNqlbcKGxG9Ad5E
+	YuzsMHWviUSY0UMVkj46eEk8me+VaWMAVeR0PL0w=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717125564151755.9635799508516; Thu, 30 May 2024 20:19:24 -0700 (PDT)
+Date: Thu, 30 May 2024 23:19:24 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcca8c6bb.e9435fee202725.6279527449717627019@shredex.ca>
+In-Reply-To: <010001813f39b4f3-6589bf93-d1ab-43a2-94e5-492de5e5e84a-000000@email.amazonses.com>
+References: <010001813f39b4f3-6589bf93-d1ab-43a2-94e5-492de5e5e84a-000000@email.amazonses.com>
+Subject: Fwd: Your Waste Connections of Canada Inc receipt [#1491-4211]
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_657462_1186636246.1717125564092"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_657462_1186636246.1717125564092
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Waste Connections of Canada Inc <receipts+acct_1Hmf6fCYq4902xuP@strip=
+e.com>
+To: <accounting@shredex.ca>
+Date: Tue, 07 Jun 2022 13:32:35 -0400
+Subject: Your Waste Connections of Canada Inc receipt [#1491-4211]
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Receipt from Waste Connections of Canada Inc
+
+
+=C2=A0
+
+
+
+
+
+Receipt #1491-4211
+
+
+=C2=A0
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+
+
+=C2=A0
+
+Amount paid
+
+
+C$67.73
+
+
+
+
+
+=C2=A0
+
+Date paid
+
+
+June 7, 2022
+
+
+
+
+
+=C2=A0
+
+Payment method
+
+
+   - 8945=20
+
+
+
+
+
+=C2=A0
+
+
+
+
+=C2=A0
+
+
+
+
+
+=C2=A0
+
+
+Summary
+
+=C2=A0
+
+
+
+=C2=A0
+
+
+
+
+
+=C2=A0
+
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+
+=C2=A0
+
+
+
+
+
+Payment to Waste Connections of Canada Inc
+
+=C2=A0
+
+C$67.73
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+Amount charged
+
+=C2=A0
+
+C$67.73
+
+
+=C2=A0
+
+
+
+
+
+=C2=A0
+
+
+
+=C2=A0
+
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+=C2=A0
+
+
+
+
+
+=C2=A0
+
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+
+=C2=A0
+
+
+
+
+
+=C2=A0
+
+
+If you have any questions, contact us at mailto:help@wasteconnections.com o=
+r call at http://58.email.stripe.com/CL0/tel:%2B19055327510/1/010001813f39b=
+4f3-6589bf93-d1ab-43a2-94e5-492de5e5e84a-000000/pfQXDFvCqx-aVyyzmCrjnI4y_WN=
+NwMG2WWlDTpkGGCo=3D252.
+
+=C2=A0
+
+
+
+=C2=A0
+
+
+
+
+
+=C2=A0
+
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+=C2=A0
+
+
+
+=C2=A0
+
+
+
+
+
+=C2=A0
+
+Something wrong with the email? https://58.email.stripe.com/CL0/https:%2F%2=
+Fdashboard.stripe.com%2Freceipts%2Fpayment%2FCAcQARoXChVhY2N0XzFIbWY2ZkNZcT=
+Q5MDJ4dVAospf-lAYyBic6GjfZjzovFvUAFVvgJVrP44YoWj8DV3kNuDWdNw1yjmIEl--n9WBzE=
+F4TAHkGtwWZe89osm0/1/010001813f39b4f3-6589bf93-d1ab-43a2-94e5-492de5e5e84a-=
+000000/95jo3GR_AdCaV2rWGy1YC0z4zPloNzR05PWx7aIMwPY=3D252
+
+=C2=A0
+
+
+
+
+=C2=A0
+
+
+
+
+=C2=A0
+
+You're receiving this email because you made a purchase at Waste Connection=
+s of Canada Inc, which partners with https://58.email.stripe.com/CL0/https:=
+%2F%2Fstripe.com%2F/1/010001813f39b4f3-6589bf93-d1ab-43a2-94e5-492de5e5e84a=
+-000000/-enUfVBlj9HhcIbfDJtrWV3qqGr8n5GAvGM-XBM2kPo=3D252 to provide invoic=
+ing and payment processing.
+
+
+
+
+=C2=A0
+
+
+
+
+=C2=A0
+
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+=20
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_657462_1186636246.1717125564092
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Waste Connections of Canada Inc &lt;receipts+ac=
+ct_1Hmf6fCYq4902xuP@stripe.com&gt;<br>To: &lt;accounting@shredex.ca&gt;<br>=
+Date: Tue, 07 Jun 2022 13:32:35 -0400<br>Subject: Your Waste Connections of=
+ Canada Inc receipt [#1491-4211]<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Fo=
+rwarded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><div><br></di=
+v><blockquote id=3D"blockquote_zmail" style=3D"margin: 0px;"><div class=3D"=
+x_1168926883st-Email zm_-7303323477814724508_parse_-293482795570649278" sty=
+le=3D"border: 0;margin: 0;padding: 0;min-width: 100.0%;width: 100.0%;"><tab=
+le class=3D"x_1168926883st-Background" bgcolor=3D"#f6f9fc" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border: 0;margin: =
+0;padding: 0;"><tbody><tr><td style=3D"border: 0;margin: 0;padding: 0;"><ta=
+ble class=3D"x_1168926883st-Wrapper" align=3D"center" bgcolor=3D"#ffffff" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" style=3D"bord=
+er-bottom-left-radius: 5.0px;margin: 0 auto;min-width: 600.0px;"><tbody><tr=
+><td style=3D"border: 0;margin: 0;padding: 0;"><table class=3D"x_1168926883=
+st-Preheader x_1168926883st-Width x_1168926883st-Width--mobile" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" style=3D"min-width: 600=
+.0px;"><tbody><tr><td align=3D"center" height=3D"0" style=3D"border: 0;marg=
+in: 0;padding: 0;color: rgb(255,255,255);display: none;font-size: 1.0px;lin=
+e-height: 1.0px;max-height: 0;max-width: 0;opacity: 0;overflow: hidden;visi=
+bility: hidden;"><span class=3D"colour" style=3D"color: rgb(255, 255, 255);=
+ text-decoration: none;">Receipt from Waste Connections of Canada Inc [#149=
+1-4211] Amount paid C$67.73 Date paid June 7, 2022
+ =20
+
+         =20
+          =E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;</s=
+pan><br></td></tr></tbody></table><div style=3D"background-color: rgb(246,2=
+49,252);padding-top: 20.0px;"><table dir=3D"ltr" class=3D"x_1168926883Secti=
+on x_1168926883Header" width=3D"100%" style=3D"border: 0;border-collapse: c=
+ollapse;margin: 0;padding: 0;background-color: rgb(255,255,255);"><tbody><t=
+r><td class=3D"x_1168926883Header-left x_1168926883Target" style=3D"backgro=
+und-color: rgb(82,95,127);border: 0;border-collapse: collapse;margin: 0;pad=
+ding: 0;font-size: 0;line-height: 0.0px;background-size: 100.0% 100.0%;bord=
+er-top-left-radius: 5.0px;" align=3D"right" height=3D"156" valign=3D"bottom=
+" width=3D"252"><a href=3D"https://58.email.stripe.com/CL0/https:%2F%2Fwww.=
+wasteconnectionscanada.com%2F/1/010001813f39b4f3-6589bf93-d1ab-43a2-94e5-49=
+2de5e5e84a-000000/EO2JCg_apGLunvF-G8guPTvYql2n1gqDKBxTyZuSaXQ=3D252" target=
+=3D"_blank" style=3D"outline: 0;text-decoration: none;"><img alt=3D"" heigh=
+t=3D"156" width=3D"100%" id=3D"1654623159284100003_imgsrc_url_0" style=3D"d=
+isplay: block;border: 0;line-height: 100.0%;width: 100.0%;"></a></td><td cl=
+ass=3D"x_1168926883Header-icon x_1168926883Target" style=3D"background-colo=
+r: rgb(82,95,127);border: 0;border-collapse: collapse;margin: 0;padding: 0;=
+font-size: 0;line-height: 0.0px;background-size: 100.0% 100.0%;width: 96.0p=
+x;" align=3D"center" height=3D"156" valign=3D"bottom"><a href=3D"https://58=
+.email.stripe.com/CL0/https:%2F%2Fwww.wasteconnectionscanada.com%2F/2/01000=
+1813f39b4f3-6589bf93-d1ab-43a2-94e5-492de5e5e84a-000000/-v2lHgvKs0as9DTM1lL=
+GOKjW6b0MrEuAwqVQzB1z91c=3D252" target=3D"_blank" style=3D"outline: 0;text-=
+decoration: none;"><img alt=3D"" height=3D"156" width=3D"96" id=3D"16546231=
+59284100003_imgsrc_url_1" style=3D"display: block;border: 0;line-height: 10=
+0.0%;"></a></td><td class=3D"x_1168926883Header-right x_1168926883Target" s=
+tyle=3D"background-color: rgb(82,95,127);border: 0;border-collapse: collaps=
+e;margin: 0;padding: 0;font-size: 0;line-height: 0.0px;background-size: 100=
+.0% 100.0%;border-top-right-radius: 5.0px;" align=3D"left" height=3D"156" v=
+align=3D"bottom" width=3D"252"><a href=3D"https://58.email.stripe.com/CL0/h=
+ttps:%2F%2Fwww.wasteconnectionscanada.com%2F/3/010001813f39b4f3-6589bf93-d1=
+ab-43a2-94e5-492de5e5e84a-000000/nTCRY3zkJqOqq8k9J9zz_RIqzoUpu7XnxyCuGNA_A-=
+I=3D252" target=3D"_blank" style=3D"outline: 0;text-decoration: none;"><img=
+ alt=3D"" height=3D"156" width=3D"100%" id=3D"1654623159284100003_imgsrc_ur=
+l_2" style=3D"display: block;border: 0;line-height: 100.0%;width: 100.0%;">=
+</a></td></tr></tbody></table></div><table class=3D"x_1168926883st-Copy x_1=
+168926883st-Copy--caption x_1168926883st-Width x_1168926883st-Width--mobile=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" style=3D"m=
+in-width: 600.0px;"><tbody><tr><td class=3D"x_1168926883Content x_116892688=
+3Title-copy x_1168926883Font x_1168926883Font--title" align=3D"center" styl=
+e=3D"border: 0;border-collapse: collapse;margin: 0;padding: 0;width: 472.0p=
+x;vertical-align: middle;color: rgb(50,50,93);font-size: 24.0px;line-height=
+: 32.0px;">Receipt from Waste Connections of Canada Inc<br></td></tr><tr><t=
+d class=3D"x_1168926883st-Spacer x_1168926883st-Spacer--stacked" colspan=3D=
+"3" height=3D"12" style=3D"border: 0;margin: 0;padding: 0;font-size: 1.0px;=
+line-height: 1.0px;"><div class=3D"x_1168926883st-Spacer x_1168926883st-Spa=
+cer--filler">&nbsp;<br></div></td></tr></tbody></table><table class=3D"x_11=
+68926883st-Copy x_1168926883st-Copy--caption x_1168926883st-Width x_1168926=
+883st-Width--mobile" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"600" style=3D"min-width: 600.0px;"><tbody><tr><td class=3D"x_1168926883=
+Content x_1168926883Title-copy x_1168926883Font x_1168926883Font--title" al=
+ign=3D"center" style=3D"border: 0;border-collapse: collapse;margin: 0;paddi=
+ng: 0;width: 472.0px;vertical-align: middle;color: rgb(136,152,170);font-si=
+ze: 15.0px;line-height: 18.0px;">Receipt #1491-4211<br></td></tr><tr><td cl=
+ass=3D"x_1168926883st-Spacer x_1168926883st-Spacer--stacked" colspan=3D"3" =
+height=3D"12" style=3D"border: 0;margin: 0;padding: 0;font-size: 1.0px;line=
+-height: 1.0px;"><div class=3D"x_1168926883st-Spacer x_1168926883st-Spacer-=
+-filler">&nbsp;<br></div></td></tr></tbody></table><table class=3D"x_116892=
+6883st-Spacer x_1168926883st-Spacer--standalone x_1168926883st-Width x_1168=
+926883st-Width--mobile" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"100%"><tbody><tr><td height=3D"20" style=3D"border: 0;margin: 0;padd=
+ing: 0;font-size: 1.0px;line-height: 1.0px;max-height: 1.0px;"><div class=
+=3D"x_1168926883st-Spacer x_1168926883st-Spacer--filler">&nbsp;<br></div></=
+td></tr></tbody></table><table class=3D"x_1168926883st-Copy x_1168926883st-=
+Copy--standalone x_1168926883st-Copy--caption" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td class=3D"x_1168926883st-=
+Font x_1168926883st-Font--caption" style=3D"border: 0;margin: 0;padding: 0;=
+color: rgb(136,152,170);font-size: 12.0px;font-weight: bold;line-height: 16=
+.0px;text-transform: uppercase;"><br></td><td width=3D"64" style=3D"border:=
+ 0;border-collapse: collapse;margin: 0;padding: 0;color: rgb(255,255,255);f=
+ont-size: 1.0px;line-height: 1.0px;">&nbsp;<br></td><td class=3D"x_11689268=
+83DataBlocks-item" valign=3D"top" style=3D"border: 0;border-collapse: colla=
+pse;margin: 0;padding: 0;"><table style=3D"border: 0;border-collapse: colla=
+pse;margin: 0;padding: 0;"><tbody><tr><td class=3D"x_1168926883Font x_11689=
+26883Font--caption x_1168926883Font--uppercase x_1168926883Font--mute x_116=
+8926883Font--noWrap" style=3D"border: 0;border-collapse: collapse;margin: 0=
+;padding: 0;vertical-align: middle;color: rgb(136,152,170);font-size: 12.0p=
+x;line-height: 16.0px;white-space: nowrap;font-weight: bold;text-transform:=
+ uppercase;">Amount paid<br></td></tr><tr><td class=3D"x_1168926883Font x_1=
+168926883Font--body x_1168926883Font--noWrap" style=3D"border: 0;border-col=
+lapse: collapse;margin: 0;padding: 0;vertical-align: middle;color: rgb(82,9=
+5,127);font-size: 15.0px;line-height: 24.0px;white-space: nowrap;">C$67.73<=
+br></td></tr></tbody></table></td><td width=3D"20" style=3D"border: 0;borde=
+r-collapse: collapse;margin: 0;padding: 0;color: rgb(255,255,255);font-size=
+: 1.0px;line-height: 1.0px;">&nbsp;<br></td><td class=3D"x_1168926883DataBl=
+ocks-item" valign=3D"top" style=3D"border: 0;border-collapse: collapse;marg=
+in: 0;padding: 0;"><table style=3D"border: 0;border-collapse: collapse;marg=
+in: 0;padding: 0;"><tbody><tr><td class=3D"x_1168926883Font x_1168926883Fon=
+t--caption x_1168926883Font--uppercase x_1168926883Font--mute x_1168926883F=
+ont--noWrap" style=3D"border: 0;border-collapse: collapse;margin: 0;padding=
+: 0;vertical-align: middle;color: rgb(136,152,170);font-size: 12.0px;line-h=
+eight: 16.0px;white-space: nowrap;font-weight: bold;text-transform: upperca=
+se;">Date paid<br></td></tr><tr><td class=3D"x_1168926883Font x_1168926883F=
+ont--body x_1168926883Font--noWrap" style=3D"border: 0;border-collapse: col=
+lapse;margin: 0;padding: 0;vertical-align: middle;color: rgb(82,95,127);fon=
+t-size: 15.0px;line-height: 24.0px;white-space: nowrap;">June 7, 2022<br></=
+td></tr></tbody></table></td><td width=3D"20" style=3D"border: 0;border-col=
+lapse: collapse;margin: 0;padding: 0;color: rgb(255,255,255);font-size: 1.0=
+px;line-height: 1.0px;">&nbsp;<br></td><td class=3D"x_1168926883DataBlocks-=
+item" valign=3D"top" style=3D"border: 0;border-collapse: collapse;margin: 0=
+;padding: 0;"><table style=3D"border: 0;border-collapse: collapse;margin: 0=
+;padding: 0;"><tbody><tr><td class=3D"x_1168926883Font x_1168926883Font--ca=
+ption x_1168926883Font--uppercase x_1168926883Font--mute x_1168926883Font--=
+noWrap" style=3D"border: 0;border-collapse: collapse;margin: 0;padding: 0;v=
+ertical-align: middle;color: rgb(136,152,170);font-size: 12.0px;line-height=
+: 16.0px;white-space: nowrap;font-weight: bold;text-transform: uppercase;">=
+Payment method<br></td></tr><tr><td class=3D"x_1168926883Font x_1168926883F=
+ont--body x_1168926883Font--noWrap" style=3D"border: 0;border-collapse: col=
+lapse;margin: 0;padding: 0;vertical-align: middle;color: rgb(82,95,127);fon=
+t-size: 15.0px;line-height: 24.0px;white-space: nowrap;"><span><img alt=3D"=
+Visa" height=3D"16" id=3D"1654623159284100003_imgsrc_url_3" style=3D"border=
+: 0;margin: 0;padding: 0;vertical-align: text-bottom;" width=3D"36"> </span=
+> <span> - 8945 </span><br></td></tr></tbody></table></td><td width=3D"64" =
+style=3D"border: 0;border-collapse: collapse;margin: 0;padding: 0;color: rg=
+b(255,255,255);font-size: 1.0px;line-height: 1.0px;">&nbsp;<br></td></tr></=
+tbody></table><table class=3D"x_1168926883st-Spacer x_1168926883st-Spacer--=
+standalone x_1168926883st-Width x_1168926883st-Width--mobile" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td height=3D=
+"32" style=3D"border: 0;margin: 0;padding: 0;font-size: 1.0px;line-height: =
+1.0px;max-height: 1.0px;"><div class=3D"x_1168926883st-Spacer x_1168926883s=
+t-Spacer--filler">&nbsp;<br></div></td></tr></tbody></table><table class=3D=
+"x_1168926883st-Copy x_1168926883st-Copy--caption x_1168926883st-Width x_11=
+68926883st-Width--mobile" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+width=3D"600" style=3D"min-width: 600.0px;"><tbody><tr><td class=3D"x_11689=
+26883st-Spacer x_1168926883st-Spacer--gutter" style=3D"border: 0;margin: 0;=
+padding: 0;font-size: 1.0px;line-height: 1.0px;" width=3D"64"><div class=3D=
+"x_1168926883st-Spacer x_1168926883st-Spacer--filler">&nbsp;<br></div></td>=
+<td class=3D"x_1168926883st-Font x_1168926883st-Font--caption" style=3D"bor=
+der: 0;margin: 0;padding: 0;color: rgb(136,152,170);font-size: 12.0px;line-=
+height: 16.0px;text-transform: uppercase;"><b style=3D"border: 0px; margin:=
+ 0px; padding: 0px;">Summary</b><br></td><td class=3D"x_1168926883st-Spacer=
+ x_1168926883st-Spacer--gutter" style=3D"border: 0;margin: 0;padding: 0;fon=
+t-size: 1.0px;line-height: 1.0px;" width=3D"64"><div class=3D"x_1168926883s=
+t-Spacer x_1168926883st-Spacer--filler">&nbsp;<br></div></td></tr><tr><td c=
+lass=3D"x_1168926883st-Spacer x_1168926883st-Spacer--stacked" colspan=3D"3"=
+ height=3D"12" style=3D"border: 0;margin: 0;padding: 0;font-size: 1.0px;lin=
+e-height: 1.0px;"><div class=3D"x_1168926883st-Spacer x_1168926883st-Spacer=
+--filler">&nbsp;<br></div></td></tr></tbody></table><table class=3D"x_11689=
+26883st-Blocks x_1168926883st-Width x_1168926883st-Width--mobile" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" style=3D"min-width: 6=
+00.0px;"><tbody><tr><td class=3D"x_1168926883st-Spacer x_1168926883st-Space=
+r--stacked" colspan=3D"3" height=3D"4" style=3D"border: 0;margin: 0;padding=
+: 0;font-size: 1.0px;line-height: 1.0px;"><div class=3D"x_1168926883st-Spac=
+er x_1168926883st-Spacer--filler">&nbsp;<br></div></td></tr><tr><td class=
+=3D"x_1168926883st-Spacer x_1168926883st-Spacer--kill" style=3D"border: 0;m=
+argin: 0;padding: 0;font-size: 1.0px;line-height: 1.0px;" width=3D"64"><div=
+ class=3D"x_1168926883st-Spacer x_1168926883st-Spacer--filler">&nbsp;<br></=
+div></td><td style=3D"border: 0;margin: 0;padding: 0;"><table class=3D"x_11=
+68926883st-Blocks-inner" bgcolor=3D"#f6f9fc" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" style=3D"border-radius: 5.0px;" width=3D"100%"><tbody><t=
+r><td style=3D"border: 0;margin: 0;padding: 0;"><table class=3D"x_116892688=
+3st-Blocks-item" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%"><tbody><tr><td class=3D"x_1168926883st-Spacer x_1168926883st-Spacer--=
+blocksItemEnds" colspan=3D"3" height=3D"12" style=3D"border: 0;margin: 0;pa=
+dding: 0;font-size: 1.0px;line-height: 1.0px;"><div class=3D"x_1168926883st=
+-Spacer x_1168926883st-Spacer--filler">&nbsp;<br></div></td></tr><tr><td cl=
+ass=3D"x_1168926883st-Spacer x_1168926883st-Spacer--gutter" style=3D"border=
+: 0;margin: 0;padding: 0;font-size: 1.0px;line-height: 1.0px;" width=3D"16"=
+><div class=3D"x_1168926883st-Spacer x_1168926883st-Spacer--filler">&nbsp;<=
+br></div></td><td class=3D"x_1168926883st-Blocks-item-cell x_1168926883st-F=
+ont x_1168926883st-Font--body" style=3D"border: 0;margin: 0;padding: 0;colo=
+r: rgb(82,95,127);font-size: 16.0px;line-height: 24.0px;"><table style=3D"p=
+adding-left: 5.0px;padding-right: 5.0px;" width=3D"100%"><tbody><tr><td><br=
+></td></tr><tr><td class=3D"x_1168926883Table-description x_1168926883Font =
+x_1168926883Font--body" style=3D"border: 0;border-collapse: collapse;margin=
+: 0;padding: 0;vertical-align: middle;color: rgb(82,95,127);font-size: 15.0=
+px;line-height: 24.0px;width: 100.0%;">Payment to Waste Connections of Cana=
+da Inc<br></td><td class=3D"x_1168926883Spacer x_1168926883Table-gap" width=
+=3D"8" style=3D"border: 0;border-collapse: collapse;margin: 0;padding: 0;co=
+lor: rgb(255,255,255);font-size: 1.0px;line-height: 1.0px;">&nbsp;<br></td>=
+<td class=3D"x_1168926883Table-amount x_1168926883Font x_1168926883Font--bo=
+dy" align=3D"right" valign=3D"top" style=3D"border: 0;border-collapse: coll=
+apse;margin: 0;padding: 0;vertical-align: middle;color: rgb(82,95,127);font=
+-size: 15.0px;line-height: 24.0px;">C$67.73<br></td></tr><tr><td class=3D"x=
+_1168926883Table-divider x_1168926883Spacer" colspan=3D"3" height=3D"6" sty=
+le=3D"border: 0;border-collapse: collapse;margin: 0;padding: 0;color: rgb(2=
+55,255,255);font-size: 1.0px;line-height: 1.0px;">&nbsp;<br></td></tr><tr><=
+td class=3D"x_1168926883Table-divider x_1168926883Spacer" colspan=3D"3" hei=
+ght=3D"6" style=3D"border: 0;border-collapse: collapse;margin: 0;padding: 0=
+;color: rgb(255,255,255);font-size: 1.0px;line-height: 1.0px;">&nbsp;<br></=
+td></tr><tr><td class=3D"x_1168926883Spacer" bgcolor=3D"e6ebf1" colspan=3D"=
+3" height=3D"1" style=3D"border: 0;border-collapse: collapse;margin: 0;padd=
+ing: 0;color: rgb(255,255,255);font-size: 1.0px;line-height: 1.0px;">&nbsp;=
+<br></td></tr><tr><td class=3D"x_1168926883Table-divider x_1168926883Spacer=
+" colspan=3D"3" height=3D"8" style=3D"border: 0;border-collapse: collapse;m=
+argin: 0;padding: 0;color: rgb(255,255,255);font-size: 1.0px;line-height: 1=
+.0px;">&nbsp;<br></td></tr><tr><td class=3D"x_1168926883Table-description x=
+_1168926883Font x_1168926883Font--body" style=3D"border: 0;border-collapse:=
+ collapse;margin: 0;padding: 0;vertical-align: middle;color: rgb(82,95,127)=
+;font-size: 15.0px;line-height: 24.0px;width: 100.0%;"><b>Amount charged</b=
+><br></td><td class=3D"x_1168926883Spacer x_1168926883Table-gap" width=3D"8=
+" style=3D"border: 0;border-collapse: collapse;margin: 0;padding: 0;color: =
+rgb(255,255,255);font-size: 1.0px;line-height: 1.0px;">&nbsp;<br></td><td c=
+lass=3D"x_1168926883Table-amount x_1168926883Font x_1168926883Font--body" a=
+lign=3D"right" valign=3D"top" style=3D"border: 0;border-collapse: collapse;=
+margin: 0;padding: 0;vertical-align: middle;color: rgb(82,95,127);font-size=
+: 15.0px;line-height: 24.0px;"><b>C$67.73</b><br></td></tr><tr><td class=3D=
+"x_1168926883Table-divider x_1168926883Spacer" colspan=3D"3" height=3D"6" s=
+tyle=3D"border: 0;border-collapse: collapse;margin: 0;padding: 0;color: rgb=
+(255,255,255);font-size: 1.0px;line-height: 1.0px;">&nbsp;<br></td></tr></t=
+body></table></td><td class=3D"x_1168926883st-Spacer x_1168926883st-Spacer-=
+-gutter" style=3D"border: 0;margin: 0;padding: 0;font-size: 1.0px;line-heig=
+ht: 1.0px;" width=3D"16"><div class=3D"x_1168926883st-Spacer x_1168926883st=
+-Spacer--filler">&nbsp;<br></div></td></tr><tr><td class=3D"x_1168926883st-=
+Spacer x_1168926883st-Spacer--blocksItemEnds" colspan=3D"3" height=3D"12" s=
+tyle=3D"border: 0;margin: 0;padding: 0;font-size: 1.0px;line-height: 1.0px;=
+"><div class=3D"x_1168926883st-Spacer x_1168926883st-Spacer--filler">&nbsp;=
+<br></div></td></tr></tbody></table></td></tr></tbody></table></td><td clas=
+s=3D"x_1168926883st-Spacer x_1168926883st-Spacer--kill" style=3D"border: 0;=
+margin: 0;padding: 0;font-size: 1.0px;line-height: 1.0px;" width=3D"64"><di=
+v class=3D"x_1168926883st-Spacer x_1168926883st-Spacer--filler">&nbsp;<br><=
+/div></td></tr><tr><td class=3D"x_1168926883st-Spacer x_1168926883st-Spacer=
+--stacked" colspan=3D"3" height=3D"16" style=3D"border: 0;margin: 0;padding=
+: 0;font-size: 1.0px;line-height: 1.0px;"><div class=3D"x_1168926883st-Spac=
+er x_1168926883st-Spacer--filler">&nbsp;<br></div></td></tr></tbody></table=
+><table class=3D"x_1168926883st-Divider x_1168926883st-Width x_1168926883st=
+-Width--mobile" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"6=
+00" style=3D"min-width: 600.0px;"><tbody><tr><td class=3D"x_1168926883st-Sp=
+acer x_1168926883st-Spacer--divider" colspan=3D"3" height=3D"20" style=3D"b=
+order: 0;margin: 0;padding: 0;font-size: 1.0px;line-height: 1.0px;max-heigh=
+t: 1.0px;"><div class=3D"x_1168926883st-Spacer x_1168926883st-Spacer--fille=
+r">&nbsp;<br></div></td></tr><tr><td class=3D"x_1168926883st-Spacer x_11689=
+26883st-Spacer--gutter" style=3D"border: 0;margin: 0;padding: 0;font-size: =
+1.0px;line-height: 1.0px;max-height: 1.0px;" width=3D"64"><div class=3D"x_1=
+168926883st-Spacer x_1168926883st-Spacer--filler">&nbsp;<br></div></td><td =
+bgcolor=3D"#e6ebf1" height=3D"1" style=3D"border: 0;margin: 0;padding: 0;fo=
+nt-size: 1.0px;line-height: 1.0px;max-height: 1.0px;"><div class=3D"x_11689=
+26883st-Spacer x_1168926883st-Spacer--filler">&nbsp;<br></div></td><td clas=
+s=3D"x_1168926883st-Spacer x_1168926883st-Spacer--gutter" style=3D"border: =
+0;margin: 0;padding: 0;font-size: 1.0px;line-height: 1.0px;max-height: 1.0p=
+x;" width=3D"64"><div class=3D"x_1168926883st-Spacer x_1168926883st-Spacer-=
+-filler">&nbsp;<br></div></td></tr><tr><td class=3D"x_1168926883st-Spacer x=
+_1168926883st-Spacer--divider" colspan=3D"3" height=3D"31" style=3D"border:=
+ 0;margin: 0;padding: 0;font-size: 1.0px;line-height: 1.0px;max-height: 1.0=
+px;"><div class=3D"x_1168926883st-Spacer x_1168926883st-Spacer--filler">&nb=
+sp;<br></div></td></tr></tbody></table><table class=3D"x_1168926883st-Copy =
+x_1168926883st-Width x_1168926883st-Width--mobile" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"600" style=3D"min-width: 600.0px;"><tbody=
+><tr><td class=3D"x_1168926883st-Spacer x_1168926883st-Spacer--gutter" styl=
+e=3D"border: 0;margin: 0;padding: 0;font-size: 1.0px;line-height: 1.0px;" w=
+idth=3D"64"><div class=3D"x_1168926883st-Spacer x_1168926883st-Spacer--fill=
+er">&nbsp;<br></div></td><td style=3D"border: 0;margin: 0;padding: 0;color:=
+ rgb(82,95,127);font-size: 16.0px;line-height: 24.0px;">If you have any que=
+stions, contact us at <a style=3D"border: 0;margin: 0;padding: 0;color: rgb=
+(85,108,214);text-decoration: none;" href=3D"mailto:help@wasteconnections.c=
+om" target=3D"_blank">help@wasteconnections.com</a> or call at <a style=3D"=
+border: 0;margin: 0;padding: 0;color: rgb(85,108,214);text-decoration: none=
+;" href=3D"http://58.email.stripe.com/CL0/tel:%2B19055327510/1/010001813f39=
+b4f3-6589bf93-d1ab-43a2-94e5-492de5e5e84a-000000/pfQXDFvCqx-aVyyzmCrjnI4y_W=
+NNwMG2WWlDTpkGGCo=3D252" target=3D"_blank">+1 905 532 7510</a>.<br></td><td=
+ class=3D"x_1168926883st-Spacer x_1168926883st-Spacer--gutter" style=3D"bor=
+der: 0;margin: 0;padding: 0;font-size: 1.0px;line-height: 1.0px;" width=3D"=
+64"><div class=3D"x_1168926883st-Spacer x_1168926883st-Spacer--filler">&nbs=
+p;<br></div></td></tr><tr><td class=3D"x_1168926883st-Spacer x_1168926883st=
+-Spacer--stacked" colspan=3D"3" height=3D"12" style=3D"border: 0;margin: 0;=
+padding: 0;font-size: 1.0px;line-height: 1.0px;"><div class=3D"x_1168926883=
+st-Spacer x_1168926883st-Spacer--filler">&nbsp;<br></div></td></tr></tbody>=
+</table><table class=3D"x_1168926883st-Divider x_1168926883st-Width x_11689=
+26883st-Width--mobile" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wid=
+th=3D"600" style=3D"min-width: 600.0px;"><tbody><tr><td class=3D"x_11689268=
+83st-Spacer x_1168926883st-Spacer--divider" colspan=3D"3" height=3D"20" sty=
+le=3D"border: 0;margin: 0;padding: 0;font-size: 1.0px;line-height: 1.0px;ma=
+x-height: 1.0px;"><div class=3D"x_1168926883st-Spacer x_1168926883st-Spacer=
+--filler">&nbsp;<br></div></td></tr><tr><td class=3D"x_1168926883st-Spacer =
+x_1168926883st-Spacer--gutter" style=3D"border: 0;margin: 0;padding: 0;font=
+-size: 1.0px;line-height: 1.0px;max-height: 1.0px;" width=3D"64"><div class=
+=3D"x_1168926883st-Spacer x_1168926883st-Spacer--filler">&nbsp;<br></div></=
+td><td bgcolor=3D"#e6ebf1" height=3D"1" style=3D"border: 0;margin: 0;paddin=
+g: 0;font-size: 1.0px;line-height: 1.0px;max-height: 1.0px;"><div class=3D"=
+x_1168926883st-Spacer x_1168926883st-Spacer--filler">&nbsp;<br></div></td><=
+td class=3D"x_1168926883st-Spacer x_1168926883st-Spacer--gutter" style=3D"b=
+order: 0;margin: 0;padding: 0;font-size: 1.0px;line-height: 1.0px;max-heigh=
+t: 1.0px;" width=3D"64"><div class=3D"x_1168926883st-Spacer x_1168926883st-=
+Spacer--filler">&nbsp;<br></div></td></tr><tr><td class=3D"x_1168926883st-S=
+pacer x_1168926883st-Spacer--divider" colspan=3D"3" height=3D"31" style=3D"=
+border: 0;margin: 0;padding: 0;font-size: 1.0px;line-height: 1.0px;max-heig=
+ht: 1.0px;"><div class=3D"x_1168926883st-Spacer x_1168926883st-Spacer--fill=
+er">&nbsp;<br></div></td></tr></tbody></table><table class=3D"x_1168926883S=
+ection x_1168926883Copy" style=3D"border: 0;border-collapse: collapse;margi=
+n: 0;padding: 0;background-color: rgb(255,255,255);"><tbody><tr><td class=
+=3D"x_1168926883Spacer x_1168926883Spacer--gutter" width=3D"64" style=3D"bo=
+rder: 0;border-collapse: collapse;margin: 0;padding: 0;color: rgb(255,255,2=
+55);font-size: 1.0px;line-height: 1.0px;">&nbsp;<br></td><td class=3D"x_116=
+8926883Content x_1168926883Footer-legal x_1168926883Font x_1168926883Font--=
+caption x_1168926883Font--mute" style=3D"border: 0;border-collapse: collaps=
+e;margin: 0;padding: 0;width: 472.0px;vertical-align: middle;color: rgb(136=
+,152,170);font-size: 12.0px;line-height: 16.0px;">Something wrong with the =
+email? <a class=3D"x_1168926883browser-link" href=3D"https://58.email.strip=
+e.com/CL0/https:%2F%2Fdashboard.stripe.com%2Freceipts%2Fpayment%2FCAcQARoXC=
+hVhY2N0XzFIbWY2ZkNZcTQ5MDJ4dVAospf-lAYyBic6GjfZjzovFvUAFVvgJVrP44YoWj8DV3kN=
+uDWdNw1yjmIEl--n9WBzEF4TAHkGtwWZe89osm0/1/010001813f39b4f3-6589bf93-d1ab-43=
+a2-94e5-492de5e5e84a-000000/95jo3GR_AdCaV2rWGy1YC0z4zPloNzR05PWx7aIMwPY=3D2=
+52" style=3D"border: 0;margin: 0;padding: 0;color: rgb(85,108,214);text-dec=
+oration: none;" target=3D"_blank"><span class=3D"colour" style=3D"color: rg=
+b(85, 108, 214); border: 0px; margin: 0px; padding: 0px; text-decoration: n=
+one;">View it in your browser.</span></a><br></td><td class=3D"x_1168926883=
+Spacer x_1168926883Spacer--gutter" width=3D"64" style=3D"border: 0;border-c=
+ollapse: collapse;margin: 0;padding: 0;color: rgb(255,255,255);font-size: 1=
+.0px;line-height: 1.0px;">&nbsp;<br></td></tr></tbody></table><table class=
+=3D"x_1168926883Section x_1168926883Divider x_1168926883Divider--small" wid=
+th=3D"100%" style=3D"border: 0;border-collapse: collapse;margin: 0;padding:=
+ 0;background-color: rgb(255,255,255);"><tbody><tr><td class=3D"x_116892688=
+3Spacer x_1168926883Spacer--divider" height=3D"20" style=3D"border: 0;borde=
+r-collapse: collapse;margin: 0;padding: 0;color: rgb(255,255,255);font-size=
+: 1.0px;line-height: 1.0px;">&nbsp;<br></td></tr></tbody></table><table cla=
+ss=3D"x_1168926883Section x_1168926883Copy" style=3D"border: 0;border-colla=
+pse: collapse;margin: 0;padding: 0;background-color: rgb(255,255,255);"><tb=
+ody><tr><td class=3D"x_1168926883Spacer x_1168926883Spacer--gutter" width=
+=3D"64" style=3D"border: 0;border-collapse: collapse;margin: 0;padding: 0;c=
+olor: rgb(255,255,255);font-size: 1.0px;line-height: 1.0px;">&nbsp;<br></td=
+><td class=3D"x_1168926883Content x_1168926883Footer-legal x_1168926883Font=
+ x_1168926883Font--caption x_1168926883Font--mute" style=3D"border: 0;borde=
+r-collapse: collapse;margin: 0;padding: 0;width: 472.0px;vertical-align: mi=
+ddle;color: rgb(136,152,170);font-size: 12.0px;line-height: 16.0px;">You're=
+ receiving this email because you made a purchase at Waste Connections of C=
+anada Inc, which partners with <a style=3D"border: 0;margin: 0;padding: 0;c=
+olor: rgb(85,108,214);text-decoration: none;" target=3D"_blank" href=3D"htt=
+ps://58.email.stripe.com/CL0/https:%2F%2Fstripe.com%2F/1/010001813f39b4f3-6=
+589bf93-d1ab-43a2-94e5-492de5e5e84a-000000/-enUfVBlj9HhcIbfDJtrWV3qqGr8n5GA=
+vGM-XBM2kPo=3D252">Stripe</a> to provide invoicing and payment processing.<=
+br></td></tr></tbody></table><table class=3D"x_1168926883Section x_11689268=
+83Divider x_1168926883Divider--small" width=3D"100%" style=3D"border: 0;bor=
+der-collapse: collapse;margin: 0;padding: 0;background-color: rgb(255,255,2=
+55);"><tbody><tr><td class=3D"x_1168926883Spacer x_1168926883Spacer--divide=
+r" height=3D"20" style=3D"border: 0;border-collapse: collapse;margin: 0;pad=
+ding: 0;color: rgb(255,255,255);font-size: 1.0px;line-height: 1.0px;">&nbsp=
+;<br></td></tr></tbody></table><table class=3D"x_1168926883Section x_116892=
+6883Section--last x_1168926883Divider x_1168926883Divider--large" width=3D"=
+100%" style=3D"border: 0;border-collapse: collapse;margin: 0;padding: 0;bac=
+kground-color: rgb(255,255,255);border-bottom-left-radius: 5.0px;"><tbody><=
+tr><td class=3D"x_1168926883Spacer x_1168926883Spacer--divider" height=3D"6=
+4" style=3D"border: 0;border-collapse: collapse;margin: 0;padding: 0;color:=
+ rgb(255,255,255);font-size: 1.0px;line-height: 1.0px;">&nbsp;<br></td></tr=
+></tbody></table></td></tr></tbody></table></td></tr><tr><td class=3D"x_116=
+8926883st-Spacer x_1168926883st-Spacer--emailEnd" height=3D"64" style=3D"bo=
+rder: 0;margin: 0;padding: 0;font-size: 1.0px;line-height: 1.0px;"><div cla=
+ss=3D"x_1168926883st-Spacer x_1168926883st-Spacer--filler">&nbsp;<br></div>=
+</td></tr></tbody></table><img alt=3D"" id=3D"1654623159284100003_imgsrc_ur=
+l_4" style=3D"display: none;width: 1.0px;height: 1.0px;" width=3D"1" height=
+=3D"1"> </div></blockquote></div><div><br></div><div class=3D"zmail_signatu=
+re_below"><div id=3D"" data-zbluepencil-ignore=3D"true" data-sigid=3D"61893=
+00000000739006"><div>Regards,<br></div><div><br></div><div>John E. Estrada<=
+br></div><div><br></div><div>---------------------------------------<br></d=
+iv><div><br></div><p style=3D"font-style: normal; font-weight: 400; letter-=
+spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-=
+space: normal; widows: 2; word-spacing: 0px"><span class=3D"highlight" styl=
+e=3D"background-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"c=
+olor:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:Verdana, Arial=
+, Helvetica, sans-serif"><span class=3D"size" style=3D"font-size:13.3333px"=
+><span class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><b=
+><span class=3D"colour" style=3D"color:rgb(0, 102, 0)"><span class=3D"font"=
+ style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><spa=
+n class=3D"size" style=3D"font-size:14.66px">START SHREDDING INC. (shredEX)=
+</span></span></span></b><span class=3D"colour" style=3D"color:rgb(51, 51, =
+51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, san=
+s-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br>2=
+08 Evans Ave, Toronto, ON M8Z 1J7<br></span></span></span><b><span class=3D=
+"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font=
+-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"siz=
+e" style=3D"font-size:14.66px">E:<span>&nbsp;<a href=3D"mailto:john@shredex=
+.ca" target=3D"_blank" style=3D"color: rgb(0, 0, 238)">john@shredex.ca</a>&=
+nbsp;</span>W: <a target=3D"_blank" href=3D"http://www.startshredding.com" =
+style=3D"color: rgb(0, 0, 238)">www.startshredding.com</a><br></span></span=
+></span></b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span cl=
+ass=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans=
+-serif"><span class=3D"size" style=3D"font-size:14.66px">DIRECT:&nbsp;</spa=
+n></span></span><a style=3D"color: rgb(17, 85, 204); cursor: default" targe=
+t=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span c=
+lass=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, san=
+s-serif"><span class=3D"size" style=3D"font-size:14.66px">416.255.1500</spa=
+n></span></span></a><span class=3D"colour" style=3D"color:rgb(51, 51, 51)">=
+<span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-ser=
+if, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br>TOLL F=
+REE:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, 204); cursor:=
+ default" target=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 5=
+1, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, =
+sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">1.=
+866.868.9585</span></span></span></a></span></span></span></span></span></p=
+><p style=3D"font-style: normal; font-weight: 400; letter-spacing: normal; =
+orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; wi=
+dows: 2; word-spacing: 0px"><span class=3D"highlight" style=3D"background-c=
+olor:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)=
+"><span class=3D"font" style=3D"font-family:Verdana, Arial, Helvetica, sans=
+-serif"><span class=3D"size" style=3D"font-size:13.3333px"><span class=3D"h=
+ighlight" style=3D"background-color:rgb(255, 255, 255)"><span class=3D"colo=
+ur" style=3D"color:rgb(34, 34, 34)"><span class=3D"font" style=3D"font-fami=
+ly:arial, sans-serif"><span class=3D"size" style=3D"font-size:small"><span =
+class=3D"colour" style=3D"color:gray"><span class=3D"font" style=3D"font-fa=
+mily:Arial, sans-serif"><span class=3D"size" style=3D"font-size:7.5pt">This=
+ message and any attachments are the property of the&nbsp;SHREDEX INC.&nbsp=
+;or its affiliates. It may be legally privileged and/or confidential and is=
+ intended only for the use of the addressee(s). No addressee should store, =
+forward, print, copy, or otherwise reproduce this message in any manner tha=
+t would allow it to be viewed by any individual not originally listed as a =
+recipient. If the reader of this message is not the intended recipient, you=
+ are hereby notified that any unauthorized storage, disclosure, disseminati=
+on, distribution, copying or the taking of any action in reliance on the in=
+formation herein is strictly prohibited. If you have received this communic=
+ation in error, please immediately notify the sender and delete this messag=
+e.</span></span></span></span></span></span></span></span></span></span></s=
+pan><br></p><div id=3D""><div><br></div></div><div><br></div></div></div><d=
+iv><br></div></div><br></body></html>
+------=_Part_657462_1186636246.1717125564092--
+

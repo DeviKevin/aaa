@@ -1,0 +1,285 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp188094rbd;
+        Thu, 30 May 2024 20:18:50 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF6sSO+mYrXJc6Io7xrPwOe08ktxEYUmJQAy84WjlSYnBToflrx8F0GpjYmwDfkG74qfibh
+X-Received: by 2002:a17:90a:e288:b0:2c1:a77c:669a with SMTP id 98e67ed59e1d1-2c1dc57dd0bmr562027a91.13.1717125530103;
+        Thu, 30 May 2024 20:18:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125530; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=I3tl2f0Gx0I4xn2AtB0zSEwEOpx/ftnp51DSkTMMi7fTUq8UIpBw91OdiIUJR9Yo+n
+         sMDcY2K/BC2jNB4yUhI5J11qlzwZvEfH98Bnlr8RCe25vq7eJiheDEJeqlNTrPoSPH85
+         fQJNZJEaqNduJcY7wLuzJt1/SngG8SDS1Caqq3xdvGBFeNE1X+q5aq9LcRbSWOQ3ld+a
+         CmL4fe6rCqUbn0w+R46PriDF8FJFR/z+gAMwyGhwEDz+j6orb2UYBwtP8zY8kffKqCm+
+         48WetBy5g3JTU59Y408zkW7LinW6ATctWXW0lBqHUkHDDHk4AfCCRYecyYCA0+O2d4B2
+         XEDQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=8L6z5q0tn0cBfWYQ4j6VXCSr3ObV6AK9QGUXQcGwfYw=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=OZeKvOEnqQtCztmtbjsnEj22nOSM1b5Q7i7nPfcwHcHq0tj+/AIIDEyOo3HwKknocE
+         vPMRxL9yWCYxl6XS5Cd+/R2pZCg6Ac5af/xROL4QO+99ktYGpQfgq9J9lG/m4QESBU/Q
+         LtdTDSkewFTHPeikXhmOEeaffycMuLEwklNJ/Pgk27WeLPVYQ8mnEeSd3Skl5cERdSVk
+         lXj9+wPsFrhA1pV6z1A/hJS54AL+oR0DWf29KwZU1gy3IT7grwE9+xqOy+SmDNpIihpM
+         4NP1fquQB3Gtkbtl8yMFFDM8B+5qkoYYn/lRb9Aa03jrpm4FQbNOUaKoEJ0a8+IdvmG+
+         v9Xw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=VBQiE2yw;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender4-op-o14.zoho.com (sender4-op-o14.zoho.com. [136.143.188.14])
+        by mx.google.com with ESMTPS id 98e67ed59e1d1-2c1b019db87si28679a91.25.2024.05.30.20.18.49
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:18:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) client-ip=136.143.188.14;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=VBQiE2yw;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125529; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Ne2QaRJSlsdp2r9vwtDiTvA7+0mHIYCKu8HRsn4HhTLsnPPQ4F2ayovrDSs8J1mVIXYTw4NhUhNKo9KPonhNVktGg+5HSjKrdb8fW4b2wMP8U1qWNG/9hi0WzDVAG9nmRLpO2LRfr3Ob+S2s5kqCVWiesk3mdz4mx3TK11/434U=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125529; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=8L6z5q0tn0cBfWYQ4j6VXCSr3ObV6AK9QGUXQcGwfYw=; 
+	b=jqL9EZxdnhD9zKYO/wlActbX7mV+B5OoHvqIp6TSScueLwodvaq6ikkqPNrkA0MUw4invTQgmBWg352dKeG6EYHvazujTVsTTvcUf2z4MsycnEz0ncH+8c7+RATLGN7o/B4difBBZIr6Hx+Sx7pX0K3Rer5E05OQvydeAfUqJ+A=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125529;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=8L6z5q0tn0cBfWYQ4j6VXCSr3ObV6AK9QGUXQcGwfYw=;
+	b=VBQiE2ywyWDiOu0KSzQI/YnRSpvlgw8EBFjbGc4YkCCD/5FwD8KLdHR7cGoo0iw0
+	474cSfgQQQ3GiIX7+lcS1QHl1OrrgIkmQsnIDqe4AnjkTff057gGuX4BqEWXo6bqS7X
+	2d4nXMkRTZxwog1DeIA06Cluvi5yx7I74ZWvFQtw=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 17171255266560.7523075703966242; Thu, 30 May 2024 20:18:46 -0700 (PDT)
+Date: Thu, 30 May 2024 23:18:46 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcca8345a.b1978185202655.2376619627674143086@shredex.ca>
+In-Reply-To: <0508af$4vaobm@e.uhaul.com>
+References: <0508af$4vaobm@e.uhaul.com>
+Subject: Fwd: Your Transaction Receipt
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_657223_1074375601.1717125526618"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_657223_1074375601.1717125526618
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From:  <service@uhaul.com>
+To: <John@backpocket.ca>
+Date: Fri, 26 Aug 2022 17:39:40 -0400
+Subject: Your Transaction Receipt
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+https://www.uhaul.com/
+
+
+
+
+
+
+Your Transaction Receipt
+
+
+Dear john estrada,=20
+
+ Thank you for choosing U-Haul Company for your moving and storage needs. =
+=20
+Your receipt can be viewed here: http://uhaul.com/s/6E45F6B12B
+Your opinion matters to U-Haul.=20
+Let us know how your moving experience went by reviewing your recent rental=
+ at https://www.uhaul.com/review.=20
+Your feedback, good or bad, on the service you received throughout the rent=
+al process=20
+will help us improve the moving experience for the next family.
+
+If you have any questions or concerns about your moving experience or the a=
+ttached receipt,=20
+please contact us at mailto:848029_GM@uhaul.com?subject=3DCustomer Response=
+ to Receipt for Contract #18248356
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_657223_1074375601.1717125526618
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From:  &lt;service@uhaul.com&gt;<br>To: &lt;John@back=
+pocket.ca&gt;<br>Date: Fri, 26 Aug 2022 17:39:40 -0400<br>Subject: Your Tra=
+nsaction Receipt<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><div><br></div><blockquote id=
+=3D"blockquote_zmail" style=3D"margin: 0px;"><div style=3D"margin: 0;paddin=
+g: 0;background: rgb(255,255,255);"><table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"width: 100.0%;"><tbody><tr><td style=3D"padding: =
+20.0px;" align=3D"center"><table width=3D"650" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"background-color: rgb(255,255,255);"><tbody><=
+tr><td><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><=
+td style=3D"text-align: right;width: 400.0px;padding: 20.0px 0;"><a href=3D=
+"https://www.uhaul.com/" style=3D"text-decoration: none;font-family: Arial,=
+ Helvetica, sans-serif;font-size: 14.0px;display: inline-block;" target=3D"=
+_blank"><img id=3D"1661549984152100001_imgsrc_url_0" alt=3D"U-Haul Logo" st=
+yle=3D"display: block;border: none;"></a></td><td style=3D"text-align: righ=
+t;width: 250.0px;display: none;"><a href=3D"https://www.uhaul.com/Account/D=
+ashboard.aspx" style=3D"color: rgb(10,108,191);text-decoration: underline;f=
+ont-family: Arial, Helvetica, sans-serif;font-size: 14.0px;line-height: 20.=
+0px;" target=3D"_blank">My Account</a><br></td></tr></tbody></table></td></=
+tr><tr><td style=3D"text-align: center;background-color: rgb(141,178,13);pa=
+dding: 8.0px;"><b>Your Transaction Receipt</b><br></td></tr><tr><td style=
+=3D"padding: 20.0px 10.0px;border: 2.0px solid rgb(238,238,238);border-top:=
+ none;"><p style=3D"line-height: 20px;"><span class=3D"colour" style=3D"col=
+or:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Arial, Helvet=
+ica, sans-serif"><span class=3D"size" style=3D"font-size: 14px; line-height=
+: 20px;"><span>Dear <b>john estrada,</b></span> <br><br> Thank you for choo=
+sing U-Haul Company for your moving and storage needs. =20
+Your receipt can be viewed here: <a href=3D"http://uhaul.com/s/6E45F6B12B" =
+target=3D"_blank">http://uhaul.com/s/6E45F6B12B</a></span></span></span></p=
+><p style=3D"line-height: 20px;"><span class=3D"colour" style=3D"color:rgb(=
+51, 51, 51)"><span class=3D"font" style=3D"font-family:Arial, Helvetica, sa=
+ns-serif"><span class=3D"size" style=3D"font-size: 14px; line-height: 20px;=
+">Your opinion matters to U-Haul.=20
+Let us know how your moving experience went by reviewing your recent rental=
+ at <a href=3D"https://www.uhaul.com/review" target=3D"_blank">uhaul.com/re=
+view</a>.=20
+Your feedback, good or bad, on the service you received throughout the rent=
+al process=20
+will help us improve the moving experience for the next family.</span></spa=
+n></span><br></p><p style=3D"line-height: 20px;"><span class=3D"colour" sty=
+le=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Aria=
+l, Helvetica, sans-serif"><span class=3D"size" style=3D"font-size: 14px; li=
+ne-height: 20px;">If you have any questions or concerns about your moving e=
+xperience or the attached receipt,=20
+please contact us at <a href=3D"mailto:848029_GM@uhaul.com?subject=3DCustom=
+er Response to Receipt for Contract #18248356" style=3D"text-decoration: un=
+derline;color: rgb(87,156,220);" target=3D"_blank">848029_GM@uhaul.com</a><=
+/span></span></span><br></p></td></tr></tbody></table></td></tr></tbody></t=
+able></div></blockquote></div><div><br></div><div class=3D"zmail_signature_=
+below"><div id=3D"" data-zbluepencil-ignore=3D"true" data-sigid=3D"61893000=
+00000739006"><div>Regards,<br></div><div><br></div><div>John E. Estrada<br>=
+</div><div><br></div><div>---------------------------------------<br></div>=
+<div><br></div><p style=3D"font-style: normal; font-weight: 400; letter-spa=
+cing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-spa=
+ce: normal; widows: 2; word-spacing: 0px"><span class=3D"highlight" style=
+=3D"background-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"co=
+lor:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:Verdana, Arial,=
+ Helvetica, sans-serif"><span class=3D"size" style=3D"font-size:13.3333px">=
+<span class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><b>=
+<span class=3D"colour" style=3D"color:rgb(0, 102, 0)"><span class=3D"font" =
+style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span=
+ class=3D"size" style=3D"font-size:14.66px">START SHREDDING INC. (shredEX)<=
+/span></span></span></b><span class=3D"colour" style=3D"color:rgb(51, 51, 5=
+1)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans=
+-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br>20=
+8 Evans Ave, Toronto, ON M8Z 1J7<br></span></span></span><b><span class=3D"=
+colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-=
+family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size=
+" style=3D"font-size:14.66px">E:<span>&nbsp;<a href=3D"mailto:john@shredex.=
+ca" target=3D"_blank" style=3D"color: rgb(0, 0, 238)">john@shredex.ca</a>&n=
+bsp;</span>W: <a target=3D"_blank" href=3D"http://www.startshredding.com" s=
+tyle=3D"color: rgb(0, 0, 238)">www.startshredding.com</a><br></span></span>=
+</span></b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span cla=
+ss=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-=
+serif"><span class=3D"size" style=3D"font-size:14.66px">DIRECT:&nbsp;</span=
+></span></span><a style=3D"color: rgb(17, 85, 204); cursor: default" target=
+=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span cl=
+ass=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans=
+-serif"><span class=3D"size" style=3D"font-size:14.66px">416.255.1500</span=
+></span></span></a><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><=
+span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-seri=
+f, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br>TOLL FR=
+EE:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, 204); cursor: =
+default" target=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51=
+, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, s=
+ans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">1.8=
+66.868.9585</span></span></span></a></span></span></span></span></span></p>=
+<p style=3D"font-style: normal; font-weight: 400; letter-spacing: normal; o=
+rphans: 2; text-indent: 0px; text-transform: none; white-space: normal; wid=
+ows: 2; word-spacing: 0px"><span class=3D"highlight" style=3D"background-co=
+lor:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"=
+><span class=3D"font" style=3D"font-family:Verdana, Arial, Helvetica, sans-=
+serif"><span class=3D"size" style=3D"font-size:13.3333px"><span class=3D"hi=
+ghlight" style=3D"background-color:rgb(255, 255, 255)"><span class=3D"colou=
+r" style=3D"color:rgb(34, 34, 34)"><span class=3D"font" style=3D"font-famil=
+y:arial, sans-serif"><span class=3D"size" style=3D"font-size:small"><span c=
+lass=3D"colour" style=3D"color:gray"><span class=3D"font" style=3D"font-fam=
+ily:Arial, sans-serif"><span class=3D"size" style=3D"font-size:7.5pt">This =
+message and any attachments are the property of the&nbsp;SHREDEX INC.&nbsp;=
+or its affiliates. It may be legally privileged and/or confidential and is =
+intended only for the use of the addressee(s). No addressee should store, f=
+orward, print, copy, or otherwise reproduce this message in any manner that=
+ would allow it to be viewed by any individual not originally listed as a r=
+ecipient. If the reader of this message is not the intended recipient, you =
+are hereby notified that any unauthorized storage, disclosure, disseminatio=
+n, distribution, copying or the taking of any action in reliance on the inf=
+ormation herein is strictly prohibited. If you have received this communica=
+tion in error, please immediately notify the sender and delete this message=
+.</span></span></span></span></span></span></span></span></span></span></sp=
+an><br></p><div id=3D""><div><br></div></div><div><br></div></div></div><di=
+v><br></div></div><br></body></html>
+------=_Part_657223_1074375601.1717125526618--
+

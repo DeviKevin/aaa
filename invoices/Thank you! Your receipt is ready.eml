@@ -1,0 +1,2082 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp186281rbd;
+        Thu, 30 May 2024 20:12:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEHwT+7aObPlyrFBVeahcR25Qq3Fl/JDm55cOAKsZKb9XQ+1TzFuZOyvCAwmdsWu3AFu817
+X-Received: by 2002:a05:6a21:99a5:b0:1b0:111f:2b6d with SMTP id adf61e73a8af0-1b26f296c13mr1084625637.28.1717125153247;
+        Thu, 30 May 2024 20:12:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125153; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=QMXhLVFqY18KaC3+1TLknjQfNTWGN3qYF8lDlPEwpKUks3CB+Cj6ZA1+jSvoIX4Nzv
+         FMIZMGc7s54KlFme8vadEwnFOBrYg990izJvZFNjwUTvCoINSv2hYwum+/q19eH1sYkh
+         Ax0j356xUrLk2REzfhz+jAMV0cL38s+0u9+Qq3olc9qU0McIg7HpcSpioU6R0eRrl/3i
+         E+bKYT2WA9Qjd7xNTPtdj1zLFwcaRDtgSl3rMo9Y0mYv/BQHlsZJgGE+sWGEU496abbv
+         9q8kpDQymv5pt1UVyhjfnHM8dv6vCTqwIPurIyOl6uaoC84dwj+beIaChymn6nXTd6Tt
+         obvA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=0wDbApGF+rZBChDyTDJgWeU7wHAzqWZ+HZwDHtimR94=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=P7C+Z6DCsn+s7GEmMaEElOOQtERe90RFuppW50EHBD8g+1sj88i59efEtUFR6UWi78
+         8mzM3vf/BljS9stZy5OGteJsIEmQlwr+hCXXZhu3SDNGNQxAY0JrY1a3vHHjYVcse/Fo
+         BzOOE+kFDnFwb2qhC/aUyWM66HurLr6Xr3JsY67sMWH/t5q28XoVFzrqYWX5FrDEFDK5
+         8TCdG40q/34TKHOMOR7ANkT+WHAknBtUUl51KgOCqD9W+ceNqoI17Bi7+FgnWeqeiNxd
+         6ydvPYRY0+W+KkM/EP8Y+IsqOHmBBL0LoY1zQ+nENhamsMdzitUf4UaR0PVt4wFSfiKt
+         RmLA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=lxsU5Yrd;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender4-op-o14.zoho.com (sender4-op-o14.zoho.com. [136.143.188.14])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-6c355157dddsi339371a12.196.2024.05.30.20.12.32
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:12:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) client-ip=136.143.188.14;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=lxsU5Yrd;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125152; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=F/VYsy+EJejdymxNc02fgaParhqlEdeOliJ31Ak3RGNn/nLEWIL2X0U7N5onGiFlGRsHQB/CNDRRMCNi0sL1Bl1zh4+UYMkSwIp8lJeVWnpyIHrr6ID9wbv8IpqPDmUjJRhPgjBbPVq7EhD/2oxRkHsr+Wd9utMntUqFM0o1kJQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125152; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=0wDbApGF+rZBChDyTDJgWeU7wHAzqWZ+HZwDHtimR94=; 
+	b=TWd3T+eM3D6gUnkKTF33oDokWEYrRLjzvr6atu6tSjcNqQ0kpgIF8oL3gnlBMSIqMIcnYrSKI8P7xlSk+14gy/EcDtWYcY/e/HmEVdDPJBh+51U5DVJtDtkVDOW6RG5NwUql38+QyblXy0rVuszLrfX9mZSwUaU0rCL5+qpFHyY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125152;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=0wDbApGF+rZBChDyTDJgWeU7wHAzqWZ+HZwDHtimR94=;
+	b=lxsU5YrdK1FwRIQxxjXfB+8wRLqUEPlg3/Ngr7N5RjsMOEcGJWtLnJ13jEc9UMk1
+	HVXmPbPiHh4n4GgoRhs6K/uiyjok7zpc501sgJfuC436VO9Aul7HK6l2wJL0ofWpw/D
+	KVEVzdmCBcJUdYxTLAUdQkLo+86lhyr3a5F9egYY=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717125149454631.3291386973921; Thu, 30 May 2024 20:12:29 -0700 (PDT)
+Date: Thu, 30 May 2024 23:12:29 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcca2726b.104cd6b02201928.6795971358141130383@shredex.ca>
+In-Reply-To: <df323fcf-2216-4d46-bfe1-86904ec04781@ind1s01mta1204.xt.local>
+References: <df323fcf-2216-4d46-bfe1-86904ec04781@ind1s01mta1204.xt.local>
+Subject: Fwd: Thank you! Your receipt is ready
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_654925_180456271.1717125149294"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_654925_180456271.1717125149294
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Holiday Inn Club Vacations <no-reply@holidayinnclubemail.com>
+To: <john@shredex.ca>
+Date: Wed, 23 Aug 2023 06:00:18 -0400
+Subject: Thank you! Your receipt is ready
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+We look forward to seeing you=C2=A0again
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thank you for staying with us at Orange Lake Resort. We hope you enjoyed yo=
+ur stay as much as we enjoyed having you stay with us!
+
+For your convenience, a copy of your receipt is below. If you have any ques=
+tions, please call us at (407) 477-7025.
+
+
+
+
+
+
+Holiday Inn Club Vacations=C2=AE Orange Lake Resort
+=20
+ 8505 W. Irlo Bronson Memorial Hwy Kissimmee, FL 34747
+=20
+ P: (407) 477-7025 | https://click.holidayinnclubemail.com/?qs=3D6a062439a7=
+1e6ba0c2358f2408bccb2e2c751cc9676fdce56d4fb829c47f63b0b40830c3a102b38f6333a=
+e67044a4abb3bfe20a78fc8cd24
+=20
+ Name
+
+John Estrada
+
+
+Unit
+
+86235
+
+
+Arrival
+
+08/16/2023
+
+
+Receipt Number
+
+8287566
+
+
+Departure
+
+08/23/2023
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+
+
+
+
+Date
+
+Reference
+
+Description
+
+Charges
+
+Payment
+
+Balance
+
+
+08/16/23
+
+
+
+Visa Payment
+
+$0
+
+($236.24)
+
+($236.24)
+
+
+08/16/23
+
+NightAudit
+
+Resort Fee OL
+
+$30
+
+$0.00
+
+($206.24)
+
+
+08/16/23
+
+NightAudit
+
+Hotel Tax
+
+$1.8
+
+$0.00
+
+($204.44)
+
+
+08/16/23
+
+NightAudit
+
+Sales Tax
+
+$1.95
+
+$0.00
+
+($202.49)
+
+
+08/17/23
+
+NightAudit
+
+Resort Fee OL
+
+$30
+
+$0.00
+
+($172.49)
+
+
+08/17/23
+
+NightAudit
+
+Hotel Tax
+
+$1.8
+
+$0.00
+
+($170.69)
+
+
+08/17/23
+
+NightAudit
+
+Sales Tax
+
+$1.95
+
+$0.00
+
+($168.74)
+
+
+08/18/23
+
+NightAudit
+
+Resort Fee OL
+
+$30
+
+$0.00
+
+($138.74)
+
+
+08/18/23
+
+NightAudit
+
+Hotel Tax
+
+$1.8
+
+$0.00
+
+($136.94)
+
+
+08/18/23
+
+NightAudit
+
+Sales Tax
+
+$1.95
+
+$0.00
+
+($134.99)
+
+
+08/19/23
+
+NightAudit
+
+Resort Fee OL
+
+$30
+
+$0.00
+
+($104.99)
+
+
+08/19/23
+
+NightAudit
+
+Hotel Tax
+
+$1.8
+
+$0.00
+
+($103.19)
+
+
+08/19/23
+
+NightAudit
+
+Sales Tax
+
+$1.95
+
+$0.00
+
+($101.24)
+
+
+08/20/23
+
+NightAudit
+
+Resort Fee OL
+
+$30
+
+$0.00
+
+($71.24)
+
+
+08/20/23
+
+NightAudit
+
+Hotel Tax
+
+$1.8
+
+$0.00
+
+($69.44)
+
+
+08/20/23
+
+NightAudit
+
+Sales Tax
+
+$1.95
+
+$0.00
+
+($67.49)
+
+
+08/21/23
+
+NightAudit
+
+Resort Fee OL
+
+$30
+
+$0.00
+
+($37.49)
+
+
+08/21/23
+
+NightAudit
+
+Hotel Tax
+
+$1.8
+
+$0.00
+
+($35.69)
+
+
+08/21/23
+
+NightAudit
+
+Sales Tax
+
+$1.95
+
+$0.00
+
+($33.74)
+
+
+08/22/23
+
+NightAudit
+
+Resort Fee OL
+
+$30
+
+$0.00
+
+($3.74)
+
+
+08/22/23
+
+NightAudit
+
+Hotel Tax
+
+$1.8
+
+$0.00
+
+($1.94)
+
+
+08/22/23
+
+NightAudit
+
+Sales Tax
+
+$1.95
+
+$0.00
+
+$0.01
+
+
+08/23/23
+
+
+
+Small folio balance adjust
+
+$0
+
+($0.01)
+
+$0.00
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thank you again for choosing Holiday Inn Club Vacations=C2=AE for your late=
+st getaway. We can=E2=80=99t wait to see you again soon!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Holiday Inn Club Vacations Incorporated, the Holiday Inn Club=C2=AE program=
+, and the Holiday Inn Club Vacations=C2=AE  resorts are independently owned=
+, operated and marketed and are not owned, operated or marketed by any Inte=
+rContinental Hotels Group (=E2=80=9CIHG=E2=80=9D) companies, or by IHG One =
+Rewards, or by the owner or licensor of the Holiday Inn=C2=AE brand.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://click.holidayinnclubemail.com/?qs=3D9d178dbfe6f3c931ae54531ede9a461=
+40b3ce808cf6dea51ae3864b05239d4f0798ceba10ec31717a6d2cdcb454352359b0fe94406=
+037d75 =C2=A0 https://click.holidayinnclubemail.com/?qs=3Dd1ac6165d7a0b947e=
+ef5f0ec49b8ae13eafeec4fe81f53a9be8f2a7b3559fe15757e62697fe319ef617f77c43919=
+1c66c27bcf4d12148bff =C2=A0 https://click.holidayinnclubemail.com/?qs=3D508=
+6e4fb7696b665ec9355783c0b7bada4d2781dd9577d144b55dad9e1f4570978bb67894cf2ae=
+fdae580a2adff6d7049248412ba10053d1=C2=A0 https://click.holidayinnclubemail.=
+com/?qs=3D0400480b19766a62efc74d9d9efc8f717cd24880bd35f354ed8dfc3fa569b2045=
+c52eca25854ba17e546674af1ef81496e6cf96238e353f7
+
+
+
+
+
+
+
+
+
+
+
+
+
+This email was sent to:mailto:john@shredex.ca =20
+=20
+  This email was sent by:
+ Holiday Inn Club Vacations Incorporated=20
+ 9271 S. John Young Pkwy=20
+ Orlando, FL 32819, US=20
+=20
+ https://click.holidayinnclubemail.com/?qs=3Db414704d013851757ca2ecbdbff5ba=
+3c3432abf3cecb6a4cd8d2f6a21ab8d4b21f908777167afe719715952b77e134decb9225fc8=
+f3ff20b=C2=A0|=C2=A0https://click.holidayinnclubemail.com/?qs=3Dfc6daf712c8=
+7cdbd9147b9c1f8a72416c59158a7b8cb3432faf5ae7c9495f464f1e30cb17934db00900513=
+e32418e5a7af482cc12f2754877e09fd043f04d26a=C2=A0|=C2=A0 https://view.holida=
+yinnclubemail.com/?qs=3Da3edad454566a7868e0a41ba379cc28d0805f6b197401c18527=
+91dc3f6a4125f815b257fc4768699d82ee44be4dae877d49845a5c722b105580075e6ee08a6=
+d9c11c6df873d734c46e908e8566b960ceb8c3cfc64297fe0445ccfd64278c684f
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_654925_180456271.1717125149294
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Holiday Inn Club Vacations &lt;no-reply@holiday=
+innclubemail.com&gt;<br>To: &lt;john@shredex.ca&gt;<br>Date: Wed, 23 Aug 20=
+23 06:00:18 -0400<br>Subject: Thank you! Your receipt is ready<br>=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D<br></div><div><br></div><blockquote id=3D"blockquote_zmail" style=
+=3D"margin: 0px;"><div style=3D"background-color :  #ffffff; color :  #0000=
+00; padding :  0px; font-size :  16px; font-family :  arial, helvetica, san=
+s-serif;" class=3D"zm_420157206212438255_parse_-3256589645712371694"><div c=
+lass=3D"x_610316721preheader" style=3D"font-size: 1px; display: none;">We l=
+ook forward to seeing you again<br></div><div style=3D"font-size :  0; line=
+-height :  0;"><img id=3D"1692784824299100001_imgsrc_url_0" width=3D"1" hei=
+ght=3D"1" alt=3D"" style=3D"outline: 0;"><br></div><table width=3D"100%" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"center"><tbody><tr>=
+<td align=3D"center" valign=3D"top" style=3D"border-collapse: collapse;"><b=
+r></td></tr><tr><td align=3D"center" style=3D"border-collapse: collapse;"><=
+table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"600" class=
+=3D"x_610316721container" align=3D"center"><tbody><tr><td style=3D"border-c=
+ollapse: collapse;"><table class=3D"x_610316721tb_properties x_610316721bor=
+der_style" style=3D"background-color :  #FFFFFF;" cellspacing=3D"0" cellpad=
+ding=3D"0" bgcolor=3D"#ffffff" width=3D"100%"><tbody><tr><td align=3D"cente=
+r" class=3D"x_610316721header" valign=3D"top" style=3D"border-collapse: col=
+lapse;"><table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" width=3D"100%"><tbody><tr><td align=3D"left" valign=3D"top" style=3D"bo=
+rder-collapse: collapse;"><table cellspacing=3D"0" cellpadding=3D"0" style=
+=3D"width :  100%;"><tbody><tr><td class=3D"x_610316721responsive-td" valig=
+n=3D"top" style=3D"border-collapse: collapse; width: 100%;" width=3D"100%">=
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-widt=
+h :  100%;" class=3D"x_610316721stylingblock-content-wrapper"><tbody><tr><t=
+d class=3D"x_610316721stylingblock-content-wrapper x_610316721camarker-inne=
+r" style=3D"border-collapse: collapse;"><br></td></tr></tbody></table><tabl=
+e cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width :  =
+100%;" class=3D"x_610316721stylingblock-content-wrapper"><tbody><tr><td cla=
+ss=3D"x_610316721stylingblock-content-wrapper x_610316721camarker-inner" st=
+yle=3D"border-collapse: collapse;"><table cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"100%"><tbody><tr><td align=3D"center" style=3D"border-collapse:=
+ collapse;"><img alt=3D"" id=3D"1692784824299100001_imgsrc_url_1" style=3D"=
+outline: 0; display: block; padding: 0px; text-align: center; height: auto;=
+ width: 100%; border: 0px;" width=3D"100%" height=3D"auto"></td></tr></tbod=
+y></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></t=
+body></table></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"bor=
+der-collapse: collapse;"><table align=3D"left" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td class=3D"x_610316721cont=
+ent_padding" style=3D"border-collapse: collapse;"><table border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td align=3D"cente=
+r" class=3D"x_610316721header" valign=3D"top" style=3D"border-collapse: col=
+lapse;"><table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" width=3D"100%"><tbody><tr><td align=3D"left" valign=3D"top" style=3D"bo=
+rder-collapse: collapse;"><table cellspacing=3D"0" cellpadding=3D"0" style=
+=3D"width :  100%;"><tbody><tr><td class=3D"x_610316721responsive-td" valig=
+n=3D"top" style=3D"border-collapse: collapse; width: 100%;" width=3D"100%">=
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"backgrou=
+nd-color :  transparent; min-width :  100%;" class=3D"x_610316721stylingblo=
+ck-content-wrapper"><tbody><tr><td style=3D"border-collapse: collapse; padd=
+ing: 30px 40px 20px;" class=3D"x_610316721stylingblock-content-wrapper x_61=
+0316721camarker-inner"><div style=3D"text-align :  center; line-height :  3=
+8px;"><span class=3D"size" style=3D"font-size:36px"><span class=3D"font" st=
+yle=3D"font-family:Arial, Helvetica, sans-serif"><span class=3D"colour" sty=
+le=3D"color:rgb(243, 108, 21)"><b>We look forward to seeing you&nbsp;again<=
+/b></span></span></span><br></div></td></tr></tbody></table></td></tr></tbo=
+dy></table></td></tr></tbody></table></td></tr><tr><td align=3D"center" cla=
+ss=3D"x_610316721header" valign=3D"top" style=3D"border-collapse: collapse;=
+"><table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"100%"><tbody><tr><td align=3D"left" valign=3D"top" style=3D"border-c=
+ollapse: collapse;"><table cellspacing=3D"0" cellpadding=3D"0" style=3D"wid=
+th :  100%;"><tbody><tr><td class=3D"x_610316721responsive-td" valign=3D"to=
+p" style=3D"border-collapse: collapse; width: 100%;" width=3D"100%"><table =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-colo=
+r :  transparent; min-width :  100%;" class=3D"x_610316721stylingblock-cont=
+ent-wrapper"><tbody><tr><td style=3D"border-collapse: collapse; padding: 0p=
+x 20px 20px;" class=3D"x_610316721stylingblock-content-wrapper x_610316721c=
+amarker-inner"><p style=3D"margin: 1em 0px; line-height: 23px;"><span class=
+=3D"size" style=3D"font-size: 18px; margin: 1em 0px; line-height: 23px;"><s=
+pan class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size=
+" style=3D"font-size:18px"><span class=3D"font" style=3D"font-family:Arial,=
+ Helvetica, sans-serif">Thank you for staying with us at Orange Lake Resort=
+. We hope you enjoyed your stay as much as we enjoyed having you stay with =
+us!</span></span></span></span><br></p><p style=3D"margin: 1em 0px; line-he=
+ight: 23px;"><span class=3D"size" style=3D"font-size: 18px; margin: 1em 0px=
+; line-height: 23px;"><span class=3D"colour" style=3D"color:rgb(112, 112, 1=
+12)"><span class=3D"size" style=3D"font-size:18px"><span class=3D"font" sty=
+le=3D"font-family:Arial, Helvetica, sans-serif">For your convenience, a cop=
+y of your receipt is below. If you have any questions, please call us at <b=
+>(407) 477-7025</b>.</span></span></span></span><br></p></td></tr></tbody><=
+/table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"b=
+ackground-color :  transparent; border :  2px solid transparent; min-width =
+:  100%;" class=3D"x_610316721stylingblock-content-wrapper"><tbody><tr><td =
+style=3D"border-collapse: collapse; padding: 0px;" class=3D"x_610316721styl=
+ingblock-content-wrapper x_610316721camarker-inner"><div class=3D"x_6103167=
+21mobile-show" style=3D"display :  none; max-height :  0px; overflow :  hid=
+den;"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr>=
+<td align=3D"center" style=3D"border-collapse: collapse;"><table cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-color :  trans=
+parent; border :  0px solid transparent; min-width :  100%;" class=3D"x_610=
+316721stylingblock-content-wrapper"><tbody><tr><td style=3D"border-collapse=
+: collapse; padding: 20px 6px;" class=3D"x_610316721stylingblock-content-wr=
+apper x_610316721camarker-inner"><table align=3D"center" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"width :  100%;"><tbody><tr><td alig=
+n=3D"center" style=3D"border-collapse: collapse;"><table align=3D"center" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width :  60%;"><tb=
+ody><tr><td style=3D"border-collapse: collapse; border-top: 3px solid #f47d=
+30; border-left: 0px solid transparent; border-bottom: 0px solid transparen=
+t; border-right: 0px solid transparent;"><br></td></tr></tbody></table></td=
+></tr></tbody></table><br><span class=3D"size" style=3D"font-size: 18px; li=
+ne-height: 24px;"><span class=3D"font" style=3D"font-family:Arial, Helvetic=
+a, sans-serif"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><b=
+>Holiday Inn Club Vacations</b><sup style=3D"font-size :  12px; line-height=
+ :  0; vertical-align :  super;">=C2=AE</sup> <b>Orange Lake Resort</b></sp=
+an><br> <br> <span class=3D"colour" style=3D"color:rgb(112, 112, 112)">8505=
+ W. Irlo Bronson Memorial Hwy Kissimmee, FL 34747<br> <br> P: (407) 477-702=
+5 | <a href=3D"https://click.holidayinnclubemail.com/?qs=3D6a062439a71e6ba0=
+c2358f2408bccb2e2c751cc9676fdce56d4fb829c47f63b0b40830c3a102b38f6333ae67044=
+a4abb3bfe20a78fc8cd24" style=3D"color :  #707070; text-decoration :  none;"=
+ target=3D"_blank" title=3D"HolidayInnClub.com">HolidayInnClub.com</a><br> =
+<br> </span></span></span><table cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"x_610316721stylingblock-content-wrapper" style=3D"min-width :  100%;" w=
+idth=3D"100%"><tbody><tr><td class=3D"x_610316721stylingblock-content-wrapp=
+er x_610316721camarker-inner" style=3D"border-collapse: collapse; padding: =
+15px 0px;"><table align=3D"left" width=3D"100%"><tbody><tr><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left; font: normal no=
+rmal bold 20px/ 23px Arial; letter-spacing: 0px; color: #707070; opacity: 1=
+;" width=3D"45%" align=3D"left"><span class=3D"size" style=3D"font-size:18p=
+x"><span class=3D"font" style=3D"font-family:Arial, Helvetica, sans-serif">=
+Name</span></span><br></td><td style=3D"border-collapse: collapse; padding-=
+top: 5px; text-align: left; font: normal normal normal 20px/ 23px Arial; le=
+tter-spacing: 0px; color: #707070; opacity: 1;" width=3D"55%" align=3D"left=
+"><span class=3D"size" style=3D"font-size:18px"><span class=3D"font" style=
+=3D"font-family:Arial, Helvetica, sans-serif">John Estrada</span></span><br=
+></td></tr><tr><td style=3D"border-collapse: collapse; padding-top: 15px; t=
+ext-align: left; font: normal normal bold 20px/ 23px Arial; letter-spacing:=
+ 0px; color: #707070; opacity: 1;" width=3D"45%" align=3D"left"><span class=
+=3D"size" style=3D"font-size:18px"><span class=3D"font" style=3D"font-famil=
+y:Arial, Helvetica, sans-serif">Unit</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 15px; text-align: left; font: normal n=
+ormal normal 20px/ 23px Arial; letter-spacing: 0px; color: #707070; opacity=
+: 1;" width=3D"55%" align=3D"left"><span class=3D"size" style=3D"font-size:=
+18px"><span class=3D"font" style=3D"font-family:Arial, Helvetica, sans-seri=
+f">86235</span></span><br></td></tr><tr><td style=3D"border-collapse: colla=
+pse; padding-top: 15px; text-align: left; font: normal normal bold 20px/ 23=
+px Arial; letter-spacing: 0px; color: #707070; opacity: 1;" width=3D"45%" a=
+lign=3D"left"><span class=3D"size" style=3D"font-size:18px"><span class=3D"=
+font" style=3D"font-family:Arial, Helvetica, sans-serif">Arrival</span></sp=
+an><br></td><td style=3D"border-collapse: collapse; padding-top: 15px; text=
+-align: left; font: normal normal normal 20px/ 23px Arial; letter-spacing: =
+0px; color: #707070; opacity: 1;" width=3D"55%" align=3D"left"><span class=
+=3D"size" style=3D"font-size:18px"><span class=3D"font" style=3D"font-famil=
+y:Arial, Helvetica, sans-serif">08/16/2023</span></span><br></td></tr><tr><=
+td style=3D"border-collapse: collapse; padding-top: 15px; text-align: left;=
+ font: normal normal bold 20px/ 23px Arial; letter-spacing: 0px; color: #70=
+7070; opacity: 1;" width=3D"45%" align=3D"left"><span class=3D"size" style=
+=3D"font-size:18px"><span class=3D"font" style=3D"font-family:Arial, Helvet=
+ica, sans-serif">Receipt Number</span></span><br></td><td style=3D"border-c=
+ollapse: collapse; padding-top: 15px; text-align: left; font: normal normal=
+ normal 20px/ 23px Arial; letter-spacing: 0px; color: #707070; opacity: 1;"=
+ width=3D"55%" align=3D"left"><span class=3D"size" style=3D"font-size:18px"=
+><span class=3D"font" style=3D"font-family:Arial, Helvetica, sans-serif">82=
+87566</span></span><br></td></tr><tr><td style=3D"border-collapse: collapse=
+; padding-top: 15px; text-align: left; font: normal normal bold 20px/ 23px =
+Arial; letter-spacing: 0px; color: #707070; opacity: 1;" width=3D"45%" alig=
+n=3D"left"><span class=3D"size" style=3D"font-size:18px"><span class=3D"fon=
+t" style=3D"font-family:Arial, Helvetica, sans-serif">Departure</span></spa=
+n><br></td><td style=3D"border-collapse: collapse; padding-top: 15px; text-=
+align: left; font: normal normal normal 20px/ 23px Arial; letter-spacing: 0=
+px; color: #707070; opacity: 1;" width=3D"55%" align=3D"left"><span class=
+=3D"size" style=3D"font-size:18px"><span class=3D"font" style=3D"font-famil=
+y:Arial, Helvetica, sans-serif">08/23/2023</span></span><br></td></tr></tbo=
+dy></table></td></tr></tbody></table>&nbsp;<table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width :  100%;"><tbody>=
+<tr><td align=3D"center" style=3D"border-collapse: collapse;"><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width=
+ :  60%;"><tbody><tr><td style=3D"border-collapse: collapse; border-top: 3p=
+x solid #f47d30; border-left: 0px solid transparent; border-bottom: 0px sol=
+id transparent; border-right: 0px solid transparent;"><br></td></tr></tbody=
+></table></td></tr></tbody></table><br><table cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"min-width :  100%;" class=3D"x_610316721styl=
+ingblock-content-wrapper"><tbody><tr><td class=3D"x_610316721stylingblock-c=
+ontent-wrapper x_610316721camarker-inner" style=3D"border-collapse: collaps=
+e;"><table align=3D"left" border=3D"0" cellpadding=3D"1" cellspacing=3D"5" =
+dir=3D"ltr" style=3D"width :  100%;"><tbody><tr><td style=3D"border-collaps=
+e: collapse; padding-top: 5px;" width=3D"16%"><b><span class=3D"colour" sty=
+le=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13p=
+x">Date</span></span></b><br></td><td style=3D"border-collapse: collapse; p=
+adding-top: 5px; text-align: left;" width=3D"20%" align=3D"left"><b><span c=
+lass=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" sty=
+le=3D"font-size:13px">Reference</span></span></b><br></td><td style=3D"bord=
+er-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"24%" a=
+lign=3D"left"><b><span class=3D"colour" style=3D"color:rgb(112, 112, 112)">=
+<span class=3D"size" style=3D"font-size:13px">Description</span></span></b>=
+<br></td><td style=3D"border-collapse: collapse; padding-top: 5px; text-ali=
+gn: left;" width=3D"12%" align=3D"left"><b><span class=3D"colour" style=3D"=
+color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Cha=
+rges</span></span></b><br></td><td style=3D"border-collapse: collapse; padd=
+ing-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><b><span clas=
+s=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">Payment</span></span></b><br></td><td style=3D"border-c=
+ollapse: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=
+=3D"left"><b><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><spa=
+n class=3D"size" style=3D"font-size:13px">Balance</span></span></b><br></td=
+></tr><tr><td style=3D"border-collapse: collapse; padding-top: 5px;" width=
+=3D"16%"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span cl=
+ass=3D"size" style=3D"font-size:13px">08/16/23</span></span><br></td><td st=
+yle=3D"border-collapse: collapse; padding-top: 5px; text-align: left;" widt=
+h=3D"20%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112=
+, 112)"><span class=3D"size" style=3D"font-size:13px"></span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Visa Payment<=
+/span></span><br></td><td style=3D"border-collapse: collapse; padding-top: =
+5px; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour"=
+ style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size=
+:13px">$0</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">($236.24)</span></span><br></td><td style=3D"border-col=
+lapse: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=
+=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span c=
+lass=3D"size" style=3D"font-size:13px">($236.24)</span></span><br></td></tr=
+><tr><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16=
+%"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D=
+"size" style=3D"font-size:13px">08/16/23</span></span><br></td><td style=3D=
+"border-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"2=
+0%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)=
+"><span class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br=
+></td><td style=3D"border-collapse: collapse; padding-top: 5px; text-align:=
+ left;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:=
+rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Resort Fe=
+e OL</span></span><br></td><td style=3D"border-collapse: collapse; padding-=
+top: 5px; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"co=
+lour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font=
+-size:13px">$30</span></span><br></td><td style=3D"border-collapse: collaps=
+e; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span =
+class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" st=
+yle=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-coll=
+apse: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D=
+"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span clas=
+s=3D"size" style=3D"font-size:13px">($206.24)</span></span><br></td></tr><t=
+r><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%">=
+<span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"si=
+ze" style=3D"font-size:13px">08/16/23</span></span><br></td><td style=3D"bo=
+rder-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%"=
+ align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><=
+span class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></=
+td><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: le=
+ft;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb=
+(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Hotel Tax</s=
+pan></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5p=
+x; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" s=
+tyle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:1=
+3px">$1.8</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($204.44)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/16/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Sales Tax</sp=
+an></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px=
+; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" st=
+yle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13=
+px">$1.95</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($202.49)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/17/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Resort Fee OL=
+</span></span><br></td><td style=3D"border-collapse: collapse; padding-top:=
+ 5px; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour=
+" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-siz=
+e:13px">$30</span></span><br></td><td style=3D"border-collapse: collapse; p=
+adding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span clas=
+s=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($172.49)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/17/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Hotel Tax</sp=
+an></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px=
+; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" st=
+yle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13=
+px">$1.8</span></span><br></td><td style=3D"border-collapse: collapse; padd=
+ing-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($170.69)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/17/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Sales Tax</sp=
+an></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px=
+; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" st=
+yle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13=
+px">$1.95</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($168.74)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/18/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Resort Fee OL=
+</span></span><br></td><td style=3D"border-collapse: collapse; padding-top:=
+ 5px; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour=
+" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-siz=
+e:13px">$30</span></span><br></td><td style=3D"border-collapse: collapse; p=
+adding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span clas=
+s=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($138.74)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/18/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Hotel Tax</sp=
+an></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px=
+; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" st=
+yle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13=
+px">$1.8</span></span><br></td><td style=3D"border-collapse: collapse; padd=
+ing-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($136.94)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/18/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Sales Tax</sp=
+an></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px=
+; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" st=
+yle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13=
+px">$1.95</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($134.99)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/19/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Resort Fee OL=
+</span></span><br></td><td style=3D"border-collapse: collapse; padding-top:=
+ 5px; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour=
+" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-siz=
+e:13px">$30</span></span><br></td><td style=3D"border-collapse: collapse; p=
+adding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span clas=
+s=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($104.99)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/19/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Hotel Tax</sp=
+an></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px=
+; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" st=
+yle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13=
+px">$1.8</span></span><br></td><td style=3D"border-collapse: collapse; padd=
+ing-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($103.19)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/19/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Sales Tax</sp=
+an></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px=
+; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" st=
+yle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13=
+px">$1.95</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($101.24)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/20/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Resort Fee OL=
+</span></span><br></td><td style=3D"border-collapse: collapse; padding-top:=
+ 5px; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour=
+" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-siz=
+e:13px">$30</span></span><br></td><td style=3D"border-collapse: collapse; p=
+adding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span clas=
+s=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($71.24)</span></span><br></td></tr><tr>=
+<td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><s=
+pan class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size=
+" style=3D"font-size:13px">08/20/23</span></span><br></td><td style=3D"bord=
+er-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" a=
+lign=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><sp=
+an class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></td=
+><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: left=
+;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(1=
+12, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Hotel Tax</spa=
+n></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px;=
+ text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" sty=
+le=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13p=
+x">$1.8</span></span><br></td><td style=3D"border-collapse: collapse; paddi=
+ng-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=3D=
+"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"f=
+ont-size:13px">$0.00</span></span><br></td><td style=3D"border-collapse: co=
+llapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">($69.44)</span></span><br></td></tr><tr><td sty=
+le=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><span cla=
+ss=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">08/20/23</span></span><br></td><td style=3D"border-coll=
+apse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" align=3D=
+"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span clas=
+s=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></td><td st=
+yle=3D"border-collapse: collapse; padding-top: 5px; text-align: left;" widt=
+h=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112=
+, 112)"><span class=3D"size" style=3D"font-size:13px">Sales Tax</span></spa=
+n><br></td><td style=3D"border-collapse: collapse; padding-top: 5px; text-a=
+lign: left;" width=3D"12%" align=3D"left"><span class=3D"colour" style=3D"c=
+olor:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$1.9=
+5</span></span><br></td><td style=3D"border-collapse: collapse; padding-top=
+: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=3D"colou=
+r" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-si=
+ze:13px">$0.00</span></span><br></td><td style=3D"border-collapse: collapse=
+; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span c=
+lass=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" sty=
+le=3D"font-size:13px">($67.49)</span></span><br></td></tr><tr><td style=3D"=
+border-collapse: collapse; padding-top: 5px;" width=3D"16%"><span class=3D"=
+colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"fo=
+nt-size:13px">08/21/23</span></span><br></td><td style=3D"border-collapse: =
+collapse; padding-top: 5px; text-align: left;" width=3D"20%" align=3D"left"=
+><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"s=
+ize" style=3D"font-size:13px">NightAudit</span></span><br></td><td style=3D=
+"border-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"2=
+4%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)=
+"><span class=3D"size" style=3D"font-size:13px">Resort Fee OL</span></span>=
+<br></td><td style=3D"border-collapse: collapse; padding-top: 5px; text-ali=
+gn: left;" width=3D"12%" align=3D"left"><span class=3D"colour" style=3D"col=
+or:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$30</s=
+pan></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5p=
+x; text-align: left;" width=3D"14%" align=3D"left"><span class=3D"colour" s=
+tyle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:1=
+3px">$0.00</span></span><br></td><td style=3D"border-collapse: collapse; pa=
+dding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">($37.49)</span></span><br></td></tr><tr><td style=3D"bo=
+rder-collapse: collapse; padding-top: 5px;" width=3D"16%"><span class=3D"co=
+lour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font=
+-size:13px">08/21/23</span></span><br></td><td style=3D"border-collapse: co=
+llapse; padding-top: 5px; text-align: left;" width=3D"20%" align=3D"left"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">NightAudit</span></span><br></td><td style=3D"b=
+order-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"24%=
+" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)">=
+<span class=3D"size" style=3D"font-size:13px">Hotel Tax</span></span><br></=
+td><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: le=
+ft;" width=3D"12%" align=3D"left"><span class=3D"colour" style=3D"color:rgb=
+(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$1.8</span><=
+/span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px; te=
+xt-align: left;" width=3D"14%" align=3D"left"><span class=3D"colour" style=
+=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px"=
+>$0.00</span></span><br></td><td style=3D"border-collapse: collapse; paddin=
+g-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=3D"=
+colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"fo=
+nt-size:13px">($35.69)</span></span><br></td></tr><tr><td style=3D"border-c=
+ollapse: collapse; padding-top: 5px;" width=3D"16%"><span class=3D"colour" =
+style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:=
+13px">08/21/23</span></span><br></td><td style=3D"border-collapse: collapse=
+; padding-top: 5px; text-align: left;" width=3D"20%" align=3D"left"><span c=
+lass=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" sty=
+le=3D"font-size:13px">NightAudit</span></span><br></td><td style=3D"border-=
+collapse: collapse; padding-top: 5px; text-align: left;" width=3D"24%" alig=
+n=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span =
+class=3D"size" style=3D"font-size:13px">Sales Tax</span></span><br></td><td=
+ style=3D"border-collapse: collapse; padding-top: 5px; text-align: left;" w=
+idth=3D"12%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, =
+112, 112)"><span class=3D"size" style=3D"font-size:13px">$1.95</span></span=
+><br></td><td style=3D"border-collapse: collapse; padding-top: 5px; text-al=
+ign: left;" width=3D"14%" align=3D"left"><span class=3D"colour" style=3D"co=
+lor:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$0.00=
+</span></span><br></td><td style=3D"border-collapse: collapse; padding-top:=
+ 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=3D"colour=
+" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-siz=
+e:13px">($33.74)</span></span><br></td></tr><tr><td style=3D"border-collaps=
+e: collapse; padding-top: 5px;" width=3D"16%"><span class=3D"colour" style=
+=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px"=
+>08/22/23</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"20%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">NightAudit</span></span><br></td><td style=3D"border-co=
+llapse: collapse; padding-top: 5px; text-align: left;" width=3D"24%" align=
+=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span c=
+lass=3D"size" style=3D"font-size:13px">Resort Fee OL</span></span><br></td>=
+<td style=3D"border-collapse: collapse; padding-top: 5px; text-align: left;=
+" width=3D"12%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(11=
+2, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$30</span></spa=
+n><br></td><td style=3D"border-collapse: collapse; padding-top: 5px; text-a=
+lign: left;" width=3D"14%" align=3D"left"><span class=3D"colour" style=3D"c=
+olor:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$0.0=
+0</span></span><br></td><td style=3D"border-collapse: collapse; padding-top=
+: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=3D"colou=
+r" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-si=
+ze:13px">($3.74)</span></span><br></td></tr><tr><td style=3D"border-collaps=
+e: collapse; padding-top: 5px;" width=3D"16%"><span class=3D"colour" style=
+=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px"=
+>08/22/23</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"20%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">NightAudit</span></span><br></td><td style=3D"border-co=
+llapse: collapse; padding-top: 5px; text-align: left;" width=3D"24%" align=
+=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span c=
+lass=3D"size" style=3D"font-size:13px">Hotel Tax</span></span><br></td><td =
+style=3D"border-collapse: collapse; padding-top: 5px; text-align: left;" wi=
+dth=3D"12%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 1=
+12, 112)"><span class=3D"size" style=3D"font-size:13px">$1.8</span></span><=
+br></td><td style=3D"border-collapse: collapse; padding-top: 5px; text-alig=
+n: left;" width=3D"14%" align=3D"left"><span class=3D"colour" style=3D"colo=
+r:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$0.00</=
+span></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5=
+px; text-align: left;" width=3D"14%" align=3D"left"><span class=3D"colour" =
+style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:=
+13px">($1.94)</span></span><br></td></tr><tr><td style=3D"border-collapse: =
+collapse; padding-top: 5px;" width=3D"16%"><span class=3D"colour" style=3D"=
+color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">08/=
+22/23</span></span><br></td><td style=3D"border-collapse: collapse; padding=
+-top: 5px; text-align: left;" width=3D"20%" align=3D"left"><span class=3D"c=
+olour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"fon=
+t-size:13px">NightAudit</span></span><br></td><td style=3D"border-collapse:=
+ collapse; padding-top: 5px; text-align: left;" width=3D"24%" align=3D"left=
+"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"=
+size" style=3D"font-size:13px">Sales Tax</span></span><br></td><td style=3D=
+"border-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"1=
+2%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)=
+"><span class=3D"size" style=3D"font-size:13px">$1.95</span></span><br></td=
+><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: left=
+;" width=3D"14%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(1=
+12, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$0.00</span></=
+span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px; tex=
+t-align: left;" width=3D"14%" align=3D"left"><span class=3D"colour" style=
+=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px"=
+>$0.01</span></span><br></td></tr><tr><td style=3D"border-collapse: collaps=
+e; padding-top: 5px;" width=3D"16%"><span class=3D"colour" style=3D"color:r=
+gb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">08/23/23</=
+span></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5=
+px; text-align: left;" width=3D"20%" align=3D"left"><span class=3D"colour" =
+style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:=
+13px"></span></span><br></td><td style=3D"border-collapse: collapse; paddin=
+g-top: 5px; text-align: left;" width=3D"24%" align=3D"left"><span class=3D"=
+colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"fo=
+nt-size:13px">Small folio balance adjust</span></span><br></td><td style=3D=
+"border-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"1=
+2%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)=
+"><span class=3D"size" style=3D"font-size:13px">$0</span></span><br></td><t=
+d style=3D"border-collapse: collapse; padding-top: 5px; text-align: left;" =
+width=3D"14%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112,=
+ 112, 112)"><span class=3D"size" style=3D"font-size:13px">($0.01)</span></s=
+pan><br></td><td style=3D"border-collapse: collapse; padding-top: 5px; text=
+-align: left;" width=3D"14%" align=3D"left"><span class=3D"colour" style=3D=
+"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$0=
+.00</span></span><br></td></tr></tbody></table></td></tr></tbody></table></=
+td></tr></tbody></table></td></tr></tbody></table></div><table cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"x_610316721mobile-hidden" width=3D"100%">=
+<tbody><tr><td align=3D"center" style=3D"border-collapse: collapse;"><table=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"x_610316721sty=
+lingblock-content-wrapper" style=3D"min-width :  100%;"><tbody><tr><td clas=
+s=3D"x_610316721stylingblock-content-margin-cell" style=3D"border-collapse:=
+ collapse; padding: 0px 20px;"><table cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"100%" style=3D"background-color :  transparent; border :  2px solid=
+ #707070; min-width :  100%;" class=3D"x_610316721stylingblock-content-wrap=
+per"><tbody><tr><td style=3D"border-collapse: collapse; padding: 20px;" cla=
+ss=3D"x_610316721stylingblock-content-wrapper x_610316721camarker-inner"><s=
+pan class=3D"size" style=3D"font-size: 18px; line-height: 24px;"><span clas=
+s=3D"font" style=3D"font-family:Arial, Helvetica, sans-serif"><span class=
+=3D"colour" style=3D"color:rgb(243, 108, 21)"><b>Holiday Inn Club Vacations=
+<sup style=3D"font-size :  12px;">=C2=AE</sup></b> <b>Orange Lake Resort</b=
+></span><br> <br> <span class=3D"colour" style=3D"color:rgb(112, 112, 112)"=
+>8505 W. Irlo Bronson Memorial Hwy Kissimmee, FL 34747<br> <br> P: (407) 47=
+7-7025 | <a href=3D"https://click.holidayinnclubemail.com/?qs=3D6a062439a71=
+e6ba0c2358f2408bccb2e2c751cc9676fdce56d4fb829c47f63b0b40830c3a102b38f6333ae=
+67044a4abb3bfe20a78fc8cd24" style=3D"color :  #707070; text-decoration :  n=
+one;" target=3D"_blank" title=3D"HolidayInnClub.com">HolidayInnClub.com</a>=
+<br> <br> </span></span></span><table cellpadding=3D"0" cellspacing=3D"0" c=
+lass=3D"x_610316721stylingblock-content-wrapper" style=3D"min-width :  100%=
+;" width=3D"100%"><tbody><tr><td class=3D"x_610316721stylingblock-content-w=
+rapper x_610316721camarker-inner" style=3D"border-collapse: collapse; paddi=
+ng: 15px 0px;"><table align=3D"left" width=3D"100%"><tbody><tr><td style=3D=
+"border-collapse: collapse; padding-top: 5px; text-align: left; font: norma=
+l normal bold 20px/ 23px Arial; letter-spacing: 0px; color: #707070; opacit=
+y: 1;" width=3D"45%" align=3D"left"><span class=3D"size" style=3D"font-size=
+:18px"><span class=3D"font" style=3D"font-family:Arial, Helvetica, sans-ser=
+if">Name</span></span><br></td><td style=3D"border-collapse: collapse; padd=
+ing-top: 5px; text-align: left; font: normal normal normal 20px/ 23px Arial=
+; letter-spacing: 0px; color: #707070; opacity: 1;" width=3D"55%" align=3D"=
+left"><span class=3D"size" style=3D"font-size:18px"><span class=3D"font" st=
+yle=3D"font-family:Arial, Helvetica, sans-serif">John Estrada</span></span>=
+<br></td></tr><tr><td style=3D"border-collapse: collapse; padding-top: 15px=
+; text-align: left; font: normal normal bold 20px/ 23px Arial; letter-spaci=
+ng: 0px; color: #707070; opacity: 1;" width=3D"45%" align=3D"left"><span cl=
+ass=3D"size" style=3D"font-size:18px"><span class=3D"font" style=3D"font-fa=
+mily:Arial, Helvetica, sans-serif">Unit</span></span><br></td><td style=3D"=
+border-collapse: collapse; padding-top: 15px; text-align: left; font: norma=
+l normal normal 20px/ 23px Arial; letter-spacing: 0px; color: #707070; opac=
+ity: 1;" width=3D"55%" align=3D"left"><span class=3D"size" style=3D"font-si=
+ze:18px"><span class=3D"font" style=3D"font-family:Arial, Helvetica, sans-s=
+erif">86235</span></span><br></td></tr><tr><td style=3D"border-collapse: co=
+llapse; padding-top: 15px; text-align: left; font: normal normal bold 20px/=
+ 23px Arial; letter-spacing: 0px; color: #707070; opacity: 1;" width=3D"45%=
+" align=3D"left"><span class=3D"size" style=3D"font-size:18px"><span class=
+=3D"font" style=3D"font-family:Arial, Helvetica, sans-serif">Arrival</span>=
+</span><br></td><td style=3D"border-collapse: collapse; padding-top: 15px; =
+text-align: left; font: normal normal normal 20px/ 23px Arial; letter-spaci=
+ng: 0px; color: #707070; opacity: 1;" width=3D"55%" align=3D"left"><span cl=
+ass=3D"size" style=3D"font-size:18px"><span class=3D"font" style=3D"font-fa=
+mily:Arial, Helvetica, sans-serif">08/16/2023</span></span><br></td></tr><t=
+r><td style=3D"border-collapse: collapse; padding-top: 15px; text-align: le=
+ft; font: normal normal bold 20px/ 23px Arial; letter-spacing: 0px; color: =
+#707070; opacity: 1;" width=3D"45%" align=3D"left"><span class=3D"size" sty=
+le=3D"font-size:18px"><span class=3D"font" style=3D"font-family:Arial, Helv=
+etica, sans-serif">Receipt Number</span></span><br></td><td style=3D"border=
+-collapse: collapse; padding-top: 15px; text-align: left; font: normal norm=
+al normal 20px/ 23px Arial; letter-spacing: 0px; color: #707070; opacity: 1=
+;" width=3D"55%" align=3D"left"><span class=3D"size" style=3D"font-size:18p=
+x"><span class=3D"font" style=3D"font-family:Arial, Helvetica, sans-serif">=
+8287566</span></span><br></td></tr><tr><td style=3D"border-collapse: collap=
+se; padding-top: 15px; text-align: left; font: normal normal bold 20px/ 23p=
+x Arial; letter-spacing: 0px; color: #707070; opacity: 1;" width=3D"45%" al=
+ign=3D"left"><span class=3D"size" style=3D"font-size:18px"><span class=3D"f=
+ont" style=3D"font-family:Arial, Helvetica, sans-serif">Departure</span></s=
+pan><br></td><td style=3D"border-collapse: collapse; padding-top: 15px; tex=
+t-align: left; font: normal normal normal 20px/ 23px Arial; letter-spacing:=
+ 0px; color: #707070; opacity: 1;" width=3D"55%" align=3D"left"><span class=
+=3D"size" style=3D"font-size:18px"><span class=3D"font" style=3D"font-famil=
+y:Arial, Helvetica, sans-serif">08/23/2023</span></span><br></td></tr></tbo=
+dy></table></td></tr></tbody></table>&nbsp;<table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width :  100%;"><tbody>=
+<tr><td align=3D"center" style=3D"border-collapse: collapse;"><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width=
+ :  60%;"><tbody><tr><td style=3D"border-collapse: collapse; border-top: 3p=
+x solid #f47d30; border-left: 0px solid transparent; border-bottom: 0px sol=
+id transparent; border-right: 0px solid transparent;"><br></td></tr></tbody=
+></table></td></tr></tbody></table><br><table cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"min-width :  100%;" class=3D"x_610316721styl=
+ingblock-content-wrapper"><tbody><tr><td class=3D"x_610316721stylingblock-c=
+ontent-wrapper x_610316721camarker-inner" style=3D"border-collapse: collaps=
+e;"><table align=3D"left" border=3D"0" cellpadding=3D"1" cellspacing=3D"5" =
+dir=3D"ltr" style=3D"width :  100%;"><tbody><tr><td style=3D"border-collaps=
+e: collapse; padding-top: 5px;" width=3D"16%"><b><span class=3D"colour" sty=
+le=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13p=
+x">Date</span></span></b><br></td><td style=3D"border-collapse: collapse; p=
+adding-top: 5px; text-align: left;" width=3D"20%" align=3D"left"><b><span c=
+lass=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" sty=
+le=3D"font-size:13px">Reference</span></span></b><br></td><td style=3D"bord=
+er-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"24%" a=
+lign=3D"left"><b><span class=3D"colour" style=3D"color:rgb(112, 112, 112)">=
+<span class=3D"size" style=3D"font-size:13px">Description</span></span></b>=
+<br></td><td style=3D"border-collapse: collapse; padding-top: 5px; text-ali=
+gn: left;" width=3D"12%" align=3D"left"><b><span class=3D"colour" style=3D"=
+color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Cha=
+rges</span></span></b><br></td><td style=3D"border-collapse: collapse; padd=
+ing-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><b><span clas=
+s=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">Payment</span></span></b><br></td><td style=3D"border-c=
+ollapse: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=
+=3D"left"><b><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><spa=
+n class=3D"size" style=3D"font-size:13px">Balance</span></span></b><br></td=
+></tr><tr><td style=3D"border-collapse: collapse; padding-top: 5px;" width=
+=3D"16%"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span cl=
+ass=3D"size" style=3D"font-size:13px">08/16/23</span></span><br></td><td st=
+yle=3D"border-collapse: collapse; padding-top: 5px; text-align: left;" widt=
+h=3D"20%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112=
+, 112)"><span class=3D"size" style=3D"font-size:13px"></span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Visa Payment<=
+/span></span><br></td><td style=3D"border-collapse: collapse; padding-top: =
+5px; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour"=
+ style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size=
+:13px">$0</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">($236.24)</span></span><br></td><td style=3D"border-col=
+lapse: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=
+=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span c=
+lass=3D"size" style=3D"font-size:13px">($236.24)</span></span><br></td></tr=
+><tr><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16=
+%"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D=
+"size" style=3D"font-size:13px">08/16/23</span></span><br></td><td style=3D=
+"border-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"2=
+0%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)=
+"><span class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br=
+></td><td style=3D"border-collapse: collapse; padding-top: 5px; text-align:=
+ left;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:=
+rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Resort Fe=
+e OL</span></span><br></td><td style=3D"border-collapse: collapse; padding-=
+top: 5px; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"co=
+lour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font=
+-size:13px">$30</span></span><br></td><td style=3D"border-collapse: collaps=
+e; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span =
+class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" st=
+yle=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-coll=
+apse: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D=
+"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span clas=
+s=3D"size" style=3D"font-size:13px">($206.24)</span></span><br></td></tr><t=
+r><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%">=
+<span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"si=
+ze" style=3D"font-size:13px">08/16/23</span></span><br></td><td style=3D"bo=
+rder-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%"=
+ align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><=
+span class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></=
+td><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: le=
+ft;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb=
+(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Hotel Tax</s=
+pan></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5p=
+x; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" s=
+tyle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:1=
+3px">$1.8</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($204.44)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/16/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Sales Tax</sp=
+an></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px=
+; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" st=
+yle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13=
+px">$1.95</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($202.49)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/17/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Resort Fee OL=
+</span></span><br></td><td style=3D"border-collapse: collapse; padding-top:=
+ 5px; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour=
+" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-siz=
+e:13px">$30</span></span><br></td><td style=3D"border-collapse: collapse; p=
+adding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span clas=
+s=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($172.49)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/17/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Hotel Tax</sp=
+an></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px=
+; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" st=
+yle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13=
+px">$1.8</span></span><br></td><td style=3D"border-collapse: collapse; padd=
+ing-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($170.69)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/17/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Sales Tax</sp=
+an></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px=
+; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" st=
+yle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13=
+px">$1.95</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($168.74)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/18/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Resort Fee OL=
+</span></span><br></td><td style=3D"border-collapse: collapse; padding-top:=
+ 5px; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour=
+" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-siz=
+e:13px">$30</span></span><br></td><td style=3D"border-collapse: collapse; p=
+adding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span clas=
+s=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($138.74)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/18/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Hotel Tax</sp=
+an></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px=
+; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" st=
+yle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13=
+px">$1.8</span></span><br></td><td style=3D"border-collapse: collapse; padd=
+ing-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($136.94)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/18/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Sales Tax</sp=
+an></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px=
+; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" st=
+yle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13=
+px">$1.95</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($134.99)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/19/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Resort Fee OL=
+</span></span><br></td><td style=3D"border-collapse: collapse; padding-top:=
+ 5px; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour=
+" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-siz=
+e:13px">$30</span></span><br></td><td style=3D"border-collapse: collapse; p=
+adding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span clas=
+s=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($104.99)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/19/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Hotel Tax</sp=
+an></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px=
+; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" st=
+yle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13=
+px">$1.8</span></span><br></td><td style=3D"border-collapse: collapse; padd=
+ing-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($103.19)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/19/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Sales Tax</sp=
+an></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px=
+; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" st=
+yle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13=
+px">$1.95</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($101.24)</span></span><br></td></tr><tr=
+><td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">08/20/23</span></span><br></td><td style=3D"bor=
+der-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" =
+align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><s=
+pan class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></t=
+d><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: lef=
+t;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(=
+112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Resort Fee OL=
+</span></span><br></td><td style=3D"border-collapse: collapse; padding-top:=
+ 5px; text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour=
+" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-siz=
+e:13px">$30</span></span><br></td><td style=3D"border-collapse: collapse; p=
+adding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span clas=
+s=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">$0.00</span></span><br></td><td style=3D"border-collaps=
+e: collapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"le=
+ft"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=
+=3D"size" style=3D"font-size:13px">($71.24)</span></span><br></td></tr><tr>=
+<td style=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><s=
+pan class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size=
+" style=3D"font-size:13px">08/20/23</span></span><br></td><td style=3D"bord=
+er-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" a=
+lign=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><sp=
+an class=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></td=
+><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: left=
+;" width=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(1=
+12, 112, 112)"><span class=3D"size" style=3D"font-size:13px">Hotel Tax</spa=
+n></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px;=
+ text-align: left;" width=3D"12%" align=3D"left"><span class=3D"colour" sty=
+le=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13p=
+x">$1.8</span></span><br></td><td style=3D"border-collapse: collapse; paddi=
+ng-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=3D=
+"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"f=
+ont-size:13px">$0.00</span></span><br></td><td style=3D"border-collapse: co=
+llapse; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">($69.44)</span></span><br></td></tr><tr><td sty=
+le=3D"border-collapse: collapse; padding-top: 5px;" width=3D"16%"><span cla=
+ss=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">08/20/23</span></span><br></td><td style=3D"border-coll=
+apse: collapse; padding-top: 5px; text-align: left;" width=3D"20%" align=3D=
+"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span clas=
+s=3D"size" style=3D"font-size:13px">NightAudit</span></span><br></td><td st=
+yle=3D"border-collapse: collapse; padding-top: 5px; text-align: left;" widt=
+h=3D"24%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112=
+, 112)"><span class=3D"size" style=3D"font-size:13px">Sales Tax</span></spa=
+n><br></td><td style=3D"border-collapse: collapse; padding-top: 5px; text-a=
+lign: left;" width=3D"12%" align=3D"left"><span class=3D"colour" style=3D"c=
+olor:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$1.9=
+5</span></span><br></td><td style=3D"border-collapse: collapse; padding-top=
+: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=3D"colou=
+r" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-si=
+ze:13px">$0.00</span></span><br></td><td style=3D"border-collapse: collapse=
+; padding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span c=
+lass=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" sty=
+le=3D"font-size:13px">($67.49)</span></span><br></td></tr><tr><td style=3D"=
+border-collapse: collapse; padding-top: 5px;" width=3D"16%"><span class=3D"=
+colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"fo=
+nt-size:13px">08/21/23</span></span><br></td><td style=3D"border-collapse: =
+collapse; padding-top: 5px; text-align: left;" width=3D"20%" align=3D"left"=
+><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"s=
+ize" style=3D"font-size:13px">NightAudit</span></span><br></td><td style=3D=
+"border-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"2=
+4%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)=
+"><span class=3D"size" style=3D"font-size:13px">Resort Fee OL</span></span>=
+<br></td><td style=3D"border-collapse: collapse; padding-top: 5px; text-ali=
+gn: left;" width=3D"12%" align=3D"left"><span class=3D"colour" style=3D"col=
+or:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$30</s=
+pan></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5p=
+x; text-align: left;" width=3D"14%" align=3D"left"><span class=3D"colour" s=
+tyle=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:1=
+3px">$0.00</span></span><br></td><td style=3D"border-collapse: collapse; pa=
+dding-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">($37.49)</span></span><br></td></tr><tr><td style=3D"bo=
+rder-collapse: collapse; padding-top: 5px;" width=3D"16%"><span class=3D"co=
+lour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font=
+-size:13px">08/21/23</span></span><br></td><td style=3D"border-collapse: co=
+llapse; padding-top: 5px; text-align: left;" width=3D"20%" align=3D"left"><=
+span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"siz=
+e" style=3D"font-size:13px">NightAudit</span></span><br></td><td style=3D"b=
+order-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"24%=
+" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)">=
+<span class=3D"size" style=3D"font-size:13px">Hotel Tax</span></span><br></=
+td><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: le=
+ft;" width=3D"12%" align=3D"left"><span class=3D"colour" style=3D"color:rgb=
+(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$1.8</span><=
+/span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px; te=
+xt-align: left;" width=3D"14%" align=3D"left"><span class=3D"colour" style=
+=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px"=
+>$0.00</span></span><br></td><td style=3D"border-collapse: collapse; paddin=
+g-top: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=3D"=
+colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"fo=
+nt-size:13px">($35.69)</span></span><br></td></tr><tr><td style=3D"border-c=
+ollapse: collapse; padding-top: 5px;" width=3D"16%"><span class=3D"colour" =
+style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:=
+13px">08/21/23</span></span><br></td><td style=3D"border-collapse: collapse=
+; padding-top: 5px; text-align: left;" width=3D"20%" align=3D"left"><span c=
+lass=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" sty=
+le=3D"font-size:13px">NightAudit</span></span><br></td><td style=3D"border-=
+collapse: collapse; padding-top: 5px; text-align: left;" width=3D"24%" alig=
+n=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span =
+class=3D"size" style=3D"font-size:13px">Sales Tax</span></span><br></td><td=
+ style=3D"border-collapse: collapse; padding-top: 5px; text-align: left;" w=
+idth=3D"12%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, =
+112, 112)"><span class=3D"size" style=3D"font-size:13px">$1.95</span></span=
+><br></td><td style=3D"border-collapse: collapse; padding-top: 5px; text-al=
+ign: left;" width=3D"14%" align=3D"left"><span class=3D"colour" style=3D"co=
+lor:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$0.00=
+</span></span><br></td><td style=3D"border-collapse: collapse; padding-top:=
+ 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=3D"colour=
+" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-siz=
+e:13px">($33.74)</span></span><br></td></tr><tr><td style=3D"border-collaps=
+e: collapse; padding-top: 5px;" width=3D"16%"><span class=3D"colour" style=
+=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px"=
+>08/22/23</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"20%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">NightAudit</span></span><br></td><td style=3D"border-co=
+llapse: collapse; padding-top: 5px; text-align: left;" width=3D"24%" align=
+=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span c=
+lass=3D"size" style=3D"font-size:13px">Resort Fee OL</span></span><br></td>=
+<td style=3D"border-collapse: collapse; padding-top: 5px; text-align: left;=
+" width=3D"12%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(11=
+2, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$30</span></spa=
+n><br></td><td style=3D"border-collapse: collapse; padding-top: 5px; text-a=
+lign: left;" width=3D"14%" align=3D"left"><span class=3D"colour" style=3D"c=
+olor:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$0.0=
+0</span></span><br></td><td style=3D"border-collapse: collapse; padding-top=
+: 5px; text-align: left;" width=3D"14%" align=3D"left"><span class=3D"colou=
+r" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-si=
+ze:13px">($3.74)</span></span><br></td></tr><tr><td style=3D"border-collaps=
+e: collapse; padding-top: 5px;" width=3D"16%"><span class=3D"colour" style=
+=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px"=
+>08/22/23</span></span><br></td><td style=3D"border-collapse: collapse; pad=
+ding-top: 5px; text-align: left;" width=3D"20%" align=3D"left"><span class=
+=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=
+=3D"font-size:13px">NightAudit</span></span><br></td><td style=3D"border-co=
+llapse: collapse; padding-top: 5px; text-align: left;" width=3D"24%" align=
+=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span c=
+lass=3D"size" style=3D"font-size:13px">Hotel Tax</span></span><br></td><td =
+style=3D"border-collapse: collapse; padding-top: 5px; text-align: left;" wi=
+dth=3D"12%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 1=
+12, 112)"><span class=3D"size" style=3D"font-size:13px">$1.8</span></span><=
+br></td><td style=3D"border-collapse: collapse; padding-top: 5px; text-alig=
+n: left;" width=3D"14%" align=3D"left"><span class=3D"colour" style=3D"colo=
+r:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$0.00</=
+span></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5=
+px; text-align: left;" width=3D"14%" align=3D"left"><span class=3D"colour" =
+style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:=
+13px">($1.94)</span></span><br></td></tr><tr><td style=3D"border-collapse: =
+collapse; padding-top: 5px;" width=3D"16%"><span class=3D"colour" style=3D"=
+color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">08/=
+22/23</span></span><br></td><td style=3D"border-collapse: collapse; padding=
+-top: 5px; text-align: left;" width=3D"20%" align=3D"left"><span class=3D"c=
+olour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"fon=
+t-size:13px">NightAudit</span></span><br></td><td style=3D"border-collapse:=
+ collapse; padding-top: 5px; text-align: left;" width=3D"24%" align=3D"left=
+"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"=
+size" style=3D"font-size:13px">Sales Tax</span></span><br></td><td style=3D=
+"border-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"1=
+2%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)=
+"><span class=3D"size" style=3D"font-size:13px">$1.95</span></span><br></td=
+><td style=3D"border-collapse: collapse; padding-top: 5px; text-align: left=
+;" width=3D"14%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(1=
+12, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$0.00</span></=
+span><br></td><td style=3D"border-collapse: collapse; padding-top: 5px; tex=
+t-align: left;" width=3D"14%" align=3D"left"><span class=3D"colour" style=
+=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px"=
+>$0.01</span></span><br></td></tr><tr><td style=3D"border-collapse: collaps=
+e; padding-top: 5px;" width=3D"16%"><span class=3D"colour" style=3D"color:r=
+gb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">08/23/23</=
+span></span><br></td><td style=3D"border-collapse: collapse; padding-top: 5=
+px; text-align: left;" width=3D"20%" align=3D"left"><span class=3D"colour" =
+style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:=
+13px"></span></span><br></td><td style=3D"border-collapse: collapse; paddin=
+g-top: 5px; text-align: left;" width=3D"24%" align=3D"left"><span class=3D"=
+colour" style=3D"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"fo=
+nt-size:13px">Small folio balance adjust</span></span><br></td><td style=3D=
+"border-collapse: collapse; padding-top: 5px; text-align: left;" width=3D"1=
+2%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112, 112, 112)=
+"><span class=3D"size" style=3D"font-size:13px">$0</span></span><br></td><t=
+d style=3D"border-collapse: collapse; padding-top: 5px; text-align: left;" =
+width=3D"14%" align=3D"left"><span class=3D"colour" style=3D"color:rgb(112,=
+ 112, 112)"><span class=3D"size" style=3D"font-size:13px">($0.01)</span></s=
+pan><br></td><td style=3D"border-collapse: collapse; padding-top: 5px; text=
+-align: left;" width=3D"14%" align=3D"left"><span class=3D"colour" style=3D=
+"color:rgb(112, 112, 112)"><span class=3D"size" style=3D"font-size:13px">$0=
+.00</span></span><br></td></tr></tbody></table></td></tr></tbody></table></=
+td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table=
+></td></tr></tbody></table><table cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" style=3D"background-color :  transparent; min-width :  100%;" cla=
+ss=3D"x_610316721stylingblock-content-wrapper"><tbody><tr><td style=3D"bord=
+er-collapse: collapse; padding: 20px;" class=3D"x_610316721stylingblock-con=
+tent-wrapper x_610316721camarker-inner"><p style=3D"margin: 1em 0px; line-h=
+eight: 23px;"><span class=3D"size" style=3D"font-size: 18px; margin: 1em 0p=
+x; line-height: 23px;"><span class=3D"colour" style=3D"color:rgb(112, 112, =
+112)">Thank you again for choosing Holiday Inn Club Vacations<span class=3D=
+"size" style=3D"font-size:14px"><sup>=C2=AE</sup></span> for your latest ge=
+taway. We can=E2=80=99t wait to see you again soon!</span></span><br></p></=
+td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table=
+></td></tr><tr><td align=3D"center" class=3D"x_610316721header" valign=3D"t=
+op" style=3D"border-collapse: collapse;"><table align=3D"left" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td align=3D=
+"left" valign=3D"top" style=3D"border-collapse: collapse;"><table cellspaci=
+ng=3D"0" cellpadding=3D"0" style=3D"width :  100%;"><tbody><tr><td class=3D=
+"x_610316721responsive-td" valign=3D"top" style=3D"border-collapse: collaps=
+e; width: 100%;" width=3D"100%"><table cellpadding=3D"0" cellspacing=3D"0" =
+width=3D"100%" style=3D"background-color :  #6D6E71; min-width :  100%;" cl=
+ass=3D"x_610316721stylingblock-content-wrapper"><tbody><tr><td style=3D"bor=
+der-collapse: collapse; padding: 20px 0px 0px;" class=3D"x_610316721styling=
+block-content-wrapper x_610316721camarker-inner"><table cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" style=3D"background-color :  #6D6E71; min-w=
+idth :  100%;" class=3D"x_610316721stylingblock-content-wrapper"><tbody><tr=
+><td style=3D"border-collapse: collapse; padding: 10px 40px 20px;" class=3D=
+"x_610316721stylingblock-content-wrapper x_610316721camarker-inner"><div><s=
+pan class=3D"colour" style=3D"color:rgb(255, 255, 255)"><span class=3D"font=
+" style=3D"font-family:Arial, Helvetica, sans-serif"><span class=3D"size" s=
+tyle=3D"font-size:14px">Holiday Inn Club Vacations Incorporated, the Holida=
+y Inn Club</span></span></span><sup style=3D"color :  rgb(255, 255, 255); f=
+ont-family :  Arial,  Helvetica,  sans-serif; font-size :  10px; line-heigh=
+t :  0;">=C2=AE</sup><span class=3D"colour" style=3D"color:rgb(255, 255, 25=
+5)"><span class=3D"font" style=3D"font-family:Arial, Helvetica, sans-serif"=
+><span class=3D"size" style=3D"font-size:14px"> program, and the Holiday In=
+n Club Vacations</span></span></span><sup style=3D"color :  rgb(255, 255, 2=
+55); font-family :  Arial,  Helvetica,  sans-serif; font-size :  10px; line=
+-height :  0;">=C2=AE</sup> <span class=3D"colour" style=3D"color:rgb(255, =
+255, 255)"><span class=3D"font" style=3D"font-family:Arial, Helvetica, sans=
+-serif"><span class=3D"size" style=3D"font-size:14px"> resorts are independ=
+ently owned, operated and marketed and are not owned, operated or marketed =
+by any InterContinental Hotels Group (=E2=80=9CIHG=E2=80=9D) companies, or =
+by IHG One Rewards, or by the owner or licensor of the Holiday Inn</span></=
+span></span><sup style=3D"color :  rgb(255, 255, 255); font-family :  Arial=
+,  Helvetica,  sans-serif; font-size :  10px; line-height :  0;">=C2=AE</su=
+p><span class=3D"colour" style=3D"color:rgb(255, 255, 255)"><span class=3D"=
+font" style=3D"font-family:Arial, Helvetica, sans-serif"><span class=3D"siz=
+e" style=3D"font-size:14px"> brand.</span></span></span><br></div></td></tr=
+></tbody></table></td></tr></tbody></table><table cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%" style=3D"min-width :  100%;" class=3D"x_610316721=
+stylingblock-content-wrapper"><tbody><tr><td class=3D"x_610316721stylingblo=
+ck-content-wrapper x_610316721camarker-inner" style=3D"border-collapse: col=
+lapse;"><div class=3D"x_610316721mobile-show" style=3D"display :  none; max=
+-height :  0px; overflow :  hidden;"><table width=3D"100%" cellspacing=3D"0=
+" cellpadding=3D"0" bgcolor=3D"#6d6e71"><tbody><tr><td align=3D"center" sty=
+le=3D"border-collapse: collapse;"><img id=3D"1692784824299100001_imgsrc_url=
+_2" width=3D"100%" style=3D"outline: 0; display: block; padding: 0px 0px 10=
+px; text-align: center; height: auto; width: 100%; border: 0px;" height=3D"=
+auto"></td></tr></tbody></table></div><table class=3D"x_610316721mobile-hid=
+den" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#6d6e71"=
+><tbody><tr><td align=3D"center" style=3D"border-collapse: collapse;"><img =
+id=3D"1692784824299100001_imgsrc_url_3" width=3D"100%" style=3D"outline: 0;=
+ display: block; padding: 0px 0px 10px; text-align: center; height: auto; w=
+idth: 100%; border: 0px;" height=3D"auto"></td></tr></tbody></table></td></=
+tr></tbody></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%=
+" style=3D"min-width :  100%;" class=3D"x_610316721stylingblock-content-wra=
+pper"><tbody><tr><td class=3D"x_610316721stylingblock-content-wrapper x_610=
+316721camarker-inner" style=3D"border-collapse: collapse;"><div style=3D"ba=
+ckground-color :  transparent;"><div class=3D"x_610316721block-grid" style=
+=3D"Margin :  0 auto; min-width :  320px; max-width :  600px; background-co=
+lor :  #6d6e71;"><div style=3D"border-collapse :  collapse; display :  tabl=
+e; width :  100%; background-color :  #6d6e71;"><div class=3D"x_610316721co=
+l x_610316721num12" style=3D"min-width :  320px; max-width :  600px; displa=
+y :  table-cell; vertical-align :  top; width :  500px;"><div style=3D"widt=
+h :  100%;"><div style=3D"border-top :  0px solid transparent; border-left =
+:  0px solid transparent; border-bottom :  0px solid transparent; border-ri=
+ght :  0px solid transparent; padding-top :  15px; padding-bottom :  15px; =
+padding-right :  15px; padding-left :  15px;"><div style=3D"font-size :  16=
+px; text-align :  center; font-family :  'Helvetica Neue',  Helvetica,  Ari=
+al,  sans-serif;"><div class=3D"x_610316721our-class"><a href=3D"https://cl=
+ick.holidayinnclubemail.com/?qs=3D9d178dbfe6f3c931ae54531ede9a46140b3ce808c=
+f6dea51ae3864b05239d4f0798ceba10ec31717a6d2cdcb454352359b0fe94406037d75" ta=
+rget=3D"_blank" title=3D"Facebook"><img width=3D"34" height=3D"auto" id=3D"=
+1692784824299100001_imgsrc_url_4" alt=3D"Facebook" title=3D"Facebook" style=
+=3D"outline: none; text-decoration: none; clear: both; height: auto; float:=
+ none; border: none; display: inline-block;"></a> &nbsp; <a href=3D"https:/=
+/click.holidayinnclubemail.com/?qs=3Dd1ac6165d7a0b947eef5f0ec49b8ae13eafeec=
+4fe81f53a9be8f2a7b3559fe15757e62697fe319ef617f77c439191c66c27bcf4d12148bff"=
+ target=3D"_blank" title=3D"Instagram"><img width=3D"32" height=3D"auto" id=
+=3D"1692784824299100001_imgsrc_url_5" alt=3D"Instagram" title=3D"Instagram"=
+ style=3D"outline: none; text-decoration: none; clear: both; height: auto; =
+float: none; border: none; display: inline-block;"></a> &nbsp; <a href=3D"h=
+ttps://click.holidayinnclubemail.com/?qs=3D5086e4fb7696b665ec9355783c0b7bad=
+a4d2781dd9577d144b55dad9e1f4570978bb67894cf2aefdae580a2adff6d7049248412ba10=
+053d1" target=3D"_blank" title=3D"YouTube"><img width=3D"34" height=3D"auto=
+" id=3D"1692784824299100001_imgsrc_url_6" alt=3D"YouTube" title=3D"YouTube"=
+ style=3D"outline: none; text-decoration: none; clear: both; height: auto; =
+float: none; border: none; display: inline-block;"></a>&nbsp; <a href=3D"ht=
+tps://click.holidayinnclubemail.com/?qs=3D0400480b19766a62efc74d9d9efc8f717=
+cd24880bd35f354ed8dfc3fa569b2045c52eca25854ba17e546674af1ef81496e6cf96238e3=
+53f7" target=3D"_blank" title=3D"Pinterest"><img width=3D"33" height=3D"aut=
+o" id=3D"1692784824299100001_imgsrc_url_7" alt=3D"Pinterest" title=3D"Pinte=
+rest" style=3D"outline: none; text-decoration: none; clear: both; height: a=
+uto; float: none; border: none; display: inline-block;"></a><br></div></div=
+></div></div></div></div></div></div></td></tr></tbody></table><table cellp=
+adding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-color :  =
+#666666; min-width :  100%;" class=3D"x_610316721stylingblock-content-wrapp=
+er"><tbody><tr><td style=3D"border-collapse: collapse; padding: 0px 0px 80p=
+x;" class=3D"x_610316721stylingblock-content-wrapper x_610316721camarker-in=
+ner"><table width=3D"600" style=3D"width :  100%; padding-top :  20px; bord=
+er-top-color :  white; border-top-width :  1px; border-top-style :  solid; =
+opacity :  1;" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td width=3D"=
+600" align=3D"center" valign=3D"top" style=3D"border-collapse: collapse;"><=
+table width=3D"600" class=3D"x_610316721container" cellspacing=3D"0" cellpa=
+dding=3D"0" style=3D"width :  100%;"><tbody><tr><td align=3D"center" style=
+=3D"border-collapse: collapse; font: 12px/ 14px Helvetica; left: 71px; widt=
+h: 454px; text-align: center; color: rgb(255, 255, 255); letter-spacing: 0p=
+x; font-size-adjust: none; font-stretch: normal;" width=3D"454"><span class=
+=3D"colour" style=3D"color:rgb(255, 255, 255)"><br>This email was sent to:<=
+a href=3D"mailto:john@shredex.ca" target=3D"_blank">john@shredex.ca</a> </s=
+pan> <br> <br> <span class=3D"colour" style=3D"color:rgb(255, 255, 255)"> T=
+his email was sent by:<br> Holiday Inn Club Vacations Incorporated <br> 927=
+1 S. John Young Pkwy <br> Orlando, FL 32819, US <br> <br> <a style=3D"font =
+:  12px/ 14px Helvetica; text-align :  center; color :  rgb(255, 255, 255);=
+ letter-spacing :  0px; text-decoration :  underline; font-size-adjust :  n=
+one; font-stretch :  normal;" href=3D"https://click.holidayinnclubemail.com=
+/?qs=3Db414704d013851757ca2ecbdbff5ba3c3432abf3cecb6a4cd8d2f6a21ab8d4b21f90=
+8777167afe719715952b77e134decb9225fc8f3ff20b" target=3D"_blank">Privacy Pol=
+icy</a>&nbsp;|&nbsp;<a style=3D"font :  12px/ 14px Helvetica; text-align : =
+ center; color :  rgb(255, 255, 255); letter-spacing :  0px; text-decoratio=
+n :  underline; font-size-adjust :  none; font-stretch :  normal;" href=3D"=
+https://click.holidayinnclubemail.com/?qs=3Dfc6daf712c87cdbd9147b9c1f8a7241=
+6c59158a7b8cb3432faf5ae7c9495f464f1e30cb17934db00900513e32418e5a7af482cc12f=
+2754877e09fd043f04d26a" target=3D"_blank">Preference Center</a>&nbsp;|&nbsp=
+; <a style=3D"font :  12px/ 14px Helvetica; text-align :  center; color :  =
+rgb(255, 255, 255); letter-spacing :  0px; text-decoration :  underline; fo=
+nt-size-adjust :  none; font-stretch :  normal;" href=3D"https://view.holid=
+ayinnclubemail.com/?qs=3Da3edad454566a7868e0a41ba379cc28d0805f6b197401c1852=
+791dc3f6a4125f815b257fc4768699d82ee44be4dae877d49845a5c722b105580075e6ee08a=
+6d9c11c6df873d734c46e908e8566b960ceb8c3cfc64297fe0445ccfd64278c684f" target=
+=3D"_blank">Web Version</a><br></span></td></tr></tbody></table></td></tr><=
+/tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></t=
+r></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td>=
+</tr></tbody></table></td></tr></tbody></table></td></tr><tr><td valign=3D"=
+top" style=3D"border-collapse: collapse;"><br></td></tr></tbody></table></d=
+iv></blockquote></div><div><br></div><div class=3D"zmail_signature_below"><=
+div id=3D"" data-zbluepencil-ignore=3D"true" data-sigid=3D"6189300000000739=
+006"><div>Regards,<br></div><div><br></div><div>John E. Estrada<br></div><d=
+iv><br></div><div>---------------------------------------<br></div><div><br=
+></div><p style=3D"font-style: normal; font-weight: 400; letter-spacing: no=
+rmal; orphans: 2; text-indent: 0px; text-transform: none; white-space: norm=
+al; widows: 2; word-spacing: 0px"><span class=3D"highlight" style=3D"backgr=
+ound-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0,=
+ 0, 0)"><span class=3D"font" style=3D"font-family:Verdana, Arial, Helvetica=
+, sans-serif"><span class=3D"size" style=3D"font-size:13.3333px"><span clas=
+s=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><b><span clas=
+s=3D"colour" style=3D"color:rgb(0, 102, 0)"><span class=3D"font" style=3D"f=
+ont-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"=
+size" style=3D"font-size:14.66px">START SHREDDING INC. (shredEX)</span></sp=
+an></span></b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span =
+class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sa=
+ns-serif"><span class=3D"size" style=3D"font-size:14.66px"><br>208 Evans Av=
+e, Toronto, ON M8Z 1J7<br></span></span></span><b><span class=3D"colour" st=
+yle=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Cal=
+ibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D=
+"font-size:14.66px">E:<span>&nbsp;<a href=3D"mailto:john@shredex.ca" target=
+=3D"_blank" style=3D"color: rgb(0, 0, 238)">john@shredex.ca</a>&nbsp;</span=
+>W: <a target=3D"_blank" href=3D"http://www.startshredding.com" style=3D"co=
+lor: rgb(0, 0, 238)">www.startshredding.com</a><br></span></span></span></b=
+><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font=
+" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><sp=
+an class=3D"size" style=3D"font-size:14.66px">DIRECT:&nbsp;</span></span></=
+span><a style=3D"color: rgb(17, 85, 204); cursor: default" target=3D"_blank=
+"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"fon=
+t" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><s=
+pan class=3D"size" style=3D"font-size:14.66px">416.255.1500</span></span></=
+span></a><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=
+=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-se=
+rif"><span class=3D"size" style=3D"font-size:14.66px"><br>TOLL FREE:&nbsp;<=
+/span></span></span><a style=3D"color: rgb(17, 85, 204); cursor: default" t=
+arget=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><sp=
+an class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif,=
+ sans-serif"><span class=3D"size" style=3D"font-size:14.66px">1.866.868.958=
+5</span></span></span></a></span></span></span></span></span></p><p style=
+=3D"font-style: normal; font-weight: 400; letter-spacing: normal; orphans: =
+2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; =
+word-spacing: 0px"><span class=3D"highlight" style=3D"background-color:rgb(=
+255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span c=
+lass=3D"font" style=3D"font-family:Verdana, Arial, Helvetica, sans-serif"><=
+span class=3D"size" style=3D"font-size:13.3333px"><span class=3D"highlight"=
+ style=3D"background-color:rgb(255, 255, 255)"><span class=3D"colour" style=
+=3D"color:rgb(34, 34, 34)"><span class=3D"font" style=3D"font-family:arial,=
+ sans-serif"><span class=3D"size" style=3D"font-size:small"><span class=3D"=
+colour" style=3D"color:gray"><span class=3D"font" style=3D"font-family:Aria=
+l, sans-serif"><span class=3D"size" style=3D"font-size:7.5pt">This message =
+and any attachments are the property of the&nbsp;SHREDEX INC.&nbsp;or its a=
+ffiliates. It may be legally privileged and/or confidential and is intended=
+ only for the use of the addressee(s). No addressee should store, forward, =
+print, copy, or otherwise reproduce this message in any manner that would a=
+llow it to be viewed by any individual not originally listed as a recipient=
+. If the reader of this message is not the intended recipient, you are here=
+by notified that any unauthorized storage, disclosure, dissemination, distr=
+ibution, copying or the taking of any action in reliance on the information=
+ herein is strictly prohibited. If you have received this communication in =
+error, please immediately notify the sender and delete this message.</span>=
+</span></span></span></span></span></span></span></span></span></span><br><=
+/p><div id=3D""><div><br></div></div><div><br></div></div></div><div><br></=
+div></div><br></body></html>
+------=_Part_654925_180456271.1717125149294--
+

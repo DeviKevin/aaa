@@ -1,0 +1,317 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp185171rbd;
+        Thu, 30 May 2024 20:09:05 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEJHQKeRtvfszA77G5lvq39956u5pRHjn7LtUtwv3bvZDHGuFGJPRlkYciXbW1D2o0Z7JYj
+X-Received: by 2002:a05:6a20:8401:b0:1a9:d9bb:acdc with SMTP id adf61e73a8af0-1b26f16425cmr907736637.28.1717124944626;
+        Thu, 30 May 2024 20:09:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717124944; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=U3SXztknhulq9ekjBVLcQkx6hR4JGpv47sMe4FP05u5ghBU1gqO+2yuHQMVo2fn1AS
+         +IT5DE4etgOtqAtXveOXleWyNqeXwWy8O7BA7PZrriIGPrXbBsYvo9GpsJthG2Nzipca
+         OZtVEEi8rhi5BLVdj6+aUazIMXzGZC17uBnoyk1cHoNbwpP+kQtF6Q2e2X6+oYWy+zJy
+         80Mwa9BcgCLtM8Mp8Eykk1cLDFmL2oTVtm2XZpGuk3llsCKD35tm/MiI3rWh7ewKYiKO
+         IosKG0tBwJugEW4OiPQye1bq4yV33j8rYQI4PRE3y2xAY4u00s5EDb1Jex5tWB73zl2W
+         3Tag==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=FSZIwCKq0xPWT5ESTG4sV8TqX/eky62mQpiNBLxa3Vo=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=dJW42LjpT+k4k85vVYEJJ/yoBQHoiJ0ufHdi7l6DpCSO+NHpe0Sznr+Way5cS669U7
+         7DB6Gr+Gju47M1Y52OHA6AHmkTczzU75du+0WAR3a3xu54W2Pxx8UoliPC1Ppws6QRTu
+         jIuRjl0p2IsI8JxRn6tKqfpMS+/Ms1UAsePJ2FM7KLCW594ZuHYT1NiKDs1dcuhN1W2X
+         51n6T47uGaBBTD22YOo9YpkPI1+9qHj0FpPK8ahYK5cavdExy1/Hx/WPqQtcwmR9bmcE
+         orNDPBkI2rnKXF+LyttynIOL6gzPCb+JanYWvt5JciFzr0wdf6uHi5RMId073kBUgkdt
+         G1PQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=AUGN43mn;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender4-op-o14.zoho.com (sender4-op-o14.zoho.com. [136.143.188.14])
+        by mx.google.com with ESMTPS id 98e67ed59e1d1-2c1c27cb076si756266a91.73.2024.05.30.20.09.04
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:09:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) client-ip=136.143.188.14;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=AUGN43mn;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717124943; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=OdrT4HJxsPm//GEC7xzfPe41dw2BsVHt85OlNgj2WKMF7rVe/D7G9VpM4jXuDbB8Hngilw7A1g9OSi8QScrL6seU+GB/iT4wpWssMP6ub8pX1/gjrpVTNphzo89+r75i9WfuqOMDEDJvXaCYMSbyBaOjusnJ10fyIBdM2kj0K80=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717124943; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=FSZIwCKq0xPWT5ESTG4sV8TqX/eky62mQpiNBLxa3Vo=; 
+	b=Kcn7NXJ21KHOVUFF8n/UicBVgYKzCzK8AlmVo4S6w62AZiLjNKNhJu8v5Ypz4HEC9GVa1u8WIg/G7CY4rZhDTOkRjGLyeNn1PVpuLcVbFSUz020XT2VnTMHt2VYU//+xTG186Cixja81d3W42D0aMY2nLYBZzYJFn3D2PQOlQ6U=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717124943;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=FSZIwCKq0xPWT5ESTG4sV8TqX/eky62mQpiNBLxa3Vo=;
+	b=AUGN43mnIPU4LHQbwMtgnaatk4QBjbuLJQByy7z04+h1bdv+EFqg2dB7eArMimkN
+	mKq/e5gMaX7q/pl6AZ0dZRpHdpsDCTUPP8T7XVO2wx+6Fs1pEFKUAGR1gMnVFvbgfHs
+	DVh1IQBI5qNtgvCJrCjAE2fzIFJr5rSgtp04D+eY=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 171712494203367.29551753910141; Thu, 30 May 2024 20:09:02 -0700 (PDT)
+Date: Thu, 30 May 2024 23:09:01 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcc9f48a0.b9664273201501.5121794195441148945@shredex.ca>
+In-Reply-To: <157813509.117945.1702065504375@cosdevice16.prod.iad04.clover.network>
+References: <157813509.117945.1702065504375@cosdevice16.prod.iad04.clover.network>
+Subject: Fwd: Your receipt from PHO NGOC YEN
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_653521_847735791.1717124941985"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_653521_847735791.1717124941985
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: PHO NGOC YEN (via Clover) <app@clover.com>
+To: <john@backpocket.ca>
+Date: Fri, 08 Dec 2023 14:58:24 -0500
+Subject: Your receipt from PHO NGOC YEN
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+
+
+
+PHO NGOC YEN
+
+
+
+
+
+
+
+
+
+
+
+December 08, 2023 =E2=80=A2 2:57 PM
+
+
+$25.00
+
+
+https://www.clover.com/p/N4FBE21F8EHEM
+
+
+
+
+
+http://WWW.NGOCYENRESTAURANT.COM
+
+
+View the https://www.clover.com/privacy-policy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_653521_847735791.1717124941985
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: PHO NGOC YEN (via Clover) &lt;app@clover.com&gt=
+;<br>To: &lt;john@backpocket.ca&gt;<br>Date: Fri, 08 Dec 2023 14:58:24 -050=
+0<br>Subject: Your receipt from PHO NGOC YEN<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><=
+div><br></div><blockquote id=3D"blockquote_zmail" style=3D"margin: 0px;"><s=
+tyle>div.zm_-8771420692135788144_parse_-2972880801889364829 .x_-1261463361f=
+ollow-button-following:hover {
+  border-color: rgb(51, 157, 255);
+  background: rgb(51, 157, 255);
+}</style><div style=3D"height: 100%; margin-top: 0; margin-bottom: 0; margi=
+n-right: 0; margin-left: 0; padding-top: 0; padding-bottom: 0; padding-righ=
+t: 0; padding-left: 0; min-height: 100%; width: 100%; background-color: #fb=
+fbfb; font-family: Helvetica,  Arial,  sans-serif;" class=3D"zm_-8771420692=
+135788144_parse_-2972880801889364829"><div class=3D"x_-1261463361body-table=
+" style=3D"height: 100%; min-height: 100%; width: 100%; background-color: #=
+fbfbfb; font-family: Helvetica,  Arial,  sans-serif;"><div style=3D"text-al=
+ign :  center; max-width :  600px; margin-top :  auto; margin-bottom :  aut=
+o; margin-right :  auto; margin-left :  auto;"><table style=3D"border-spaci=
+ng: 0; border-collapse: collapse; width: 100%; vertical-align: middle; text=
+-align: center;" width=3D"100%" valign=3D"middle" align=3D"center"><tbody><=
+tr><td class=3D"x_-1261463361merchant-info-image" style=3D"border-collapse:=
+ collapse; padding: 30px 0 7px 0; text-align: center; padding-top: 30px; pa=
+dding-bottom: 0; padding-right: 7px; padding-left: 0;" align=3D"center"><im=
+g id=3D"1702065507143100001_imgsrc_url_0" alt=3D"PHO NGOC YEN's Logo" class=
+=3D"x_-1261463361image-fix x_-1261463361logo" style=3D"outline: none; text-=
+decoration: none; display: inline-block; width: 50px; height: 50px;" width=
+=3D"50" height=3D"50"><br></td></tr><tr><td style=3D"border-collapse: colla=
+pse; font-weight: bold; font-size: 28px; line-height: 36px; color: #364145;=
+">PHO NGOC YEN<br></td></tr><tr><td style=3D"border-collapse: collapse; fon=
+t-weight: lighter; font-size: 14px; line-height: 21px; color: #727272;"><a =
+class=3D"x_-1261463361address-text" style=3D"text-decoration: none; color: =
+#727272;">1596 THE QUEENS WAY, TORONTO, ON M8Z 1V1</a><br></td></tr><tr><td=
+ style=3D"border-collapse: collapse; font-weight: lighter; font-size: 14px;=
+ line-height: 21px; padding-bottom: 25px;"><a style=3D"text-decoration: non=
+e; color: #727272;">+1 519-967-9640</a><br></td></tr></tbody></table></div>=
+<div style=3D"width :  100%; text-align :  center; background-color :  #fff=
+fff; max-width :  700px; margin-top :  auto; margin-bottom :  auto; margin-=
+right :  auto; margin-left :  auto; border-radius :  6px;"><table style=3D"=
+border-spacing: 0; border-collapse: collapse; vertical-align: middle; text-=
+align: center; width: 100%;" width=3D"100%" valign=3D"middle" align=3D"cent=
+er"><tbody><tr><td class=3D"x_-1261463361main-par" style=3D"border-collapse=
+: collapse; font-weight: lighter; font-size: 14px; line-height: 21px; color=
+: #364145; padding-top: 20px; padding-bottom: 0; padding-right: 0; padding-=
+left: 0;"><span>December 08, 2023 </span><span class=3D"colour" style=3D"co=
+lor: rgb(177, 182, 184); padding: 0px 8px;">=E2=80=A2</span><span> 2:57 PM<=
+/span><br></td></tr><tr><td class=3D"x_-1261463361main-par" style=3D"border=
+-collapse: collapse; font-weight: bold; font-size: 40px; line-height: 36px;=
+ color: #364145; padding-top: 6px; padding-bottom: 0; padding-right: 0; pad=
+ding-left: 0;">$25.00<br></td></tr><tr><td class=3D"x_-1261463361main-par" =
+style=3D"border-collapse: collapse; font-weight: lighter; font-size: 14px; =
+line-height: 21px; color: #727272; padding-top: 10px; padding-bottom: 20px;=
+ padding-right: 0; padding-left: 0;"><a href=3D"https://www.clover.com/p/N4=
+FBE21F8EHEM" style=3D"color: #727272; text-decoration: underline; border-st=
+yle: none;" target=3D"_blank">full transaction receipt</a><br></td></tr></t=
+body></table></div><table style=3D"border-spacing: 0; border-collapse: coll=
+apse; width: 100%; vertical-align: middle; max-width: 600px; margin-top: au=
+to; margin-bottom: 4.5em; margin-right: auto; margin-left: auto; background=
+-color: #fbfbfb;" width=3D"100%" valign=3D"middle" bgcolor=3D"#fbfbfb"><tbo=
+dy><tr><td style=3D"border-collapse: collapse;"><table style=3D"border-spac=
+ing: 0; border-collapse: collapse; font-weight: lighter; font-size: 14px; l=
+ine-height: 21px; color: #727272; text-align: center; width: 100%;" width=
+=3D"100%" align=3D"center"><tbody><tr><td class=3D"x_-1261463361footer-par"=
+ style=3D"border-collapse: collapse; padding-top: 40px; padding-bottom: 0; =
+padding-right: 25px; padding-left: 25px;"><a href=3D"http://WWW.NGOCYENREST=
+AURANT.COM" style=3D"color: #727272; text-decoration: none;" target=3D"_bla=
+nk">WWW.NGOCYENRESTAURANT.COM</a><br></td></tr><tr><td class=3D"x_-12614633=
+61footer-par" style=3D"border-collapse: collapse; padding-top: 15px; paddin=
+g-bottom: 15px; padding-right: 25px; padding-left: 25px;">View the <a href=
+=3D"https://www.clover.com/privacy-policy" style=3D"color: #727272;" target=
+=3D"_blank">Clover Privacy Policy</a><br></td></tr></tbody></table></td></t=
+r></tbody></table></div><img id=3D"1702065507143100001_imgsrc_url_1" alt=3D=
+"" width=3D"1" height=3D"1" border=3D"0" style=3D"outline: none; text-decor=
+ation: none; height: 1px; width: 1px; border-width: 0; margin-top: 0; margi=
+n-bottom: 0; margin-right: 0; margin-left: 0; padding-top: 0; padding-botto=
+m: 0; padding-right: 0; padding-left: 0;"></div></blockquote></div><div><br=
+></div><div class=3D"zmail_signature_below"><div id=3D"" data-zbluepencil-i=
+gnore=3D"true" data-sigid=3D"6189300000000739006"><div>Regards,<br></div><d=
+iv><br></div><div>John E. Estrada<br></div><div><br></div><div>------------=
+---------------------------<br></div><div><br></div><p style=3D"font-style:=
+ normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent:=
+ 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0=
+px"><span class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"=
+><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" s=
+tyle=3D"font-family:Verdana, Arial, Helvetica, sans-serif"><span class=3D"s=
+ize" style=3D"font-size:13.3333px"><span class=3D"highlight" style=3D"backg=
+round-color:rgb(255, 255, 255)"><b><span class=3D"colour" style=3D"color:rg=
+b(0, 102, 0)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, A=
+rial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66=
+px">START SHREDDING INC. (shredEX)</span></span></span></b><span class=3D"c=
+olour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-f=
+amily:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size"=
+ style=3D"font-size:14.66px"><br>208 Evans Ave, Toronto, ON M8Z 1J7<br></sp=
+an></span></span><b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)">=
+<span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-ser=
+if, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">E:<span>&n=
+bsp;<a href=3D"mailto:john@shredex.ca" target=3D"_blank" style=3D"color: rg=
+b(0, 0, 238)">john@shredex.ca</a>&nbsp;</span>W: <a target=3D"_blank" href=
+=3D"http://www.startshredding.com" style=3D"color: rgb(0, 0, 238)">www.star=
+tshredding.com</a><br></span></span></span></b><span class=3D"colour" style=
+=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibr=
+i, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"fo=
+nt-size:14.66px">DIRECT:&nbsp;</span></span></span><a style=3D"color: rgb(1=
+7, 85, 204); cursor: default" target=3D"_blank"><span class=3D"colour" styl=
+e=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calib=
+ri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"f=
+ont-size:14.66px">416.255.1500</span></span></span></a><span class=3D"colou=
+r" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-famil=
+y:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" sty=
+le=3D"font-size:14.66px"><br>TOLL FREE:&nbsp;</span></span></span><a style=
+=3D"color: rgb(17, 85, 204); cursor: default" target=3D"_blank"><span class=
+=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"f=
+ont-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"=
+size" style=3D"font-size:14.66px">1.866.868.9585</span></span></span></a></=
+span></span></span></span></span></p><p style=3D"font-style: normal; font-w=
+eight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-tran=
+sform: none; white-space: normal; widows: 2; word-spacing: 0px"><span class=
+=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><span class=3D=
+"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-fa=
+mily:Verdana, Arial, Helvetica, sans-serif"><span class=3D"size" style=3D"f=
+ont-size:13.3333px"><span class=3D"highlight" style=3D"background-color:rgb=
+(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(34, 34, 34)"><sp=
+an class=3D"font" style=3D"font-family:arial, sans-serif"><span class=3D"si=
+ze" style=3D"font-size:small"><span class=3D"colour" style=3D"color:gray"><=
+span class=3D"font" style=3D"font-family:Arial, sans-serif"><span class=3D"=
+size" style=3D"font-size:7.5pt">This message and any attachments are the pr=
+operty of the&nbsp;SHREDEX INC.&nbsp;or its affiliates. It may be legally p=
+rivileged and/or confidential and is intended only for the use of the addre=
+ssee(s). No addressee should store, forward, print, copy, or otherwise repr=
+oduce this message in any manner that would allow it to be viewed by any in=
+dividual not originally listed as a recipient. If the reader of this messag=
+e is not the intended recipient, you are hereby notified that any unauthori=
+zed storage, disclosure, dissemination, distribution, copying or the taking=
+ of any action in reliance on the information herein is strictly prohibited=
+. If you have received this communication in error, please immediately noti=
+fy the sender and delete this message.</span></span></span></span></span></=
+span></span></span></span></span></span><br></p><div id=3D""><div><br></div=
+></div><div><br></div></div></div><div><br></div></div><br></body></html>
+------=_Part_653521_847735791.1717124941985--
+

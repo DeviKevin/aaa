@@ -1,0 +1,1460 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp187177rbd;
+        Thu, 30 May 2024 20:15:40 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEOhqWXvBLOr+XPLy3c0WpDIHYYIDMxaBRv9ZMux0GqaQajWuERmN4BiKj7sBZ+90wo/JXa
+X-Received: by 2002:a17:903:2452:b0:1f3:266b:ea23 with SMTP id d9443c01a7336-1f636fd9bb6mr7109435ad.13.1717125339801;
+        Thu, 30 May 2024 20:15:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125339; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=OKP/zj99Q05G7PQLjSZuFaelc65sOwOpvCcWhlPnqf51p5s6JACyVGby2yEDwXe7v+
+         03oHhQXUML6mo+nOmgOYEZaEZu4G4pymyGct0fS2RKVKdNi21FtUdlDk+mZl213f8Lj4
+         nSOOSr3vdzesySL9gU+jbfKPeiNOeTMkYuCPxC9vaBB5GVQMhqtDSHtVm3dTy/a3clNE
+         mhyd7oH1hc0+nw2GrrreWcSsTASjDFPqCvn5Km3Ff07jcI71T/MgwXTgNkHWSgPyB3iZ
+         3nPC5Kyh8gAdZ0iCMSDYJVM31zGV6iIwaK2cOmCpt9V9V6Ro6DNLM14BwuFEW+3NXUY7
+         px3A==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=9z2gJcNCMCDqdcNIgCF8JVsEfF4eCydi8wA0qRGFd7I=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=FW3ZrVvcLiMyXnOfE4ojzOG29+h8Z07z5egMR8eWGO9NAoIGOFTJDiTsNZtCWPfpAh
+         e6mPCn89xS3/XTk++5T0H8Sf5TkXg/x00e20xjOAZ4dg1unPXBdvl7QcSYU3G1LvignE
+         JDZMbccRlnuDIdyP5vHXg+WCS75t/bU0OWU1NDCnTNcezyKGv3ugc1JmlIHVNadFmj6M
+         JdLu0e3x71wJms6Ri+FJ7q9mnGvHRqwn3ksjLCSy1l4Od5YCkRa0lfktlDtdhwLURwDE
+         wq3BIQpvswje5q83LOXNzQLgrToTjepwkIGyF8ArkBZITX8ZJIS5UUetxM9jqUuJQFPR
+         xVKQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=Ax+3VQp6;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o18.zoho.com (sender3-op-o18.zoho.com. [136.143.184.18])
+        by mx.google.com with ESMTPS id d9443c01a7336-1f6323eb18dsi6805745ad.401.2024.05.30.20.15.39
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:15:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) client-ip=136.143.184.18;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=Ax+3VQp6;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125338; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=e2MWQFb78hbNY7bHnjDX20RSY3MG3fSAGc7diiOC1kbkKW1UQItbsSP59OOmjWXBw+c6mMgC9CV1ZRnqnQYgk3KakHUn7iqF/Ui5mhC8++kuKr/7oIGrvVGmhsKa41WIqLqwCebzPR4zm7JWOJ9eeq6X+m+y8NgD3ZklzmWtzcA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125338; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=9z2gJcNCMCDqdcNIgCF8JVsEfF4eCydi8wA0qRGFd7I=; 
+	b=kFr8AJZHrqlY0vzxCNoPnmilVHKeHjYJ44USMnfddG9zjw5cVyjvh9Ov3L07zTg3MJhUsiXXfobYCYBm4ubtHCzsio16IUo1FbmJhshZHGFEC0JP9cb4vPT+g03eXoENPwaT5G/NttBGT4qakMyy4Slxh9pNLVhLgLr+/l7Iwt8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125338;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=9z2gJcNCMCDqdcNIgCF8JVsEfF4eCydi8wA0qRGFd7I=;
+	b=Ax+3VQp6YDr8ZC4rwwR0K5UbqXyHv6VTOrOzxxBOL4tUmERy4s3vGODFu3Eb3K0J
+	dxe/Qa+/vtKPNLBv8qABUCG8cCDOEGvihgGJKMa8dhrjZwlVQBAXWhnvprIZLuV3dTx
+	htFRpC4bmNoaHq5+Ky0gMYB5ku0X4ypTuruumqn0=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717125337736428.138970410653; Thu, 30 May 2024 20:15:37 -0700 (PDT)
+Date: Thu, 30 May 2024 23:15:37 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcca55231.d27d0119202265.8535528666594573443@shredex.ca>
+In-Reply-To: <6a0bbbf3-cc02-4afd-aee2-f9ab340425ae@ind1s06mta1678.xt.local>
+References: <6a0bbbf3-cc02-4afd-aee2-f9ab340425ae@ind1s06mta1678.xt.local>
+Subject: Fwd: Thank you for shopping with Old Navy.
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_656027_1521360252.1717125337651"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_656027_1521360252.1717125337651
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Old Navy Canada <orders@email.oldnavy.ca>
+To: <john@backpocket.ca>
+Date: Sat, 28 Jan 2023 14:53:23 -0500
+Subject: Thank you for shopping with Old Navy.
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+ =C2=A0
+
+
+Here is your e-Receipt. https://view.email.oldnavy.ca/?qs=3D0103f061d170eb3=
+d3649703a09a1f5967cc36efe0f4e9b0a8cf530e35c741fdfd06df4581ccab7d156a25457b6=
+d40803e444334f61643c7f5d2b3c73518bb2d77fbac2ba8fd8598f355731f1ed3c4a9d
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+https://click.email.oldnavy.ca/?qs=3D0d2f057f84d0323c5b2e0d83d9e37774264504=
+636bf0a5b259cfb8ec40e5158b3324d23dd3bce4f47458851f576a11d6ba1cf488288930477=
+1c45b121f8f7649
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+
+
+
+
+
+
+
+OLD NAVY - 04459
+
+
+
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A013850=C2=A0STEELES=C2=A0AVE=
+NUE=C2=A0WEST,=C2=A0SUITES=C2=A01100=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0HALTON=C2=A0HILLS=C2=A0ON=C2=A0L7G=C2=A00J1=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0Tel.(905)=C2=A0636-6521=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0
+=20
+01/28/2023=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A002:53:09=C2=A0PM
+Trans.:=C2=A05412=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0Store:=C2=A004459
+Reg.:=C2=A0301=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+Cashier:=C2=A03512018=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0Valid=C2=A0No:=C2=A05675=20
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+SALE=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0
+
+
+
+
+
+
+StretchTech=C2=A0Water-Repellent=C2=A0Jogger=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A029.99=C2=A0T
+Pants=C2=A0for=C2=A0Men=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+738253-034-0002=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A01=C2=A0@=C2=A049.99
+Item=C2=A0Discount=C2=A040.0%=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0-20.00=20
+ONOM=C2=A040%STRTCH=C2=A0TCH=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+PPNFYLPN7N1L,=C2=A0$0.00=C2=A0Off=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0-0.00
+
+DYNAMIC=C2=A0FZ=C2=A0202=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A041.99=C2=
+=A0T
+402747-024-0002=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A01=C2=A0@=C2=A059.99=20
+Item=C2=A0Discount=C2=A030.0%=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0-18.00
+ONOM=C2=A030%DNMC=C2=A0FLC=C2=A0T=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+PPNFYLPN7N1L,=C2=A0$0.00=C2=A0Off=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0-0.00
+
+Soft-Washed=C2=A0Long-Sleeve=C2=A0Rotation=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A012.00=C2=A0T
+T-Shirt=C2=A0for=C2=A0Men=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=20
+417447-014-0002=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A01=C2=A0@=C2=A024.99
+Item=C2=A0Discount=C2=A0$12.00=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0-12.99
+ONOM=C2=A012LS=C2=A0SSNTL=C2=A0TS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+PPNFYLPN7N1L,=C2=A0$0.00=C2=A0Off=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0-0.00
+
+Total=C2=A0Discount=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0-=C2=A050.99=
+=20
+
+Subtotal=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A083.98
+GST/HST=C2=A0Taxable=C2=A0Amount=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A083.98
+GST/HST=C2=A0(13.0%)=C2=A0Tax=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A010.92
+Total=C2=A0Tax=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A010.92=20
+Total=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A094.90
+
+VISA=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A094.90
+Entry=C2=A0Method:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0Chip
+Account:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0XXXXXXXXXXXX3631=20
+Auth:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0AUTH=C2=A0090451=C2=A0(A)
+Application=C2=A0Label:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0VISA
+AID:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0A0000000031010
+TVR:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A00080008000=20
+TSI:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0E800
+
+By=C2=A0entering=C2=A0a=C2=A0verified=C2=A0PIN,=C2=A0cardholder=C2=A0agrees=
+=C2=A0to
+pay=C2=A0issuer=C2=A0such=C2=A0total=C2=A0in=C2=A0accordance=C2=A0with
+issuer's=C2=A0agreement=C2=A0with=C2=A0cardholder
+
+Total=C2=A0Tender=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A094.90
+=20
+GST=C2=A0#=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0R869148544
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0We=C2=A0would=C2=A0love=C2=
+=A0to=C2=A0hear=C2=A0your=C2=A0feedback!=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0Please=C2=A0take=C2=
+=A0our=C2=A0two=C2=A0minute=C2=A0survey:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0http://survey.medallia.com/oldnavy-feedback=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+=C2=A0Unwashed=C2=A0and=C2=A0unworn=C2=A0merchandise,=C2=A0accompanied=C2=
+=A0by=C2=A0an=C2=A0=C2=A0
+original=C2=A0sales=C2=A0receipt,=C2=A0may=C2=A0be=C2=A0returned=C2=A0to=C2=
+=A0any=C2=A0Canadian=20
+=C2=A0store=C2=A0within=C2=A030=C2=A0days=C2=A0of=C2=A0purchase=C2=A0for=C2=
+=A0full=C2=A0refund=C2=A0in=C2=A0
+original=C2=A0form=C2=A0of=C2=A0payment.=C2=A0A=C2=A0one-time=C2=A0price=C2=
+=A0adjustment
+may=C2=A0be=C2=A0made=C2=A0within=C2=A014=C2=A0days=C2=A0of=C2=A0purchase=
+=C2=A0with=C2=A0an=C2=A0original
+receipt.=C2=A0Final=C2=A0Sale=C2=A0items=C2=A0are=C2=A0not=C2=A0eligible=C2=
+=A0for=C2=A0returns
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0or=C2=A0adjustments.=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0
+
+=C2=A0=C2=A0=C2=A0You=C2=A0may=C2=A0be=C2=A0asked=C2=A0to=C2=A0present=C2=
+=A0valid=C2=A0photo=C2=A0ID=C2=A0for=C2=A0=C2=A0=C2=A0=C2=A0
+=C2=A0unreceipted=C2=A0returns.=C2=A0Exchange=C2=A0or=C2=A0merchandise=C2=
+=A0return=C2=A0=20
+card=C2=A0for=C2=A0current=C2=A0selling=C2=A0price.=C2=A0Your=C2=A0name,=C2=
+=A0address,=C2=A0and
+=C2=A0=C2=A0=C2=A0phone=C2=A0number=C2=A0may=C2=A0be=C2=A0captured=C2=A0and=
+=C2=A0retained=C2=A0by=C2=A0a=C2=A0=C2=A0=C2=A0=C2=A0
+third-party=C2=A0provider=C2=A0Old=C2=A0Navy=C2=A0uses=C2=A0to=C2=A0authori=
+ze=C2=A0returns
+and=C2=A0prevent=C2=A0fraud.=C2=A0For=C2=A0inquiries,=C2=A0call=C2=A01-800-=
+652-2331
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0or=C2=A0v=
+isit=C2=A0theretailequation.com.=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0
+
+Additional=C2=A0terms=C2=A0and=C2=A0restrictions=C2=A0apply.=C2=A0See=C2=A0=
+store=C2=A0for
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0full=C2=A0return=C2=A0policy=C2=A0details.=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://click.email.oldnavy.ca/?qs=3D570f22befca02e4a6b770e394c366635c30b47=
+8a2dd6ee792a7e2e7ac2cf5cc4b7323df4ad9c8e519eaa35f43d5b559d10844a4e4fb310235=
+6f78ae78d822a38
+
+
+
+
+
+
+If you have any questions about our privacy policy, contact our customer se=
+rvice center via email at mailto:custserv@oldnavy.com, or call us at 1-866-=
+246-3121. You may also contact us by postal mail at Old Navy Canada Custome=
+r Service, 13153 Coleraine Dr., Bolton, ON L7E 3B6, Canada.=20
+=20
+ =C2=A9 2023 Gap Inc.
+
+    =20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_656027_1521360252.1717125337651
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Old Navy Canada &lt;orders@email.oldnavy.ca&gt;=
+<br>To: &lt;john@backpocket.ca&gt;<br>Date: Sat, 28 Jan 2023 14:53:23 -0500=
+<br>Subject: Thank you for shopping with Old Navy.<br>=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br><=
+/div><div><br></div><blockquote id=3D"blockquote_zmail" style=3D"margin: 0p=
+x;"><style>@media only screen and (max-width: 480px) {
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91wrapper {
+    width: 320px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91block {
+    width: 100%;
+    display: block;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91photo {
+    width: 100%;
+    height: auto;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91mobile-hidden {
+    display: none;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91invisible {
+    display: none;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91show {
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: auto;
+    max-height: inherit;
+    height: auto;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91showme {
+    display: block;
+    width: auto;
+    overflow: visible;
+    float: none;
+    max-height: inherit;
+    margin-top: 0px;
+    visibility: inherit;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91reset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91logoHolidayBG {
+    width: 320px;
+    height: 50px;
+    display: block;
+    background-image: url(http://image.email.oldnavy.com/lib/fe9e1370756403=
+7f74/m/44/ON_logo_holiday16_BG.png);
+    background-repeat: no-repeat;
+    background-size: 320px 50px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91w160h135 {
+    width: 160px;
+    height: 135px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91w160h77 {
+    width: 160px;
+    height: 77px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91w320 {
+    width: 320px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91w316 {
+    width: 316px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91w164 {
+    width: 164px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91w55 {
+    width: 55px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91p0 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91pb4 {
+    padding-bottom: 4px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91pb6 {
+    padding-bottom: 6px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91pb8 {
+    padding-bottom: 8px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91pb10 {
+    padding-bottom: 10px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91pb15 {
+    padding-bottom: 15px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91pt5 {
+    padding-top: 5px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91pt6 {
+    padding-top: 6px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91pt8 {
+    padding-top: 8px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91pt10 {
+    padding-top: 10px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91h3 {
+    height: 3px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91h4 {
+    height: 4px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91h5 {
+    height: 5px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91h6 {
+    height: 6px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91h8 {
+    height: 8px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91h10 {
+    height: 10px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91h13 {
+    height: 13px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91spacePH {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91alignleft {
+    text-align: left;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91aligncenter {
+    text-align: center;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91text1 {
+    font-size: 1em;
+    line-height: 1em;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91text-75 {
+    font-size: 0.75em;
+    line-height: 0.75em;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91text-half {
+    font-size: 0.5em;
+    line-height: 0.5em;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91txt10 {
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91txt13 {
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91break {
+    display: block;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91flyOut {
+    position: relative;
+    width: 320px;
+    height: 0px;
+    top: -12px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91flyOut ul {
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91flyOut li {
+    visibility: hidden;
+    display: block;
+    border: none;
+    background-color: rgb(235, 239, 242);
+    border-bottom: 1px solid rgb(255, 255, 255);
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91flyOut li {
+    float: left;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91flyOut *[class].x_-1115561291navigation-handle {
+    display: block;
+    background-image: url(http://image.email.oldnavy.com/lib/fe9e1370756403=
+7f74/m/43/ON_menu_open_60x60.png);
+    background-size: 30px 30px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 #x_-1115561291naviga=
+tion-checkbox:checked + *[class].x_-1115561291flyOut ul {
+    max-height: 700px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 #x_-1115561291naviga=
+tion-checkbox:checked + *[class].x_-1115561291flyOut li {
+    visibility: visible;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 #x_-1115561291naviga=
+tion-checkbox:checked + *[class].x_-1115561291flyOut *[class].x_-1115561291=
+navigation-handle,
+div.zm_6390901328298623537_parse_6924654553219955064 #x_-1115561291navigati=
+on-checkbox:checked + *[class].x_-1115561291flyOut *[class].x_-1115561291na=
+vigation-handle :after,
+div.zm_6390901328298623537_parse_6924654553219955064 #x_-1115561291navigati=
+on-checkbox:checked + *[class].x_-1115561291flyOut *[class].x_-1115561291na=
+vigation-handle :before {
+    background-image: url(http://image.email.oldnavy.com/lib/fe9e1370756403=
+7f74/m/43/ON_menu_close_60x60.png);
+    background-size: 30px 30px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91navigation-checkbox {
+    display: none;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91navigation-handle {
+    display: none;
+    cursor: pointer;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+    border-top: 0;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91navigation-handle :before,
+div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-1115561291=
+navigation-handle :after {  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91flyOut *[class].x_-1115561291navigation-handle {
+    top: -35px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91flyOut2 {
+    position: relative;
+    width: 320px;
+    height: 0px;
+    top: -4px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91flyOut2 ul {
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91flyOut2 li {
+    visibility: hidden;
+    display: block;
+    border: none;
+    background-color: rgb(235, 239, 242);
+    border-bottom: 1px solid rgb(255, 255, 255);
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91flyOut2 li {
+    float: left;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91flyOut2 *[class].x_-1115561291navigation-handle {
+    display: block;
+    background-image: url(http://image.email.oldnavy.com/lib/fe9e1370756403=
+7f74/m/43/ON_menu_open_60x60.png);
+    background-size: 30px 30px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 #x_-1115561291naviga=
+tion-checkbox:checked + *[class].x_-1115561291flyOut2 ul {
+    max-height: 700px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 #x_-1115561291naviga=
+tion-checkbox:checked + *[class].x_-1115561291flyOut2 li {
+    visibility: visible;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 #x_-1115561291naviga=
+tion-checkbox:checked + *[class].x_-1115561291flyOut2 *[class].x_-111556129=
+1navigation-handle,
+div.zm_6390901328298623537_parse_6924654553219955064 #x_-1115561291navigati=
+on-checkbox:checked + *[class].x_-1115561291flyOut2 *[class].x_-1115561291n=
+avigation-handle :after,
+div.zm_6390901328298623537_parse_6924654553219955064 #x_-1115561291navigati=
+on-checkbox:checked + *[class].x_-1115561291flyOut2 *[class].x_-1115561291n=
+avigation-handle :before {
+    background-image: url(http://image.email.oldnavy.com/lib/fe9e1370756403=
+7f74/m/43/ON_menu_close_60x60.png);
+    background-size: 30px 30px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91navigation-checkbox {
+    display: none;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91navigation-handle {
+    display: none;
+    cursor: pointer;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+    border-top: 0;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91navigation-handle :before,
+div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-1115561291=
+navigation-handle :after {  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 *[class].x_-11155612=
+91flyOut2 *[class].x_-1115561291navigation-handle {
+    top: -37px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 .x_-1115561291Extern=
+alClass {
+    width: 100%;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 .x_-1115561291Extern=
+alClass,
+div.zm_6390901328298623537_parse_6924654553219955064 .x_-1115561291External=
+Class p,
+div.zm_6390901328298623537_parse_6924654553219955064 .x_-1115561291External=
+Class span,
+div.zm_6390901328298623537_parse_6924654553219955064 .x_-1115561291External=
+Class font,
+div.zm_6390901328298623537_parse_6924654553219955064 .x_-1115561291External=
+Class a,
+div.zm_6390901328298623537_parse_6924654553219955064 .x_-1115561291External=
+Class td,
+div.zm_6390901328298623537_parse_6924654553219955064 .x_-1115561291External=
+Class div {
+    line-height: 100%;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 #x_-1115561291backgr=
+oundTable {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    line-height: 100%;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 #x_-1115561291outloo=
+k a {
+    padding: 0;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 table td {
+    border-collapse: collapse;
+  }
+}
+@media only screen and (max-width: 480px) {
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] table[id=3D&q=
+uot;backgroundTable&quot;] {
+    padding: 5px 0;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] table[class=
+=3D&quot;wrapper&quot;] {
+    width: 320px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] *[class*=3D&q=
+uot;paddingreset&quot;] {
+    padding: 0;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] *[class*=3D&q=
+uot;padding-half&quot;] {
+    padding: 0.5em;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] *[class*=3D&q=
+uot;pad-half-top&quot;] {
+    padding-top: 0.5em;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] *[class*=3D&q=
+uot;pad-half-right&quot;] {
+    padding-right: 0.5em;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] *[class*=3D&q=
+uot;pad-half-bottom&quot;] {
+    padding-bottom: 0.5em;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] *[class*=3D&q=
+uot;pad-half-left&quot;] {
+    padding-left: 0.5em;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] img[class=3D&=
+quot;logo&quot;] {
+    width: 166px;
+    height: auto;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] img[class=3D&=
+quot;ologo&quot;] {
+    width: 300px;
+    height: auto;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] td[class=3D&q=
+uot;alignleft&quot;] {
+    text-align: left;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] td[class=3D&q=
+uot;aligncenter&quot;] {
+    text-align: center;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] td[class=3D&q=
+uot;pb20&quot;] {
+    padding-bottom: 20px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] td[class=3D&q=
+uot;resetp&quot;] {
+    padding: 0;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] table[class=
+=3D&quot;socialtable&quot;] {
+    margin-left: 25px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 .x_-1115561291half {
+    width: 300px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] *[class*=3D&q=
+uot;mobile-hidden&quot;] {
+    display: none;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] div[class=3D&=
+quot;show&quot;],
+div.zm_6390901328298623537_parse_6924654553219955064 div[class=3D&quot;show=
+&quot;] img,
+div.zm_6390901328298623537_parse_6924654553219955064 table [class=3D&quot;s=
+how&quot;] {
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: auto;
+    max-height: inherit;
+    height: auto;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] img[class=3D&=
+quot;photo&quot;] {
+    width: 100%;
+    height: auto;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] img[class=3D&=
+quot;photo90&quot;] {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] *[class*=3D&q=
+uot;text1&quot;] {
+    font-size: 1em;
+    line-height: 1em;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] *[class*=3D&q=
+uot;text-75&quot;] {
+    font-size: 0.75em;
+    line-height: 0.75em;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] *[class*=3D&q=
+uot;text-half&quot;] {
+    font-size: 0.5em;
+    line-height: 0.5em;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] td[class=3D&q=
+uot;block&quot;] {
+    width: 100%;
+    display: block;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] span[class=3D=
+&quot;block&quot;] {
+    display: block;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] td[class=3D&q=
+uot;reset&quot;] {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] *[class].x_-1=
+115561291showme {
+    display: block;
+    width: auto;
+    overflow: visible;
+    float: none;
+    max-height: inherit;
+    margin-top: 0px;
+    visibility: inherit;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] table[class=
+=3D&quot;width320&quot;] {
+    width: 320px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] *[class*=3D&q=
+uot;hauto&quot;] {
+    height: auto;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] img[class=3D&=
+quot;w360h518&quot;] {
+    width: 180px;
+    height: 259px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] img[class=3D&=
+quot;w360h571&quot;] {
+    width: 180px;
+    height: 285px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] img[class=3D&=
+quot;w280h518&quot;] {
+    width: 140px;
+    height: 259px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] img[class=3D&=
+quot;w280h571&quot;] {
+    width: 140px;
+    height: 285px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] *[class=3D&qu=
+ot;mobileFontSmall&quot;] {
+    font-size: 10px;
+    line-height: 18px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064[yahoo] *[class=3D&qu=
+ot;mobileThird&quot;] {
+    width: 100px;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 .x_-1115561291mobile=
+-hidden {
+    display: none;
+  }
+
+  div.zm_6390901328298623537_parse_6924654553219955064 .x_-1115561291show {
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: auto;
+    max-height: inherit;
+    height: auto;
+  }
+}</style><div style=3D"width: 100%; margin: 0; padding: 0;" class=3D"zm_639=
+0901328298623537_parse_6924654553219955064"><img id=3D"1674935606706100001_=
+imgsrc_url_0" width=3D"1" height=3D"1" alt=3D""> <table border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" align=3D"center" bgcolor=3D"#FFFFFF" id=3D"x_=
+-1115561291backgroundTable" style=3D"margin: 0; padding: 0; width: 100%; li=
+ne-height: 100%;" width=3D"100%"><tbody><tr><td align=3D"center" style=3D"b=
+order-collapse: collapse;"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"640" align=3D"center" class=3D"x_-1115561291wrapper"><tbod=
+y><tr><td align=3D"center" style=3D"border-collapse: collapse; padding-bott=
+om: 10px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D=
+"center" width=3D"640" class=3D"x_-1115561291wrapper"><tbody><tr><td style=
+=3D"border-collapse: collapse; font-size: 1px; line-height: 1px;" height=3D=
+"15" class=3D"x_-1115561291h8">&nbsp;<br></td></tr><tr><td align=3D"center"=
+ style=3D"border-collapse: collapse;"><table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" align=3D"center" width=3D"100%"><tbody><tr><td align=3D"=
+center" style=3D"border-collapse: collapse; font-family: Arial, Helvetica, =
+sans-serif; font-size: 12px; line-height: 15px; color: #777777; padding-lef=
+t: 10px; padding-right: 10px;"><span class=3D"x_-1115561291mobile-hidden">H=
+ere is your e-Receipt.</span> <a href=3D"https://view.email.oldnavy.ca/?qs=
+=3D0103f061d170eb3d3649703a09a1f5967cc36efe0f4e9b0a8cf530e35c741fdfd06df458=
+1ccab7d156a25457b6d40803e444334f61643c7f5d2b3c73518bb2d77fbac2ba8fd8598f355=
+731f1ed3c4a9d" target=3D"_blank" style=3D"color :  #777777;"> View in brows=
+er</a><br></td></tr></tbody></table></td></tr><tr><td style=3D"border-colla=
+pse: collapse; font-size: 1px; line-height: 1px;" height=3D"8" class=3D"x_-=
+1115561291h4">&nbsp;<br></td></tr></tbody></table><table border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" align=3D"center" width=3D"640" class=3D"x_-1=
+115561291wrapper"><tbody><tr><td align=3D"center" style=3D"border-collapse:=
+ collapse;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=
+=3D"center"><tbody><tr><td align=3D"center" style=3D"border-collapse: colla=
+pse;"><a href=3D"https://click.email.oldnavy.ca/?qs=3D0d2f057f84d0323c5b2e0=
+d83d9e37774264504636bf0a5b259cfb8ec40e5158b3324d23dd3bce4f47458851f576a11d6=
+ba1cf4882889304771c45b121f8f7649" target=3D"_blank"><img class=3D"x_-111556=
+1291logo" alt=3D"OLD NAVY" style=3D"border :  0; display :  block;" border=
+=3D"0" id=3D"1674935606706100001_imgsrc_url_1" width=3D"138"></a></td></tr>=
+</tbody></table></td></tr><tr><td style=3D"border-collapse: collapse; font-=
+size: 1px; line-height: 1px;" height=3D"10" class=3D"x_-1115561291h8">&nbsp=
+;<br></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" width=3D"640" align=3D"center" class=3D"x_-1115561291wrapper" s=
+tyle=3D"background-image :  linear-gradient(#ffffff,#ffffff);" id=3D"167493=
+5606706100001_background_url_11"><tbody><tr><td align=3D"center" class=3D"x=
+_-1115561291mobile-hidden" style=3D"border-collapse: collapse;"><table cell=
+spacing=3D"0" cellpadding=3D"0" border=3D"0"><tbody><tr><td style=3D"border=
+-collapse: collapse;"><br></td></tr></tbody></table></td></tr><tr><td style=
+=3D"border-collapse: collapse; font-size: 1px; line-height: 1px;" height=3D=
+"10" class=3D"x_-1115561291mobile-hidden">&nbsp;<br></td></tr></tbody></tab=
+le></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"border-collap=
+se: collapse;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" widt=
+h=3D"100%"><tbody><tr><td height=3D"4" style=3D"border-collapse: collapse; =
+font-size: 0px; line-height: 0px;" valign=3D"top" width=3D"598"><img height=
+=3D"5" id=3D"1674935606706100001_imgsrc_url_2" style=3D"display :  block;">=
+</td></tr><tr><td align=3D"center" style=3D"border-collapse: collapse; bord=
+er: 1px solid #ccc; padding-left: 10px; padding-right: 0px; font-family: Lu=
+cida Console,  Courier,  monospace; font-size: 14px; line-height: 14px; col=
+or: #000000;" valign=3D"top"><span class=3D"font" style=3D"font-family:&quo=
+t;Lucida Console&quot;, Courier, monospace"><span class=3D"colour" style=3D=
+"color:#000000"><br><table border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+><tbody><tr><td align=3D"center" style=3D"border-collapse: collapse;"><tabl=
+e border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td height=3D=
+"10" style=3D"border-collapse: collapse;"><br></td></tr><tr><td align=3D"ce=
+nter" style=3D"border-collapse: collapse; font-family: Lucida Console,  Cou=
+rier,  monospace; line-height: 14px; font-size: 14px; padding: 0;">OLD NAVY=
+ - 04459<br></td></tr><tr><td align=3D"center" height=3D"0" style=3D"border=
+-collapse: collapse;"><br></td></tr><tr><td align=3D"left" style=3D"border-=
+collapse: collapse; font-family: Lucida Console,  Courier,  monospace; line=
+-height: 14px; font-size: 14px; padding: 0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;13850&nbsp;STEELES&nbsp;AVENUE&nbsp;WEST,&nbsp;SUITES&nbs=
+p;1100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;HALTON&nbsp;HILLS&nbsp;ON&nbsp;L7G&nbsp;0J1&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<=
+br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tel.(905)&nbsp;636-6521&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;<br> <br>01/28/2023&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;02:53:09&nbsp;PM<br>Trans.:&nbsp;5412&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Store=
+:&nbsp;04459<br>Reg.:&nbsp;301&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>Ca=
+shier:&nbsp;3512018&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;Valid&nbsp;No:&nbsp;5675 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SALE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br></td></tr><tr><td align=
+=3D"center" style=3D"border-collapse: collapse; font-family: Lucida Console=
+,  Courier,  monospace; line-height: 14px; font-size: 14px; padding: 0;"><i=
+mg border=3D"0" id=3D"1674935606706100001_imgsrc_url_3" alt=3D"044593015412=
+202301285675" width=3D"310" height=3D"55" align=3D"center"><br></td></tr><t=
+r><td align=3D"left" style=3D"border-collapse: collapse; font-family: Lucid=
+a Console,  Courier,  monospace; line-height: 14px; font-size: 14px; paddin=
+g: 0;"><br>StretchTech&nbsp;Water-Repellent&nbsp;Jogger&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29.99&nbsp;T<br>Pants&n=
+bsp;for&nbsp;Men&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>738253-034-0002&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;@&nbsp;49.99<br>Item&nbs=
+p;Discount&nbsp;40.0%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;-20.00 <br>ONOM&nbsp;40%STRTCH&nbsp;TCH&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;<br>PPNFYLPN7N1L,&nbsp;$0.00&nbsp;Off&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;-0.00<br><br>DYNAMIC&nbsp;FZ&nbsp;202&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;41.99&nbsp;T<br>402747-024-0002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;@&nbsp;59.99 <br>Item&nbsp;Di=
+scount&nbsp;30.0%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;-18.00<br>ONOM&nbsp;30%DNMC&nbsp;FLC&nbsp;T&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;<br>PPNFYLPN7N1L,&nbsp;$0.00&nbsp;Off&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;-0.00<br><br>Soft-Washed&nbsp;Long-Sleeve&nbsp;Rotation&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1=
+2.00&nbsp;T<br>T-Shirt&nbsp;for&nbsp;Men&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>417447-014-0002&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;@&nbsp;24.9=
+9<br>Item&nbsp;Discount&nbsp;$12.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;-12.99<br>ONOM&nbsp;12LS&nbsp;SSNTL&nbsp;TS&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;<br>PPNFYLPN7N1L,&nbsp;$0.00&nbsp;Off&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;-0.00<br><br>Total&nbsp;Discount&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;-&nbsp;50.99 <br><br>Subtotal&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;83.98<br>G=
+ST/HST&nbsp;Taxable&nbsp;Amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;83.98<br>GST/HST&nbsp;(13.0%)&nbsp;Tax=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;10.92<br>Total&nbsp;Tax&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.92 <br>Total&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;94.90<br><br>VISA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;94.90<br>Entry&nbsp;Method:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ch=
+ip<br>Account:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;XXXXXXXXXXXX3631 <br>Auth:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AUTH&nbsp;090451&nbsp;(=
+A)<br>Application&nbsp;Label:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VISA<br>AID:&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;A0000000031010<br>TVR:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;0080008000 <br>TSI:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E800<br><br>By&nbsp;entering&nbsp;a&nb=
+sp;verified&nbsp;PIN,&nbsp;cardholder&nbsp;agrees&nbsp;to<br>pay&nbsp;issue=
+r&nbsp;such&nbsp;total&nbsp;in&nbsp;accordance&nbsp;with<br>issuer's&nbsp;a=
+greement&nbsp;with&nbsp;cardholder<br><br>Total&nbsp;Tender&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;94.90<br> <br>GST&nbsp;#&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;R869148544<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We&=
+nbsp;would&nbsp;love&nbsp;to&nbsp;hear&nbsp;your&nbsp;feedback!&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;Please&nbsp;take&nbsp;our&nbsp;two&nbsp;minute&nbs=
+p;survey:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=3D"http://survey.medallia.com/oldnavy-f=
+eedback" target=3D"_blank">http://survey.medallia.com/oldnavy-feedback</a>&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>&nbsp;Unwashed&nbsp;and&nbsp;unworn&nb=
+sp;merchandise,&nbsp;accompanied&nbsp;by&nbsp;an&nbsp;&nbsp;<br>original&nb=
+sp;sales&nbsp;receipt,&nbsp;may&nbsp;be&nbsp;returned&nbsp;to&nbsp;any&nbsp=
+;Canadian <br>&nbsp;store&nbsp;within&nbsp;30&nbsp;days&nbsp;of&nbsp;purcha=
+se&nbsp;for&nbsp;full&nbsp;refund&nbsp;in&nbsp;<br>original&nbsp;form&nbsp;=
+of&nbsp;payment.&nbsp;A&nbsp;one-time&nbsp;price&nbsp;adjustment<br>may&nbs=
+p;be&nbsp;made&nbsp;within&nbsp;14&nbsp;days&nbsp;of&nbsp;purchase&nbsp;wit=
+h&nbsp;an&nbsp;original<br>receipt.&nbsp;Final&nbsp;Sale&nbsp;items&nbsp;ar=
+e&nbsp;not&nbsp;eligible&nbsp;for&nbsp;returns<br>&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;or&nbsp;adjustments.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b=
+r><br>&nbsp;&nbsp;&nbsp;You&nbsp;may&nbsp;be&nbsp;asked&nbsp;to&nbsp;presen=
+t&nbsp;valid&nbsp;photo&nbsp;ID&nbsp;for&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;u=
+nreceipted&nbsp;returns.&nbsp;Exchange&nbsp;or&nbsp;merchandise&nbsp;return=
+&nbsp; <br>card&nbsp;for&nbsp;current&nbsp;selling&nbsp;price.&nbsp;Your&nb=
+sp;name,&nbsp;address,&nbsp;and<br>&nbsp;&nbsp;&nbsp;phone&nbsp;number&nbsp=
+;may&nbsp;be&nbsp;captured&nbsp;and&nbsp;retained&nbsp;by&nbsp;a&nbsp;&nbsp=
+;&nbsp;&nbsp;<br>third-party&nbsp;provider&nbsp;Old&nbsp;Navy&nbsp;uses&nbs=
+p;to&nbsp;authorize&nbsp;returns<br>and&nbsp;prevent&nbsp;fraud.&nbsp;For&n=
+bsp;inquiries,&nbsp;call&nbsp;1-800-652-2331<br>&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;visit&nbsp;theretailequation=
+.com.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>=
+<br>Additional&nbsp;terms&nbsp;and&nbsp;restrictions&nbsp;apply.&nbsp;See&n=
+bsp;store&nbsp;for<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;full&nbsp;return&nbsp;policy&nbsp;details.&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><=
+br></td></tr><tr><td height=3D"10" style=3D"border-collapse: collapse;"><br=
+></td></tr></tbody></table></td></tr></tbody></table><br></span></span></td=
+></tr><tr><td height=3D"20" class=3D"x_-1115561291h10" style=3D"border-coll=
+apse: collapse; font-size: 0px; line-height: 0px;" valign=3D"top"><img heig=
+ht=3D"20" class=3D"x_-1115561291h10" id=3D"1674935606706100001_imgsrc_url_4=
+" style=3D"display :  block;"></td></tr></tbody></table></td></tr><tr><td a=
+lign=3D"center" nowrap=3D"nowrap" style=3D"border-collapse: collapse; paddi=
+ng-bottom: 26px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" a=
+lign=3D"center"><tbody><tr><td style=3D"border-collapse: collapse; font-fam=
+ily: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 16px; colo=
+r: #368be6;"><a href=3D"https://click.email.oldnavy.ca/?qs=3D570f22befca02e=
+4a6b770e394c366635c30b478a2dd6ee792a7e2e7ac2cf5cc4b7323df4ad9c8e519eaa35f43=
+d5b559d10844a4e4fb3102356f78ae78d822a38" target=3D"_blank" style=3D"color :=
+  #00A8E1; text-decoration :  none;"><span class=3D"colour" style=3D"color:=
+rgb(54, 139, 230)">Privacy Policy</span></a><br></td></tr></tbody></table><=
+/td></tr><tr><td align=3D"center" style=3D"border-collapse: collapse; paddi=
+ng-bottom: 15px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" a=
+lign=3D"center"><tbody><tr><td align=3D"left" style=3D"border-collapse: col=
+lapse; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-hei=
+ght: 16px; color: #777777;">If you have any questions about our privacy pol=
+icy, contact our customer service center via email at <a href=3D"mailto:cus=
+tserv@oldnavy.com" style=3D"color :  #777777; text-decoration :  underline;=
+" target=3D"_blank"><span class=3D"colour" style=3D"color:rgb(119, 119, 119=
+)">custserv@oldnavy.com</span></a>, or call us at 1-866-246-3121. You may a=
+lso contact us by postal mail at Old Navy Canada Customer Service, 13153 Co=
+leraine Dr., Bolton, ON L7E 3B6, Canada. <br> <br> =C2=A9 2023 Gap Inc.</td=
+></tr><tr><td style=3D"border-collapse: collapse;"><img id=3D"1674935606706=
+100001_imgsrc_url_5" width=3D"1" height=3D"1"> <img border=3D"0" width=3D"1=
+" height=3D"1" id=3D"1674935606706100001_imgsrc_url_6"> <img border=3D"0" w=
+idth=3D"1" height=3D"1" id=3D"1674935606706100001_imgsrc_url_7"> <img borde=
+r=3D"0" width=3D"1" height=3D"1" id=3D"1674935606706100001_imgsrc_url_8"> <=
+img border=3D"0" width=3D"1" height=3D"1" id=3D"1674935606706100001_imgsrc_=
+url_9"> <img border=3D"0" width=3D"1" height=3D"1" id=3D"167493560670610000=
+1_imgsrc_url_10"><br></td></tr></tbody></table></td></tr></tbody></table></=
+td></tr></tbody></table></div></blockquote></div><div><br></div><div class=
+=3D"zmail_signature_below"><div id=3D"" data-zbluepencil-ignore=3D"true" da=
+ta-sigid=3D"6189300000000739006"><div>Regards,<br></div><div><br></div><div=
+>John E. Estrada<br></div><div><br></div><div>-----------------------------=
+----------<br></div><div><br></div><p style=3D"font-style: normal; font-wei=
+ght: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transf=
+orm: none; white-space: normal; widows: 2; word-spacing: 0px"><span class=
+=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><span class=3D=
+"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-fa=
+mily:Verdana, Arial, Helvetica, sans-serif"><span class=3D"size" style=3D"f=
+ont-size:13.3333px"><span class=3D"highlight" style=3D"background-color:rgb=
+(255, 255, 255)"><b><span class=3D"colour" style=3D"color:rgb(0, 102, 0)"><=
+span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-seri=
+f, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">START SHRED=
+DING INC. (shredEX)</span></span></span></b><span class=3D"colour" style=3D=
+"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, =
+Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-=
+size:14.66px"><br>208 Evans Ave, Toronto, ON M8Z 1J7<br></span></span></spa=
+n><b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"=
+font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"=
+><span class=3D"size" style=3D"font-size:14.66px">E:<span>&nbsp;<a href=3D"=
+mailto:john@shredex.ca" target=3D"_blank" style=3D"color: rgb(0, 0, 238)">j=
+ohn@shredex.ca</a>&nbsp;</span>W: <a target=3D"_blank" href=3D"http://www.s=
+tartshredding.com" style=3D"color: rgb(0, 0, 238)">www.startshredding.com</=
+a><br></span></span></span></b><span class=3D"colour" style=3D"color:rgb(51=
+, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Aria=
+l, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"=
+>DIRECT:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, 204); cur=
+sor: default" target=3D"_blank"><span class=3D"colour" style=3D"color:rgb(5=
+1, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Ari=
+al, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px=
+">416.255.1500</span></span></span></a><span class=3D"colour" style=3D"colo=
+r:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verda=
+na, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:=
+14.66px"><br>TOLL FREE:&nbsp;</span></span></span><a style=3D"color: rgb(17=
+, 85, 204); cursor: default" target=3D"_blank"><span class=3D"colour" style=
+=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibr=
+i, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"fo=
+nt-size:14.66px">1.866.868.9585</span></span></span></a></span></span></spa=
+n></span></span></p><p style=3D"font-style: normal; font-weight: 400; lette=
+r-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; whit=
+e-space: normal; widows: 2; word-spacing: 0px"><span class=3D"highlight" st=
+yle=3D"background-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D=
+"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:Verdana, Ari=
+al, Helvetica, sans-serif"><span class=3D"size" style=3D"font-size:13.3333p=
+x"><span class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)">=
+<span class=3D"colour" style=3D"color:rgb(34, 34, 34)"><span class=3D"font"=
+ style=3D"font-family:arial, sans-serif"><span class=3D"size" style=3D"font=
+-size:small"><span class=3D"colour" style=3D"color:gray"><span class=3D"fon=
+t" style=3D"font-family:Arial, sans-serif"><span class=3D"size" style=3D"fo=
+nt-size:7.5pt">This message and any attachments are the property of the&nbs=
+p;SHREDEX INC.&nbsp;or its affiliates. It may be legally privileged and/or =
+confidential and is intended only for the use of the addressee(s). No addre=
+ssee should store, forward, print, copy, or otherwise reproduce this messag=
+e in any manner that would allow it to be viewed by any individual not orig=
+inally listed as a recipient. If the reader of this message is not the inte=
+nded recipient, you are hereby notified that any unauthorized storage, disc=
+losure, dissemination, distribution, copying or the taking of any action in=
+ reliance on the information herein is strictly prohibited. If you have rec=
+eived this communication in error, please immediately notify the sender and=
+ delete this message.</span></span></span></span></span></span></span></spa=
+n></span></span></span><br></p><div id=3D""><div><br></div></div><div><br><=
+/div></div></div><div><br></div></div><br></body></html>
+------=_Part_656027_1521360252.1717125337651--
+

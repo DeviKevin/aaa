@@ -1,0 +1,1744 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp186814rbd;
+        Thu, 30 May 2024 20:14:29 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF5v79Cq71d/eFm0uCshqQTmp42L5QG3WL6lT7leN4kuPHg+whZGB5xrON/4BoPc77utyhZ
+X-Received: by 2002:a17:902:ea12:b0:1f6:35ab:dd37 with SMTP id d9443c01a7336-1f637054366mr7301345ad.41.1717125268894;
+        Thu, 30 May 2024 20:14:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125268; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=JmnC6HlD3WFd/Wjvyr19Vg+8XIcAzfZ/XRcYifA2hII/Lrwv3+DuU3EbGOoLp3fzyQ
+         gnyqLxFgr2x5KCEneCIg+/u8pGGIyWf8rDjS1wvCdB/O4aY/J7oj4j+TtkDXrRFpFlIX
+         HdW8IUPkkfSflaYGHl2MXxZQyPRDyb0rvWjFCv5hTgcD7lqK4CNqo5tfeVKhry94gCLg
+         Ta+kOSDN2MfdvvkEOFD7hXRNCUZyZbzrwnny+8XDDnkqTu8mh/RmD4cPweptGr9rVOqn
+         +DSsgF/Gx+PsJN5ospdoo9LKUeYttl9bvs1AHl8/1ux3gCi6hmen+P0rm4sFHcpaeetL
+         W6jA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=kdxjpdU/dXHtzemlyRIF9BMx6grAWwioE+gdauuDjT8=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=ElqAnJ87hKJNqCVJZTSE+4DZbjlL4ZbjOBkPGdfByXGUITOaQpEibqW+9kyWSB5H82
+         q1Z/h8u/ZpyDRg6e8oXMej6WfnhUp36t7GOW4znv2h1PLssBbiLphWSSmEi5NXlH+0Zw
+         7dhHF8Yemoy2j7y5uezQlFe/s9mdCgiVfWmU5r85SEyYtg1I49B/D+eGbwVvsyzVJb4S
+         SHLoF6PuFoD2ynKqepbeY5Ye+qjYtnalpvs7uagorX8Sxqz7QWpyUJmR4xwFCrEEsm0g
+         jXKkYLa2n9gfrsow7gOmcnYBTPIEKkpu46fT5bbHe2P1/rzpR9YkrAFc0gPTTzkmz7gc
+         PnNQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b="Cqo/TpwG";
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o18.zoho.com (sender3-op-o18.zoho.com. [136.143.184.18])
+        by mx.google.com with ESMTPS id d9443c01a7336-1f632401597si7295525ad.449.2024.05.30.20.14.28
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:14:28 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) client-ip=136.143.184.18;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b="Cqo/TpwG";
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125268; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=AFHep9IOKI7+eO4fXsbsfLZm4dp3N/f1/1BY1tMgpa2S2g4j82kMZTfhvVhBJdG4KE1wAgk2WroX8QLTz3XbQCJtktUXS1Pttxq2nb3SEaQgZzcLLSf54rXO9ZpSnfweUVfnf398PbyssEQxYdNvtmx2Q5Me2+RJ7J4h8UZQrpQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125268; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=kdxjpdU/dXHtzemlyRIF9BMx6grAWwioE+gdauuDjT8=; 
+	b=Z2+chHHPYE3aGZt8ssHHNUzmnY4a5x84AbtCZivfrhXoODzsB4ER9hpv2KsI6dOU+Ntb8HYTnhQ/iFG9N+DhH1z3Ph+XiN7VacAgKmY27QcH3AU7leL/C2oPl91UrLCM6Wg/IgrbX1uZvJjzQpxY+Q8cx2mi6cC2FJach5lEKzc=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125268;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=kdxjpdU/dXHtzemlyRIF9BMx6grAWwioE+gdauuDjT8=;
+	b=Cqo/TpwGnfTql6IwDdua7Rnb2dXASIs7xwZGdijlXN89LwuN3cJZkrrGps25ZeNP
+	rnL+BHP1EKvcMcUj5HfeQEjRqIaio/9LFbAKRmqKzIrY96RE9sbWVYwpbCNLBO4vlnd
+	BU2ogBCA0j/lAywSVRwObWbyPiJRyknTxkgGINk4=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 17171252666371005.6543998484997; Thu, 30 May 2024 20:14:26 -0700 (PDT)
+Date: Thu, 30 May 2024 23:14:26 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcca43c2f.d4055bc6202136.3429088784643437882@shredex.ca>
+In-Reply-To: <01010186e61a0b50-8eada4b0-73c0-4496-ae3c-92309fca34d0-000000@us-west-2.amazonses.com>
+References: <01010186e61a0b50-8eada4b0-73c0-4496-ae3c-92309fca34d0-000000@us-west-2.amazonses.com>
+Subject: =?UTF-8?Q?Fwd:_Your_McDelivery=C2=AE_order_is_being_prepared!?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_655603_1453861191.1717125266482"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_655603_1453861191.1717125266482
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: McDonald's Canada <mobile@ca.mcdonalds.com>
+To: <"john"@shredex.ca>
+Date: Wed, 15 Mar 2023 12:28:31 -0400
+Subject: Your McDelivery=C2=AE order is being prepared!
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+=C2=A0
+
+=C2=A0
+
+
+
+
+
+
+McDelivery=C2=AE Order Receipt
+
+ Dear John,=20
+
+Thank you for ordering McDelivery=C2=AE on the McDonald's app! Your order i=
+s being prepared and now all you need to do is sit back, relax and we'll ta=
+ke it from here.
+
+Here's a detailed receipt of your order:
+
+
+Order Date:
+
+2023-03-15T12:27:30
+
+
+Order Code:
+
+BG25431443
+
+
+
+
+Restaurant Name:
+
+Queen and Roncesvalles
+
+
+Restaurant Number:
+
+25031
+
+
+Address:
+
+10 Queensway
+
+
+City:
+
+Toronto
+
+
+Province:
+
+ON
+
+
+Postal Code:
+
+M6R 1B4
+
+
+
+
+
+
+
+QTY
+
+
+Item Detail
+
+
+Item Cost
+
+
+
+1
+
+
+=C2=A0                   Quarter Pounder with Cheese Extra Value Meal
+
+
+$14.39
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Quarter Pounder With Cheese
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0NO                    =C2=
+=A0                   Mustard                    =C2=A0
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0NO                    =C2=
+=A0                   Onions                    =C2=A0
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0NO                    =C2=
+=A0                   Pickles                    =C2=A0
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Med Fries
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Med Barq's Root Beer
+
+
+
+
+
+
+2
+
+
+=C2=A0                   Ranch Chicken Snack Wrap with Crispy Chicken
+
+
+$6.58
+
+
+
+1
+
+
+=C2=A0                   Happy Meal 4 McNuggets with Apple Slices
+
+
+$6.29
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      4 Chicken McNuggets
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Sweet & Sour Sauce
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Apple Slices
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Yogurt
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Happy Meal Toy
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Chocolate Milk Bottle
+
+
+
+
+
+
+1
+
+
+=C2=A0                   Big Mac Extra Value Meal
+
+
+$14.19
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Big Mac
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Med Fries
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Med Fruitopia Strawberry
+
+
+
+
+
+
+1
+
+
+=C2=A0                   Quarter Pounder with Cheese Extra Value Meal
+
+
+$14.39
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Quarter Pounder With Cheese
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0NO                    =C2=
+=A0                   Mustard                    =C2=A0
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0NO                    =C2=
+=A0                   Ketchup                    =C2=A0
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0NO                    =C2=
+=A0                   Onions                    =C2=A0
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0NO                    =C2=
+=A0                   Pickles                    =C2=A0
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Med Fries
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Med Coca-Cola
+
+
+
+
+
+
+1
+
+
+=C2=A0                   10 McNuggets Extra Value Meal
+
+
+$17.69
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      10 Chicken McNuggets
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Barbeque Sauce
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Sweet & Sour Sauce
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Med Fries
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0=C2=A0=C2=A0=C2=A01=C2=A0
+                                      Med Sprite
+
+
+
+
+
+
+=C2=A0
+
+
+=C2=A0Sub-Total:
+
+
+$73.53
+
+
+
+=C2=A0
+
+
+ServiceFee:
+
+
+$8.09
+
+
+
+=C2=A0
+
+
+ONT-HST2
+
+
+$9.37
+
+
+
+=C2=A0
+
+
+ONT-HST1
+
+
+$1.25
+
+
+
+=C2=A0
+
+
+Tip:
+
+
+$3.00 CAD
+
+
+
+=C2=A0
+
+
+Total:
+
+
+$95.24 CAD
+
+
+
+
+
+
+
+
+Payment Details=20
+
+Card Issuer:
+
+
+Visa
+
+
+
+Authorization:
+
+
+LCV49JSMXC4H4FG2
+
+
+
+Account/Card number:
+
+
+************3631
+
+
+
+Approved Amount:
+
+
+$95.24 CAD
+
+
+
+Sequence Number:
+
+
+LCV49JSMXC4H4FG2
+
+
+
+Reference Number:
+
+
+BG25431443|4825a629-c34e-11ed-a638-bfc59a167dcc
+
+
+
+
+
+
+
+McDelivery=C2=AE Information
+Flat, Suite or Floor:
+
+
+2507
+
+
+
+Address:
+
+
+2121 Lake Shore Boulevard West
+                                    , Etobicoke, ON, Canada
+
+
+
+Delivery Selection:
+
+
+Meet at Door
+
+
+
+Instructions:
+
+
+Buzz 0306
+
+
+
+Customer Phone:
+
+
++14168542265
+
+
+
+Vendor Name:
+
+
+DoorDash
+
+
+
+Vendor Order ID:
+
+
+4825a629-c34e-11ed-a638-bfc59a167dcc
+
+
+
+
+
+For more information or questions regarding your order, please contact McDe=
+livery=C2=AE Support at 1-833-510-0332.
+
+
+
+DOWNLOAD OUR MOBILE APP
+FOR OFFERS AND PROMOTIONS
+*****MyMcDs*****
+
+
+
+http://www.mcdonalds.ca
+
+
+
+This is a system-generated email. Please do not reply.
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_655603_1453861191.1717125266482
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: McDonald's Canada &lt;mobile@ca.mcdonalds.com&g=
+t;<br>To: &lt;"john"@shredex.ca&gt;<br>Date: Wed, 15 Mar 2023 12:28:31 -040=
+0<br>Subject: Your McDelivery=C2=AE order is being prepared!<br>=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D<br></div><div><br></div><blockquote id=3D"blockquote_zmail" style=
+=3D"margin: 0px;"><div><div class=3D"x_649549707Section1"><p class=3D"" sty=
+le=3D"margin-top: 0px; margin-bottom: 0px;">&nbsp;<br></p><p class=3D"" sty=
+le=3D"margin-top: 0px; margin-bottom: 0px;">&nbsp;<br></p><p><br></p><table=
+ class=3D"x_649549707MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" width=3D"580" style=3D"width :  435.0pt; background :  #EAEAEA;"=
+><tbody><tr><td style=3D"padding :  0cm 0cm 0cm 0cm;"><p class=3D"" style=
+=3D"margin-top: 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"c=
+olor:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><=
+span class=3D"size" style=3D"font-size:9pt"><img width=3D"580" height=3D"85=
+" alt=3D"McDonalds" id=3D"1678897717053100001_imgsrc_url_0" style=3D"border=
+-bottom-style :  none; border-left-style :  none; border-right-style :  non=
+e; border-top-style :  none; display :  block;"></span></span></span></p></=
+td></tr><tr><td style=3D"padding :  15.0pt 15.0pt 15.0pt 15.0pt;"><p class=
+=3D"" style=3D"margin-bottom: 12pt; margin-top: 0px;"><span class=3D"colour=
+" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-fam=
+ily:Arial"><span class=3D"size" style=3D"font-size:9pt"><b>McDelivery=C2=AE=
+ Order Receipt</b><br><br> Dear John, <br><br>Thank you for ordering McDeli=
+very=C2=AE on the McDonald's app! Your order is being prepared and now all =
+you need to do is sit back, relax and we'll take it from here.<br><br>Here'=
+s a detailed receipt of your order:<br><br></span></span></span></p><table =
+class=3D"x_649549707MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0"><tbody><tr><td valign=3D"top" align=3D"left" style=3D"width :  80=
+.0pt; font-size :  9.0pt; font-family :  Arial; color :  #666666; padding :=
+  3.0pt 3.0pt 3.0pt 0.0pt;">Order Date:<br></td><td valign=3D"top" align=3D=
+"left" style=3D"font-size :  9.0pt; font-family :  Arial; color :  #666666;=
+ padding :  3.0pt 3.0pt 3.0pt 0.0pt;">2023-03-15T12:27:30<br></td></tr><tr>=
+<td valign=3D"top" align=3D"left" style=3D"width :  80.0pt; font-size :  9.=
+0pt; font-family :  Arial; color :  #666666; padding :  3.0pt 3.0pt 3.0pt 0=
+.0pt;">Order Code:<br></td><td valign=3D"top" align=3D"left" style=3D"font-=
+size :  9.0pt; font-family :  Arial; color :  #666666; padding :  3.0pt 3.0=
+pt 3.0pt 0.0pt;">BG25431443<br></td></tr></tbody></table><table class=3D"x_=
+649549707MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><=
+tbody><tr><td valign=3D"top" align=3D"left" style=3D"width :  80.0pt; font-=
+size :  9.0pt; font-family :  Arial; color :  #666666; padding :  3.0pt 1.0=
+pt 3.0pt 0.0pt;">Restaurant Name:<br></td><td valign=3D"top" align=3D"left"=
+ style=3D"font-size :  9.0pt; font-family :  Arial; color :  #666666; paddi=
+ng :  3.0pt 1.0pt 3.0pt 0.0pt;">Queen and Roncesvalles<br></td></tr><tr><td=
+ valign=3D"top" align=3D"left" style=3D"width :  80.0pt; font-size :  9.0pt=
+; font-family :  Arial; color :  #666666; padding :  3.0pt 1.0pt 3.0pt 0.0p=
+t;">Restaurant Number:<br></td><td valign=3D"top" align=3D"left" style=3D"f=
+ont-size :  9.0pt; font-family :  Arial; color :  #666666; padding :  3.0pt=
+ 1.0pt 3.0pt 0.0pt;">25031<br></td></tr><tr><td valign=3D"top" align=3D"lef=
+t" style=3D"width :  80.0pt; font-size :  9.0pt; font-family :  Arial; colo=
+r :  #666666; padding :  3.0pt 1.0pt 3.0pt 0.0pt;">Address:<br></td><td val=
+ign=3D"top" align=3D"left" style=3D"font-size :  9.0pt; font-family :  Aria=
+l; color :  #666666; padding :  3.0pt 1.0pt 3.0pt 0.0pt;">10 Queensway<br><=
+/td></tr><tr><td valign=3D"top" align=3D"left" style=3D"width :  80.0pt; fo=
+nt-size :  9.0pt; font-family :  Arial; color :  #666666; padding :  3.0pt =
+1.0pt 3.0pt 0.0pt;">City:<br></td><td valign=3D"top" align=3D"left" style=
+=3D"font-size :  9.0pt; font-family :  Arial; color :  #666666; padding :  =
+3.0pt 1.0pt 3.0pt 0.0pt;">Toronto<br></td></tr><tr><td valign=3D"top" align=
+=3D"left" style=3D"width :  80.0pt; font-size :  9.0pt; font-family :  Aria=
+l; color :  #666666; padding :  3.0pt 1.0pt 3.0pt 0.0pt;">Province:<br></td=
+><td valign=3D"top" align=3D"left" style=3D"font-size :  9.0pt; font-family=
+ :  Arial; color :  #666666; padding :  3.0pt 3.0pt 1.0pt 0.0pt;">ON<br></t=
+d></tr><tr><td valign=3D"top" align=3D"left" style=3D"width :  80.0pt; font=
+-size :  9.0pt; font-family :  Arial; color :  #666666; padding :  3.0pt 1.=
+0pt 3.0pt 0.0pt;">Postal Code:<br></td><td valign=3D"top" align=3D"left" st=
+yle=3D"font-size :  9.0pt; font-family :  Arial; color :  #666666; padding =
+:  3.0pt 1.0pt 3.0pt 0.0pt;">M6R 1B4<br></td></tr></tbody></table><br><p><b=
+r></p><table class=3D"x_649549707MsoNormalTable" border=3D"1" cellspacing=
+=3D"0" cellpadding=3D"0"><tbody><tr><td width=3D"80" valign=3D"top" align=
+=3D"center" style=3D"width :  60.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;">=
+<p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b><span class=
+=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">QTY</sp=
+an></span></span></b><br></p></td><td width=3D"280" valign=3D"top" style=3D=
+"width :  210.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=
+=3D"margin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" style=
+=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Ari=
+al"><span class=3D"size" style=3D"font-size:9pt">Item Detail</span></span><=
+/span></b><br></p></td><td width=3D"120" valign=3D"top" align=3D"right" sty=
+le=3D"width :  90.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" s=
+tyle=3D"margin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" sty=
+le=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:A=
+rial"><span class=3D"size" style=3D"font-size:9pt">Item Cost</span></span><=
+/span></b><br></p></td></tr><tr><td valign=3D"top" align=3D"center" style=
+=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top:=
+ 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 1=
+02, 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"s=
+ize" style=3D"font-size:9pt">1</span></span></span><br></p></td><td valign=
+=3D"top" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=
+=3D"margin-top: 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"c=
+olor:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><=
+span class=3D"size" style=3D"font-size:9pt">&nbsp;                   Quarte=
+r Pounder with Cheese Extra Value Meal</span></span></span><br></p></td><td=
+ valign=3D"top" align=3D"right" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt=
+;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b><span cl=
+ass=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" styl=
+e=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt"></span=
+></span></span><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><s=
+pan class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=
+=3D"font-size:9pt">$14.39</span></span></span></b><br></p></td></tr><tr><td=
+ valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0p=
+t;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span clas=
+s=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&nbsp;<=
+/span></span></span><br></p></td><td valign=3D"top" style=3D"padding :  3.0=
+pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cl=
+ass=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font=
+-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Quarter Pounder With Cheese</span></s=
+pan></span><br></p></td><td valign=3D"top" align=3D"right" style=3D"padding=
+ :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margi=
+n-bottom: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)=
+"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" sty=
+le=3D"font-size:9pt"></span></span></span><span class=3D"colour" style=3D"c=
+olor:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><=
+span class=3D"size" style=3D"font-size:9pt"></span></span></span></b><br></=
+p></td></tr><tr><td valign=3D"top" align=3D"center" style=3D"padding :  3.0=
+pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cl=
+ass=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font=
+-size:9pt">&nbsp;</span></span></span><br></p></td><td valign=3D"top" style=
+=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top:=
+ 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 1=
+02, 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"s=
+ize" style=3D"font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;NO                    &nbsp;                   Mustard                   =
+ &nbsp;</span></span></span><br></p></td><td valign=3D"top" align=3D"right"=
+ style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margi=
+n-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" style=3D"color:r=
+gb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span c=
+lass=3D"size" style=3D"font-size:9pt"></span></span></span><span class=3D"c=
+olour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"fon=
+t-family:Arial"><span class=3D"size" style=3D"font-size:9pt"></span></span>=
+</span></b><br></p></td></tr><tr><td valign=3D"top" align=3D"center" style=
+=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top:=
+ 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 1=
+02, 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"s=
+ize" style=3D"font-size:9pt">&nbsp;</span></span></span><br></p></td><td va=
+lign=3D"top" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" st=
+yle=3D"margin-top: 0px; margin-bottom: 0px;"><span class=3D"colour" style=
+=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Ari=
+al"><span class=3D"size" style=3D"font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;NO                    &nbsp;                   Onions=
+                    &nbsp;</span></span></span><br></p></td><td valign=3D"t=
+op" align=3D"right" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=
+=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colo=
+ur" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-f=
+amily:Arial"><span class=3D"size" style=3D"font-size:9pt"></span></span></s=
+pan><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=
+=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-si=
+ze:9pt"></span></span></span></b><br></p></td></tr><tr><td valign=3D"top" a=
+lign=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D""=
+ style=3D"margin-top: 0px; margin-bottom: 0px;"><span class=3D"colour" styl=
+e=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Ar=
+ial"><span class=3D"size" style=3D"font-size:9pt">&nbsp;</span></span></spa=
+n><br></p></td><td valign=3D"top" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0=
+pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span cla=
+ss=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO                    &nbsp;      =
+             Pickles                    &nbsp;</span></span></span><br></p>=
+</td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0pt 3.0pt 3.0=
+pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b>=
+<span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"fo=
+nt" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt=
+"></span></span></span><span class=3D"colour" style=3D"color:rgb(102, 102, =
+102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size"=
+ style=3D"font-size:9pt"></span></span></span></b><br></p></td></tr><tr><td=
+ valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0p=
+t;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span clas=
+s=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&nbsp;<=
+/span></span></span><br></p></td><td valign=3D"top" style=3D"padding :  3.0=
+pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cl=
+ass=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font=
+-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Med Fries</span></span></span><br></p=
+></td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0pt 3.0pt 3.=
+0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b=
+><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"f=
+ont" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9p=
+t"></span></span></span><span class=3D"colour" style=3D"color:rgb(102, 102,=
+ 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size=
+" style=3D"font-size:9pt"></span></span></span></b><br></p></td></tr><tr><t=
+d valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0=
+pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span cla=
+ss=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&nbsp;<=
+/span></span></span><br></p></td><td valign=3D"top" style=3D"padding :  3.0=
+pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cl=
+ass=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font=
+-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Med Barq's Root Beer</span></span></s=
+pan><br></p></td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0=
+pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span=
+ class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"f=
+ont-size:9pt"></span></span></span><span class=3D"colour" style=3D"color:rg=
+b(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span cl=
+ass=3D"size" style=3D"font-size:9pt"></span></span></span></b><br></p></td>=
+</tr><tr><td valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0p=
+t 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;=
+"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"=
+font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9=
+pt">2</span></span></span><br></p></td><td valign=3D"top" style=3D"padding =
+:  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin=
+-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><s=
+pan class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=
+=3D"font-size:9pt">&nbsp;                   Ranch Chicken Snack Wrap with C=
+rispy Chicken</span></span></span><br></p></td><td valign=3D"top" align=3D"=
+right" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D=
+"margin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" style=3D"c=
+olor:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><=
+span class=3D"size" style=3D"font-size:9pt"></span></span></span><span clas=
+s=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">$6.58</=
+span></span></span></b><br></p></td></tr><tr><td valign=3D"top" align=3D"ce=
+nter" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"=
+margin-top: 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"color=
+:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span=
+ class=3D"size" style=3D"font-size:9pt">1</span></span></span><br></p></td>=
+<td valign=3D"top" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=
+=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span class=3D"colour"=
+ style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-fami=
+ly:Arial"><span class=3D"size" style=3D"font-size:9pt">&nbsp;              =
+     Happy Meal 4 McNuggets with Apple Slices</span></span></span><br></p><=
+/td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0pt 3.0pt 3.0p=
+t 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b><=
+span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"fon=
+t" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt"=
+></span></span></span><span class=3D"colour" style=3D"color:rgb(102, 102, 1=
+02)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" =
+style=3D"font-size:9pt">$6.29</span></span></span></b><br></p></td></tr><tr=
+><td valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0pt =
+3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span =
+class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" st=
+yle=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&nbs=
+p;</span></span></span><br></p></td><td valign=3D"top" style=3D"padding :  =
+3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bo=
+ttom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span=
+ class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"f=
+ont-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      4 Chicken McNuggets</span></span></sp=
+an><br></p></td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0p=
+t 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom=
+: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span =
+class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"fo=
+nt-size:9pt"></span></span></span><span class=3D"colour" style=3D"color:rgb=
+(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span cla=
+ss=3D"size" style=3D"font-size:9pt"></span></span></span></b><br></p></td><=
+/tr><tr><td valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0pt=
+ 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"=
+><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"f=
+ont" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9p=
+t">&nbsp;</span></span></span><br></p></td><td valign=3D"top" style=3D"padd=
+ing :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; ma=
+rgin-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)=
+"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" sty=
+le=3D"font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp=
+;
+                                      Sweet &amp; Sour Sauce</span></span><=
+/span><br></p></td><td valign=3D"top" align=3D"right" style=3D"padding :  3=
+.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bot=
+tom: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><sp=
+an class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D=
+"font-size:9pt"></span></span></span><span class=3D"colour" style=3D"color:=
+rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span =
+class=3D"size" style=3D"font-size:9pt"></span></span></span></b><br></p></t=
+d></tr><tr><td valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.=
+0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0p=
+x;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=
+=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-si=
+ze:9pt">&nbsp;</span></span></span><br></p></td><td valign=3D"top" style=3D=
+"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0p=
+x; margin-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102,=
+ 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size=
+" style=3D"font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Apple Slices</span></span></span><br>=
+</p></td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0pt 3.0pt=
+ 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"=
+><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=
+=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-si=
+ze:9pt"></span></span></span><span class=3D"colour" style=3D"color:rgb(102,=
+ 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D=
+"size" style=3D"font-size:9pt"></span></span></span></b><br></p></td></tr><=
+tr><td valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0p=
+t 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><spa=
+n class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" =
+style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&n=
+bsp;</span></span></span><br></p></td><td valign=3D"top" style=3D"padding :=
+  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-=
+bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><sp=
+an class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D=
+"font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Yogurt</span></span></span><br></p></=
+td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0pt 3.0pt 3.0pt=
+ 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b><s=
+pan class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font=
+" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">=
+</span></span></span><span class=3D"colour" style=3D"color:rgb(102, 102, 10=
+2)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" s=
+tyle=3D"font-size:9pt"></span></span></span></b><br></p></td></tr><tr><td v=
+align=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;=
+"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span class=
+=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&nbsp;<=
+/span></span></span><br></p></td><td valign=3D"top" style=3D"padding :  3.0=
+pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cl=
+ass=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font=
+-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Happy Meal Toy</span></span></span><b=
+r></p></td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0pt 3.0=
+pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px=
+;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=
+=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-si=
+ze:9pt"></span></span></span><span class=3D"colour" style=3D"color:rgb(102,=
+ 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D=
+"size" style=3D"font-size:9pt"></span></span></span></b><br></p></td></tr><=
+tr><td valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0p=
+t 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><spa=
+n class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" =
+style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&n=
+bsp;</span></span></span><br></p></td><td valign=3D"top" style=3D"padding :=
+  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-=
+bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><sp=
+an class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D=
+"font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Chocolate Milk Bottle</span></span></=
+span><br></p></td><td valign=3D"top" align=3D"right" style=3D"padding :  3.=
+0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bott=
+om: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><spa=
+n class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"=
+font-size:9pt"></span></span></span><span class=3D"colour" style=3D"color:r=
+gb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span c=
+lass=3D"size" style=3D"font-size:9pt"></span></span></span></b><br></p></td=
+></tr><tr><td valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0=
+pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px=
+;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D=
+"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:=
+9pt">1</span></span></span><br></p></td><td valign=3D"top" style=3D"padding=
+ :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margi=
+n-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><=
+span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=
+=3D"font-size:9pt">&nbsp;                   Big Mac Extra Value Meal</span>=
+</span></span><br></p></td><td valign=3D"top" align=3D"right" style=3D"padd=
+ing :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; ma=
+rgin-bottom: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 1=
+02)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" =
+style=3D"font-size:9pt"></span></span></span><span class=3D"colour" style=
+=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Ari=
+al"><span class=3D"size" style=3D"font-size:9pt">$14.19</span></span></span=
+></b><br></p></td></tr><tr><td valign=3D"top" align=3D"center" style=3D"pad=
+ding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; m=
+argin-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102=
+)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" st=
+yle=3D"font-size:9pt">&nbsp;</span></span></span><br></p></td><td valign=3D=
+"top" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"=
+margin-top: 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"color=
+:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span=
+ class=3D"size" style=3D"font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Big Mac</span></span></span><br></p><=
+/td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0pt 3.0pt 3.0p=
+t 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b><=
+span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"fon=
+t" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt"=
+></span></span></span><span class=3D"colour" style=3D"color:rgb(102, 102, 1=
+02)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" =
+style=3D"font-size:9pt"></span></span></span></b><br></p></td></tr><tr><td =
+valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt=
+;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span class=
+=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&nbsp;<=
+/span></span></span><br></p></td><td valign=3D"top" style=3D"padding :  3.0=
+pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cl=
+ass=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font=
+-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Med Fries</span></span></span><br></p=
+></td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0pt 3.0pt 3.=
+0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b=
+><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"f=
+ont" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9p=
+t"></span></span></span><span class=3D"colour" style=3D"color:rgb(102, 102,=
+ 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size=
+" style=3D"font-size:9pt"></span></span></span></b><br></p></td></tr><tr><t=
+d valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0=
+pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span cla=
+ss=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&nbsp;<=
+/span></span></span><br></p></td><td valign=3D"top" style=3D"padding :  3.0=
+pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cl=
+ass=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font=
+-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Med Fruitopia Strawberry</span></span=
+></span><br></p></td><td valign=3D"top" align=3D"right" style=3D"padding : =
+ 3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-b=
+ottom: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><=
+span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=
+=3D"font-size:9pt"></span></span></span><span class=3D"colour" style=3D"col=
+or:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><sp=
+an class=3D"size" style=3D"font-size:9pt"></span></span></span></b><br></p>=
+</td></tr><tr><td valign=3D"top" align=3D"center" style=3D"padding :  3.0pt=
+ 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom:=
+ 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span clas=
+s=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-s=
+ize:9pt">1</span></span></span><br></p></td><td valign=3D"top" style=3D"pad=
+ding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; m=
+argin-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102=
+)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" st=
+yle=3D"font-size:9pt">&nbsp;                   Quarter Pounder with Cheese =
+Extra Value Meal</span></span></span><br></p></td><td valign=3D"top" align=
+=3D"right" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" styl=
+e=3D"margin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" style=
+=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Ari=
+al"><span class=3D"size" style=3D"font-size:9pt"></span></span></span><span=
+ class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" s=
+tyle=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">$14=
+.39</span></span></span></b><br></p></td></tr><tr><td valign=3D"top" align=
+=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" sty=
+le=3D"margin-top: 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D=
+"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"=
+><span class=3D"size" style=3D"font-size:9pt">&nbsp;</span></span></span><b=
+r></p></td><td valign=3D"top" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"=
+><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span class=
+=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&nbsp;&=
+nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Quarter Pounder With Cheese</span></s=
+pan></span><br></p></td><td valign=3D"top" align=3D"right" style=3D"padding=
+ :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margi=
+n-bottom: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)=
+"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" sty=
+le=3D"font-size:9pt"></span></span></span><span class=3D"colour" style=3D"c=
+olor:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><=
+span class=3D"size" style=3D"font-size:9pt"></span></span></span></b><br></=
+p></td></tr><tr><td valign=3D"top" align=3D"center" style=3D"padding :  3.0=
+pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cl=
+ass=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font=
+-size:9pt">&nbsp;</span></span></span><br></p></td><td valign=3D"top" style=
+=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top:=
+ 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 1=
+02, 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"s=
+ize" style=3D"font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;NO                    &nbsp;                   Mustard                   =
+ &nbsp;</span></span></span><br></p></td><td valign=3D"top" align=3D"right"=
+ style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margi=
+n-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" style=3D"color:r=
+gb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span c=
+lass=3D"size" style=3D"font-size:9pt"></span></span></span><span class=3D"c=
+olour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"fon=
+t-family:Arial"><span class=3D"size" style=3D"font-size:9pt"></span></span>=
+</span></b><br></p></td></tr><tr><td valign=3D"top" align=3D"center" style=
+=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top:=
+ 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 1=
+02, 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"s=
+ize" style=3D"font-size:9pt">&nbsp;</span></span></span><br></p></td><td va=
+lign=3D"top" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" st=
+yle=3D"margin-top: 0px; margin-bottom: 0px;"><span class=3D"colour" style=
+=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Ari=
+al"><span class=3D"size" style=3D"font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;NO                    &nbsp;                   Ketchu=
+p                    &nbsp;</span></span></span><br></p></td><td valign=3D"=
+top" align=3D"right" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=
+=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colo=
+ur" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-f=
+amily:Arial"><span class=3D"size" style=3D"font-size:9pt"></span></span></s=
+pan><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=
+=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-si=
+ze:9pt"></span></span></span></b><br></p></td></tr><tr><td valign=3D"top" a=
+lign=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D""=
+ style=3D"margin-top: 0px; margin-bottom: 0px;"><span class=3D"colour" styl=
+e=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Ar=
+ial"><span class=3D"size" style=3D"font-size:9pt">&nbsp;</span></span></spa=
+n><br></p></td><td valign=3D"top" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0=
+pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span cla=
+ss=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO                    &nbsp;      =
+             Onions                    &nbsp;</span></span></span><br></p><=
+/td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0pt 3.0pt 3.0p=
+t 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b><=
+span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"fon=
+t" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt"=
+></span></span></span><span class=3D"colour" style=3D"color:rgb(102, 102, 1=
+02)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" =
+style=3D"font-size:9pt"></span></span></span></b><br></p></td></tr><tr><td =
+valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt=
+;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span class=
+=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&nbsp;<=
+/span></span></span><br></p></td><td valign=3D"top" style=3D"padding :  3.0=
+pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cl=
+ass=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font=
+-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO              =
+      &nbsp;                   Pickles                    &nbsp;</span></sp=
+an></span><br></p></td><td valign=3D"top" align=3D"right" style=3D"padding =
+:  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin=
+-bottom: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"=
+><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" styl=
+e=3D"font-size:9pt"></span></span></span><span class=3D"colour" style=3D"co=
+lor:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><s=
+pan class=3D"size" style=3D"font-size:9pt"></span></span></span></b><br></p=
+></td></tr><tr><td valign=3D"top" align=3D"center" style=3D"padding :  3.0p=
+t 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom=
+: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cla=
+ss=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-=
+size:9pt">&nbsp;</span></span></span><br></p></td><td valign=3D"top" style=
+=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top:=
+ 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 1=
+02, 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"s=
+ize" style=3D"font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Med Fries</span></span></span><br></p=
+></td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0pt 3.0pt 3.=
+0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b=
+><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"f=
+ont" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9p=
+t"></span></span></span><span class=3D"colour" style=3D"color:rgb(102, 102,=
+ 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size=
+" style=3D"font-size:9pt"></span></span></span></b><br></p></td></tr><tr><t=
+d valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0=
+pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span cla=
+ss=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&nbsp;<=
+/span></span></span><br></p></td><td valign=3D"top" style=3D"padding :  3.0=
+pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cl=
+ass=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font=
+-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Med Coca-Cola</span></span></span><br=
+></p></td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0pt 3.0p=
+t 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;=
+"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=
+=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-si=
+ze:9pt"></span></span></span><span class=3D"colour" style=3D"color:rgb(102,=
+ 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D=
+"size" style=3D"font-size:9pt"></span></span></span></b><br></p></td></tr><=
+tr><td valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0p=
+t 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><spa=
+n class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" =
+style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">1<=
+/span></span></span><br></p></td><td valign=3D"top" style=3D"padding :  3.0=
+pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cl=
+ass=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font=
+-size:9pt">&nbsp;                   10 McNuggets Extra Value Meal</span></s=
+pan></span><br></p></td><td valign=3D"top" align=3D"right" style=3D"padding=
+ :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margi=
+n-bottom: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)=
+"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" sty=
+le=3D"font-size:9pt"></span></span></span><span class=3D"colour" style=3D"c=
+olor:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><=
+span class=3D"size" style=3D"font-size:9pt">$17.69</span></span></span></b>=
+<br></p></td></tr><tr><td valign=3D"top" align=3D"center" style=3D"padding =
+:  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin=
+-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><s=
+pan class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=
+=3D"font-size:9pt">&nbsp;</span></span></span><br></p></td><td valign=3D"to=
+p" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"mar=
+gin-top: 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"color:rg=
+b(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span cl=
+ass=3D"size" style=3D"font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      10 Chicken McNuggets</span></span></s=
+pan><br></p></td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0=
+pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span=
+ class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"f=
+ont-size:9pt"></span></span></span><span class=3D"colour" style=3D"color:rg=
+b(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span cl=
+ass=3D"size" style=3D"font-size:9pt"></span></span></span></b><br></p></td>=
+</tr><tr><td valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0p=
+t 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;=
+"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"=
+font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9=
+pt">&nbsp;</span></span></span><br></p></td><td valign=3D"top" style=3D"pad=
+ding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; m=
+argin-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102=
+)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" st=
+yle=3D"font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbs=
+p;
+                                      Barbeque Sauce</span></span></span><b=
+r></p></td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0pt 3.0=
+pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px=
+;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=
+=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-si=
+ze:9pt"></span></span></span><span class=3D"colour" style=3D"color:rgb(102,=
+ 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D=
+"size" style=3D"font-size:9pt"></span></span></span></b><br></p></td></tr><=
+tr><td valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0p=
+t 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><spa=
+n class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" =
+style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&n=
+bsp;</span></span></span><br></p></td><td valign=3D"top" style=3D"padding :=
+  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-=
+bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><sp=
+an class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D=
+"font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Sweet &amp; Sour Sauce</span></span><=
+/span><br></p></td><td valign=3D"top" align=3D"right" style=3D"padding :  3=
+.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bot=
+tom: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><sp=
+an class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D=
+"font-size:9pt"></span></span></span><span class=3D"colour" style=3D"color:=
+rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span =
+class=3D"size" style=3D"font-size:9pt"></span></span></span></b><br></p></t=
+d></tr><tr><td valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.=
+0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0p=
+x;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=
+=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-si=
+ze:9pt">&nbsp;</span></span></span><br></p></td><td valign=3D"top" style=3D=
+"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0p=
+x; margin-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102,=
+ 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size=
+" style=3D"font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Med Fries</span></span></span><br></p=
+></td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0pt 3.0pt 3.=
+0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b=
+><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"f=
+ont" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9p=
+t"></span></span></span><span class=3D"colour" style=3D"color:rgb(102, 102,=
+ 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size=
+" style=3D"font-size:9pt"></span></span></span></b><br></p></td></tr><tr><t=
+d valign=3D"top" align=3D"center" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0=
+pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span cla=
+ss=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">&nbsp;<=
+/span></span></span><br></p></td><td valign=3D"top" style=3D"padding :  3.0=
+pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cl=
+ass=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font=
+-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;
+                                      Med Sprite</span></span></span><br></=
+p></td><td valign=3D"top" align=3D"right" style=3D"padding :  3.0pt 3.0pt 3=
+.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><=
+b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"=
+font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9=
+pt"></span></span></span><span class=3D"colour" style=3D"color:rgb(102, 102=
+, 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"siz=
+e" style=3D"font-size:9pt"></span></span></span></b><br></p></td></tr><tr><=
+td width=3D"80" valign=3D"top" style=3D"width :  60.0pt; padding :  3.0pt 3=
+.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0=
+px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cla=
+ss=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-=
+size:9pt"></span></span></span>&nbsp;</b><br></p></td><td width=3D"280" val=
+ign=3D"top" align=3D"right" style=3D"width :  210.0pt; padding :  3.0pt 3.0=
+pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px=
+;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=
+=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-si=
+ze:9pt">&nbsp;Sub-Total:</span></span></span></b><br></p></td><td width=3D"=
+120" valign=3D"top" align=3D"right" style=3D"width :  90.0pt; padding :  3.=
+0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bott=
+om: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><spa=
+n class=3D"font" style=3D"font-family:&quot;MS Gothic&quot;"><span class=3D=
+"size" style=3D"font-size:9pt">$</span></span></span></b><b><span class=3D"=
+colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"fo=
+nt-family:Arial"><span class=3D"size" style=3D"font-size:9pt">73.53</span><=
+/span></span></b><br></p></td></tr><tr><td width=3D"80" valign=3D"top" styl=
+e=3D"width :  60.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" st=
+yle=3D"margin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" styl=
+e=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Ar=
+ial"><span class=3D"size" style=3D"font-size:9pt"></span></span></span>&nbs=
+p;</b><br></p></td><td width=3D"280" valign=3D"top" align=3D"right" style=
+=3D"width :  210.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" st=
+yle=3D"margin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" styl=
+e=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Ar=
+ial"><span class=3D"size" style=3D"font-size:9pt">ServiceFee:</span></span>=
+</span></b><br></p></td><td width=3D"120" valign=3D"top" align=3D"right" st=
+yle=3D"width :  90.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" =
+style=3D"margin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" st=
+yle=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:=
+&quot;MS Gothic&quot;"><span class=3D"size" style=3D"font-size:9pt">$</span=
+></span></span></b><b><span class=3D"colour" style=3D"color:rgb(102, 102, 1=
+02)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" =
+style=3D"font-size:9pt">8.09</span></span></span></b><br></p></td></tr><tr>=
+<td width=3D"80" valign=3D"top" style=3D"width :  60.0pt; padding :  3.0pt =
+3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: =
+0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cl=
+ass=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font=
+-size:9pt"></span></span></span>&nbsp;</b><br></p></td><td width=3D"280" va=
+lign=3D"top" align=3D"right" style=3D"width :  210.0pt; padding :  3.0pt 3.=
+0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0p=
+x;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span clas=
+s=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-s=
+ize:9pt">ONT-HST2</span></span></span></b><br></p></td><td width=3D"120" va=
+lign=3D"top" align=3D"right" style=3D"width :  90.0pt; padding :  3.0pt 3.0=
+pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px=
+;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=
+=3D"font" style=3D"font-family:&quot;MS Gothic&quot;"><span class=3D"size" =
+style=3D"font-size:9pt">$</span></span></span></b><b><span class=3D"colour"=
+ style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-fami=
+ly:Arial"><span class=3D"size" style=3D"font-size:9pt">9.37</span></span></=
+span></b><br></p></td></tr><tr><td width=3D"80" valign=3D"top" style=3D"wid=
+th :  60.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"m=
+argin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" style=3D"col=
+or:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><sp=
+an class=3D"size" style=3D"font-size:9pt"></span></span></span>&nbsp;</b><b=
+r></p></td><td width=3D"280" valign=3D"top" align=3D"right" style=3D"width =
+:  210.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"mar=
+gin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" style=3D"color=
+:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span=
+ class=3D"size" style=3D"font-size:9pt">ONT-HST1</span></span></span></b><b=
+r></p></td><td width=3D"120" valign=3D"top" align=3D"right" style=3D"width =
+:  90.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"marg=
+in-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" style=3D"color:=
+rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:&quot;MS Goth=
+ic&quot;"><span class=3D"size" style=3D"font-size:9pt">$</span></span></spa=
+n></b><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cl=
+ass=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font=
+-size:9pt">1.25</span></span></span></b><br></p></td></tr><tr><td width=3D"=
+80" valign=3D"top" style=3D"width :  60.0pt; padding :  3.0pt 3.0pt 3.0pt 3=
+.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b><spa=
+n class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" =
+style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt"></=
+span></span></span>&nbsp;</b><br></p></td><td width=3D"280" valign=3D"top" =
+align=3D"right" style=3D"width :  210.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0=
+pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b><span =
+class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" st=
+yle=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">Tip:=
+</span></span></span></b><br></p></td><td width=3D"120" valign=3D"top" alig=
+n=3D"right" style=3D"width :  90.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;">=
+<p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b><span class=
+=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:&quot;MS Gothic&quot;"><span class=3D"size" style=3D"font-s=
+ize:9pt">$</span></span></span></b><b><span class=3D"colour" style=3D"color=
+:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span=
+ class=3D"size" style=3D"font-size:9pt">3.00 CAD</span></span></span></b><b=
+r></p></td></tr><tr><td width=3D"80" valign=3D"top" style=3D"width :  60.0p=
+t; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: =
+0px; margin-bottom: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102,=
+ 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D=
+"size" style=3D"font-size:9pt"></span></span></span>&nbsp;</b><br></p></td>=
+<td width=3D"280" valign=3D"top" align=3D"right" style=3D"width :  210.0pt;=
+ padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0p=
+x; margin-bottom: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 1=
+02, 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"s=
+ize" style=3D"font-size:9pt">Total:</span></span></span></b><br></p></td><t=
+d width=3D"120" valign=3D"top" align=3D"right" style=3D"width :  90.0pt; pa=
+dding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; =
+margin-bottom: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102,=
+ 102)"><span class=3D"font" style=3D"font-family:&quot;MS Gothic&quot;"><sp=
+an class=3D"size" style=3D"font-size:9pt">$</span></span></span></b><b><spa=
+n class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" =
+style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">95=
+.24 CAD</span></span></span></b><br></p></td></tr></tbody></table><p class=
+=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span class=3D"colour"=
+ style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-fami=
+ly:Gulim"><span class=3D"size" style=3D"font-size:9pt"></span></span></span=
+><br></p><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span=
+ class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" s=
+tyle=3D"font-family:Gulim"><span class=3D"size" style=3D"font-size:9pt"><b>=
+<span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"fo=
+nt" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt=
+"><br>Payment Details <br></span></span></span></b></span></span></span></p=
+><table class=3D"x_649549707MsoNormalTable" border=3D"1" cellspacing=3D"0" =
+cellpadding=3D"0"><tbody><tr><td width=3D"140" valign=3D"top" style=3D"widt=
+h :  110.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"m=
+argin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" style=3D"col=
+or:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><sp=
+an class=3D"size" style=3D"font-size:9pt">Card Issuer:</span></span></span>=
+</b><br></p></td><td valign=3D"top" style=3D"padding :  3.0pt 3.0pt 3.0pt 3=
+.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span c=
+lass=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" sty=
+le=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">Visa<=
+/span></span></span><br></p></td></tr><tr><td width=3D"140" valign=3D"top" =
+style=3D"width :  110.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D=
+"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour"=
+ style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-fami=
+ly:Arial"><span class=3D"size" style=3D"font-size:9pt">Authorization:</span=
+></span></span></b><br></p></td><td valign=3D"top" style=3D"padding :  3.0p=
+t 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom=
+: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span cla=
+ss=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-=
+size:9pt">LCV49JSMXC4H4FG2</span></span></span><br></p></td></tr><tr><td wi=
+dth=3D"140" valign=3D"top" style=3D"width :  110.0pt; padding :  3.0pt 3.0p=
+t 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;=
+"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=
+=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-si=
+ze:9pt">Account/Card number:</span></span></span></b><br></p></td><td valig=
+n=3D"top" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=
+=3D"margin-top: 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"c=
+olor:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><=
+span class=3D"size" style=3D"font-size:9pt">************3631</span></span><=
+/span><br></p></td></tr><tr><td width=3D"140" valign=3D"top" style=3D"width=
+ :  110.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"ma=
+rgin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" style=3D"colo=
+r:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><spa=
+n class=3D"size" style=3D"font-size:9pt">Approved Amount:</span></span></sp=
+an></b><br></p></td><td valign=3D"top" align=3D"left" style=3D"padding :  3=
+.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bot=
+tom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span =
+class=3D"font" style=3D"font-family:&quot;MS Gothic&quot;"><span class=3D"s=
+ize" style=3D"font-size:9pt">$</span></span></span><span class=3D"colour" s=
+tyle=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family=
+:Arial"><span class=3D"size" style=3D"font-size:9pt">95.24</span></span></s=
+pan><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=
+=3D"font" style=3D"font-family:&quot;MS Gothic&quot;"><span class=3D"size" =
+style=3D"font-size:9pt"> CAD</span></span></span><br></p></td></tr><tr><td =
+width=3D"140" valign=3D"top" style=3D"width :  110.0pt; padding :  3.0pt 3.=
+0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0p=
+x;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span clas=
+s=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-s=
+ize:9pt">Sequence Number:</span></span></span></b><br></p></td><td valign=
+=3D"top" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=
+=3D"margin-top: 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"c=
+olor:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><=
+span class=3D"size" style=3D"font-size:9pt">LCV49JSMXC4H4FG2</span></span><=
+/span><br></p></td></tr><tr><td width=3D"140" valign=3D"top" style=3D"width=
+ :  110.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"ma=
+rgin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" style=3D"colo=
+r:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><spa=
+n class=3D"size" style=3D"font-size:9pt">Reference Number:</span></span></s=
+pan></b><br></p></td><td valign=3D"top" style=3D"padding :  3.0pt 3.0pt 3.0=
+pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><sp=
+an class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font"=
+ style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">B=
+G25431443|4825a629-c34e-11ed-a638-bfc59a167dcc</span></span></span><br></p>=
+</td></tr></tbody></table><br><b><span class=3D"colour" style=3D"color:rgb(=
+102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span clas=
+s=3D"size" style=3D"font-size:9pt"><br>McDelivery=C2=AE Information<br></sp=
+an></span></span></b><table class=3D"x_649549707MsoNormalTable" border=3D"1=
+" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td width=3D"140" valign=
+=3D"top" style=3D"width :  110.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p=
+ class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b><span class=
+=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">Flat, S=
+uite or Floor:</span></span></span></b><br></p></td><td valign=3D"top" styl=
+e=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top=
+: 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, =
+102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"=
+size" style=3D"font-size:9pt">2507</span></span></span><br></p></td></tr><t=
+r><td width=3D"140" valign=3D"top" style=3D"width :  110.0pt; padding :  3.=
+0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bott=
+om: 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><spa=
+n class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"=
+font-size:9pt">Address:</span></span></span></b><br></p></td><td valign=3D"=
+top" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"m=
+argin-top: 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"color:=
+rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span =
+class=3D"size" style=3D"font-size:9pt">2121 Lake Shore Boulevard West
+                                    , Etobicoke, ON, Canada</span></span></=
+span><br></p></td></tr><tr><td width=3D"140" valign=3D"top" style=3D"width =
+:  110.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"mar=
+gin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" style=3D"color=
+:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span=
+ class=3D"size" style=3D"font-size:9pt">Delivery Selection:</span></span></=
+span></b><br></p></td><td valign=3D"top" style=3D"padding :  3.0pt 3.0pt 3.=
+0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><s=
+pan class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font=
+" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">=
+Meet at Door</span></span></span><br></p></td></tr><tr><td width=3D"140" va=
+lign=3D"top" style=3D"width :  110.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;=
+"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b><span cla=
+ss=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">Instruc=
+tions:</span></span></span></b><br></p></td><td valign=3D"top" style=3D"pad=
+ding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; m=
+argin-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102=
+)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" st=
+yle=3D"font-size:9pt">Buzz 0306</span></span></span><br></p></td></tr><tr><=
+td width=3D"140" valign=3D"top" style=3D"width :  110.0pt; padding :  3.0pt=
+ 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom:=
+ 0px;"><b><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span c=
+lass=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"fon=
+t-size:9pt">Customer Phone:</span></span></span></b><br></p></td><td valign=
+=3D"top" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=
+=3D"margin-top: 0px; margin-bottom: 0px;"><span class=3D"colour" style=3D"c=
+olor:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><=
+span class=3D"size" style=3D"font-size:9pt">+14168542265</span></span></spa=
+n><br></p></td></tr><tr><td width=3D"140" valign=3D"top" style=3D"width :  =
+110.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin=
+-top: 0px; margin-bottom: 0px;"><b><span class=3D"colour" style=3D"color:rg=
+b(102, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span cl=
+ass=3D"size" style=3D"font-size:9pt">Vendor Name:</span></span></span></b><=
+br></p></td><td valign=3D"top" style=3D"padding :  3.0pt 3.0pt 3.0pt 3.0pt;=
+"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><span class=
+=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=
+=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">DoorDas=
+h</span></span></span><br></p></td></tr><tr><td width=3D"140" valign=3D"top=
+" style=3D"width :  110.0pt; padding :  3.0pt 3.0pt 3.0pt 3.0pt;"><p class=
+=3D"" style=3D"margin-top: 0px; margin-bottom: 0px;"><b><span class=3D"colo=
+ur" style=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-f=
+amily:Arial"><span class=3D"size" style=3D"font-size:9pt">Vendor Order ID:<=
+/span></span></span></b><br></p></td><td valign=3D"top" style=3D"padding : =
+ 3.0pt 3.0pt 3.0pt 3.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-b=
+ottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><spa=
+n class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"=
+font-size:9pt">4825a629-c34e-11ed-a638-bfc59a167dcc</span></span></span><br=
+></p></td></tr></tbody></table><p class=3D"" style=3D"margin-top: 0px; marg=
+in-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)">=
+<span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=
+=3D"font-size:9pt">For more information or questions regarding your order, =
+please contact McDelivery=C2=AE Support at 1-833-510-0332.</span></span></s=
+pan><br></p><p><br></p><span class=3D"colour" style=3D"color:rgb(102, 102, =
+102)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size"=
+ style=3D"font-size:9pt">DOWNLOAD OUR MOBILE APP</span></span></span><br><s=
+pan class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=3D"font=
+" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size:9pt">=
+FOR OFFERS AND PROMOTIONS</span></span></span><br><span class=3D"colour" st=
+yle=3D"color:rgb(102, 102, 102)"><span class=3D"font" style=3D"font-family:=
+Arial"><span class=3D"size" style=3D"font-size:9pt">*****MyMcDs*****</span>=
+</span></span><p><br></p></td></tr><tr><td style=3D"padding :  15.0pt 15.0p=
+t 15.0pt 15.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin-bottom: 0p=
+x;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><span class=
+=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-si=
+ze:9pt"><a href=3D"http://www.mcdonalds.ca" target=3D"_blank">www.mcdonalds=
+.ca</a></span></span></span><br></p></td></tr><tr><td style=3D"padding :  1=
+5.0pt 15.0pt 15.0pt 15.0pt;"><p class=3D"" style=3D"margin-top: 0px; margin=
+-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><s=
+pan class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=
+=3D"font-size:9pt">This is a system-generated email. Please do not reply.</=
+span></span></span><br><br><br></p></td></tr></tbody></table><p class=3D"" =
+style=3D"margin-top: 0px; margin-bottom: 0px;">&nbsp;<br></p></div></div></=
+blockquote></div><div><br></div><div class=3D"zmail_signature_below"><div i=
+d=3D"" data-zbluepencil-ignore=3D"true" data-sigid=3D"6189300000000739006">=
+<div>Regards,<br></div><div><br></div><div>John E. Estrada<br></div><div><b=
+r></div><div>---------------------------------------<br></div><div><br></di=
+v><p style=3D"font-style: normal; font-weight: 400; letter-spacing: normal;=
+ orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; w=
+idows: 2; word-spacing: 0px"><span class=3D"highlight" style=3D"background-=
+color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0=
+)"><span class=3D"font" style=3D"font-family:Verdana, Arial, Helvetica, san=
+s-serif"><span class=3D"size" style=3D"font-size:13.3333px"><span class=3D"=
+highlight" style=3D"background-color:rgb(255, 255, 255)"><b><span class=3D"=
+colour" style=3D"color:rgb(0, 102, 0)"><span class=3D"font" style=3D"font-f=
+amily:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size"=
+ style=3D"font-size:14.66px">START SHREDDING INC. (shredEX)</span></span></=
+span></b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=
+=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-se=
+rif"><span class=3D"size" style=3D"font-size:14.66px"><br>208 Evans Ave, To=
+ronto, ON M8Z 1J7<br></span></span></span><b><span class=3D"colour" style=
+=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibr=
+i, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"fo=
+nt-size:14.66px">E:<span>&nbsp;<a href=3D"mailto:john@shredex.ca" target=3D=
+"_blank" style=3D"color: rgb(0, 0, 238)">john@shredex.ca</a>&nbsp;</span>W:=
+ <a target=3D"_blank" href=3D"http://www.startshredding.com" style=3D"color=
+: rgb(0, 0, 238)">www.startshredding.com</a><br></span></span></span></b><s=
+pan class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" s=
+tyle=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span =
+class=3D"size" style=3D"font-size:14.66px">DIRECT:&nbsp;</span></span></spa=
+n><a style=3D"color: rgb(17, 85, 204); cursor: default" target=3D"_blank"><=
+span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" =
+style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span=
+ class=3D"size" style=3D"font-size:14.66px">416.255.1500</span></span></spa=
+n></a><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D=
+"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif=
+"><span class=3D"size" style=3D"font-size:14.66px"><br>TOLL FREE:&nbsp;</sp=
+an></span></span><a style=3D"color: rgb(17, 85, 204); cursor: default" targ=
+et=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span =
+class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sa=
+ns-serif"><span class=3D"size" style=3D"font-size:14.66px">1.866.868.9585</=
+span></span></span></a></span></span></span></span></span></p><p style=3D"f=
+ont-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; te=
+xt-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-=
+spacing: 0px"><span class=3D"highlight" style=3D"background-color:rgb(255, =
+255, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=
+=3D"font" style=3D"font-family:Verdana, Arial, Helvetica, sans-serif"><span=
+ class=3D"size" style=3D"font-size:13.3333px"><span class=3D"highlight" sty=
+le=3D"background-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"=
+color:rgb(34, 34, 34)"><span class=3D"font" style=3D"font-family:arial, san=
+s-serif"><span class=3D"size" style=3D"font-size:small"><span class=3D"colo=
+ur" style=3D"color:gray"><span class=3D"font" style=3D"font-family:Arial, s=
+ans-serif"><span class=3D"size" style=3D"font-size:7.5pt">This message and =
+any attachments are the property of the&nbsp;SHREDEX INC.&nbsp;or its affil=
+iates. It may be legally privileged and/or confidential and is intended onl=
+y for the use of the addressee(s). No addressee should store, forward, prin=
+t, copy, or otherwise reproduce this message in any manner that would allow=
+ it to be viewed by any individual not originally listed as a recipient. If=
+ the reader of this message is not the intended recipient, you are hereby n=
+otified that any unauthorized storage, disclosure, dissemination, distribut=
+ion, copying or the taking of any action in reliance on the information her=
+ein is strictly prohibited. If you have received this communication in erro=
+r, please immediately notify the sender and delete this message.</span></sp=
+an></span></span></span></span></span></span></span></span></span><br></p><=
+div id=3D""><div><br></div></div><div><br></div></div></div><div><br></div>=
+</div><br></body></html>
+------=_Part_655603_1453861191.1717125266482--
+

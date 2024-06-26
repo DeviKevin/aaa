@@ -1,0 +1,447 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp186349rbd;
+        Thu, 30 May 2024 20:12:45 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFmtbylkFQAaVb8ZizIqy/pt5GR5s5klmUuQ7FrlZ6/n4xb5S/+WnQVKSp4x82H6ZSam+Q2
+X-Received: by 2002:a05:6830:13d6:b0:6ee:5f48:ec7a with SMTP id 46e09a7af769-6f911fa475amr748507a34.27.1717125165276;
+        Thu, 30 May 2024 20:12:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125165; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=OHaKI6mc/9WPFkMv/RodIe6oPFbYgEZo7p5tGd6QzhIrhh45eob3kQTdEG8TBmcX16
+         D45HyzWMamU2oh540VvRc4NIkCVRwNbghJyumC3Z4botVRS0X7rNTF63uG7pEqnVQhSE
+         j3t2ZgTikeFSu8cc7tXdBdJNLt7n5OAApWGvdwop6DaXm3PNRXxA/WH8FxD9Yia0OC6y
+         2ah9ux/AJkVIHj6fcPoR4r4GVTwOL7YxuUzP5WJLqM3ZPs5chVvnQh/RZkvzmWJ0kZVi
+         1HvKVy40E4MMuMlc0//3zPBReD8VQGMAgDkAQy3FbVFOs7QYckc60Om+IU2PKlokbXIF
+         XTBQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=SuDCmGSavGbEDhcxgxuq1zOqRYeT72+EjSd9W4Da22U=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=iF8IIR78eeNUC1Sy/3bBksLyqug/JJLrjyZsBJI6uyYQGroIUDU32tFTuXEdBD9ru0
+         KeWjwE4kyU00lyH0DkslmZtfB9CuAhyoUKsOHdPbpSnT8yqJbX9Aji06KKPrRrv39OIx
+         oL0ZCJKw6SQ8oWnb3H4a3hg8MeLjF2rGe8O6n4sYqKAHeSbfgbgg2fj6AuaM9WRyeNak
+         sFRmQr7Zy+dSod4DbFX9sXZ4+mifXIjhxQqSsUkfe5OWEyOQnaVqMF98k6ipHoI9cEda
+         cNfimBKAiIErzfQ7WCtRE5W+8P8bimuzCbSNuN9Ecj2bP5OGiac7nlFlsWCA9MkneFFX
+         +L7w==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=bCYsmFMC;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o18.zoho.com (sender3-op-o18.zoho.com. [136.143.184.18])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-6c35d3b3df3si710189a12.804.2024.05.30.20.12.44
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:12:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) client-ip=136.143.184.18;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=bCYsmFMC;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125163; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=PwWvXOAtfORlzGElUfNGYsJzZnL+V9wyJDa7AzqSp9SbnTYLRiPPOLTGSd8XA2n6usH+nkFnh/LjxmLwoxkV+m13wU20qJMOdoj8WbBj/rIzXeoXUieSlJ7i2S5tmXLFNOxSdbuHXh+QLmMyy+l28GyWX165r5wQb5f5yMXhyoU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125163; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=SuDCmGSavGbEDhcxgxuq1zOqRYeT72+EjSd9W4Da22U=; 
+	b=KDEsA2g8PfBk4PzaAIg/zvwTTp1IsoRFZOTqfsiOlkSwqAj+QxObPjgW6/Xyt4Dew4Q99zV2D4Yr+t8bD/5UhFp+pPWqzWq6pAf6jPZeImm7n0zKHopSZZjljrIceOxWZvM0f6DZLaxh2m0qsDnNK67/YmTlb0hwF/H08xUVkeY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125163;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=SuDCmGSavGbEDhcxgxuq1zOqRYeT72+EjSd9W4Da22U=;
+	b=bCYsmFMCFznVPfNcvX2B+c2uyDzNLRu75whcgdiqjbS7YI8uuaFhFVq+lD7eedjR
+	CS3qeQMOF0yJVnogFs6DUiHd4KpPXmRUFISVGvB7srwX5nxFTH6sYoRQ3bg/UOFLrGZ
+	EvGySUGPWlbwHvE6aol7mPwrwmmoRaHtWqI7YEHM=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 171712516216594.242402517183; Thu, 30 May 2024 20:12:42 -0700 (PDT)
+Date: Thu, 30 May 2024 23:12:42 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcca2a489.10ca80527201944.9099489956481211141@shredex.ca>
+In-Reply-To: <VMAKSA69901HZK6Ur80000050b5@VMAKSA69901HZK.servers.global.prv>
+References: <VMAKSA69901HZK6Ur80000050b5@VMAKSA69901HZK.servers.global.prv>
+Subject: Fwd: Receipt
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_654977_1366867272.1717125162121"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_654977_1366867272.1717125162121
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From:  <donotreply@paylessPR.com>
+To: <JOHN@SHREDEX.CA>
+Date: Wed, 16 Aug 2023 11:59:09 -0400
+Subject: Receipt
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+
+Action Car Rental
+ 3719 McCoy Road
+  Orlando Florida 32812
+ 4072402700
+
+
+
+
+
+
+
+Customer Information:
+
+Transaction Information:
+
+
+Street:
+
+250  2121 ARE SHORE BLVD
+
+
+Zip Code:
+
+M8Z1J7
+
+
+
+
+
+
+
+Auth.
+
+
+
+
+
+
+
+Date:
+
+08/16/2023 11:59:06
+
+
+
+
+Amount:
+
+$200.00
+
+
+Card Number:
+
+************3631
+
+
+Merchant ID:
+
+400006955
+
+
+Auth. Code:
+
+072122
+
+
+Processed As:
+
+VISA
+
+
+Reference No.:
+
+2081029875
+
+
+Trace No.:
+
+002081029875
+
+
+Device ID.:
+
+N/A
+
+
+Invoice No.:
+
+MCO-48139
+
+
+Response Msg.:
+
+Approved
+
+
+Entry Method:
+
+Manual
+
+
+P.O. Number:
+
+
+
+
+Tax Voucher No.:
+
+<%TaxVoucherNumber%>
+
+
+
+
+
+
+Cardholder:
+
+
+
+
+JOHN  ESTRADA EXP
+
+
+
+
+I agree to pay above total amount according to Card Issuer Agreement (Merch=
+ant Agreement if credit voucher).
+
+
+
+
+
+
+The information contained in this e-mail and in any attachments is intended=
+ only for the person or entity to which it is addressed and may contain con=
+fidential and/or privileged material. Any review, retransmission, dissemina=
+tion or other use of, or taking of any action in reliance upon, this inform=
+ation by persons or entities other than the intended recipient is prohibite=
+d. This message has been scanned for known computer viruses.
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_654977_1366867272.1717125162121
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From:  &lt;donotreply@paylessPR.com&gt;<br>To: &lt;JO=
+HN@SHREDEX.CA&gt;<br>Date: Wed, 16 Aug 2023 11:59:09 -0400<br>Subject: Rece=
+ipt<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D<br></div><div><br></div><blockquote id=3D"blockquo=
+te_zmail" style=3D"margin: 0px;"><div class=3D"zm_-4323190618773061417_pars=
+e_1245846150252258054"><table style=3D"width :  750px;"><tbody><tr><td cols=
+pan=3D"2" style=3D"padding-top: 4px; padding-bottom: 4px;"><table style=3D"=
+border :  2px solid black; width :  100%;"><tbody><tr><td style=3D"padding-=
+top: 4px; padding-bottom: 4px; width: 50%;" width=3D"50%"><img alt=3D"logo"=
+ src=3D""><br></td><td style=3D"padding-top: 4px; padding-bottom: 4px; text=
+-align: right; vertical-align: bottom;" align=3D"right" valign=3D"bottom"><=
+b><span class=3D"size" style=3D"font-size:x-large">Action Car Rental</span>=
+</b><br> <span>3719 McCoy Road</span><br> <span> Orlando Florida 32812</spa=
+n><br> <span>4072402700</span></td></tr></tbody></table></td><td style=3D"p=
+adding-top: 4px; padding-bottom: 4px;"><br></td></tr><tr><td style=3D"paddi=
+ng-top: 4px; padding-bottom: 4px;">Customer Information:<br></td><td style=
+=3D"padding-top: 4px; padding-bottom: 4px;">Transaction Information:<br></t=
+d></tr><tr><td style=3D"padding-top: 4px; padding-bottom: 4px; width: 60%; =
+vertical-align: top;" width=3D"60%" valign=3D"top"><table style=3D"border :=
+  2px solid black; width :  100%; height :  100%;"><tbody><tr><td style=3D"=
+padding-top: 4px; padding-bottom: 4px; text-align: right; width: 80px;" wid=
+th=3D"80" align=3D"right">Street:<br></td><td style=3D"padding-top: 4px; pa=
+dding-bottom: 4px; text-align: left;" align=3D"left">250  2121 ARE SHORE BL=
+VD<br></td></tr><tr><td style=3D"padding-top: 4px; padding-bottom: 4px; tex=
+t-align: right; width: 80px;" width=3D"80" align=3D"right">Zip Code:<br></t=
+d><td style=3D"padding-top: 4px; padding-bottom: 4px; text-align: left;" al=
+ign=3D"left">M8Z1J7<br></td></tr></tbody></table></td><td rowspan=3D"3" sty=
+le=3D"padding-top: 4px; padding-bottom: 4px;"><table style=3D"border :  2px=
+ solid black; width :  100%;"><tbody><tr><td style=3D"padding-top: 4px; pad=
+ding-bottom: 4px; text-align: right; width: 40%;" width=3D"40%" align=3D"ri=
+ght"><br></td><td id=3D"x_-1819053334transaction_type" style=3D"padding-top=
+: 4px; padding-bottom: 4px; font-size: large; text-align: left; width: 60%;=
+" width=3D"60%" align=3D"left">Auth.<br></td></tr><tr><td style=3D"padding-=
+top: 4px; padding-bottom: 4px; text-align: right; width: 40%;" width=3D"40%=
+" align=3D"right"><br></td><td style=3D"padding-top: 4px; padding-bottom: 4=
+px; text-align: left; width: 60%;" width=3D"60%" align=3D"left"><br></td></=
+tr><tr><td style=3D"padding-top: 4px; padding-bottom: 4px; text-align: righ=
+t;" align=3D"right">Date:<br></td><td style=3D"padding-top: 4px; padding-bo=
+ttom: 4px; text-align: left;" align=3D"left">08/16/2023 11:59:06<br></td></=
+tr><tr style=3D"display :  none;"><td style=3D"padding-top: 4px; padding-bo=
+ttom: 4px; text-align: right;" align=3D"right">Original Amount:<br></td><td=
+ style=3D"padding-top: 4px; padding-bottom: 4px; text-align: left;" align=
+=3D"left">$200.00<br></td></tr><tr style=3D"display :  none;"><td style=3D"=
+padding-top: 4px; padding-bottom: 4px; text-align: right;" align=3D"right">=
+Surcharge Amount:<br></td><td style=3D"padding-top: 4px; padding-bottom: 4p=
+x; text-align: left;" align=3D"left">$0.00<br></td></tr><tr><td style=3D"pa=
+dding-top: 4px; padding-bottom: 4px; text-align: right;" align=3D"right">Am=
+ount:<br></td><td style=3D"padding-top: 4px; padding-bottom: 4px; text-alig=
+n: left;" align=3D"left">$200.00<br></td></tr><tr><td style=3D"padding-top:=
+ 4px; padding-bottom: 4px; text-align: right;" align=3D"right">Card Number:=
+<br></td><td style=3D"padding-top: 4px; padding-bottom: 4px; text-align: le=
+ft;" align=3D"left">************3631<br></td></tr><tr><td style=3D"padding-=
+top: 4px; padding-bottom: 4px; text-align: right;" align=3D"right">Merchant=
+ ID:<br></td><td style=3D"padding-top: 4px; padding-bottom: 4px; text-align=
+: left;" align=3D"left">400006955<br></td></tr><tr><td style=3D"padding-top=
+: 4px; padding-bottom: 4px; text-align: right;" align=3D"right">Auth. Code:=
+<br></td><td style=3D"padding-top: 4px; padding-bottom: 4px; text-align: le=
+ft;" align=3D"left">072122<br></td></tr><tr><td style=3D"padding-top: 4px; =
+padding-bottom: 4px; text-align: right;" align=3D"right">Processed As:<br><=
+/td><td style=3D"padding-top: 4px; padding-bottom: 4px; text-align: left;" =
+align=3D"left">VISA<br></td></tr><tr><td style=3D"padding-top: 4px; padding=
+-bottom: 4px; text-align: right;" align=3D"right">Reference No.:<br></td><t=
+d style=3D"padding-top: 4px; padding-bottom: 4px; text-align: left;" align=
+=3D"left">2081029875<br></td></tr><tr><td style=3D"padding-top: 4px; paddin=
+g-bottom: 4px; text-align: right;" align=3D"right">Trace No.:<br></td><td s=
+tyle=3D"padding-top: 4px; padding-bottom: 4px; text-align: left;" align=3D"=
+left">002081029875<br></td></tr><tr><td style=3D"padding-top: 4px; padding-=
+bottom: 4px; text-align: right;" align=3D"right">Device ID.:<br></td><td st=
+yle=3D"padding-top: 4px; padding-bottom: 4px; text-align: left;" align=3D"l=
+eft">N/A<br></td></tr><tr><td style=3D"padding-top: 4px; padding-bottom: 4p=
+x; text-align: right;" align=3D"right">Invoice No.:<br></td><td style=3D"pa=
+dding-top: 4px; padding-bottom: 4px; text-align: left;" align=3D"left">MCO-=
+48139<br></td></tr><tr><td style=3D"padding-top: 4px; padding-bottom: 4px; =
+text-align: right;" align=3D"right">Response Msg.:<br></td><td style=3D"pad=
+ding-top: 4px; padding-bottom: 4px; text-align: left;" align=3D"left">Appro=
+ved<br></td></tr><tr><td style=3D"padding-top: 4px; padding-bottom: 4px; te=
+xt-align: right;" align=3D"right">Entry Method:<br></td><td style=3D"paddin=
+g-top: 4px; padding-bottom: 4px; text-align: left;" align=3D"left">Manual<b=
+r></td></tr><tr><td style=3D"padding-top: 4px; padding-bottom: 4px; text-al=
+ign: right;" align=3D"right">P.O. Number:<br></td><td style=3D"padding-top:=
+ 4px; padding-bottom: 4px; text-align: left;" align=3D"left"><br></td></tr>=
+<tr><td style=3D"padding-top: 4px; padding-bottom: 4px; text-align: right;"=
+ align=3D"right">Tax Voucher No.:<br></td><td style=3D"padding-top: 4px; pa=
+dding-bottom: 4px; text-align: left;" align=3D"left">&lt;%TaxVoucherNumber%=
+&gt;<br></td></tr></tbody></table></td></tr><tr><td style=3D"padding-top: 4=
+px; padding-bottom: 4px;">Cardholder:<br></td><td style=3D"padding-top: 4px=
+; padding-bottom: 4px;"><br></td></tr><tr><td style=3D"padding-top: 4px; pa=
+dding-bottom: 4px; vertical-align: top;" valign=3D"top"><span>JOHN  ESTRADA=
+ EXP</span><br></td><td style=3D"padding-top: 4px; padding-bottom: 4px;"><b=
+r></td></tr><tr style=3D"text-align :  center;"><td colspan=3D"2" style=3D"=
+padding-top: 4px; padding-bottom: 4px;"><span>I agree to pay above total am=
+ount according to Card Issuer Agreement (Merchant Agreement if credit vouch=
+er).</span><br></td><td style=3D"padding-top: 4px; padding-bottom: 4px;"><b=
+r></td></tr></tbody></table><p>The information contained in this e-mail and=
+ in any attachments is intended only for the person or entity to which it i=
+s addressed and may contain confidential and/or privileged material. Any re=
+view, retransmission, dissemination or other use of, or taking of any actio=
+n in reliance upon, this information by persons or entities other than the =
+intended recipient is prohibited. This message has been scanned for known c=
+omputer viruses.<br></p><img id=3D"1692201552060100001_imgsrc_url_0" alt=3D=
+"" width=3D"1" height=3D"1" border=3D"0" style=3D"height :  1px; width :  1=
+px; border-width :  0; margin-top :  0; margin-bottom :  0; margin-right : =
+ 0; margin-left :  0; padding-top :  0; padding-bottom :  0; padding-right =
+:  0; padding-left :  0;"></div></blockquote></div><div><br></div><div clas=
+s=3D"zmail_signature_below"><div id=3D"" data-zbluepencil-ignore=3D"true" d=
+ata-sigid=3D"6189300000000739006"><div>Regards,<br></div><div><br></div><di=
+v>John E. Estrada<br></div><div><br></div><div>----------------------------=
+-----------<br></div><div><br></div><p style=3D"font-style: normal; font-we=
+ight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-trans=
+form: none; white-space: normal; widows: 2; word-spacing: 0px"><span class=
+=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><span class=3D=
+"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-fa=
+mily:Verdana, Arial, Helvetica, sans-serif"><span class=3D"size" style=3D"f=
+ont-size:13.3333px"><span class=3D"highlight" style=3D"background-color:rgb=
+(255, 255, 255)"><b><span class=3D"colour" style=3D"color:rgb(0, 102, 0)"><=
+span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-seri=
+f, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">START SHRED=
+DING INC. (shredEX)</span></span></span></b><span class=3D"colour" style=3D=
+"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, =
+Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-=
+size:14.66px"><br>208 Evans Ave, Toronto, ON M8Z 1J7<br></span></span></spa=
+n><b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"=
+font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"=
+><span class=3D"size" style=3D"font-size:14.66px">E:<span>&nbsp;<a href=3D"=
+mailto:john@shredex.ca" target=3D"_blank" style=3D"color: rgb(0, 0, 238)">j=
+ohn@shredex.ca</a>&nbsp;</span>W: <a target=3D"_blank" href=3D"http://www.s=
+tartshredding.com" style=3D"color: rgb(0, 0, 238)">www.startshredding.com</=
+a><br></span></span></span></b><span class=3D"colour" style=3D"color:rgb(51=
+, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Aria=
+l, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"=
+>DIRECT:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, 204); cur=
+sor: default" target=3D"_blank"><span class=3D"colour" style=3D"color:rgb(5=
+1, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Ari=
+al, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px=
+">416.255.1500</span></span></span></a><span class=3D"colour" style=3D"colo=
+r:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verda=
+na, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:=
+14.66px"><br>TOLL FREE:&nbsp;</span></span></span><a style=3D"color: rgb(17=
+, 85, 204); cursor: default" target=3D"_blank"><span class=3D"colour" style=
+=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibr=
+i, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"fo=
+nt-size:14.66px">1.866.868.9585</span></span></span></a></span></span></spa=
+n></span></span></p><p style=3D"font-style: normal; font-weight: 400; lette=
+r-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; whit=
+e-space: normal; widows: 2; word-spacing: 0px"><span class=3D"highlight" st=
+yle=3D"background-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D=
+"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:Verdana, Ari=
+al, Helvetica, sans-serif"><span class=3D"size" style=3D"font-size:13.3333p=
+x"><span class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)">=
+<span class=3D"colour" style=3D"color:rgb(34, 34, 34)"><span class=3D"font"=
+ style=3D"font-family:arial, sans-serif"><span class=3D"size" style=3D"font=
+-size:small"><span class=3D"colour" style=3D"color:gray"><span class=3D"fon=
+t" style=3D"font-family:Arial, sans-serif"><span class=3D"size" style=3D"fo=
+nt-size:7.5pt">This message and any attachments are the property of the&nbs=
+p;SHREDEX INC.&nbsp;or its affiliates. It may be legally privileged and/or =
+confidential and is intended only for the use of the addressee(s). No addre=
+ssee should store, forward, print, copy, or otherwise reproduce this messag=
+e in any manner that would allow it to be viewed by any individual not orig=
+inally listed as a recipient. If the reader of this message is not the inte=
+nded recipient, you are hereby notified that any unauthorized storage, disc=
+losure, dissemination, distribution, copying or the taking of any action in=
+ reliance on the information herein is strictly prohibited. If you have rec=
+eived this communication in error, please immediately notify the sender and=
+ delete this message.</span></span></span></span></span></span></span></spa=
+n></span></span></span><br></p><div id=3D""><div><br></div></div><div><br><=
+/div></div></div><div><br></div></div><br></body></html>
+------=_Part_654977_1366867272.1717125162121--
+

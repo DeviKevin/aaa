@@ -1,0 +1,7 @@
+eml2png
+pypdf2
+pytesseract
+cohere
+mysql-connector-python
+python-dateutil
+# pytest

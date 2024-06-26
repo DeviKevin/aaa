@@ -1,0 +1,617 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp184204rbd;
+        Thu, 30 May 2024 20:06:04 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFko6XtawtAlSE6WbzmH6zAuCCFkaqN9nCNMIaSU2k7vML3/GjxOqYveIxtmaEsDlcy9Vx6
+X-Received: by 2002:a17:902:e746:b0:1f4:a233:c94f with SMTP id d9443c01a7336-1f637009f30mr7707345ad.28.1717124763605;
+        Thu, 30 May 2024 20:06:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717124763; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=TRUOolnP0C+1W+gsARfDJQdWDLfNB7rja2XjSBAVvtTpWMqCpMsQXbJGE6tDrHeM9x
+         NoQI5QzSx76WrH1imD6afLSRDiJ+xT8qmv2bPTzc0CfIQ9W6tWuaqej/YT6RvlMZyEER
+         nuoqrYZ95oluJec3Jw7z98qAf7tc6aQLPLb3X74tsktZepZDm2HzdYXA3tkbSGqVd70y
+         foqFAMcFPaY7rFQExS36hnljw+J/5AW/UabowFugUWhB4Vta+i8f70FVSVhV0gz7SImq
+         kb11oyhnBcIfUFekbp4IoJS8dsehb2y+JKa7t7FO6+JEq1f+mjQv9Ec9FU8wOrUSfFPU
+         GXjQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=3jDMrwEFA3XmjzSIINKe4di34CDIuy7hCxgUdBpOXzc=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=AJ0d4sNmzxk1YPiy+nB0tDnVYGQ6R9K0Xr6Zntkka12QnE2p9tZs1xOD/stD2nIWIa
+         H8lRpnY+M0P9YkdGr8u2lOuLg55K3y8tMQGTqCrOHhOJiIFaMvuh6VS1KBeQHpRPlflZ
+         8s8LKYiKR6q9pkbKUYknNndoEOB3C7xo28r4LhSXBLzwvwNtJQCUXU+OSA4FG+VeH2+M
+         KA6AKB1X4Vn3c+NUiMDhIDEOw2wQGUK/bb9Pe4++tPD7MDLPtr7aRn58+oYTMvpkxhMt
+         PqQY6cPdLzsLHHRVDtp5MFvTPeCW4hYouZMM3OV53pHF9TbrXUs1/dSPa0e7kQO00wct
+         FftQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b="nG/fCl3V";
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o18.zoho.com (sender3-op-o18.zoho.com. [136.143.184.18])
+        by mx.google.com with ESMTPS id d9443c01a7336-1f6323dd61dsi7394555ad.240.2024.05.30.20.06.03
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:06:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) client-ip=136.143.184.18;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b="nG/fCl3V";
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717124762; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=SgGuaHdCz8Bsn/kh1f12ifHw4ydEuRF0gqpd4pSi1hIld2cNHbMWt8BCxoPEt5qdTvqmcjIGYNgPc4OsyGnH549YYp9LTjxr4Rd84VBU7/gxGdWFFqW6OM1BPolVgD0Lu9dd1zfvVId+UOBzMIOhsUpsUFTm5G0GdlxOrA5ggcA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717124762; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=3jDMrwEFA3XmjzSIINKe4di34CDIuy7hCxgUdBpOXzc=; 
+	b=AzW0GIEcJS77K9ahpAoaCYCCJ8LUlL5T5gIbiUvWTNs187hup9HYV+7l+j12/y/ZiPHE+IS3Sk57sl2vHK4N/tEU49JBMDUtvvdCiAIlYnt5VdssQsfx/hUwAqQ/E2xzGCWDdHc/TojDIpv2exw2g41gx7luQFMM/C+vTRjnmiQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717124762;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=3jDMrwEFA3XmjzSIINKe4di34CDIuy7hCxgUdBpOXzc=;
+	b=nG/fCl3V9/ifQR+teZ9lpbrhbByhs/7V4bchUwDCCWC2sdxhIAdyH5PPiHtb3Ltv
+	irz9jRLmzpwPDRiant3PLGp4tKC0hxlk/C/niqCS90xozsft3FYVRywxpn6Fc7GnUpo
+	QYmDNAgql2tFNnqLb2yVIzbGTUDV+6ebjLOrWsqE=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717124760144422.4593627350847; Thu, 30 May 2024 20:06:00 -0700 (PDT)
+Date: Thu, 30 May 2024 23:06:00 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcc9c821a.d37ae555201117.2303882908338581643@shredex.ca>
+In-Reply-To: <0100018f2f18affb-54997a94-780d-4fab-b2a4-dbe172db8e53-000000@email.amazonses.com>
+References: <0100018f2f18affb-54997a94-780d-4fab-b2a4-dbe172db8e53-000000@email.amazonses.com>
+Subject: =?UTF-8?Q?Fwd:_Here=E2=80=99s_your_McDonald=E2=80=99s=C2=AE_receipt.?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_652285_1014005848.1717124760091"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_652285_1014005848.1717124760091
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: McDonald's Canada <mobile@ca.mcdonalds.com>
+To: <john@shredex.ca>
+Date: Tue, 30 Apr 2024 09:01:38 -0400
+Subject: Here=E2=80=99s your McDonald=E2=80=99s=C2=AE receipt.
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+https://cblmxk6c.r.us-east-1.awstrack.me/L0/https:%2F%2Fwww.mcdonalds.com%2=
+Fca%2Fen-ca.html/1/0100018f2f18affb-54997a94-780d-4fab-b2a4-dbe172db8e53-00=
+0000/kEKCGtnxvJHfZC3-KbmooMkgMas=3D371
+
+
+Mobile Order Receipt
+
+
+
+Dear John,
+
+
+
+
+
+Thank you for using Mobile Ordering on the McDonald's=C2=AE app. Here's you=
+r detailed receipt.
+
+McDonald's=C2=AE at your service.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Order Code
+
+
+
+WY663835754
+
+
+
+Order# 2166
+
+
+
+Trans# 79GNY4L7D7
+
+
+
+2024-04-30
+
+
+
+09:01:28
+
+
+
+
+
+
+
+
+
+
+
+Titan
+
+
+
+Restaurant# 14146
+
+
+
+1001 Islington Avenue South
+
+
+
+Etobicoke, ON=C2=A0M8Z 5X5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Sausage, Egg & Cheese McGriddles
+
+Qty 1
+
+$4.69
+
+
+=C2=A0
+
+
+
+Bag
+
+Qty 1
+
+
+
+
+=C2=A0
+
+
+
+Subtotal
+
+$4.69
+
+
+ONT-HST2
+
+$0.61
+
+
+
+Total
+
+$5.30 CAD
+
+
+
+
+
+
+
+
+
+Payment Details
+
+
+
+Card Issuer: Visa
+
+
+Authorization:
+                                        L27GR3VCH3WH23X3
+
+
+Account/Card Number: ************3631
+
+
+Approved Amount: $5.30 CAD
+
+
+Sequence Number: L27GR3VCH3WH23X3L27GR3VCH3WH23X3
+
+
+
+Reference Number:
+                                          WY663835754|4eb6c8ca-06f1-11ef-a0=
+4a-4d17a85410a8
+
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+Now hiring for all positions.=20
+Please ask for a application form
+
+This is a system generated email. Please do not reply.
+
+
+
+
+
+
+
+
+
+=20
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_652285_1014005848.1717124760091
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: McDonald's Canada &lt;mobile@ca.mcdonalds.com&g=
+t;<br>To: &lt;john@shredex.ca&gt;<br>Date: Tue, 30 Apr 2024 09:01:38 -0400<=
+br>Subject: Here=E2=80=99s your McDonald=E2=80=99s=C2=AE receipt.<br>=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D<br></div><div><br></div><blockquote id=3D"blockquote_zmail" st=
+yle=3D"margin: 0px;"><div style=3D"padding: 0; background-color: rgb(255, 2=
+55, 255); margin: 0 auto; min-width: 100%;" class=3D"zm_6652353135769236643=
+_parse_1974682278770231540"><div><table bgcolor=3D"white" class=3D"x_169618=
+0453wrap" style=3D"border-collapse: collapse; border-spacing: 0; padding: 0=
+; width: 600px;" width=3D"600"><tbody><tr><td class=3D"x_1696180453pad20rl =
+x_1696180453pad20b" style=3D"padding: 43px 32px 23px;"><a href=3D"https://c=
+blmxk6c.r.us-east-1.awstrack.me/L0/https:%2F%2Fwww.mcdonalds.com%2Fca%2Fen-=
+ca.html/1/0100018f2f18affb-54997a94-780d-4fab-b2a4-dbe172db8e53-000000/kEKC=
+GtnxvJHfZC3-KbmooMkgMas=3D371" target=3D"_blank" style=3D"text-decoration: =
+none; outline: none;"><img id=3D"1714482135772100001_imgsrc_url_0" alt=3D"M=
+cDonald's" width=3D"40" border=3D"0" style=3D"margin: 0;"></a><br></td></tr=
+><tr bgcolor=3D"#ffbc0d"><td style=3D"padding: 8px 0px 8px 32px;" class=3D"=
+x_1696180453pad20rl x_1696180453pad5b" align=3D"left"><h1 style=3D"margin: =
+0px; color: rgb(0, 0, 0); font-size: 18px; font-family: &quot;Speedee-Bold&=
+quot;, Arial, Helvetica, sans-serif; line-height: 22px; font-weight: bold">=
+Mobile Order Receipt<br></h1></td></tr><tr><td class=3D"x_1696180453pad20rl=
+" style=3D"padding: 18px 32px;" valign=3D"top" align=3D"left"><table width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"border-=
+spacing: 0;"><tbody><tr><td valign=3D"top" align=3D"left"><table width=3D"1=
+00%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"border-spaci=
+ng: 0;"><tbody><tr><td style=3D"padding: 10px 10px 10px 0px;" align=3D"left=
+"><h2 style=3D"margin: 0px; color: rgb(0, 0, 0); font-size: 30px; font-fami=
+ly: &quot;Speedee-Bold&quot;, Arial, Helvetica, sans-serif; line-height: 46=
+px; font-weight: bold" class=3D"x_1696180453mobfont22">Dear John,<br></h2><=
+/td></tr></tbody></table><table width=3D"100%" cellspacing=3D"0" cellpaddin=
+g=3D"0" border=3D"0" style=3D"border-spacing: 0;"><tbody><tr><td style=3D"p=
+adding: 4px 15px 0px 0px;" align=3D"left"><p class=3D"x_1696180453font16" s=
+tyle=3D"margin: 0px; line-height: 28px; font-weight: normal;"><span class=
+=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"size" style=3D"font=
+-size: 18px; margin: 0px; line-height: 28px; font-weight: normal;">Thank yo=
+u for using Mobile Ordering on the McDonald's=C2=AE app. Here's your detail=
+ed receipt.</span></span><br></p><p class=3D"x_1696180453font16" style=3D"m=
+argin: 0px; line-height: 28px; font-weight: normal;"><span class=3D"colour"=
+ style=3D"color:rgb(0, 0, 0)"><span class=3D"size" style=3D"font-size: 18px=
+; margin: 0px; line-height: 28px; font-weight: normal;">McDonald's=C2=AE at=
+ your service.</span></span><br></p></td></tr></tbody></table></td><td widt=
+h=3D"102" valign=3D"top" align=3D"left"><table class=3D"x_1696180453wrap" w=
+idth=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" bgcolor=3D"#=
+ffffff" align=3D"center" style=3D"border-spacing: 0;"><tbody><tr><td style=
+=3D"padding: 0px 0px 0px 0px;" valign=3D"top" align=3D"right"><img id=3D"17=
+14482135772100001_imgsrc_url_1" alt=3D"" style=3D"display: block; margin: 0=
+;" class=3D"x_1696180453wrap" width=3D"102" border=3D"0"></td></tr></tbody>=
+</table></td></tr></tbody></table></td></tr><tr><td class=3D"x_1696180453pa=
+d20rl x_1696180453pad15t" style=3D"padding: 10px 32px 20px 32px;" valign=3D=
+"top" align=3D"left"><table width=3D"100%" cellspacing=3D"0" cellpadding=3D=
+"0" border=3D"0" bgcolor=3D"#f9f9f9" style=3D"border-spacing: 0; padding: 1=
+0px 15px;"><tbody><tr><th class=3D"x_1696180453colsplit" width=3D"50%" vali=
+gn=3D"top" align=3D"left"><table width=3D"100%" cellspacing=3D"0" cellpaddi=
+ng=3D"0" border=3D"0" align=3D"center" style=3D"border-spacing: 0;"><tbody>=
+<tr><td style=3D"padding: 0px 12px 0px 0px;" width=3D"60" valign=3D"top" al=
+ign=3D"center"><img id=3D"1714482135772100001_imgsrc_url_2" alt=3D"" style=
+=3D"display: block; margin: 0;" class=3D"x_1696180453wrap" width=3D"60" bor=
+der=3D"0"></td><td valign=3D"top" align=3D"left"><table width=3D"100%" cell=
+spacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"border-spacing: 0;"><=
+tbody><tr><td style=3D"padding: 0px 0px 0px 0px;" align=3D"left"><p style=
+=3D"margin: 0px; line-height: 20px;"><span class=3D"colour" style=3D"color:=
+rgb(1, 1, 1)"><b><span class=3D"size" style=3D"font-size: 16px; margin: 0px=
+; line-height: 20px;">Order Code</span></b></span><br></p></td></tr><tr><td=
+ style=3D"padding: 0px 0px 0px 0px;" align=3D"left"><p style=3D"margin: 0px=
+; line-height: 20px;"><span class=3D"colour" style=3D"color:rgb(1, 1, 1)"><=
+b><span class=3D"size" style=3D"font-size: 16px; margin: 0px; line-height: =
+20px;">WY663835754</span></b></span><br></p></td></tr><tr><td style=3D"padd=
+ing: 0px 0px 0px 0px;" align=3D"left"><p style=3D"margin: 0px; line-height:=
+ 20px;"><span class=3D"colour" style=3D"color:rgb(1, 1, 1)"><b><span class=
+=3D"size" style=3D"font-size: 16px; margin: 0px; line-height: 20px;">Order#=
+ 2166</span></b></span><br></p></td></tr><tr><td style=3D"padding: 0px 0px =
+0px 0px;" align=3D"left"><p style=3D"margin: 0px; line-height: 20px; font-w=
+eight: normal;"><span class=3D"colour" style=3D"color:rgb(1, 1, 1)"><span c=
+lass=3D"size" style=3D"font-size: 16px; margin: 0px; line-height: 20px; fon=
+t-weight: normal;">Trans# 79GNY4L7D7</span></span><br></p></td></tr><tr><td=
+ style=3D"padding: 0px 0px 0px 0px;" align=3D"left"><p style=3D"margin: 0px=
+; line-height: 20px; font-weight: normal;"><span class=3D"colour" style=3D"=
+color:rgb(1, 1, 1)"><span class=3D"size" style=3D"font-size: 16px; margin: =
+0px; line-height: 20px; font-weight: normal;">2024-04-30</span></span><br><=
+/p></td></tr><tr><td style=3D"padding: 0px 0px 0px 0px;" align=3D"left"><p =
+style=3D"margin: 0px; line-height: 20px; font-weight: normal;"><span class=
+=3D"colour" style=3D"color:rgb(1, 1, 1)"><span class=3D"size" style=3D"font=
+-size: 16px; margin: 0px; line-height: 20px; font-weight: normal;"><span cl=
+ass=3D"x_1696180453link">09:01:28</span></span></span><br></p></td></tr></t=
+body></table></td></tr></tbody></table></th><th class=3D"x_1696180453colspl=
+it x_1696180453pad27t" width=3D"50%" valign=3D"top" align=3D"left"><table c=
+lass=3D"x_1696180453wrap" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0=
+" border=3D"0" align=3D"center" style=3D"border-spacing: 0;"><tbody><tr><td=
+ style=3D"padding: 0px 8px 0px 15px;" class=3D"x_1696180453pad0l" width=3D"=
+24" valign=3D"top" align=3D"center"><img id=3D"1714482135772100001_imgsrc_u=
+rl_3" alt=3D"" style=3D"display: block; margin: 0;" class=3D"x_1696180453wr=
+ap" width=3D"24" border=3D"0"></td><td valign=3D"top" align=3D"left"><table=
+ width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"b=
+order-spacing: 0;"><tbody><tr><td style=3D"padding: 0px 0px 0px 0px;" align=
+=3D"left"><p style=3D"margin: 0px; line-height: 20px;"><span class=3D"colou=
+r" style=3D"color:rgb(0, 0, 0)"><b><span class=3D"size" style=3D"font-size:=
+ 16px; margin: 0px; line-height: 20px;">Titan</span></b></span><br></p></td=
+></tr><tr><td style=3D"padding: 0px 0px 0px 0px;" align=3D"left"><p style=
+=3D"margin: 0px; line-height: 20px; font-weight: normal;"><span class=3D"co=
+lour" style=3D"color:rgb(0, 0, 0)"><span class=3D"size" style=3D"font-size:=
+ 16px; margin: 0px; line-height: 20px; font-weight: normal;">Restaurant# 14=
+146</span></span><br></p></td></tr><tr><td style=3D"padding: 0px 0px 0px 0p=
+x;" align=3D"left"><p style=3D"margin: 0px; line-height: 20px; font-weight:=
+ normal;"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=
+=3D"size" style=3D"font-size: 16px; margin: 0px; line-height: 20px; font-we=
+ight: normal;">1001 Islington Avenue South</span></span><br></p></td></tr><=
+tr><td style=3D"padding: 0px 0px 0px 0px;" align=3D"left"><p style=3D"margi=
+n: 0px; line-height: 20px; font-weight: normal;"><span class=3D"colour" sty=
+le=3D"color:rgb(0, 0, 0)"><span class=3D"size" style=3D"font-size: 16px; ma=
+rgin: 0px; line-height: 20px; font-weight: normal;">Etobicoke, ON&nbsp;M8Z =
+5X5</span></span><br></p></td></tr></tbody></table></td></tr></tbody></tabl=
+e></th></tr></tbody></table></td></tr><tr><td class=3D"x_1696180453pad20rl =
+x_1696180453pad15t" style=3D"padding: 15px 32px 0;"><br><table style=3D"bor=
+der-collapse: collapse; border-spacing: 0; padding: 0; font-size: 14px; fon=
+t-family: Arial; color: rgb(0, 0, 0); width: 100%;" width=3D"100%"><tbody><=
+tr style=3D"height: 15pt"><td style=3D"font-family: &quot; undefined: Speed=
+ee-Bold&quot; undefined: ,Arial,Helvetica,sans-serif; padding: 0 0 0 10px; =
+border-spacing: 0; font-weight: bold;">Sausage, Egg &amp; Cheese McGriddles=
+<br></td><td style=3D"font-family: &quot; undefined: Speedee-Regular&quot; =
+undefined: ,Arial,Helvetica,sans-serif; border-spacing: 0; text-align: cent=
+er; white-space: nowrap;" align=3D"center">Qty 1<br></td><td style=3D"font-=
+family: &quot; undefined: Speedee-Regular&quot; undefined: ,Arial,Helvetica=
+,sans-serif; padding: 0 10px 0 0; border-spacing: 0; text-align: right; wor=
+d-break: normal;" align=3D"right">$4.69<br></td></tr><tr><td colspan=3D"3" =
+style=3D"padding: 10px 0;"><div style=3D"width: 100%; background-color: rgb=
+(173, 173, 173); display: inline-block; min-height: 2px; line-height: 2px;"=
+>&nbsp;</div><br></td></tr><tr style=3D"height: 15pt"><td style=3D"font-fam=
+ily: &quot; undefined: Speedee-Bold&quot; undefined: ,Arial,Helvetica,sans-=
+serif; padding: 0 0 0 10px; border-spacing: 0; font-weight: bold;">Bag<br><=
+/td><td style=3D"font-family: &quot; undefined: Speedee-Regular&quot; undef=
+ined: ,Arial,Helvetica,sans-serif; border-spacing: 0; text-align: center; w=
+hite-space: nowrap;" align=3D"center">Qty 1<br></td><td style=3D"font-famil=
+y: &quot; undefined: Speedee-Regular&quot; undefined: ,Arial,Helvetica,sans=
+-serif; padding: 0 10px 0 0; border-spacing: 0; text-align: right; word-bre=
+ak: normal;" align=3D"right"><br></td></tr><tr><td colspan=3D"3" style=3D"p=
+adding: 10px 0;"><div style=3D"width: 100%; background-color: rgb(173, 173,=
+ 173); display: inline-block; min-height: 2px; line-height: 2px;">&nbsp;</d=
+iv><br></td></tr><tr style=3D"height: 15pt"><td colspan=3D"2" style=3D"font=
+-family: &quot; undefined: Speedee-Bold&quot; undefined: ,Arial,Helvetica,s=
+ans-serif; padding: 5px 3pt 5px; border-spacing: 0; font-weight: bold; text=
+-align: right; font-size: 14px; width: 100%;" width=3D"100%" align=3D"right=
+">Subtotal<br></td><td style=3D"font-family: &quot; undefined: Speedee-Bold=
+&quot; undefined: ,Arial,Helvetica,sans-serif; padding: 5px 10px 5px 0; bor=
+der-spacing: 0; text-align: right; font-weight: bold; font-size: 14px; word=
+-break: normal;" align=3D"right"><span>$</span>4.69<br></td></tr><tr style=
+=3D"height: 15pt"><td colspan=3D"2" style=3D"font-family: &quot; undefined:=
+ Speedee-Regular&quot; undefined: ,Arial,Helvetica,sans-serif; padding: 0px=
+ 3pt 0px; border-spacing: 0; font-weight: normal; text-align: right; font-s=
+ize: 14px;" align=3D"right">ONT-HST2<br></td><td style=3D"font-family: &quo=
+t; undefined: Speedee-Regular&quot; undefined: ,Arial,Helvetica,sans-serif;=
+ padding: 0px 10px 0px 0; border-spacing: 0; text-align: right; font-weight=
+: normal; font-size: 14px; word-break: normal;" align=3D"right"><span>$</sp=
+an>0.61<br></td></tr><tr style=3D"height: 15pt"></tr><tr style=3D"height: 1=
+5pt" bgcolor=3D"#f9f9f9"><td colspan=3D"2" style=3D"font-family: &quot; und=
+efined: Speedee-Bold&quot; undefined: ,Arial,Helvetica,sans-serif; padding:=
+ 3pt; border-spacing: 0; font-weight: bold; font-size: 16px; text-align: ri=
+ght;" align=3D"right">Total<br></td><td style=3D"font-family: &quot; undefi=
+ned: Speedee-Bold&quot; undefined: ,Arial,Helvetica,sans-serif; padding: 3p=
+t; border-spacing: 0; text-align: right; font-weight: bold; font-size: 16px=
+; padding: 0 10px 0 0; word-break: normal; min-width: 120px;" align=3D"righ=
+t"><span>$</span>5.30<span> CAD</span><br></td></tr></tbody></table></td></=
+tr><tr><td style=3D"padding: 23px 32px 9px;" class=3D"x_1696180453pad20rl x=
+_1696180453pad15t" valign=3D"top" align=3D"left"><table width=3D"100%" cell=
+spacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left" style=3D"border=
+-spacing: 0; padding: 9px 15px 15px 15px;" bgcolor=3D"#f9f9f9"><tbody><tr><=
+td style=3D"padding: 0px 0px 0px 0px;" valign=3D"top" align=3D"left"><img i=
+d=3D"1714482135772100001_imgsrc_url_4" alt=3D"" style=3D"display: block; ma=
+rgin: 0;" width=3D"34" border=3D"0"></td></tr><tr><td style=3D"padding-left=
+: 2px;" valign=3D"top" align=3D"left"><br><table width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" style=3D"border-spacing: 0;"><tbody><=
+tr><td align=3D"left"><h3 style=3D"margin: 0px; color: rgb(0, 0, 0); font-s=
+ize: 16px; font-family: &quot;Speedee-Bold&quot;, Arial, Helvetica, sans-se=
+rif; line-height: 20px; font-weight: bold; padding: 5px 0px 0px 0px">Paymen=
+t Details<br></h3></td></tr><tr><td style=3D"font-family: &quot; undefined:=
+ Speedee-Regular&quot; undefined: ,Arial,Helvetica,sans-serif; font-size: 1=
+4px; color: rgb(0, 0, 0); line-height: 18px; font-weight: normal; padding: =
+5px 0px 0px 0px;" valign=3D"top" align=3D"left">Card Issuer: Visa<br></td><=
+/tr><tr><td style=3D"font-family: &quot; undefined: Speedee-Regular&quot; u=
+ndefined: ,Arial,Helvetica,sans-serif; font-size: 14px; color: rgb(0, 0, 0)=
+; line-height: 18px; font-weight: normal; padding: 5px 0px 0px 0px;" valign=
+=3D"top" align=3D"left">Authorization:
+                                        L27GR3VCH3WH23X3<br></td></tr><tr><=
+td style=3D"font-family: &quot; undefined: Speedee-Regular&quot; undefined:=
+ ,Arial,Helvetica,sans-serif; font-size: 14px; color: rgb(0, 0, 0); line-he=
+ight: 18px; font-weight: normal; padding: 5px 0px 0px 0px;" valign=3D"top" =
+align=3D"left">Account/Card Number: ************3631<br></td></tr><tr><td s=
+tyle=3D"font-family: &quot; undefined: Speedee-Regular&quot; undefined: ,Ar=
+ial,Helvetica,sans-serif; font-size: 14px; color: rgb(0, 0, 0); line-height=
+: 18px; font-weight: normal; padding: 5px 0px 0px 0px;" valign=3D"top" alig=
+n=3D"left">Approved Amount: $5.30 CAD<br></td></tr><tr><td style=3D"font-fa=
+mily: &quot; undefined: Speedee-Regular&quot; undefined: ,Arial,Helvetica,s=
+ans-serif; font-size: 14px; color: rgb(0, 0, 0); line-height: 18px; font-we=
+ight: normal; padding: 5px 0px 0px 0px;" valign=3D"top" align=3D"left">Sequ=
+ence Number: L27GR3VCH3WH23X3L27GR3VCH3WH23X3<br></td></tr><tr></tr><tr><td=
+ style=3D"font-family: &quot; undefined: Speedee-Regular&quot; undefined: ,=
+Arial,Helvetica,sans-serif; font-size: 14px; color: rgb(0, 0, 0); line-heig=
+ht: 18px; font-weight: normal; padding: 5px 0px 0px 0px;" valign=3D"top" al=
+ign=3D"left">Reference Number:
+                                          WY663835754|4eb6c8ca-06f1-11ef-a0=
+4a-4d17a85410a8<br></td></tr></tbody></table></td></tr></tbody></table></td=
+></tr><tr><td colspan=3D"3" style=3D"padding: 10px 32px;"><div style=3D"wid=
+th: 100%; background-color: rgb(173, 173, 173); display: inline-block; min-=
+height: 2px; line-height: 2px;">&nbsp;</div><br></td></tr><tr><td class=3D"=
+x_1696180453pad20rl x_1696180453pad15t" style=3D"padding: 0 32px;" valign=
+=3D"top" align=3D"left"><table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" style=3D"border-spacing: 0; padding: 10px 0px 50px 0px;=
+"><tbody><tr><td style=3D"font-family: &quot; undefined: Speedee-Regular&qu=
+ot; undefined: ,Arial,Helvetica,sans-serif; font-size: 11px; line-height: 1=
+4px; color: rgb(96, 96, 96); font-weight: normal; padding: 0px 0px 0px 0px;=
+" valign=3D"top" align=3D"left"><span class=3D"colour" style=3D"color:rgb(1=
+02, 102, 102)"><span class=3D"font" style=3D"font-family:Arial"><span class=
+=3D"size" style=3D"font-size:9pt">Now hiring for all positions. </span></sp=
+an></span><br><span class=3D"colour" style=3D"color:rgb(102, 102, 102)"><sp=
+an class=3D"font" style=3D"font-family:Arial"><span class=3D"size" style=3D=
+"font-size:9pt">Please ask for a application form</span></span></span></td>=
+</tr><tr><td style=3D"font-family: &quot; undefined: Speedee-Regular&quot; =
+undefined: ,Arial,Helvetica,sans-serif; font-size: 11px; line-height: 14px;=
+ color: rgb(96, 96, 96); font-weight: normal; padding: 12px 0px 0px 0px;" v=
+align=3D"top" align=3D"left">This is a system generated email. Please do no=
+t reply.<br></td></tr></tbody></table></td></tr></tbody></table></div><img =
+alt=3D"" id=3D"1714482135772100001_imgsrc_url_5" style=3D"display: none; wi=
+dth: 1px; height: 1px; margin: 0;" width=3D"1" height=3D"1"> </div></blockq=
+uote></div><div><br></div><div class=3D"zmail_signature_below"><div id=3D""=
+ data-zbluepencil-ignore=3D"true" data-sigid=3D"6189300000000739006"><div>R=
+egards,<br></div><div><br></div><div>John E. Estrada<br></div><div><br></di=
+v><div>---------------------------------------<br></div><div><br></div><p s=
+tyle=3D"font-style: normal; font-weight: 400; letter-spacing: normal; orpha=
+ns: 2; text-indent: 0px; text-transform: none; white-space: normal; widows:=
+ 2; word-spacing: 0px"><span class=3D"highlight" style=3D"background-color:=
+rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><sp=
+an class=3D"font" style=3D"font-family:Verdana, Arial, Helvetica, sans-seri=
+f"><span class=3D"size" style=3D"font-size:13.3333px"><span class=3D"highli=
+ght" style=3D"background-color:rgb(255, 255, 255)"><b><span class=3D"colour=
+" style=3D"color:rgb(0, 102, 0)"><span class=3D"font" style=3D"font-family:=
+Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=
+=3D"font-size:14.66px">START SHREDDING INC. (shredEX)</span></span></span><=
+/b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"fo=
+nt" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><=
+span class=3D"size" style=3D"font-size:14.66px"><br>208 Evans Ave, Toronto,=
+ ON M8Z 1J7<br></span></span></span><b><span class=3D"colour" style=3D"colo=
+r:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verda=
+na, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:=
+14.66px">E:<span>&nbsp;<a href=3D"mailto:john@shredex.ca" target=3D"_blank"=
+ style=3D"color: rgb(0, 0, 238)">john@shredex.ca</a>&nbsp;</span>W: <a targ=
+et=3D"_blank" href=3D"http://www.startshredding.com" style=3D"color: rgb(0,=
+ 0, 238)">www.startshredding.com</a><br></span></span></span></b><span clas=
+s=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"=
+font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D=
+"size" style=3D"font-size:14.66px">DIRECT:&nbsp;</span></span></span><a sty=
+le=3D"color: rgb(17, 85, 204); cursor: default" target=3D"_blank"><span cla=
+ss=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D=
+"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=
+=3D"size" style=3D"font-size:14.66px">416.255.1500</span></span></span></a>=
+<span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font"=
+ style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><spa=
+n class=3D"size" style=3D"font-size:14.66px"><br>TOLL FREE:&nbsp;</span></s=
+pan></span><a style=3D"color: rgb(17, 85, 204); cursor: default" target=3D"=
+_blank"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=
+=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-se=
+rif"><span class=3D"size" style=3D"font-size:14.66px">1.866.868.9585</span>=
+</span></span></a></span></span></span></span></span></p><p style=3D"font-s=
+tyle: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-in=
+dent: 0px; text-transform: none; white-space: normal; widows: 2; word-spaci=
+ng: 0px"><span class=3D"highlight" style=3D"background-color:rgb(255, 255, =
+255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"fo=
+nt" style=3D"font-family:Verdana, Arial, Helvetica, sans-serif"><span class=
+=3D"size" style=3D"font-size:13.3333px"><span class=3D"highlight" style=3D"=
+background-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:=
+rgb(34, 34, 34)"><span class=3D"font" style=3D"font-family:arial, sans-seri=
+f"><span class=3D"size" style=3D"font-size:small"><span class=3D"colour" st=
+yle=3D"color:gray"><span class=3D"font" style=3D"font-family:Arial, sans-se=
+rif"><span class=3D"size" style=3D"font-size:7.5pt">This message and any at=
+tachments are the property of the&nbsp;SHREDEX INC.&nbsp;or its affiliates.=
+ It may be legally privileged and/or confidential and is intended only for =
+the use of the addressee(s). No addressee should store, forward, print, cop=
+y, or otherwise reproduce this message in any manner that would allow it to=
+ be viewed by any individual not originally listed as a recipient. If the r=
+eader of this message is not the intended recipient, you are hereby notifie=
+d that any unauthorized storage, disclosure, dissemination, distribution, c=
+opying or the taking of any action in reliance on the information herein is=
+ strictly prohibited. If you have received this communication in error, ple=
+ase immediately notify the sender and delete this message.</span></span></s=
+pan></span></span></span></span></span></span></span></span><br></p><div id=
+=3D""><div><br></div></div><div><br></div></div></div><div><br></div></div>=
+<br></body></html>
+------=_Part_652285_1014005848.1717124760091--
+

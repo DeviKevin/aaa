@@ -1,0 +1,680 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp184469rbd;
+        Thu, 30 May 2024 20:06:56 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFDXJOQiNSIz5nMifsdBKIqVWqOcIZZJkDCz4z/G7r4+mWWXheysmhM9b3HpfxtLKhNQQTL
+X-Received: by 2002:a17:90a:f68a:b0:2bf:1a0:207c with SMTP id 98e67ed59e1d1-2c1dc5751b0mr538092a91.13.1717124815786;
+        Thu, 30 May 2024 20:06:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717124815; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=Y/3zCp1kVD4RxwfE6hmNZl22dpdAJMCwddTUIAUhlImhnGyCSFX4bwCsnxMpD6+d4G
+         Yw3O9SbqQ8AevNKMTr0ajt32uygKCl9OWA6kCfqTOZCQ62i1CgvBezpaJlHgfjiWNEcX
+         +nuYqCUw3ujmAlxUByGYoVaUB5ozjxGPfSe4/bxH97bcb4jhu3bEQ+QMbER6TB8f9YEG
+         TvBtfE1m87cVqCqVYiJEGC0e3/6KzCthMJ6KlCG4q2IfcQpTxx+6lS6uzKWfwWltLnrp
+         PLFE7mFflCmZcu0gaPbouuwnS9EG2lwk02FI64Pi013NTd3Uhxn4fBo7/rFinaaVARLN
+         awWg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=hrAWg8ADQqEhY1emkMPYxtCdh4o5ldqPfpzaF6BZ6rU=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=zcljw1dPPP886Xwdt9R2O56HVX7SOLvtEObtpYm82GfTY+zYl1HCxwBCFjhTSB91Eb
+         gx+DAnpg2IXO1FJtdXQCL0rUONhpq0rJ5VlNDWdWbNRDKEz2qfVx45rFwZCl5NFyj7VH
+         duCc20lzGiDiXGMXjk2RJv/MMI75v9xPrm4q3gS+dHlA0szuE2WNscvw75ZFPM5S4J8t
+         tqX1ShXANC9DddN3uzwf/ISt6RT+gveP2RmEh9UQOEYsjeHlUsTrK4VPqasUwkiwAEPm
+         KCJNdPJpuAkYI79SQjEuThzI3dCckKbxQbsZ4qdsU4Va4FIRXAs2FSNKiV3E+KYnXtpF
+         1t0w==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=PiNatSJp;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender4-op-o14.zoho.com (sender4-op-o14.zoho.com. [136.143.188.14])
+        by mx.google.com with ESMTPS id 98e67ed59e1d1-2c1c283e94csi726480a91.155.2024.05.30.20.06.55
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:06:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) client-ip=136.143.188.14;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=PiNatSJp;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717124812; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=jLrgrkIIu9aQKAWttgKVBUuFNJBrb1DTbnLYPcqZlugwVYiFNWMfDusZcWta7JQjqTtY4NgXM0FPPMsioJjNfZIcOXl5V0Gfawiffm48iBumObfLPk4YtYnSijMxdN0dJPgab/oPIdKf/5Y/eJDLoKamO+CWTAJodUcEf4cXOOY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717124812; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=hrAWg8ADQqEhY1emkMPYxtCdh4o5ldqPfpzaF6BZ6rU=; 
+	b=KjPoIpWnelKntTczNDuQbDVBVgsdECCFPX2pjiA/kVM1yVNQ4jDEOj3/fiGH23MCd7llU/CEGHFhxIOZhFiBOZ5MClUac6TME89EeMCTeW7bxKnUXAY929cvC3F9iTm0bVdmsZm+aMFdB8RIHS/nsU1dtHmBMyynGZZ8ybFlxN8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717124812;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=hrAWg8ADQqEhY1emkMPYxtCdh4o5ldqPfpzaF6BZ6rU=;
+	b=PiNatSJp+kdUDjubp7nFbs7OKo7Io3Xd71kXTqrHdf3m62rEj8ZWiliFYKTam/me
+	5mEaDUzTb+9itPciJ/lJE5J4lMBvZg8yXufQvqzvhk89aK6F2bo45249Bvxw/asWz3R
+	WvIoWYAUG0cElb7BjkqNtfmO6qQFPRQoVcdHtugA=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717124810433747.3491010801037; Thu, 30 May 2024 20:06:50 -0700 (PDT)
+Date: Thu, 30 May 2024 23:06:50 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcc9d4670.e9bdf47d201206.2216777669434136054@shredex.ca>
+In-Reply-To: <647291414.23616.1713878199901.JavaMail.adobe@yyzawp1001>
+References: <647291414.23616.1713878199901.JavaMail.adobe@yyzawp1001>
+Subject: Fwd: Aviva Canada - Thank you for your payment
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_652584_1721321201.1717124810353"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_652584_1721321201.1717124810353
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Aviva Canada <no-reply@aviva.com>
+To: <john@shredex.ca>
+Date: Tue, 23 Apr 2024 09:16:39 -0400
+Subject: Aviva Canada - Thank you for your payment
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thank You
+
+Your payment has been processed!
+
+
+
+Account Info
+
+Named Insured: John Estrada
+
+Account number for electronic payment: **** 8912
+
+Order ID: 388084-0_405
+
+
+
+Transaction Detail
+
+
+
+Card Type: Visa
+
+
+
+
+
+
+Card Number: **** 3631
+
+
+
+
+
+
+Amount Paid: $ 609.12
+
+
+
+
+
+
+Transaction Date: 2024-04-23 09:16:38
+
+
+
+
+
+
+Response Code: 027 - APPROVED
+
+
+
+
+
+
+Authorization Code: 091723
+
+
+
+
+
+
+
+
+If you have any questions regarding your policy, please contact your broker=
+.
+
+
+
+
+
+
+
+
+
+https://www.facebook.com/AvivaCanada/ https://twitter.com/AvivaCanada https=
+://www.youtube.com/user/avivacanada
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Aviva plc, Registered Office: 80 Fenchurch St, London EC3M 4AE. Registered =
+in England No. 02468686. www.aviva.com
+=20
+ This message and any attachments may be confidential or legally privileged=
+. If you are not the intended recipient, please telephone or e-mail the sen=
+der and delete this message and any attachments from your system. Also, if =
+you are not the intended recipient you must not copy this message or attach=
+ments or disclose the contents to any other person. Any views or opinions e=
+xpressed are solely those of the author and do not necessarily represent th=
+ose of Aviva.
+=20
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_652584_1721321201.1717124810353
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Aviva Canada &lt;no-reply@aviva.com&gt;<br>To: =
+&lt;john@shredex.ca&gt;<br>Date: Tue, 23 Apr 2024 09:16:39 -0400<br>Subject=
+: Aviva Canada - Thank you for your payment<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><=
+div><br></div><blockquote id=3D"blockquote_zmail" style=3D"margin: 0px;"><s=
+tyle>div.zm_4565647661152797859_parse_6439355870871066095 .x_1977266690icon=
+-link {
+  opacity: 0.75;
+  padding: 0 8px;
+  margin: 0 4px;
+}
+div.zm_4565647661152797859_parse_6439355870871066095 .x_1977266690icon-link=
+:hover {
+  opacity: 1;
+}
+div.zm_4565647661152797859_parse_6439355870871066095 .x_1977266690btn:hover=
+ {
+  background-color: rgb(0, 79, 182);
+  color: white;
+}
+div.zm_4565647661152797859_parse_6439355870871066095 table.x_1977266690foot=
+er-wrap .x_1977266690content a:hover {
+  color: rgb(221, 221, 221);
+}</style><div class=3D"x_1977266690bg-image zm_4565647661152797859_parse_64=
+39355870871066095" style=3D"height: 100%; background-color: rgb(242, 242, 2=
+42); margin: 0; padding: 0; border-spacing: 0; font-family: &quot; undefine=
+d: HelveticaNeue&quot; undefined: ,&quot; undefined: Helvetica&quot; undefi=
+ned: ,Helvetica,Arial,sans-serif; min-height: 100%; width: 100%;"><div clas=
+s=3D"x_1977266690container" style=3D"padding: 64px 0px; border-spacing: 0px=
+; margin: 0px auto; display: block; clear: both;"><span class=3D"overFlow" =
+style=3D"overflow:hidden;max-width:768px"><div style=3D"margin: 0; padding:=
+ 0; border-spacing: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetic=
+a, Arial, sans-serif;"><table class=3D"x_1977266690head-wrap" style=3D"marg=
+in: 0; padding: 0; border-spacing: 0; font-family: &quot; undefined: Helvet=
+icaNeue&quot; undefined: ,&quot; undefined: Helvetica&quot; undefined: ,Hel=
+vetica,Arial,sans-serif; width: 100%;" width=3D"100%"><tbody style=3D"margi=
+n: 0; padding: 0; border-spacing: 0; font-family: 'Helvetica Neue', 'Helvet=
+ica', Helvetica, Arial, sans-serif;"><tr style=3D"margin: 0; padding: 0; bo=
+rder-spacing: 0; font-family: &quot; undefined: HelveticaNeue&quot; undefin=
+ed: ,&quot; undefined: Helvetica&quot;"><td style=3D"margin: 0; padding: 0;=
+ border-spacing: 0; font-family: &quot; undefined: HelveticaNeue&quot; unde=
+fined: ,&quot; undefined: Helvetica&quot;"><div class=3D"x_1977266690header=
+" style=3D"background-color: rgb(255, 217, 0); box-shadow: 0 2px 3px black;=
+ margin: 0 auto; padding: 15px 28px; border-spacing: 0; font-family: &quot;=
+ undefined: HelveticaNeue&quot; undefined: ,&quot; undefined: Helvetica&quo=
+t; undefined: ,Helvetica,Arial,sans-serif; display: block;"><table style=3D=
+"margin: 0; padding: 0; border-spacing: 0; font-family: &quot; undefined: H=
+elveticaNeue&quot; undefined: ,&quot; undefined: Helvetica&quot;"><tbody st=
+yle=3D"margin: 0; padding: 0; border-spacing: 0; font-family: 'Helvetica Ne=
+ue', 'Helvetica', Helvetica, Arial, sans-serif;"><tr style=3D"margin: 0; pa=
+dding: 0; border-spacing: 0; font-family: &quot; undefined: HelveticaNeue&q=
+uot; undefined: ,&quot; undefined: Helvetica&quot;"><td style=3D"margin: 0;=
+ padding: 0; border-spacing: 0; font-family: &quot; undefined: HelveticaNeu=
+e&quot; undefined: ,&quot; undefined: Helvetica&quot;"><img id=3D"171387827=
+0348100001_imgsrc_url_0" style=3D"margin: 0; padding: 0; border-spacing: 0;=
+ font-family: &quot; undefined: HelveticaNeue&quot; undefined: ,&quot; unde=
+fined: Helvetica&quot; undefined: ,Helvetica,Arial,sans-serif; max-width: 1=
+00%;" alt=3D""><br></td></tr></tbody></table></div></td></tr></tbody></tabl=
+e></div><div class=3D"x_1977266690creditCardPaymentEmail x_1977266690parbas=
+e x_1977266690section" style=3D"margin: 0; padding: 0; border-spacing: 0; f=
+ont-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><=
+table class=3D"x_1977266690receipt-container" style=3D"margin: 0; border-sp=
+acing: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, san=
+s-serif; background: rgb(255, 255, 255); width: 100%; padding: 30px 40px;" =
+width=3D"100%"><tbody style=3D"margin: 0; padding: 0; border-spacing: 0; fo=
+nt-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><t=
+r style=3D"margin: 0; padding: 0; border-spacing: 0; font-family: 'Helvetic=
+a Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><td style=3D"margin: 0=
+; padding: 0; border-spacing: 0; font-family: 'Helvetica Neue', 'Helvetica'=
+, Helvetica, Arial, sans-serif; border-bottom: 1px rgb(204, 204, 204) solid=
+;"><h1 style=3D"margin: 0; padding: 0; border-spacing: 0; line-height: 1.1;=
+ font-size: 44px; margin-bottom: 10px; font-weight: 500; color: rgb(0, 79, =
+182); font-family: source_sans_proregular, -apple-system, blinkmacsystemfon=
+t, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helv=
+etica Neue, arial, helvetica, sans-serif;">Thank You<br></h1><h3 style=3D"m=
+argin: 0; padding: 0; border-spacing: 0; line-height: 1.1; margin-bottom: 1=
+5px; font-size: 1.25em; color: rgb(68, 68, 68); font-weight: 400; font-fami=
+ly: source_sans_proregular, -apple-system, blinkmacsystemfont, Segoe UI, Ro=
+boto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, ari=
+al, helvetica, sans-serif;">Your payment has been processed!<br></h3></td><=
+/tr><tr style=3D"margin: 0; padding: 0; border-spacing: 0; font-family: 'He=
+lvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><td style=3D"mar=
+gin: 0; padding: 0; border-spacing: 0; font-family: 'Helvetica Neue', 'Helv=
+etica', Helvetica, Arial, sans-serif; border-bottom: 1px rgb(204, 204, 204)=
+ solid; padding-bottom: 10px;"><h2 style=3D"margin: 0; padding: 0; border-s=
+pacing: 0; margin-top: 20px; font-size: 1.75em; margin-bottom: 15px; font-w=
+eight: 500; color: rgb(68, 68, 68); font-family: source_sans_proregular, -a=
+pple-system, blinkmacsystemfont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarel=
+l, Fira Sans, Droid Sans, Helvetica Neue, arial, helvetica, sans-serif;">Ac=
+count Info<br></h2><h3 style=3D"margin: 0; padding: 0; border-spacing: 0; l=
+ine-height: 1.1; margin-bottom: 15px; font-size: 1.25em; color: rgb(68, 68,=
+ 68); font-weight: 400; font-family: source_sans_proregular, -apple-system,=
+ blinkmacsystemfont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans=
+, Droid Sans, Helvetica Neue, arial, helvetica, sans-serif;">Named Insured:=
+ <span class=3D"colour" style=3D"color:rgb(68, 68, 68)"><span class=3D"font=
+" style=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Helvetica, A=
+rial, sans-serif; margin: 0px; padding: 0px; border-spacing: 0px; font-weig=
+ht: 300;">John Estrada</span></span><br></h3><h3 style=3D"margin: 0; paddin=
+g: 0; border-spacing: 0; line-height: 1.1; margin-bottom: 15px; font-size: =
+1.25em; color: rgb(68, 68, 68); font-weight: 400; font-family: source_sans_=
+proregular, -apple-system, blinkmacsystemfont, Segoe UI, Roboto, Oxygen, Ub=
+untu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, arial, helvetica, s=
+ans-serif;">Account number for electronic payment: <span class=3D"colour" s=
+tyle=3D"color:rgb(68, 68, 68)"><span class=3D"font" style=3D"font-family: &=
+quot;Helvetica Neue&quot;, Helvetica, Helvetica, Arial, sans-serif; margin:=
+ 0px; padding: 0px; border-spacing: 0px; font-weight: 300;">**** 8912</span=
+></span><br></h3><h3 style=3D"margin: 0; padding: 0; border-spacing: 0; lin=
+e-height: 1.1; margin-bottom: 15px; font-size: 1.25em; color: rgb(68, 68, 6=
+8); font-weight: 400; font-family: source_sans_proregular, -apple-system, b=
+linkmacsystemfont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, =
+Droid Sans, Helvetica Neue, arial, helvetica, sans-serif;">Order ID: <span =
+class=3D"colour" style=3D"color:rgb(68, 68, 68)"><span class=3D"font" style=
+=3D"font-family: &quot;Helvetica Neue&quot;, Helvetica, Helvetica, Arial, s=
+ans-serif; margin: 0px; padding: 0px; border-spacing: 0px; font-weight: 300=
+;">388084-0_405</span></span><br></h3></td></tr><tr style=3D"margin: 0; pad=
+ding: 0; border-spacing: 0; font-family: 'Helvetica Neue', 'Helvetica', Hel=
+vetica, Arial, sans-serif;"><td style=3D"margin: 0; padding: 0; border-spac=
+ing: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-=
+serif;"><h2 style=3D"margin: 0; padding: 0; border-spacing: 0; margin-top: =
+20px; margin-bottom: 20px; font-size: 1.75em; font-weight: 500; color: rgb(=
+68, 68, 68); font-family: source_sans_proregular, -apple-system, blinkmacsy=
+stemfont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid San=
+s, Helvetica Neue, arial, helvetica, sans-serif;">Transaction Detail<br></h=
+2></td></tr><tr style=3D"margin: 0; padding: 0; border-spacing: 0; font-fam=
+ily: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><td styl=
+e=3D"margin: 0; padding: 0; border-spacing: 0; font-family: 'Helvetica Neue=
+', 'Helvetica', Helvetica, Arial, sans-serif; border-bottom: 1px rgb(204, 2=
+04, 204) solid; padding-bottom: 10px;"><table class=3D"x_1977266690m-inline=
+-data-table" style=3D"margin: 0; padding: 0; border-spacing: 0; font-family=
+: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; display: inl=
+ine; margin-right: 50px;"><tbody style=3D"margin: 0; padding: 0; border-spa=
+cing: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans=
+-serif;"><tr style=3D"margin: 0; padding: 0; border-spacing: 0; font-family=
+: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><td class=
+=3D"x_1977266690m-data-group-item" style=3D"margin: 0; padding: 0; border-s=
+pacing: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sa=
+ns-serif;"><h3 class=3D"x_1977266690m-data-group-item__title" style=3D"padd=
+ing: 0; border-spacing: 0; margin-bottom: 15px; font-family: source_sans_pr=
+oregular, -apple-system, blinkmacsystemfont, Segoe UI, Roboto, Oxygen, Ubun=
+tu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, arial, helvetica, san=
+s-serif; margin: 0; font-size: 1em; font-weight: 500; line-height: 1.5; col=
+or: rgb(68, 68, 68);">Card Type: <p class=3D"x_1977266690transaction-data" =
+style=3D"margin: 0px 0px 10px; padding: 0px; border-spacing: 0px; line-heig=
+ht: 1.6; font-weight: 300;"><span class=3D"colour" style=3D"color:rgb(68, 6=
+8, 68)"><span class=3D"font" style=3D"font-family:&quot;Helvetica Neue&quot=
+;, Helvetica, Helvetica, Arial, sans-serif"><span class=3D"size" style=3D"f=
+ont-size: 1.75em; margin: 0px 0px 10px; padding: 0px; border-spacing: 0px; =
+line-height: 1.6; font-weight: 300;">Visa</span></span></span><br></p></h3>=
+</td></tr></tbody></table><table class=3D"x_1977266690m-inline-data-table" =
+style=3D"margin: 0; padding: 0; border-spacing: 0; font-family: 'Helvetica =
+Neue', 'Helvetica', Helvetica, Arial, sans-serif; display: inline; margin-r=
+ight: 50px;"><tbody style=3D"margin: 0; padding: 0; border-spacing: 0; font=
+-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><tr =
+style=3D"margin: 0; padding: 0; border-spacing: 0; font-family: 'Helvetica =
+Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><td class=3D"x_197726669=
+0m-data-group-item" style=3D"margin: 0; padding: 0; border-spacing: 0; font=
+-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><h3 =
+class=3D"x_1977266690m-data-group-item__title" style=3D"padding: 0; border-=
+spacing: 0; margin-bottom: 15px; font-family: source_sans_proregular, -appl=
+e-system, blinkmacsystemfont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, =
+Fira Sans, Droid Sans, Helvetica Neue, arial, helvetica, sans-serif; margin=
+: 0; font-size: 1em; font-weight: 500; line-height: 1.5; color: rgb(68, 68,=
+ 68);">Card Number: <p class=3D"x_1977266690transaction-data" style=3D"marg=
+in: 0px 0px 10px; padding: 0px; border-spacing: 0px; line-height: 1.6; font=
+-weight: 300;"><span class=3D"colour" style=3D"color:rgb(68, 68, 68)"><span=
+ class=3D"font" style=3D"font-family:&quot;Helvetica Neue&quot;, Helvetica,=
+ Helvetica, Arial, sans-serif"><span class=3D"size" style=3D"font-size: 1.7=
+5em; margin: 0px 0px 10px; padding: 0px; border-spacing: 0px; line-height: =
+1.6; font-weight: 300;">**** 3631</span></span></span><br></p></h3></td></t=
+r></tbody></table><table class=3D"x_1977266690m-inline-data-table" style=3D=
+"margin: 0; padding: 0; border-spacing: 0; font-family: 'Helvetica Neue', '=
+Helvetica', Helvetica, Arial, sans-serif; display: inline; margin-right: 50=
+px;"><tbody style=3D"margin: 0; padding: 0; border-spacing: 0; font-family:=
+ 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><tr style=3D=
+"margin: 0; padding: 0; border-spacing: 0; font-family: 'Helvetica Neue', '=
+Helvetica', Helvetica, Arial, sans-serif;"><td class=3D"x_1977266690m-data-=
+group-item" style=3D"margin: 0; padding: 0; border-spacing: 0; font-family:=
+ 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><h3 class=3D=
+"x_1977266690m-data-group-item__title" style=3D"padding: 0; border-spacing:=
+ 0; margin-bottom: 15px; font-family: source_sans_proregular, -apple-system=
+, blinkmacsystemfont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira San=
+s, Droid Sans, Helvetica Neue, arial, helvetica, sans-serif; margin: 0; fon=
+t-size: 1em; font-weight: 500; line-height: 1.5; color: rgb(68, 68, 68);">A=
+mount Paid: <p class=3D"x_1977266690transaction-data" style=3D"margin: 0px =
+0px 10px; padding: 0px; border-spacing: 0px; line-height: 1.6; font-weight:=
+ 300;"><span class=3D"colour" style=3D"color:rgb(68, 68, 68)"><span class=
+=3D"font" style=3D"font-family:&quot;Helvetica Neue&quot;, Helvetica, Helve=
+tica, Arial, sans-serif"><span class=3D"size" style=3D"font-size: 1.75em; m=
+argin: 0px 0px 10px; padding: 0px; border-spacing: 0px; line-height: 1.6; f=
+ont-weight: 300;">$ 609.12</span></span></span><br></p></h3></td></tr></tbo=
+dy></table><table class=3D"x_1977266690m-inline-data-table" style=3D"margin=
+: 0; padding: 0; border-spacing: 0; font-family: 'Helvetica Neue', 'Helveti=
+ca', Helvetica, Arial, sans-serif; display: inline; margin-right: 50px;"><t=
+body style=3D"margin: 0; padding: 0; border-spacing: 0; font-family: 'Helve=
+tica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><tr style=3D"margin=
+: 0; padding: 0; border-spacing: 0; font-family: 'Helvetica Neue', 'Helveti=
+ca', Helvetica, Arial, sans-serif;"><td class=3D"x_1977266690m-data-group-i=
+tem" style=3D"margin: 0; padding: 0; border-spacing: 0; font-family: 'Helve=
+tica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><h3 class=3D"x_1977=
+266690m-data-group-item__title" style=3D"padding: 0; border-spacing: 0; mar=
+gin-bottom: 15px; font-family: source_sans_proregular, -apple-system, blink=
+macsystemfont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droi=
+d Sans, Helvetica Neue, arial, helvetica, sans-serif; margin: 0; font-size:=
+ 1em; font-weight: 500; line-height: 1.5; color: rgb(68, 68, 68);">Transact=
+ion Date: <p class=3D"x_1977266690transaction-data" style=3D"margin: 0px 0p=
+x 10px; padding: 0px; border-spacing: 0px; line-height: 1.6; font-weight: 3=
+00;"><span class=3D"colour" style=3D"color:rgb(68, 68, 68)"><span class=3D"=
+font" style=3D"font-family:&quot;Helvetica Neue&quot;, Helvetica, Helvetica=
+, Arial, sans-serif"><span class=3D"size" style=3D"font-size: 1.75em; margi=
+n: 0px 0px 10px; padding: 0px; border-spacing: 0px; line-height: 1.6; font-=
+weight: 300;">2024-04-23 09:16:38</span></span></span><br></p></h3></td></t=
+r></tbody></table><table class=3D"x_1977266690m-inline-data-table" style=3D=
+"margin: 0; padding: 0; border-spacing: 0; font-family: 'Helvetica Neue', '=
+Helvetica', Helvetica, Arial, sans-serif; display: inline; margin-right: 50=
+px;"><tbody style=3D"margin: 0; padding: 0; border-spacing: 0; font-family:=
+ 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><tr style=3D=
+"margin: 0; padding: 0; border-spacing: 0; font-family: 'Helvetica Neue', '=
+Helvetica', Helvetica, Arial, sans-serif;"><td class=3D"x_1977266690m-data-=
+group-item" style=3D"margin: 0; padding: 0; border-spacing: 0; font-family:=
+ 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><h3 class=3D=
+"x_1977266690m-data-group-item__title" style=3D"padding: 0; border-spacing:=
+ 0; margin-bottom: 15px; font-family: source_sans_proregular, -apple-system=
+, blinkmacsystemfont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira San=
+s, Droid Sans, Helvetica Neue, arial, helvetica, sans-serif; margin: 0; fon=
+t-size: 1em; font-weight: 500; line-height: 1.5; color: rgb(68, 68, 68);">R=
+esponse Code: <p class=3D"x_1977266690transaction-data" style=3D"margin: 0p=
+x 0px 10px; padding: 0px; border-spacing: 0px; line-height: 1.6; font-weigh=
+t: 300;"><span class=3D"colour" style=3D"color:rgb(68, 68, 68)"><span class=
+=3D"font" style=3D"font-family:&quot;Helvetica Neue&quot;, Helvetica, Helve=
+tica, Arial, sans-serif"><span class=3D"size" style=3D"font-size: 1.75em; m=
+argin: 0px 0px 10px; padding: 0px; border-spacing: 0px; line-height: 1.6; f=
+ont-weight: 300;">027 - APPROVED</span></span></span><br></p></h3></td></tr=
+></tbody></table><table class=3D"x_1977266690m-inline-data-table" style=3D"=
+margin: 0; padding: 0; border-spacing: 0; font-family: 'Helvetica Neue', 'H=
+elvetica', Helvetica, Arial, sans-serif; display: inline; margin-right: 50p=
+x;"><tbody style=3D"margin: 0; padding: 0; border-spacing: 0; font-family: =
+'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><tr style=3D"=
+margin: 0; padding: 0; border-spacing: 0; font-family: 'Helvetica Neue', 'H=
+elvetica', Helvetica, Arial, sans-serif;"><td class=3D"x_1977266690m-data-g=
+roup-item" style=3D"margin: 0; padding: 0; border-spacing: 0; font-family: =
+'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><h3 class=3D"=
+x_1977266690m-data-group-item__title" style=3D"padding: 0; border-spacing: =
+0; margin-bottom: 15px; font-family: source_sans_proregular, -apple-system,=
+ blinkmacsystemfont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans=
+, Droid Sans, Helvetica Neue, arial, helvetica, sans-serif; margin: 0; font=
+-size: 1em; font-weight: 500; line-height: 1.5; color: rgb(68, 68, 68);">Au=
+thorization Code: <p class=3D"x_1977266690transaction-data" style=3D"margin=
+: 0px 0px 10px; padding: 0px; border-spacing: 0px; line-height: 1.6; font-w=
+eight: 300;"><span class=3D"colour" style=3D"color:rgb(68, 68, 68)"><span c=
+lass=3D"font" style=3D"font-family:&quot;Helvetica Neue&quot;, Helvetica, H=
+elvetica, Arial, sans-serif"><span class=3D"size" style=3D"font-size: 1.75e=
+m; margin: 0px 0px 10px; padding: 0px; border-spacing: 0px; line-height: 1.=
+6; font-weight: 300;">091723</span></span></span><br></p></h3></td></tr></t=
+body></table></td></tr><tr style=3D"margin: 0; padding: 0; border-spacing: =
+0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif=
+;"><td style=3D"margin: 0; padding: 0; border-spacing: 0; font-family: 'Hel=
+vetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; padding-top: 20px;=
+"><p class=3D"x_1977266690lead x_1977266690text--light" style=3D"margin: 0p=
+x 0px 10px; padding: 0px; border-spacing: 0px; font-weight: 300; line-heigh=
+t: 1.6;"><span class=3D"size" style=3D"font-size: 17px; margin: 0px 0px 10p=
+x; padding: 0px; border-spacing: 0px; font-weight: 300; line-height: 1.6;">=
+If you have any questions regarding your policy, please contact your broker=
+.</span><br></p></td></tr></tbody></table></div><div style=3D"margin: 0; pa=
+dding: 0; border-spacing: 0; font-family: 'Helvetica Neue', 'Helvetica', He=
+lvetica, Arial, sans-serif;"><table class=3D"x_1977266690footer-wrap" width=
+=3D"100%" style=3D"margin: 0; padding: 0; border-spacing: 0; font-family: &=
+quot; undefined: HelveticaNeue&quot; undefined: ,&quot; undefined: Helvetic=
+a&quot; undefined: ,Helvetica,Arial,sans-serif; width: 100%; background-col=
+or: rgb(68, 68, 68); color: rgb(153, 153, 153); text-align: center; padding=
+-bottom: 64px; clear: both;" bgcolor=3D"rgb(68, 68, 68)" align=3D"center"><=
+tbody style=3D"margin: 0; padding: 0; border-spacing: 0; font-family: 'Helv=
+etica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><tr class=3D"x_197=
+7266690upper-footer" width=3D"100%" style=3D"margin: 0 auto; padding: 15px =
+28px; border-spacing: 0; font-family: &quot; undefined: HelveticaNeue&quot;=
+ undefined: ,&quot; undefined: Helvetica&quot; undefined: ,Helvetica,Arial,=
+sans-serif; display: block; background-color: rgb(0, 79, 182);" bgcolor=3D"=
+rgb(0, 79, 182)"><td width=3D"100%" style=3D"margin: 0; padding: 0; border-=
+spacing: 0; font-family: &quot; undefined: HelveticaNeue&quot; undefined: ,=
+&quot; undefined: Helvetica&quot;"><img id=3D"1713878270348100001_imgsrc_ur=
+l_1" alt=3D"" style=3D"margin: 0; padding: 0; border-spacing: 0; font-famil=
+y: &quot; undefined: HelveticaNeue&quot; undefined: ,&quot; undefined: Helv=
+etica&quot; undefined: ,Helvetica,Arial,sans-serif; max-width: 100%;"><br><=
+/td></tr><tr style=3D"margin: 0; padding: 0; border-spacing: 0; font-family=
+: &quot; undefined: HelveticaNeue&quot; undefined: ,&quot; undefined: Helve=
+tica&quot;"><td class=3D"x_1977266690lower-footer" style=3D"margin: 0; padd=
+ing: 0; border-spacing: 0; font-family: &quot; undefined: HelveticaNeue&quo=
+t; undefined: ,&quot; undefined: Helvetica&quot; undefined: ,Helvetica,Aria=
+l,sans-serif; padding-top: 28px;"><div class=3D"x_1977266690content" style=
+=3D"margin: 0 auto; padding: 15px; border-spacing: 0; font-family: &quot; u=
+ndefined: HelveticaNeue&quot; undefined: ,&quot; undefined: Helvetica&quot;=
+ undefined: ,Helvetica,Arial,sans-serif; max-width: 600px; display: block;"=
+><table style=3D"margin: 0; padding: 0; border-spacing: 0; font-family: &qu=
+ot; undefined: HelveticaNeue&quot; undefined: ,&quot; undefined: Helvetica&=
+quot; undefined: ,Helvetica,Arial,sans-serif; width: 100%;" width=3D"100%">=
+<tbody style=3D"margin: 0; padding: 0; border-spacing: 0; font-family: 'Hel=
+vetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;"><tr style=3D"marg=
+in: 0; padding: 0; border-spacing: 0; font-family: &quot; undefined: Helvet=
+icaNeue&quot; undefined: ,&quot; undefined: Helvetica&quot;"><td align=3D"c=
+enter" style=3D"margin: 0; padding: 0; border-spacing: 0; font-family: &quo=
+t; undefined: HelveticaNeue&quot; undefined: ,&quot; undefined: Helvetica&q=
+uot;"><p style=3D"margin: 0px 0px 10px; padding: 0px; border-spacing: 0px; =
+font-weight: normal; line-height: 1.6;"><span class=3D"size" style=3D"font-=
+size: 14px; margin: 0px 0px 10px; padding: 0px; border-spacing: 0px; font-w=
+eight: normal; line-height: 1.6;"><a class=3D"x_1977266690icon-link" href=
+=3D"https://www.facebook.com/AvivaCanada/" style=3D"margin: 0 4px; padding:=
+ 0 8px; border-spacing: 0; font-family: &quot; undefined: HelveticaNeue&quo=
+t; undefined: ,&quot; undefined: Helvetica&quot; undefined: ,Helvetica,Aria=
+l,sans-serif; color: rgb(153, 153, 153); opacity: 0.75;" target=3D"_blank" =
+title=3D"Visit website www.facebook.com (opens in new window)"><img id=3D"1=
+713878270348100001_imgsrc_url_2" alt=3D"" style=3D"margin: 0; padding: 0; b=
+order-spacing: 0; font-family: &quot; undefined: HelveticaNeue&quot; undefi=
+ned: ,&quot; undefined: Helvetica&quot; undefined: ,Helvetica,Arial,sans-se=
+rif; max-width: 100%;"><span class=3D"size" style=3D"font-size: 0px; height=
+: 1px; margin: 0px; padding: 0px; border-spacing: 0px; width: 1px; min-heig=
+ht: 1px; overflow: hidden; white-space: nowrap; border: 0px;">Facebook</spa=
+n></a> <a class=3D"x_1977266690icon-link" href=3D"https://twitter.com/Aviva=
+Canada" style=3D"margin: 0 4px; padding: 0 8px; border-spacing: 0; font-fam=
+ily: &quot; undefined: HelveticaNeue&quot; undefined: ,&quot; undefined: He=
+lvetica&quot; undefined: ,Helvetica,Arial,sans-serif; color: rgb(153, 153, =
+153); opacity: 0.75;" target=3D"_blank" title=3D"Visit website twitter.com =
+(opens in new window)"><img id=3D"1713878270348100001_imgsrc_url_3" alt=3D"=
+" style=3D"margin: 0; padding: 0; border-spacing: 0; font-family: &quot; un=
+defined: HelveticaNeue&quot; undefined: ,&quot; undefined: Helvetica&quot; =
+undefined: ,Helvetica,Arial,sans-serif; max-width: 100%;"><span class=3D"si=
+ze" style=3D"font-size: 0px; height: 1px; margin: 0px; padding: 0px; border=
+-spacing: 0px; width: 1px; min-height: 1px; overflow: hidden; white-space: =
+nowrap; border: 0px;">Twitter</span></a> <a class=3D"x_1977266690icon-link"=
+ href=3D"https://www.youtube.com/user/avivacanada" style=3D"margin: 0 4px; =
+padding: 0 8px; border-spacing: 0; font-family: &quot; undefined: Helvetica=
+Neue&quot; undefined: ,&quot; undefined: Helvetica&quot; undefined: ,Helvet=
+ica,Arial,sans-serif; color: rgb(153, 153, 153); opacity: 0.75;" target=3D"=
+_blank" title=3D"Visit website www.youtube.com (opens in new window)"><img =
+id=3D"1713878270348100001_imgsrc_url_4" alt=3D"" style=3D"margin: 0; paddin=
+g: 0; border-spacing: 0; font-family: &quot; undefined: HelveticaNeue&quot;=
+ undefined: ,&quot; undefined: Helvetica&quot; undefined: ,Helvetica,Arial,=
+sans-serif; max-width: 100%;"><span class=3D"size" style=3D"font-size: 0px;=
+ height: 1px; margin: 0px; padding: 0px; border-spacing: 0px; width: 1px; m=
+in-height: 1px; overflow: hidden; white-space: nowrap; border: 0px;">YouTub=
+e</span></a></span><br></p></td></tr></tbody></table></div></td></tr><tr st=
+yle=3D"margin: 0; padding: 0; border-spacing: 0; font-family: &quot; undefi=
+ned: HelveticaNeue&quot; undefined: ,&quot; undefined: Helvetica&quot;"><td=
+ class=3D"" style=3D"margin: 0; padding: 0; border-spacing: 0; font-family:=
+ &quot; undefined: HelveticaNeue&quot; undefined: ,&quot; undefined: Helvet=
+ica&quot;"><div class=3D"x_1977266690content" style=3D"margin: 0 auto; padd=
+ing: 15px; border-spacing: 0; font-family: &quot; undefined: HelveticaNeue&=
+quot; undefined: ,&quot; undefined: Helvetica&quot; undefined: ,Helvetica,A=
+rial,sans-serif; max-width: 600px; display: block;"><br></div></td></tr></t=
+body></table></div></span></div><br style=3D"margin: 0; padding: 0; border-=
+spacing: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, s=
+ans-serif;">Aviva plc, Registered Office: 80 Fenchurch St, London EC3M 4AE.=
+ Registered in England No. 02468686. www.aviva.com<br style=3D"margin: 0; p=
+adding: 0; border-spacing: 0; font-family: 'Helvetica Neue', 'Helvetica', H=
+elvetica, Arial, sans-serif;"> <br style=3D"margin: 0; padding: 0; border-s=
+pacing: 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sa=
+ns-serif;"> This message and any attachments may be confidential or legally=
+ privileged. If you are not the intended recipient, please telephone or e-m=
+ail the sender and delete this message and any attachments from your system=
+. Also, if you are not the intended recipient you must not copy this messag=
+e or attachments or disclose the contents to any other person. Any views or=
+ opinions expressed are solely those of the author and do not necessarily r=
+epresent those of Aviva.<br style=3D"margin: 0; padding: 0; border-spacing:=
+ 0; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-seri=
+f;"> </div></blockquote></div><div><br></div><div class=3D"zmail_signature_=
+below"><div id=3D"" data-zbluepencil-ignore=3D"true" data-sigid=3D"61893000=
+00000739006"><div>Regards,<br></div><div><br></div><div>John E. Estrada<br>=
+</div><div><br></div><div>---------------------------------------<br></div>=
+<div><br></div><p style=3D"font-style: normal; font-weight: 400; letter-spa=
+cing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-spa=
+ce: normal; widows: 2; word-spacing: 0px"><span class=3D"highlight" style=
+=3D"background-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"co=
+lor:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:Verdana, Arial,=
+ Helvetica, sans-serif"><span class=3D"size" style=3D"font-size:13.3333px">=
+<span class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><b>=
+<span class=3D"colour" style=3D"color:rgb(0, 102, 0)"><span class=3D"font" =
+style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span=
+ class=3D"size" style=3D"font-size:14.66px">START SHREDDING INC. (shredEX)<=
+/span></span></span></b><span class=3D"colour" style=3D"color:rgb(51, 51, 5=
+1)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans=
+-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br>20=
+8 Evans Ave, Toronto, ON M8Z 1J7<br></span></span></span><b><span class=3D"=
+colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-=
+family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size=
+" style=3D"font-size:14.66px">E:<span>&nbsp;<a href=3D"mailto:john@shredex.=
+ca" target=3D"_blank" style=3D"color: rgb(0, 0, 238)">john@shredex.ca</a>&n=
+bsp;</span>W: <a target=3D"_blank" href=3D"http://www.startshredding.com" s=
+tyle=3D"color: rgb(0, 0, 238)">www.startshredding.com</a><br></span></span>=
+</span></b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span cla=
+ss=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-=
+serif"><span class=3D"size" style=3D"font-size:14.66px">DIRECT:&nbsp;</span=
+></span></span><a style=3D"color: rgb(17, 85, 204); cursor: default" target=
+=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span cl=
+ass=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans=
+-serif"><span class=3D"size" style=3D"font-size:14.66px">416.255.1500</span=
+></span></span></a><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><=
+span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-seri=
+f, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br>TOLL FR=
+EE:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, 204); cursor: =
+default" target=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51=
+, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, s=
+ans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">1.8=
+66.868.9585</span></span></span></a></span></span></span></span></span></p>=
+<p style=3D"font-style: normal; font-weight: 400; letter-spacing: normal; o=
+rphans: 2; text-indent: 0px; text-transform: none; white-space: normal; wid=
+ows: 2; word-spacing: 0px"><span class=3D"highlight" style=3D"background-co=
+lor:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"=
+><span class=3D"font" style=3D"font-family:Verdana, Arial, Helvetica, sans-=
+serif"><span class=3D"size" style=3D"font-size:13.3333px"><span class=3D"hi=
+ghlight" style=3D"background-color:rgb(255, 255, 255)"><span class=3D"colou=
+r" style=3D"color:rgb(34, 34, 34)"><span class=3D"font" style=3D"font-famil=
+y:arial, sans-serif"><span class=3D"size" style=3D"font-size:small"><span c=
+lass=3D"colour" style=3D"color:gray"><span class=3D"font" style=3D"font-fam=
+ily:Arial, sans-serif"><span class=3D"size" style=3D"font-size:7.5pt">This =
+message and any attachments are the property of the&nbsp;SHREDEX INC.&nbsp;=
+or its affiliates. It may be legally privileged and/or confidential and is =
+intended only for the use of the addressee(s). No addressee should store, f=
+orward, print, copy, or otherwise reproduce this message in any manner that=
+ would allow it to be viewed by any individual not originally listed as a r=
+ecipient. If the reader of this message is not the intended recipient, you =
+are hereby notified that any unauthorized storage, disclosure, disseminatio=
+n, distribution, copying or the taking of any action in reliance on the inf=
+ormation herein is strictly prohibited. If you have received this communica=
+tion in error, please immediately notify the sender and delete this message=
+.</span></span></span></span></span></span></span></span></span></span></sp=
+an><br></p><div id=3D""><div><br></div></div><div><br></div></div></div><di=
+v><br></div></div><br></body></html>
+------=_Part_652584_1721321201.1717124810353--
+

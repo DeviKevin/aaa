@@ -1,0 +1,1047 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp183941rbd;
+        Thu, 30 May 2024 20:05:17 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHIf5J0uanIczfTDdfabZRIprkPyHGwIamdQbHxBdrsuGCPNJVqHfmIPvX/gonHkKjT1lXo
+X-Received: by 2002:a05:6a20:a125:b0:1a7:3b4a:3e8 with SMTP id adf61e73a8af0-1b26f16eaafmr985634637.7.1717124717465;
+        Thu, 30 May 2024 20:05:17 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717124717; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=Zsv3tO5UkqeCsowgw29Rn1tQcuGJvVK9Hn4a0mpdoQvvd2gNYf5lsHVDp/JCHkzFf/
+         t8RPSQMiste7AOBPf60hw+rqrzai/WafIvgE6AB5qUqpspSiLTo+v5d9S3bBBFshLkOJ
+         mb0grW0v3u+e2RDpZrKPC1l5n2MFdsGD2KjPYdr7Vte6TlX9PjM8ybPCKlO4lxNGM/jy
+         NCeV2qFZtdNRKOWJtUKF8f7HuxVe/KAV3WkbHDMp6SlAhI4Q6Ntws1fLK9sMkHqWUU0A
+         olGiXHZM5XC6jPXtg6/Bce8xuSSiXxNSLUVAgbFYrY2UyCcBIogLF/JR26AeAoBNWZnI
+         FyDA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=LHOEJAopw484tTigO069GyIYJeKQ2yc4wVkOt3FAXAY=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=gud0qdODgN6f9pfgrjUBw4SEnkU4+8G2sGWM3uESXJvlEGdvGLTEcQSnvcCKHTwwVK
+         Jyl7C0d3H7DpJtFxlkpqEwSqVUmDMU1L6OJUtoLBVGb51gvGvxr81mqnzIiV3pC/lOCM
+         zcPHdLoRYTlQq52OBhTSEX+WAcuRIJ03poUBpMyfBdyZNQj+Br5ZW3TSo/G6GsEdjXoV
+         bE54DAubLUWuOro5R46XiRMBVyj1chSfPU4DueeBUtdufZC0tNGz6TbbahnU+rBotQtI
+         gfrpPjxr7RYIcMlR+dpLYbY+9UJ5eNiCxmvSX8UR9f7d5SctRUyx7mIUlqizuIbj5LVT
+         bzwQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=Ij2Hifq6;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o18.zoho.com (sender3-op-o18.zoho.com. [136.143.184.18])
+        by mx.google.com with ESMTPS id 98e67ed59e1d1-2c1a9ded9a3si1418791a91.1.2024.05.30.20.05.17
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:05:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) client-ip=136.143.184.18;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=Ij2Hifq6;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717124716; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ViMEgHfBUPmYtKbcIEyZ1x3FOkoxc2Sahzrzkjy2XrP8wF9BOYkZj/ilIJ887ErYexUDwP9w6HfwQTjCdcHQ9YFWlji3jUpVtslYUuC/ZLZfBDwK3hPWIWC6Qgct45x6iaMHRvenAi4PGRU/fl0YV/TsTze8qPiA/kzFBHpAgww=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717124716; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=LHOEJAopw484tTigO069GyIYJeKQ2yc4wVkOt3FAXAY=; 
+	b=LZ2XIe58vyo1ZKZ6z44F8B5sXfae5zmNpvWDwHH1M5QrJCZxSbYaojTcFS0CD1qsvO0fulX4xMFx6hfzuGO3CuseefJ4XnBsVG5mXfRKFjRD+1bHSVBsbaWzhElmxTo6Qx5aG/gcQzmm3CSg9uoWsArE7Ji/N4Ed0r71cVnS2VA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717124716;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=LHOEJAopw484tTigO069GyIYJeKQ2yc4wVkOt3FAXAY=;
+	b=Ij2Hifq6640Tb+ad5A16bGtMyoLwPxcbKeKoiqlGhgnpHnkF9fmFVxw7cJl9kC3I
+	hWyQB+bjr1uB2zIcF2MT+55OQdQ0CrspaAbUPf1u9CFYXwmr7I+xNHXZD4/HfbO7Ju4
+	bUIvnCwPRz1ACdkQntfoqIau7DxWfvmOZ0OnFyOI=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717124714296584.3369200256218; Thu, 30 May 2024 20:05:14 -0700 (PDT)
+Date: Thu, 30 May 2024 23:05:14 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcc9bcefd.cf0b17b5201019.1971941199965770059@shredex.ca>
+In-Reply-To: <0bf4f00a-e37c-4322-86fa-52aba5be1a98@DNVEXCH2.corpzone.internalzone.com>
+References: <0bf4f00a-e37c-4322-86fa-52aba5be1a98@DNVEXCH2.corpzone.internalzone.com>
+Subject: Fwd: Your McAfee receipt
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_651944_49126457.1717124714238"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_651944_49126457.1717124714238
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From:  <donotreply@mcafee.com>
+To: <john@shredex.ca>
+Date: Tue, 14 May 2024 11:29:49 -0400
+Subject: Your McAfee receipt
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thanks for trusting McAfee, John!
+
+
+
+
+
+
+
+
+
+
+
+
+
+Order Confirmation #CS3505251642
+
+
+
+
+
+
+Order received on May 14, 2024
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Order Summary
+
+
+
+
+
+
+
+
+
+
+
+McAfee+=E2=84=A2 Premium - Individual=C2=A0=20
+ Unlimited Devices / 2 Year subscription
+
+
+
+C$135.59
+
+
+
+Starts: May 14, 2024
+Expires: May 14, 2026=20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You saved C$180.00 on your 1st term subscription
+
+
+
+Current renewal price C$149.99/yr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Sub-total
+
+
+C$119.99
+
+
+
+
+
+Tax
+
+
+C$15.60
+
+
+
+
+
+
+Order Total
+
+
+
+C$135.59
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Install your apps
+
+
+
+
+
+
+
+
+
+If you haven't already done so, download and install your new app. Want to =
+protect a different device? Open this email on the device you want to prote=
+ct and install the app available for that device.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://u41289073.ct.sendgrid.net/ls/click?upn=3Du001.Ckc7YYk9l5V7u0lxDFFyw=
+Diq6LtlSF0-2Byc0TDMjb4J9bzoaRKnPmrnYAmND4jkmqTf6lcjKL2qQnA0GUbF81HA-3D-3Dsa=
+HC_keHBKDoAOhRVgZ89n-2FxV-2FazuyfEUyq4yuX31-2BOI3JEfAjs4-2FUs4Ae5yma7RqVKJK=
+RgiKQjO6NRr9lI-2B9PvdSOY7wns1aeFfa6snhcuCc9MmXPwn6F2e5P6n-2Furb7a9M3i93iXNe=
+ZVhMO6cJz0yCO2jEirZhV4P0J5li9KZPfKrEkKw3nI-2B-2BU4adEBmhcqjuuQ74AUuxV5AvxbW=
+8A4-2BgthQ-3D-3D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Your subscription is set to renew automatically. If you have a monthly subs=
+cription, we'll use the payment info we have on file to process your paymen=
+t 7 days before your renewal date. If you purchased a subscription of one y=
+ear or longer, we'll process your payment 30 days before your renewal date.
+
+
+
+
+CANCELLATION & REFUND POLICY
+
+
+
+
+You can cancel your subscription by turning auto-renew off from your My Acc=
+ount page. If you purchased a monthly subscription, canceling the monthly s=
+ubscription will stop the recurring fee going forward, and you will have ac=
+cess to your subscription until your last payment expires. Canceling your m=
+onthly subscription will not retroactively refund subscription payments, an=
+d previously charged subscription fees cannot be pro-rated based on cancela=
+tion date. If you purchased a subscription of one year or longer and you ar=
+e not satisfied with your McAfee software, you can request a full refund wi=
+thin 30 days of your software purchase.
+
+
+
+
+VIRUS PROTECTION PLEDGE POLICY
+
+
+
+
+To be eligible for VPP, you must be actively enrolled in our auto-renewal s=
+ervice with a qualifying product installed. If we cannot remove a virus fro=
+m a device we support (see VPP System Requirements), we=E2=80=99ll refund t=
+he actual amount you paid for the qualifying product (for the current term =
+of your subscription), or the value of the qualifying product if it was inc=
+luded in a bundle (see terms of service for details), less any discounts, r=
+ebates, refunds, shipping, handling or taxes. The refund does not apply to =
+any damage or loss caused by a virus =E2=80=93 we strongly recommend that y=
+ou always backup your data to prevent data loss. Refer to our terms of serv=
+ice for details: https://u41289073.ct.sendgrid.net/ls/click?upn=3Du001.Ckc7=
+YYk9l5V7u0lxDFFywJ9n1SY3V7TI9NKFBQatcsLilZ8w8nSjWz9rBFSi31TVKczgXpnUJ5suEZe=
+nFofbxlTFSMKcLNEirm5wtTt0kMM-3DOluj_keHBKDoAOhRVgZ89n-2FxV-2FazuyfEUyq4yuX3=
+1-2BOI3JEfAjs4-2FUs4Ae5yma7RqVKJKaIngNIqsUHEkYp2yBO3-2B2q8Gj4D1-2Brr1GrzsAG=
+ZhNcpFZYuJILw4YXjFCBok4BvaSch4NaJzO0kCfO6h2E9l1bhr8b3NstLq74UVRHb7eGjFlLxtf=
+8PKXEIfHtNiLNkxdisKFIr5i7gwvah5cjvAYg-3D-3D
+
+
+
+
+AUTO-RENEWAL AND CANCELLATION TERMS
+
+
+
+
+As part of our "Always On" Protection Program, your subscription will be au=
+tomatically renewed 30-days before its expiration date, at the renewal term=
+ subscription price in effect at the time of renewal billed to the payment =
+card we have on file. Pricing is subject to change. Your subscription is on=
+going and will continue [annually] until you cancel. If you would like addi=
+tional information or to cancel your subscription or modify your auto-renew=
+al settings, log onto your My Account page or contact Customer Support. Upo=
+n request, we will provide you a full refund if you cancel your subscriptio=
+n(s) within 60 days of being charged. McAfee will contact you with notifica=
+tions of any changes to your account or changes to membership fees.
+
+
+
+
+Sincerely,
+
+
+
+
+McAfee, LLC.
+
+
+
+
+McAfee, McAfee LiveSafe and the McAfee logo are trademarks or registered tr=
+ademarks of McAfee, LLC or its subsidiaries in the United States and other =
+countries. Other marks and brands may be claimed as the property of others.
+
+
+
+
+McAfee, LLC, a Delaware limited liability company
+
+6220 America Center Drive
+
+San Jose, CA 95002, USA
+
+=C2=A9 2024 McAfee, LLC. All Rights Reserved.
+
+
+
+
+This message is being sent from: McAfee, LLC (United States, Mexico, Centra=
+l America, South America, and the Caribbean), McAfee Consumer Affairs North=
+, LLC (Canada), McAfee Co., Ltd. (Japan), McAfee Ireland Limited (Europe, t=
+he Middle East, Africa, the Pacific Rim, and Australia).
+
+
+
+
+Note: Please do not reply to this message. Replies to this message are rout=
+ed to an unmonitored mailbox. If you have any questions, contact us using t=
+he following links:
+
+
+
+
+https://u41289073.ct.sendgrid.net/ls/click?upn=3Du001.Ckc7YYk9l5V7u0lxDFFyw=
+LkaQLzMZ0vlt7qEzEXu4wT6O3oL3j22TjaI2l3nTfLlwt5__keHBKDoAOhRVgZ89n-2FxV-2Faz=
+uyfEUyq4yuX31-2BOI3JEfAjs4-2FUs4Ae5yma7RqVKJK6SndXq-2FM-2BlR5Foqg4LKyzkom5d=
+yVEwMPuiXylkzH-2BTrM2Ey1UG9p0YggmXF8KW8uGNzAumnkk-2BWXv7qNBYZfP2XZe-2FPls4M=
+6JSZATcjMSJmZNCuu7EV2b2ykPh-2B64EXQszXyYeOconupF3l4kVmbgQ-3D-3D
+
+
+
+
+https://u41289073.ct.sendgrid.net/ls/click?upn=3Du001.Ckc7YYk9l5V7u0lxDFFyw=
+J9n1SY3V7TI9NKFBQatcsJUg2GZ0etOKFBDlK-2FBdi0iwvg6DwhW7nYE0V1-2Bs62xUHRu9-2B=
+BE9-2FY5vxfpg4SFXSAcIy-2BF8ji-2FK-2FDev-2BLSN3NR74H3oVeDeMQ1GuQJKNuFOA-3D-3=
+Dzr1S_keHBKDoAOhRVgZ89n-2FxV-2FazuyfEUyq4yuX31-2BOI3JEfAjs4-2FUs4Ae5yma7RqV=
+KJKeGGzxWofs0sxCiDH9joxzAsZBZio0cf6f4CLaVpjQQvbSMeq7AeGBQB8-2FolY8oZKNBx-2F=
+MIfWqAcLm0gK-2FrHb5dfuqD9Qb5ad17jKkc-2B5N4Wz5hCjsABSpb4W0bLIdac0rZOW8T7eT9Y=
+Hz9rXtrEtjg-3D-3D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_651944_49126457.1717124714238
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From:  &lt;donotreply@mcafee.com&gt;<br>To: &lt;john@=
+shredex.ca&gt;<br>Date: Tue, 14 May 2024 11:29:49 -0400<br>Subject: Your Mc=
+Afee receipt<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><div><br></div><blockquote id=3D=
+"blockquote_zmail" style=3D"margin: 0px;"><div class=3D"x_1969082121emailte=
+mplate x_1969082121page x_1969082121basicpage"><div style=3D"padding: 0px; =
+margin: 0px; background-color: rgb(236, 236, 236); background: rgb(236, 236=
+, 236); color: rgb(83, 86, 90)"><div><div class=3D"x_1969082121root x_19690=
+82121responsivegrid"><div class=3D"x_1969082121aem-Grid x_1969082121aem-Gri=
+d--12 x_1969082121aem-Grid--default--12"><div class=3D"x_1969082121experien=
+cefragment x_1969082121aem-GridColumn x_1969082121aem-GridColumn--default--=
+12"><div class=3D"x_1969082121xf-content-height"><div class=3D"x_1969082121=
+aem-Grid x_1969082121aem-Grid--12 x_1969082121aem-Grid--default--12"><div c=
+lass=3D"x_1969082121htmlcomponentreference x_1969082121aem-GridColumn x_196=
+9082121aem-GridColumn--default--12"><div class=3D"x_1969082121cmp-htmlconte=
+ntfragment__default"><table width=3D"80%" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" bgcolor=3D"#000000" style=3D"margin: auto" align=3D"center"=
+><tbody><tr><td colspan=3D"3"><br><table width=3D"100%" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" bgcolor=3D"#000000"><tbody><tr><td width=3D"3=
+0"><br></td><td width=3D"740" height=3D"40"><br></td><td width=3D"30"><br><=
+/td></tr><tr><td style=3D"padding-left: 30px" width=3D"350" height=3D"25" a=
+lign=3D"left"><img id=3D"1715700592032100001_imgsrc_url_0" alt=3D"logo-whit=
+e-mcafee.png"><br></td><td width=3D"100"><br></td><td width=3D"30"><br></td=
+></tr><tr></tr><tr><td width=3D"30"><br></td><td width=3D"740" height=3D"40=
+"><br></td><td width=3D"30"><br></td></tr></tbody></table></td></tr></tbody=
+></table></div></div><div class=3D"x_1969082121htmlcomponentreference x_196=
+9082121aem-GridColumn x_1969082121aem-GridColumn--default--12"><div class=
+=3D"x_1969082121cmp-htmlcontentfragment__default"><table width=3D"80%" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#e6e7e8" style=3D"m=
+argin: auto" align=3D"center"><tbody><tr><td colspan=3D"3"><table width=3D"=
+100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#ffffff">=
+<tbody><tr><td width=3D"15%"><br></td><td width=3D"70%" height=3D"40"><br><=
+/td><td width=3D"15%"><br></td></tr><tr><td width=3D"15%"><br></td><td widt=
+h=3D"70%" height=3D"25" style=3D"text-align: center"><img height=3D"100" id=
+=3D"1715700592032100001_imgsrc_url_1"><br></td><td width=3D"15%"><br></td><=
+/tr><tr><td width=3D"15%"><br></td><td width=3D"70%" height=3D"20"><br></td=
+><td width=3D"15%"><br></td></tr><tr><td width=3D"15%"><br></td><td width=
+=3D"70%" style=3D"font-family: Open Sans; font-style: normal; font-weight: =
+600; font-size: 22px; line-height: 32px; text-align: center; color: rgb(33,=
+ 41, 52)">Thanks for trusting McAfee, John!<br></td><td width=3D"15%"><br><=
+/td></tr><tr><td width=3D"15%"><br></td><td width=3D"70%" height=3D"20"><br=
+></td><td width=3D"15%"><br></td></tr><tr><td width=3D"15%"><br></td><td wi=
+dth=3D"70%" class=3D"x_1969082121color-deep-grey" style=3D"font-family: Ope=
+n Sans; font-style: normal; font-weight: normal; font-size: 18px; line-heig=
+ht: 25px; text-align: center; color: rgb(33, 41, 52)">Order Confirmation <s=
+pan style=3D"font-weight: 600">#CS3505251642</span><br></td><td width=3D"15=
+%"><br></td></tr><tr><td width=3D"15%"><br></td><td width=3D"70%" class=3D"=
+x_1969082121color-deep-grey" style=3D"font-family: Open Sans; font-style: n=
+ormal; font-weight: normal; font-size: 14px; line-height: 19px; text-align:=
+ center; color: rgb(33, 41, 52)">Order received on May 14, 2024<br></td><td=
+ width=3D"15%"><br></td></tr><tr><td width=3D"19"><br></td><td width=3D"562=
+" height=3D"30"><br></td><td width=3D"19"><br></td></tr><tr><td colspan=3D"=
+3" width=3D"575" height=3D"2" style=3D"border-top: 2px solid rgb(230, 231, =
+232)"><br></td></tr></tbody></table></td></tr></tbody></table></div></div><=
+div class=3D"x_1969082121htmlcomponentreference x_1969082121aem-GridColumn =
+x_1969082121aem-GridColumn--default--12"><div class=3D"x_1969082121cmp-html=
+contentfragment__default"><br></div></div><div class=3D"x_1969082121htmlcom=
+ponentreference x_1969082121aem-GridColumn x_1969082121aem-GridColumn--defa=
+ult--12"><div class=3D"x_1969082121cmp-htmlcontentfragment__default"><br></=
+div></div><div class=3D"x_1969082121htmlcomponentreference x_1969082121aem-=
+GridColumn x_1969082121aem-GridColumn--default--12"><div class=3D"x_1969082=
+121cmp-htmlcontentfragment__default"><table width=3D"80%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" bgcolor=3D"#ffffff" style=3D"margin: auto" =
+align=3D"center"><tbody><tr><td width=3D"30"><br></td><td width=3D"740" hei=
+ght=3D"40"><br></td><td width=3D"30"><br></td></tr><tr><td width=3D"3%"><br=
+></td><td width=3D"94%" style=3D"font-family: Open Sans; font-style: normal=
+; font-weight: 600; font-size: 22px; line-height: 30px; text-align: center;=
+ color: rgb(33, 41, 52)">Order Summary<br></td><td width=3D"3%"><br></td></=
+tr><tr><td width=3D"3%"><br></td><td width=3D"94%" height=3D"40"><br></td><=
+td width=3D"3%"><br></td></tr><tr><td colspan=3D"3"><table width=3D"100%" b=
+order=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"lef=
+t" width=3D"74%" style=3D"padding-left: 5%"><p style=3D"font-style: normal;=
+ line-height: 25px;"><span class=3D"colour" style=3D"color:rgb(33, 41, 52)"=
+><b><span class=3D"font" style=3D"font-family:&quot;Open Sans&quot;"><span =
+class=3D"size" style=3D"font-size: 18px; font-style: normal; line-height: 2=
+5px;">McAfee+=E2=84=A2 Premium - Individual&nbsp; <br><span class=3D"colour=
+" style=3D"color:rgb(33, 41, 52)"><span class=3D"font" style=3D"font-family=
+:&quot;Open Sans&quot;"><span class=3D"size" style=3D"font-size: 14px; font=
+-style: normal; font-weight: normal; line-height: 19px;"> Unlimited Devices=
+ / 2 Year subscription</span></span></span></span></span></b></span></p></t=
+d><td width=3D"1%"><br></td><td align=3D"right" width=3D"25%" style=3D"padd=
+ing-right: 5%"><p style=3D"font-style: normal; line-height: 25px; margin-to=
+p: 0px;"><span class=3D"colour" style=3D"color:rgb(33, 41, 52)"><b><span cl=
+ass=3D"font" style=3D"font-family:&quot;Open Sans&quot;"><span class=3D"siz=
+e" style=3D"font-size: 18px; font-style: normal; line-height: 25px; margin-=
+top: 0px;"><b>C$135.59</b></span></span></b></span><br></p></td></tr><tr><t=
+d align=3D"left" width=3D"40%" style=3D"font-family: Open Sans; font-style:=
+ normal; font-weight: normal; font-size: 14px; line-height: 19px; color: rg=
+b(33, 41, 52); padding-left: 5%"><span>Starts: May 14, 2024</span><br><span=
+>Expires: May 14, 2026 </span><br></td><td width=3D"1%"><br></td><td width=
+=3D"40%"><br></td></tr><tr><td width=3D"19"><br></td><td width=3D"562" heig=
+ht=3D"30"><br></td><td width=3D"19"><br></td></tr><tr><td width=3D"19"><br>=
+</td><td width=3D"562" height=3D"30"><br></td><td width=3D"19"><br></td></t=
+r><tr><td colspan=3D"3" width=3D"98%" height=3D"30" align=3D"center" style=
+=3D"font-family: open_sans, &quot;Open Sans&quot;, sans-serif, Arial, Helve=
+tica; font-size: 14px; color: rgb(83, 86, 90); padding-left: 30px"><p style=
+=3D"margin-bottom: 12px; margin-top: 0px;"><span class=3D"size" style=3D"fo=
+nt-size: 18px; margin-bottom: 12px; margin-top: 0px;">You <b>saved C$180.00=
+</b> on your <b>1st term subscription</b></span><br></p></td></tr><tr><td c=
+olspan=3D"3" width=3D"98%" height=3D"10" align=3D"center"><p style=3D"margi=
+n-bottom: 5px; margin-top: 0px;"><span class=3D"size" style=3D"font-size: 1=
+8px; margin-bottom: 5px; margin-top: 0px;">Current renewal price C$149.99/y=
+r</span><br></p></td></tr><tr><td width=3D"19"><br></td><td width=3D"562" h=
+eight=3D"30"><br></td><td width=3D"19"><br></td></tr><tr><td colspan=3D"3" =
+width=3D"575" height=3D"2" style=3D"border-top: 2px solid rgb(230, 231, 232=
+)"><br></td></tr></tbody></table><table style=3D"margin: auto" width=3D"80%=
+" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" bgcolor=3D"#ffffff" alig=
+n=3D"center"><tbody><tr><td width=3D"3%"><br></td><td width=3D"94%"><br></t=
+d><td width=3D"3%"><br></td></tr><tr><td width=3D"3%"><br></td><td width=3D=
+"94%" height=3D"40"><br></td><td width=3D"3%"><br></td></tr><tr><td colspan=
+=3D"3"><table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"=
+0"><tbody><tr><td width=3D"40%"><br></td><td width=3D"35%" align=3D"left"><=
+p style=3D"font-style: normal; font-weight: 600; margin-bottom: 12px; margi=
+n-top: 0px;"><span class=3D"font" style=3D"font-family:&quot;Open Sans&quot=
+;"><span class=3D"size" style=3D"font-size: 18px; font-style: normal; font-=
+weight: 600; margin-bottom: 12px; margin-top: 0px;">Sub-total</span></span>=
+<br></p></td><td width=3D"25%" align=3D"right"><p style=3D"font-style: norm=
+al; font-weight: 600; margin-bottom: 12px; margin-top: 0px;"><span class=3D=
+"font" style=3D"font-family:&quot;Open Sans&quot;"><span class=3D"size" sty=
+le=3D"font-size: 18px; font-style: normal; font-weight: 600; margin-bottom:=
+ 12px; margin-top: 0px;">C$119.99</span></span><br></p></td></tr><tr><td wi=
+dth=3D"40%"><br></td><td width=3D"35%" align=3D"left"><p style=3D"font-styl=
+e: normal; font-weight: 600; margin-bottom: 12px; margin-top: 0px;"><span c=
+lass=3D"font" style=3D"font-family:&quot;Open Sans&quot;"><span class=3D"si=
+ze" style=3D"font-size: 18px; font-style: normal; font-weight: 600; margin-=
+bottom: 12px; margin-top: 0px;">Tax</span></span><br></p></td><td width=3D"=
+25%" align=3D"right"><p style=3D"font-style: normal; font-weight: 600; marg=
+in-bottom: 12px; margin-top: 0px;"><span class=3D"font" style=3D"font-famil=
+y:&quot;Open Sans&quot;"><span class=3D"size" style=3D"font-size: 18px; fon=
+t-style: normal; font-weight: 600; margin-bottom: 12px; margin-top: 0px;">C=
+$15.60</span></span><br></p></td></tr><tr><td width=3D"40%"><br></td><td wi=
+dth=3D"35%" align=3D"left"><br><p style=3D"font-style: normal; margin-botto=
+m: 12px; margin-top: 0px;"><span class=3D"colour" style=3D"color:rgb(33, 41=
+, 52)"><b><span class=3D"font" style=3D"font-family:&quot;Open Sans&quot;">=
+<span class=3D"size" style=3D"font-size: 18px; font-style: normal; margin-b=
+ottom: 12px; margin-top: 0px;">Order Total</span></span></b></span><br></p>=
+</td><td width=3D"25%" align=3D"right"><br><p style=3D"font-style: normal; =
+margin-bottom: 12px; margin-top: 0px;"><span class=3D"colour" style=3D"colo=
+r:rgb(33, 41, 52)"><b><span class=3D"font" style=3D"font-family:&quot;Open =
+Sans&quot;"><span class=3D"size" style=3D"font-size: 18px; font-style: norm=
+al; margin-bottom: 12px; margin-top: 0px;">C$135.59</span></span></b></span=
+><br></p></td></tr><tr><td width=3D"19"><br></td><td width=3D"562" height=
+=3D"10"><br></td><td width=3D"19"><br></td></tr><tr><td colspan=3D"3" style=
+=3D"border-top: 2px solid rgb(230, 231, 232)" width=3D"575" height=3D"2"><b=
+r></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></t=
+able></div></div><div class=3D"x_1969082121htmlcomponentreference x_1969082=
+121aem-GridColumn x_1969082121aem-GridColumn--default--12"><div class=3D"x_=
+1969082121cmp-htmlcontentfragment__default"><table width=3D"80%" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#ffffff" style=3D"margin:=
+ auto" align=3D"center"><tbody><tr><td colspan=3D"5" height=3D"30"><br></td=
+></tr><tr><td width=3D"5%"><br></td><td width=3D"90%" colspan=3D"3" style=
+=3D"font-family: open_sans, &quot;Open Sans&quot;, sans-serif, Arial, Helve=
+tica; font-size: 22px; font-weight: bold; text-align: center; color: rgb(83=
+, 86, 90)">Install your apps<br></td><td width=3D"5%"><br></td></tr><tr><td=
+ colspan=3D"5" height=3D"30"><br></td></tr><tr><td width=3D"5%"><br></td><t=
+d width=3D"90%" colspan=3D"3" style=3D"font-family: open_sans, &quot;Open S=
+ans&quot;, sans-serif, Arial, Helvetica; font-size: 16px; color: rgb(83, 86=
+, 90)">If you haven't already done so, download and install your new app. W=
+ant to protect a different device? Open this email on the device you want t=
+o protect and install the app available for that device.<br></td><td width=
+=3D"5%"><br></td></tr><tr><td colspan=3D"5" height=3D"30"><br></td></tr><tr=
+><td colspan=3D"5" height=3D"30"><br></td></tr><tr><td><br></td><td><br></t=
+d><td><table bgcolor=3D"#C01818" width=3D"240" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"margin: 0 auto; table-layout: auto"><tbody><t=
+r><td height=3D"16"><br></td><td><br></td><td><br></td></tr><tr><td width=
+=3D"20"><br></td><td width=3D"200" align=3D"center"><a href=3D"https://u412=
+89073.ct.sendgrid.net/ls/click?upn=3Du001.Ckc7YYk9l5V7u0lxDFFywDiq6LtlSF0-2=
+Byc0TDMjb4J9bzoaRKnPmrnYAmND4jkmqTf6lcjKL2qQnA0GUbF81HA-3D-3DsaHC_keHBKDoAO=
+hRVgZ89n-2FxV-2FazuyfEUyq4yuX31-2BOI3JEfAjs4-2FUs4Ae5yma7RqVKJKRgiKQjO6NRr9=
+lI-2B9PvdSOY7wns1aeFfa6snhcuCc9MmXPwn6F2e5P6n-2Furb7a9M3i93iXNeZVhMO6cJz0yC=
+O2jEirZhV4P0J5li9KZPfKrEkKw3nI-2B-2BU4adEBmhcqjuuQ74AUuxV5AvxbW8A4-2BgthQ-3=
+D-3D" style=3D"font-family: open_sans, &quot;Open Sans&quot;, sans-serif, A=
+rial, Helvetica; font-size: 16px; color: rgb(255, 255, 255); text-decoratio=
+n: none" target=3D"_blank">Go to my Account</a><br></td><td width=3D"20"><b=
+r></td></tr><tr><td height=3D"16"><br></td><td><br></td><td><br></td></tr><=
+/tbody></table></td><td><br></td><td><br></td></tr><tr><td width=3D"5%"><br=
+></td><td height=3D"40" colspan=3D"3"><br></td><td width=3D"5%"><br></td></=
+tr><tr><td width=3D"90%" colspan=3D"5" style=3D"border-top: 1px solid rgb(2=
+30, 231, 232)"><br></td></tr></tbody></table></div></div><div class=3D"x_19=
+69082121htmlcomponentreference x_1969082121aem-GridColumn x_1969082121aem-G=
+ridColumn--default--12"><div class=3D"x_1969082121cmp-htmlcontentfragment__=
+default"><br></div></div><div class=3D"x_1969082121htmlcomponentreference x=
+_1969082121aem-GridColumn x_1969082121aem-GridColumn--default--12"><div cla=
+ss=3D"x_1969082121cmp-htmlcontentfragment__default"><table width=3D"80%" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin: auto" align=
+=3D"center"><tbody><tr><td colspan=3D"1"><table width=3D"90%" id=3D"x_19690=
+82121formgreetuser" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=
+=3D"center"><tbody><tr><td align=3D"left" width=3D"100%" style=3D"padding-l=
+eft: 30px; padding-right: 30px"><br><p style=3D"font-style: normal; font-we=
+ight: normal; line-height: 18px; text-align: left;"><span class=3D"colour" =
+style=3D"color:rgb(83, 86, 90)"><span class=3D"font" style=3D"font-family:&=
+quot;Open Sans&quot;"><span class=3D"size" style=3D"font-size: 12px; font-s=
+tyle: normal; font-weight: normal; line-height: 18px; text-align: left;">Yo=
+ur subscription is set to renew automatically. If you have a monthly subscr=
+iption, we'll use the payment info we have on file to process your payment =
+7 days before your renewal date. If you purchased a subscription of one yea=
+r or longer, we'll process your payment 30 days before your renewal date.</=
+span></span></span><br></p><br></td></tr><tr><td align=3D"left" width=3D"10=
+0%" style=3D"padding-left: 30px; padding-right: 30px"><p style=3D"font-styl=
+e: normal; text-align: left; font-weight: 500; margin-bottom: 0px;"><span c=
+lass=3D"colour" style=3D"color:rgb(83, 86, 90)"><span class=3D"font" style=
+=3D"font-family:&quot;Open Sans&quot;"><span class=3D"size" style=3D"font-s=
+ize: 15px; font-style: normal; text-align: left; font-weight: 500; margin-b=
+ottom: 0px;">CANCELLATION &amp; REFUND POLICY</span></span></span><br></p><=
+br></td></tr><tr><td align=3D"left" width=3D"100%" style=3D"padding-left: 3=
+0px; padding-right: 30px"><p style=3D"font-style: normal; font-weight: norm=
+al; line-height: 18px; text-align: left;"><span class=3D"colour" style=3D"c=
+olor:rgb(83, 86, 90)"><span class=3D"font" style=3D"font-family:&quot;Open =
+Sans&quot;"><span class=3D"size" style=3D"font-size: 12px; font-style: norm=
+al; font-weight: normal; line-height: 18px; text-align: left;">You can canc=
+el your subscription by turning auto-renew off from your My Account page. I=
+f you purchased a monthly subscription, canceling the monthly subscription =
+will stop the recurring fee going forward, and you will have access to your=
+ subscription until your last payment expires. Canceling your monthly subsc=
+ription will not retroactively refund subscription payments, and previously=
+ charged subscription fees cannot be pro-rated based on cancelation date. I=
+f you purchased a subscription of one year or longer and you are not satisf=
+ied with your McAfee software, you can request a full refund within 30 days=
+ of your software purchase.</span></span></span><br></p><br></td></tr><tr><=
+td align=3D"left" width=3D"100%" style=3D"padding-left: 30px; padding-right=
+: 30px"><p style=3D"font-style: normal; text-align: left; font-weight: 500;=
+ margin-bottom: 0px;"><span class=3D"colour" style=3D"color:rgb(83, 86, 90)=
+"><span class=3D"font" style=3D"font-family:&quot;Open Sans&quot;"><span cl=
+ass=3D"size" style=3D"font-size: 15px; font-style: normal; text-align: left=
+; font-weight: 500; margin-bottom: 0px;">VIRUS PROTECTION PLEDGE POLICY</sp=
+an></span></span><br></p><br></td></tr><tr><td align=3D"left" width=3D"100%=
+" style=3D"padding-left: 30px; padding-right: 30px"><p style=3D"font-style:=
+ normal; font-weight: normal; line-height: 18px; text-align: left;"><span c=
+lass=3D"colour" style=3D"color:rgb(83, 86, 90)"><span class=3D"font" style=
+=3D"font-family:&quot;Open Sans&quot;"><span class=3D"size" style=3D"font-s=
+ize: 12px; font-style: normal; font-weight: normal; line-height: 18px; text=
+-align: left;">To be eligible for VPP, you must be actively enrolled in our=
+ auto-renewal service with a qualifying product installed. If we cannot rem=
+ove a virus from a device we support (see VPP System Requirements), we=E2=
+=80=99ll refund the actual amount you paid for the qualifying product (for =
+the current term of your subscription), or the value of the qualifying prod=
+uct if it was included in a bundle (see terms of service for details), less=
+ any discounts, rebates, refunds, shipping, handling or taxes. The refund d=
+oes not apply to any damage or loss caused by a virus =E2=80=93 we strongly=
+ recommend that you always backup your data to prevent data loss. Refer to =
+our terms of service for details: <a href=3D"https://u41289073.ct.sendgrid.=
+net/ls/click?upn=3Du001.Ckc7YYk9l5V7u0lxDFFywJ9n1SY3V7TI9NKFBQatcsLilZ8w8nS=
+jWz9rBFSi31TVKczgXpnUJ5suEZenFofbxlTFSMKcLNEirm5wtTt0kMM-3DOluj_keHBKDoAOhR=
+VgZ89n-2FxV-2FazuyfEUyq4yuX31-2BOI3JEfAjs4-2FUs4Ae5yma7RqVKJKaIngNIqsUHEkYp=
+2yBO3-2B2q8Gj4D1-2Brr1GrzsAGZhNcpFZYuJILw4YXjFCBok4BvaSch4NaJzO0kCfO6h2E9l1=
+bhr8b3NstLq74UVRHb7eGjFlLxtf8PKXEIfHtNiLNkxdisKFIr5i7gwvah5cjvAYg-3D-3D" ta=
+rget=3D"_blank" style=3D"color: red">mcafee.com/pledge.</a></span></span></=
+span><br></p><br></td></tr><tr><td align=3D"left" width=3D"100%" style=3D"p=
+adding-left: 30px; padding-right: 30px"><p style=3D"font-style: normal; tex=
+t-align: left; font-weight: 500; margin-bottom: 0px;"><span class=3D"colour=
+" style=3D"color:rgb(83, 86, 90)"><span class=3D"font" style=3D"font-family=
+:&quot;Open Sans&quot;"><span class=3D"size" style=3D"font-size: 15px; font=
+-style: normal; text-align: left; font-weight: 500; margin-bottom: 0px;">AU=
+TO-RENEWAL AND CANCELLATION TERMS</span></span></span><br></p><br></td></tr=
+><tr><td align=3D"left" width=3D"100%" style=3D"padding-left: 30px; padding=
+-right: 30px"><p style=3D"font-style: normal; font-weight: normal; line-hei=
+ght: 18px; text-align: left;"><span class=3D"colour" style=3D"color:rgb(83,=
+ 86, 90)"><span class=3D"font" style=3D"font-family:&quot;Open Sans&quot;">=
+<span class=3D"size" style=3D"font-size: 12px; font-style: normal; font-wei=
+ght: normal; line-height: 18px; text-align: left;">As part of our "Always O=
+n" Protection Program, your subscription will be automatically renewed 30-d=
+ays before its expiration date, at the renewal term subscription price in e=
+ffect at the time of renewal billed to the payment card we have on file. Pr=
+icing is subject to change. Your subscription is ongoing and will continue =
+[annually] until you cancel. If you would like additional information or to=
+ cancel your subscription or modify your auto-renewal settings, log onto yo=
+ur My Account page or contact Customer Support. Upon request, we will provi=
+de you a full refund if you cancel your subscription(s) within 60 days of b=
+eing charged. McAfee will contact you with notifications of any changes to =
+your account or changes to membership fees.</span></span></span><br></p><br=
+></td></tr><tr><td align=3D"left" width=3D"100%" style=3D"padding-left: 30p=
+x; padding-right: 30px"><p style=3D"font-style: normal; font-weight: normal=
+; text-align: left; margin-bottom: 0px;"><span class=3D"colour" style=3D"co=
+lor:rgb(83, 86, 90)"><span class=3D"font" style=3D"font-family:&quot;Open S=
+ans&quot;"><span class=3D"size" style=3D"font-size: 12px; font-style: norma=
+l; font-weight: normal; text-align: left; margin-bottom: 0px;">Sincerely,</=
+span></span></span><br></p><br></td></tr><tr><td align=3D"left" width=3D"10=
+0%" style=3D"padding-left: 30px; padding-right: 30px"><p style=3D"font-styl=
+e: normal; font-weight: normal; text-align: left; margin-top: 0px;"><span c=
+lass=3D"colour" style=3D"color:rgb(83, 86, 90)"><span class=3D"font" style=
+=3D"font-family:&quot;Open Sans&quot;"><span class=3D"size" style=3D"font-s=
+ize: 12px; font-style: normal; font-weight: normal; text-align: left; margi=
+n-top: 0px;">McAfee, LLC.</span></span></span><br></p><br></td></tr><tr><td=
+ align=3D"left" width=3D"100%" style=3D"padding-left: 30px; padding-right: =
+30px"><p style=3D"font-style: normal; font-weight: normal; line-height: 18p=
+x; text-align: left;"><span class=3D"colour" style=3D"color:rgb(83, 86, 90)=
+"><span class=3D"font" style=3D"font-family:&quot;Open Sans&quot;"><span cl=
+ass=3D"size" style=3D"font-size: 12px; font-style: normal; font-weight: nor=
+mal; line-height: 18px; text-align: left;">McAfee, McAfee LiveSafe and the =
+McAfee logo are trademarks or registered trademarks of McAfee, LLC or its s=
+ubsidiaries in the United States and other countries. Other marks and brand=
+s may be claimed as the property of others.</span></span></span><br></p><br=
+></td></tr><tr><td align=3D"left" width=3D"100%" style=3D"padding-left: 30p=
+x; padding-right: 30px"><p style=3D"font-style: normal; font-weight: normal=
+; line-height: 5px; text-align: left;"><span class=3D"colour" style=3D"colo=
+r:rgb(83, 86, 90)"><span class=3D"font" style=3D"font-family:&quot;Open San=
+s&quot;"><span class=3D"size" style=3D"font-size: 12px; font-style: normal;=
+ font-weight: normal; line-height: 5px; text-align: left;">McAfee, LLC, a D=
+elaware limited liability company</span></span></span><br></p><p style=3D"f=
+ont-style: normal; font-weight: normal; line-height: 5px; text-align: left;=
+"><span class=3D"colour" style=3D"color:rgb(83, 86, 90)"><span class=3D"fon=
+t" style=3D"font-family:&quot;Open Sans&quot;"><span class=3D"size" style=
+=3D"font-size: 12px; font-style: normal; font-weight: normal; line-height: =
+5px; text-align: left;">6220 America Center Drive</span></span></span><br><=
+/p><p style=3D"font-style: normal; font-weight: normal; line-height: 5px; t=
+ext-align: left;"><span class=3D"colour" style=3D"color:rgb(83, 86, 90)"><s=
+pan class=3D"font" style=3D"font-family:&quot;Open Sans&quot;"><span class=
+=3D"size" style=3D"font-size: 12px; font-style: normal; font-weight: normal=
+; line-height: 5px; text-align: left;">San Jose, CA 95002, USA</span></span=
+></span><br></p><p style=3D"font-style: normal; font-weight: normal; line-h=
+eight: 5px; text-align: left;"><span class=3D"colour" style=3D"color:rgb(83=
+, 86, 90)"><span class=3D"font" style=3D"font-family:&quot;Open Sans&quot;"=
+><span class=3D"size" style=3D"font-size: 12px; font-style: normal; font-we=
+ight: normal; line-height: 5px; text-align: left;">=C2=A9 2024 McAfee, LLC.=
+ All Rights Reserved.</span></span></span><br></p><br></td></tr><tr><td ali=
+gn=3D"left" width=3D"100%" style=3D"padding-left: 30px; padding-right: 30px=
+"><p style=3D"font-style: normal; font-weight: normal; line-height: 18px; t=
+ext-align: left;"><span class=3D"colour" style=3D"color:rgb(83, 86, 90)"><s=
+pan class=3D"font" style=3D"font-family:&quot;Open Sans&quot;"><span class=
+=3D"size" style=3D"font-size: 12px; font-style: normal; font-weight: normal=
+; line-height: 18px; text-align: left;">This message is being sent from: Mc=
+Afee, LLC (United States, Mexico, Central America, South America, and the C=
+aribbean), McAfee Consumer Affairs North, LLC (Canada), McAfee Co., Ltd. (J=
+apan), McAfee Ireland Limited (Europe, the Middle East, Africa, the Pacific=
+ Rim, and Australia).</span></span></span><br></p><br></td></tr><tr><td ali=
+gn=3D"left" width=3D"100%" style=3D"padding-left: 30px; padding-right: 30px=
+"><p style=3D"font-style: normal; font-weight: normal; line-height: 18px; t=
+ext-align: left;"><span class=3D"colour" style=3D"color:rgb(83, 86, 90)"><s=
+pan class=3D"font" style=3D"font-family:&quot;Open Sans&quot;"><span class=
+=3D"size" style=3D"font-size: 12px; font-style: normal; font-weight: normal=
+; line-height: 18px; text-align: left;">Note: Please do not reply to this m=
+essage. Replies to this message are routed to an unmonitored mailbox. If yo=
+u have any questions, contact us using the following links:</span></span></=
+span><br></p><br></td></tr><tr><td align=3D"left" width=3D"100%" style=3D"p=
+adding-left: 30px; padding-right: 30px"><p style=3D"font-style: normal; fon=
+t-weight: normal; text-align: left;"><span class=3D"colour" style=3D"color:=
+rgb(83, 86, 90)"><span class=3D"font" style=3D"font-family:&quot;Open Sans&=
+quot;"><span class=3D"size" style=3D"font-size: 12px; font-style: normal; f=
+ont-weight: normal; text-align: left;"><a href=3D"https://u41289073.ct.send=
+grid.net/ls/click?upn=3Du001.Ckc7YYk9l5V7u0lxDFFywLkaQLzMZ0vlt7qEzEXu4wT6O3=
+oL3j22TjaI2l3nTfLlwt5__keHBKDoAOhRVgZ89n-2FxV-2FazuyfEUyq4yuX31-2BOI3JEfAjs=
+4-2FUs4Ae5yma7RqVKJK6SndXq-2FM-2BlR5Foqg4LKyzkom5dyVEwMPuiXylkzH-2BTrM2Ey1U=
+G9p0YggmXF8KW8uGNzAumnkk-2BWXv7qNBYZfP2XZe-2FPls4M6JSZATcjMSJmZNCuu7EV2b2yk=
+Ph-2B64EXQszXyYeOconupF3l4kVmbgQ-3D-3D" target=3D"_blank" style=3D"color: r=
+ed">CONTACT INFO AND HOURS OF OPERATION</a></span></span></span><br></p><br=
+></td></tr><tr><td align=3D"left" width=3D"100%" style=3D"padding-left: 30p=
+x; padding-right: 30px"><p style=3D"font-style: normal; font-weight: normal=
+; text-align: left;"><span class=3D"colour" style=3D"color:rgb(83, 86, 90)"=
+><span class=3D"font" style=3D"font-family:&quot;Open Sans&quot;"><span cla=
+ss=3D"size" style=3D"font-size: 12px; font-style: normal; font-weight: norm=
+al; text-align: left;"><a href=3D"https://u41289073.ct.sendgrid.net/ls/clic=
+k?upn=3Du001.Ckc7YYk9l5V7u0lxDFFywJ9n1SY3V7TI9NKFBQatcsJUg2GZ0etOKFBDlK-2FB=
+di0iwvg6DwhW7nYE0V1-2Bs62xUHRu9-2BBE9-2FY5vxfpg4SFXSAcIy-2BF8ji-2FK-2FDev-2=
+BLSN3NR74H3oVeDeMQ1GuQJKNuFOA-3D-3Dzr1S_keHBKDoAOhRVgZ89n-2FxV-2FazuyfEUyq4=
+yuX31-2BOI3JEfAjs4-2FUs4Ae5yma7RqVKJKeGGzxWofs0sxCiDH9joxzAsZBZio0cf6f4CLaV=
+pjQQvbSMeq7AeGBQB8-2FolY8oZKNBx-2FMIfWqAcLm0gK-2FrHb5dfuqD9Qb5ad17jKkc-2B5N=
+4Wz5hCjsABSpb4W0bLIdac0rZOW8T7eT9YHz9rXtrEtjg-3D-3D" target=3D"_blank" styl=
+e=3D"color: red">QUESTIONS ABOUT YOUR PURCHASE AND OTHER INQUIRIES</a></spa=
+n></span></span><br></p><br></td></tr><tr><td colspan=3D"3" width=3D"100%" =
+height=3D"2" style=3D"border-top: 2px solid rgb(230, 231, 232)"><br></td></=
+tr></tbody></table></td></tr></tbody></table></div></div></div></div></div>=
+</div></div></div></div><div class=3D"x_1969082121cloudservice x_1969082121=
+themesconfiguration"><br></div><img id=3D"1715700592032100001_imgsrc_url_2"=
+ alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height: 1px !impor=
+tant; width: 1px !important; border-width: 0 !important; margin-top: 0 !imp=
+ortant; margin-bottom: 0 !important; margin-right: 0 !important; margin-lef=
+t: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; p=
+adding-right: 0 !important; padding-left: 0 !important"></div></blockquote>=
+</div><div><br></div><div class=3D"zmail_signature_below"><div id=3D"" data=
+-zbluepencil-ignore=3D"true" data-sigid=3D"6189300000000739006"><div>Regard=
+s,<br></div><div><br></div><div>John E. Estrada<br></div><div><br></div><di=
+v>---------------------------------------<br></div><div><br></div><p style=
+=3D"font-style: normal; font-weight: 400; letter-spacing: normal; orphans: =
+2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; =
+word-spacing: 0px"><span class=3D"highlight" style=3D"background-color:rgb(=
+255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span c=
+lass=3D"font" style=3D"font-family:Verdana, Arial, Helvetica, sans-serif"><=
+span class=3D"size" style=3D"font-size:13.3333px"><span class=3D"highlight"=
+ style=3D"background-color:rgb(255, 255, 255)"><b><span class=3D"colour" st=
+yle=3D"color:rgb(0, 102, 0)"><span class=3D"font" style=3D"font-family:Cali=
+bri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"=
+font-size:14.66px">START SHREDDING INC. (shredEX)</span></span></span></b><=
+span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" =
+style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span=
+ class=3D"size" style=3D"font-size:14.66px"><br>208 Evans Ave, Toronto, ON =
+M8Z 1J7<br></span></span></span><b><span class=3D"colour" style=3D"color:rg=
+b(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, =
+Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.6=
+6px">E:<span>&nbsp;<a href=3D"mailto:john@shredex.ca" target=3D"_blank" sty=
+le=3D"color: rgb(0, 0, 238)">john@shredex.ca</a>&nbsp;</span>W: <a target=
+=3D"_blank" href=3D"http://www.startshredding.com" style=3D"color: rgb(0, 0=
+, 238)">www.startshredding.com</a><br></span></span></span></b><span class=
+=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"f=
+ont-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"=
+size" style=3D"font-size:14.66px">DIRECT:&nbsp;</span></span></span><a styl=
+e=3D"color: rgb(17, 85, 204); cursor: default" target=3D"_blank"><span clas=
+s=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"=
+font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D=
+"size" style=3D"font-size:14.66px">416.255.1500</span></span></span></a><sp=
+an class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" st=
+yle=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span c=
+lass=3D"size" style=3D"font-size:14.66px"><br>TOLL FREE:&nbsp;</span></span=
+></span><a style=3D"color: rgb(17, 85, 204); cursor: default" target=3D"_bl=
+ank"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"=
+font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"=
+><span class=3D"size" style=3D"font-size:14.66px">1.866.868.9585</span></sp=
+an></span></a></span></span></span></span></span></p><p style=3D"font-style=
+: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent=
+: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: =
+0px"><span class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)=
+"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" =
+style=3D"font-family:Verdana, Arial, Helvetica, sans-serif"><span class=3D"=
+size" style=3D"font-size:13.3333px"><span class=3D"highlight" style=3D"back=
+ground-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(=
+34, 34, 34)"><span class=3D"font" style=3D"font-family:arial, sans-serif"><=
+span class=3D"size" style=3D"font-size:small"><span class=3D"colour" style=
+=3D"color:gray"><span class=3D"font" style=3D"font-family:Arial, sans-serif=
+"><span class=3D"size" style=3D"font-size:7.5pt">This message and any attac=
+hments are the property of the&nbsp;SHREDEX INC.&nbsp;or its affiliates. It=
+ may be legally privileged and/or confidential and is intended only for the=
+ use of the addressee(s). No addressee should store, forward, print, copy, =
+or otherwise reproduce this message in any manner that would allow it to be=
+ viewed by any individual not originally listed as a recipient. If the read=
+er of this message is not the intended recipient, you are hereby notified t=
+hat any unauthorized storage, disclosure, dissemination, distribution, copy=
+ing or the taking of any action in reliance on the information herein is st=
+rictly prohibited. If you have received this communication in error, please=
+ immediately notify the sender and delete this message.</span></span></span=
+></span></span></span></span></span></span></span></span><br></p><div id=3D=
+""><div><br></div></div><div><br></div></div></div><div><br></div></div><br=
+></body></html>
+------=_Part_651944_49126457.1717124714238--
+

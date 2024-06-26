@@ -1,0 +1,1657 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp185790rbd;
+        Thu, 30 May 2024 20:11:02 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG1LFrAlCB+ElftwiwuEeIWZTn80jqbtBwRx+ocoDC4krhpx0+kO+1KoYwcTsINHIStzQOs
+X-Received: by 2002:a05:6808:24b:b0:3c9:d067:1de6 with SMTP id 5614622812f47-3d1e347f5edmr606889b6e.2.1717125062253;
+        Thu, 30 May 2024 20:11:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125062; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=ZHWXrbNyMqqKTxMTJx+p0uxx3+Q21rGytuVPoRchsVmdfZrF8w4WqLf1adhPSESvxw
+         7k/2eSmTAviUhyBQw26VUDOUiCz+Vh1NZE9p9qCvZTH49MN8LeYmpHpqUeQebuMzXWCU
+         Bw1f6oStnz0sI8evLKOxbAjSDLHo3/n7vWMnRP6FB3Xt7ClsEUwn9KRoda6+xEUDAH+a
+         m8D90WG7eWVV4VAdBlsSwihanHhIGQyrvoFtPa+q9J5WmvM6wRITmphsuPRcv6cpEvt6
+         1UCFppXACCVS+Gq47D0Wqq4gdV00NUEHbixlr2zAwKKLrFijXUiFv2dNpe4n6T+HOo4x
+         XqOw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=mptvGOairk5jBNMkXZ9Khdi6Zi96V9WL5oFwB8GmSo4=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=idc68UO3Gm3/2oUfx2Ht9Txazjn3sGau+wsyktyYF8qzH9iZ/q93gU9emjmbneEbSv
+         sHxdESgs8v3NrhsLGlqR5Zt1oSp+/ZUuvytPbqL25FKT2MSbepBmWVS5E9wpAn93rLWD
+         w61UTp0Et3zDlyn6amMK6oQIx9k+Fx+3Y5Dr8iZz9zXAnM7xLxsf8WokhvyI6qMlPrg8
+         QJCCAPRkUD0vEDvMsP6I9eAvihiDOH30ZQDO56nLlWBPCk3NfMCLzYvYjbM4TJWczNNf
+         PIkUNTA8ibMKOB+Rlob+6xMjIgpV+zY0miQkQBiaSXPuwARM1z2U0cRF7trtlP0emdV9
+         N4TQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=f1OvqeGG;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o19.zoho.com (sender3-op-o19.zoho.com. [136.143.184.19])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-70242c29396si666419b3a.258.2024.05.30.20.11.01
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:11:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) client-ip=136.143.184.19;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=f1OvqeGG;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125059; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=TYQF0wOZfhnq8HiNnb8wdGnfbuD6BE1uiP/gxYp+tEFhhuAqNxdgv7qHO/Dr07+bILmS7zeYFitzUX/W4VNhXcT0F96XfBi66SkGSf1bP2Y4LA5T4RrmSO51IQIyqSuuieEjFY1DozpN0y1pAhDI6QD+MlOQh3AURCyeHlu9WmY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125059; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=mptvGOairk5jBNMkXZ9Khdi6Zi96V9WL5oFwB8GmSo4=; 
+	b=WEDHrKK9FokW5bbRlz0bK9SmKlVR9INWStRVrECfUKSWsALED0+CAGlNZ6ieYIESQHzwpQf7s3O49buosiip8FM1Epd121Mo5LN7sb4VkxnU77KWPitQ2Lwu5mLLGWjLL7K1wu0BNf0BwTmeSiNoCKoCviHgaaUSjnoAEQj6tr4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125059;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=mptvGOairk5jBNMkXZ9Khdi6Zi96V9WL5oFwB8GmSo4=;
+	b=f1OvqeGGMIlmuWT209/ZsilpnTRlPNw4LVuQVZ1acNgiyCiRrXqC3w4HtSKgbB4a
+	f0IowfJ/hTzyaUaU4Zbdg3GE7UVuakKFkX5RJf3bP/qwS74aeYhAtkOBtBrH2burAMb
+	KUcPmGXEZ2UuMlavfvsYnyARdKAplwk+201RdL98=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717125058412507.5907070273797; Thu, 30 May 2024 20:10:58 -0700 (PDT)
+Date: Thu, 30 May 2024 23:10:58 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcca10f18.d767e9dd201743.6749552508572269741@shredex.ca>
+In-Reply-To: <572735678.2883.1700517886196.JavaMail.bgfz_prd@blade0-2.mon.demandware.net>
+References: <572735678.2883.1700517886196.JavaMail.bgfz_prd@blade0-2.mon.demandware.net>
+Subject: Fwd: We received your order!
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_654294_1921524535.1717125058330"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_654294_1921524535.1717125058330
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From:  <donotreply@bathandbodyworks.ca>
+To: <john@shredex.ca>
+Date: Mon, 20 Nov 2023 17:04:46 -0500
+Subject: We received your order!
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+https://www.bathandbodyworks.ca/
+
+
+
+
+
+
+
+Order Number 0051303300995
+
+
+Order Date  11/20/23
+
+
+
+
+Hi
+
+
+
+John,
+
+
+Thanks for your order! We=E2=80=99ll send a confirmation email when your or=
+der processes (you may receive more than one), and another with tracking in=
+fo once your items have shipped.
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+Estimated Delivery
+
+
+Nov 27 - Dec 04
+
+
+
+
+https://www.bathandbodyworks.ca/en/order-status
+
+
+
+
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+Your order can=E2=80=99t be changed at this time.
+
+
+
+
+
+
+
+
+
+YOUR ITEMS
+
+
+
+
+=C2=A0
+
+
+
+
+
+
+
+
+Kitchen Lemon
+
+
+
+Gentle & Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL
+ Item No: 026778441
+
+
+
+
+
+
+QTY: 3
+
+$9.75
+
+
+
+
+
+
+
+
+
+
+
+
+Bright Christmas Morning
+
+
+
+Gentle & Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL
+ Item No: 026753092
+
+
+
+
+
+
+QTY: 4
+
+$13.00
+
+
+
+
+
+
+
+
+
+
+
+
+Gingerbread Bakery
+
+
+
+Gentle & Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL
+ Item No: 026753093
+
+
+
+
+
+
+QTY: 1
+
+$3.25
+
+
+
+
+
+
+
+
+
+
+
+
+Winter Candy Apple
+
+
+
+Gentle & Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL
+ Item No: 026728495
+
+
+
+
+
+
+QTY: 2
+
+$6.50
+
+
+
+
+
+
+
+
+
+
+
+
+Pineapple Mango
+
+
+
+Gentle & Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL
+ Item No: 026774408
+
+
+
+
+
+
+QTY: 3
+
+$9.75
+
+
+
+
+
+
+
+
+
+
+
+
+Winter
+
+
+
+Gentle & Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL
+ Item No: 026753097
+
+
+
+
+
+
+QTY: 3
+
+$9.75
+
+
+
+
+
+
+
+
+
+
+
+
+Kitchen Lemon
+
+
+
+Gentle & Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL
+ Item No: 026686019
+
+
+
+
+
+
+QTY: 4
+
+$13.00
+
+
+
+
+
+
+
+
+
+
+
+
+Lavender Cloud
+
+
+
+Gentle & Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL
+ Item No: 026774411
+
+
+
+
+
+
+QTY: 2
+
+$6.50
+
+
+
+
+
+
+
+
+
+
+
+
+Kitchen Mandarin
+
+
+
+Gentle & Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL
+ Item No: 026686024
+
+
+
+
+
+
+QTY: 4
+
+$23.50
+
+
+
+
+
+
+
+
+
+
+
+
+Balsam & Bergamot
+
+
+
+Gentle & Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL
+ Item No: 026763295
+
+
+
+
+
+
+QTY: 2
+
+$17.00
+
+
+
+
+
+
+
+
+
+
+
+
+Eucalyptus Mint
+
+
+
+Gentle & Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL
+ Item No: 026686020
+
+
+
+
+
+
+QTY: 4
+
+$34.00
+
+
+
+
+
+
+
+
+
+
+
+
+Cocktail Garden
+
+
+
+Gentle & Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL
+ Item No: 026774412
+
+
+
+
+
+
+QTY: 1
+
+$8.50
+
+
+
+
+
+
+
+
+
+
+
+
+Luminous
+
+
+
+Gentle & Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL
+ Item No: 026733753
+
+
+
+
+
+
+QTY: 1
+
+$8.50
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+Your order can=E2=80=99t be changed at this time.
+
+
+
+
+
+
+
+
+SHIPPING
+
+
+
+
+=C2=A0
+
+
+
+
+=C2=A0
+
+=C2=A0
+
+
+
+
+
+
+Ship To =20
+=20
+  John   Estrada =20
+ 2121 Lake Shore Blvd W=20
+ Etobicoke,
+
+
+ON
+
+
+M8V 4E9=20
+ =C2=A0
+
+
+Shipping Method
+=20
+ Standard
+ $9.99  CAD =20
+=20
+ =C2=A0
+
+
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+
+
+
+BILLING
+
+
+
+
+=C2=A0
+
+
+
+
+=C2=A0
+
+=C2=A0
+
+
+
+
+
+
+Bill To =20
+=20
+  John   Estrada =20
+ 208 Evans Avenue=20
+ Toronto,
+
+
+ON
+
+
+M8Z1J7=20
+ =C2=A0
+
+
+Payment Method =20
+=20
+ Credit Visa
+
+$195.48 CAD
+
+
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+
+
+
+Totals are shown for the entire order.
+
+
+
+
+PAYMENT SUMMARY
+
+
+
+
+=C2=A0
+
+
+
+
+Merchandise Subtotal
+
+
+
+$163.00  CAD
+
+
+Shipping & Handling
+
+
+
+$9.99  CAD
+
+
+Sales Tax
+
+
+
+$22.49  CAD
+
+
+Tax is estimated and will be calculated when your order is processed.
+
+
+Appropriate PST, GST, QST and HST is applied to your order based on your sh=
+ipping address.
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+Total
+
+$195.48  CAD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://www.bathandbodyworks.ca/
+
+
+
+
+
+
+
+
+
+https://www.bathandbodyworks.ca/en/store-locator
+https://www.bathandbodyworks.ca/en/my-account
+https://customercare.bathandbodyworks.ca/hc/en-ca
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://customercare.bathandbodyworks.ca/hc/en-ca/categories/4419595681683-=
+EXCHANGES-RETURNS
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://www.facebook.com/bathandbodyworkscanada
+
+https://www.instagram.com/bathandbodyworkscanada/
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://www.bathandbodyworks.ca/en/customer-care/privacy-and-security.html
+
+https://www.bathandbodyworks.ca/en/customer-care/terms-of-use.html
+
+https://customercare.bathandbodyworks.ca/hc/en-ca/categories/4419595681683-=
+EXCHANGES-RETURNS
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bath & Body Works (Canada) Corp., 4875 Marc Blain, suite 201, St. Laurent, =
+Quebec, H4R 3B2.
+ For more information, email us at mailto:bbwonlinecanada@bathandbodyworks.=
+ca or call tel:1-800-395-8008=20
+Please do not reply to this email, as it is sent from an address that canno=
+t accept incoming email.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_654294_1921524535.1717125058330
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From:  &lt;donotreply@bathandbodyworks.ca&gt;<br>To: =
+&lt;john@shredex.ca&gt;<br>Date: Mon, 20 Nov 2023 17:04:46 -0500<br>Subject=
+: We received your order!<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded=
+ message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><div><br></div><bloc=
+kquote id=3D"blockquote_zmail" style=3D"margin: 0px;"><div style=3D"box-siz=
+ing :  border-box; margin :  0; padding :  0; width :  100%; color :  #3333=
+33;"><div style=3D"display :  none; font-size :  0; line-height :  0;">Emai=
+l Updated<br></div><table class=3D"x_-804298855wrapper" align=3D"center" bg=
+color=3D"#FFFFFF" cellpadding=3D"16" cellspacing=3D"0" width=3D"600"><tbody=
+><tr><td align=3D"center"><table style=3D"color :  #333; font-family :  'He=
+lvetica Neue',  Arial,  Sans-serif;" class=3D"x_-804298855container" bgcolo=
+r=3D"#FFFFFF" cellpadding=3D"0" cellspacing=3D"0" width=3D"600"><tbody><tr>=
+<td align=3D"left"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%=
+" style=3D"min-width :  100%;"><tbody><tr><td align=3D"center"><a style=3D"=
+display :  block; width :  100%; text-align :  center;" href=3D"https://www=
+.bathandbodyworks.ca/" target=3D"_blank"><img id=3D"1700517889933100001_img=
+src_url_0" alt=3D""><br></a></td></tr></tbody></table><br><table cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width :  100%;"><tbod=
+y><tr></tr></tbody></table><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"width :  536px; font-family :  'Helvetica=
+ Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; font-size :  1=
+8px; line-height :  20px; color :  #333333;"><tbody><tr><td align=3D"left" =
+valign=3D"bottom">Order Number <div style=3D"font-size :  28px; line-height=
+ :  32px; color :  #005699;"><b>0051303300995</b><br></div></td><td align=
+=3D"right" valign=3D"bottom">Order Date <b> 11/20/23</b><br></td></tr></tbo=
+dy></table><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" style=3D"width :  460px; font-family :  'Helvetica Neue',  Helveti=
+ca,  Arial,  sans-serif; font-weight :  300; font-size :  22px; line-height=
+ :  30px; color :  #333333;"><tbody><tr><td align=3D"left" style=3D"padding=
+-top :  32px; padding-bottom :  14px; font-size :  28px; line-height :  32p=
+x;">Hi
+
+
+
+John,<br></td></tr><tr><td align=3D"left">Thanks for your order! We=E2=80=
+=99ll send a confirmation email when your order processes (you may receive =
+more than one), and another with tracking info once your items have shipped=
+.<br></td></tr></tbody></table><table cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"100%"><tbody><tr><td style=3D"" height=3D"32"><br></td></tr></tbody=
+></table><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"width :  536px;"><tbody><tr><td bgcolor=3D"#e5e5e5" colspan=
+=3D"3" style=3D"line-height :  2px; font-size :  0;">&nbsp;<br></td></tr><t=
+r><td bgcolor=3D"#e5e5e5" style=3D"width :  2px;"><br></td><td align=3D"cen=
+ter" style=3D"width :  532px; padding-top :  18px; padding-bottom :  40px;"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-fami=
+ly :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300=
+;"><tbody><tr><td align=3D"center" style=3D"padding-bottom :  22px; font-si=
+ze :  15px; line-height :  17px; color :  #666666;">Estimated Delivery<br><=
+/td></tr><tr><td align=3D"center" style=3D"padding-bottom :  36px; font-siz=
+e :  18px; line-height :  20px; color :  #333333;"><b>Nov 27 - Dec 04</b><b=
+r></td></tr><tr><td align=3D"center" style=3D"padding-bottom :  16px;"><img=
+ alt=3D"Placed" border=3D"0" id=3D"1700517889933100001_imgsrc_url_1" style=
+=3D"display :  block; font-family :  Helvetica,  sans-serif; font-size :  1=
+4px; color :  #333333;"></td></tr><tr><td align=3D"center"><table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td class=3D"x_-80429885=
+5order-status-cta"><div><a class=3D"x_-804298855resetBorder" href=3D"https:=
+//www.bathandbodyworks.ca/en/order-status" style=3D"background-color :  #33=
+3333; border :  1px solid #333333; padding :  11px 22px 13px; border-radius=
+ :  0px; color :  #ffffff; display :  inline-block; font-family :  'Helveti=
+ca Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; font-size : =
+ 18px; line-height :  20px; text-align :  center; text-decoration :  none;"=
+ target=3D"_blank">VIEW ORDER STATUS</a><br></div></td></tr></tbody></table=
+></td></tr></tbody></table></td><td bgcolor=3D"#e5e5e5" style=3D"width :  2=
+px;"><br></td></tr><tr><td bgcolor=3D"#e5e5e5" colspan=3D"3" style=3D"line-=
+height :  2px; font-size :  0;">&nbsp;<br></td></tr><tr><td align=3D"center=
+" colspan=3D"3" style=3D"padding-top :  8px; padding-bottom :  30px; font-f=
+amily :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-size :  14=
+px; line-height :  17px; color :  #666666;">Your order can=E2=80=99t be cha=
+nged at this time.<br></td></tr></tbody></table><table cellpadding=3D"0" ce=
+llspacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"" height=3D"32"><br>=
+</td></tr></tbody></table><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D"=
+left" style=3D"padding-bottom :  20px;"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"font-family :  'Helvetica Neue',  Helvetica, =
+ Arial,  sans-serif; font-weight :  300; color :  #333333;"><tbody><tr><td =
+align=3D"left" style=3D"padding-bottom :  14px; font-size :  26px; line-hei=
+ght :  28px;">YOUR ITEMS<br></td></tr></tbody></table><table bgcolor=3D"#33=
+3333" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width :  53=
+6px;"><tbody><tr><td style=3D"line-height :  1px; font-size :  0;">&nbsp;<b=
+r></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D"left" style=3D"p=
+adding-top :  20px; padding-bottom :  14px;"><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D=
+"left" style=3D"width :  119px; padding-top :  6px;" valign=3D"top"><img bo=
+rder=3D"0" id=3D"1700517889933100001_imgsrc_url_2" width=3D"119"><br></td><=
+td style=3D"width :  20px;"><br></td><td align=3D"left" style=3D"width :  2=
+40px;" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" style=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-seri=
+f; font-weight :  300; color :  #333333;"><tbody><tr><td align=3D"left" sty=
+le=3D"font-size :  16px; line-height :  24px; padding-bottom :  8px;">Kitch=
+en Lemon<br></td></tr><tr><td align=3D"left" style=3D"font-size :  14px; li=
+ne-height :  19px;"><br>Gentle &amp; Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL<br> Item No: 026778441</td></tr></tbody></table></td><t=
+d style=3D"width :  24px;"><br></td><td align=3D"left" style=3D"font-family=
+ :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; =
+color :  #333333;" valign=3D"top">QTY: 3<br></td><td align=3D"right" style=
+=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-=
+weight :  300; color :  #333333;" valign=3D"top">$9.75<br></td></tr></tbody=
+></table></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D"left" sty=
+le=3D"padding-top :  20px; padding-bottom :  14px;"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td a=
+lign=3D"left" style=3D"width :  119px; padding-top :  6px;" valign=3D"top">=
+<img border=3D"0" id=3D"1700517889933100001_imgsrc_url_3" width=3D"119"><br=
+></td><td style=3D"width :  20px;"><br></td><td align=3D"left" style=3D"wid=
+th :  240px;" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" style=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sa=
+ns-serif; font-weight :  300; color :  #333333;"><tbody><tr><td align=3D"le=
+ft" style=3D"font-size :  16px; line-height :  24px; padding-bottom :  8px;=
+">Bright Christmas Morning<br></td></tr><tr><td align=3D"left" style=3D"fon=
+t-size :  14px; line-height :  19px;"><br>Gentle &amp; Clean Foaming Hand S=
+oap
+
+
+8.75 fl oz / 259 mL<br> Item No: 026753092</td></tr></tbody></table></td><t=
+d style=3D"width :  24px;"><br></td><td align=3D"left" style=3D"font-family=
+ :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; =
+color :  #333333;" valign=3D"top">QTY: 4<br></td><td align=3D"right" style=
+=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-=
+weight :  300; color :  #333333;" valign=3D"top">$13.00<br></td></tr></tbod=
+y></table></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D"left" st=
+yle=3D"padding-top :  20px; padding-bottom :  14px;"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td =
+align=3D"left" style=3D"width :  119px; padding-top :  6px;" valign=3D"top"=
+><img border=3D"0" id=3D"1700517889933100001_imgsrc_url_4" width=3D"119"><b=
+r></td><td style=3D"width :  20px;"><br></td><td align=3D"left" style=3D"wi=
+dth :  240px;" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  s=
+ans-serif; font-weight :  300; color :  #333333;"><tbody><tr><td align=3D"l=
+eft" style=3D"font-size :  16px; line-height :  24px; padding-bottom :  8px=
+;">Gingerbread Bakery<br></td></tr><tr><td align=3D"left" style=3D"font-siz=
+e :  14px; line-height :  19px;"><br>Gentle &amp; Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL<br> Item No: 026753093</td></tr></tbody></table></td><t=
+d style=3D"width :  24px;"><br></td><td align=3D"left" style=3D"font-family=
+ :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; =
+color :  #333333;" valign=3D"top">QTY: 1<br></td><td align=3D"right" style=
+=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-=
+weight :  300; color :  #333333;" valign=3D"top">$3.25<br></td></tr></tbody=
+></table></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D"left" sty=
+le=3D"padding-top :  20px; padding-bottom :  14px;"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td a=
+lign=3D"left" style=3D"width :  119px; padding-top :  6px;" valign=3D"top">=
+<img border=3D"0" id=3D"1700517889933100001_imgsrc_url_5" width=3D"119"><br=
+></td><td style=3D"width :  20px;"><br></td><td align=3D"left" style=3D"wid=
+th :  240px;" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" style=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sa=
+ns-serif; font-weight :  300; color :  #333333;"><tbody><tr><td align=3D"le=
+ft" style=3D"font-size :  16px; line-height :  24px; padding-bottom :  8px;=
+">Winter Candy Apple<br></td></tr><tr><td align=3D"left" style=3D"font-size=
+ :  14px; line-height :  19px;"><br>Gentle &amp; Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL<br> Item No: 026728495</td></tr></tbody></table></td><t=
+d style=3D"width :  24px;"><br></td><td align=3D"left" style=3D"font-family=
+ :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; =
+color :  #333333;" valign=3D"top">QTY: 2<br></td><td align=3D"right" style=
+=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-=
+weight :  300; color :  #333333;" valign=3D"top">$6.50<br></td></tr></tbody=
+></table></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D"left" sty=
+le=3D"padding-top :  20px; padding-bottom :  14px;"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td a=
+lign=3D"left" style=3D"width :  119px; padding-top :  6px;" valign=3D"top">=
+<img border=3D"0" id=3D"1700517889933100001_imgsrc_url_6" width=3D"119"><br=
+></td><td style=3D"width :  20px;"><br></td><td align=3D"left" style=3D"wid=
+th :  240px;" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" style=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sa=
+ns-serif; font-weight :  300; color :  #333333;"><tbody><tr><td align=3D"le=
+ft" style=3D"font-size :  16px; line-height :  24px; padding-bottom :  8px;=
+">Pineapple Mango<br></td></tr><tr><td align=3D"left" style=3D"font-size : =
+ 14px; line-height :  19px;"><br>Gentle &amp; Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL<br> Item No: 026774408</td></tr></tbody></table></td><t=
+d style=3D"width :  24px;"><br></td><td align=3D"left" style=3D"font-family=
+ :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; =
+color :  #333333;" valign=3D"top">QTY: 3<br></td><td align=3D"right" style=
+=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-=
+weight :  300; color :  #333333;" valign=3D"top">$9.75<br></td></tr></tbody=
+></table></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D"left" sty=
+le=3D"padding-top :  20px; padding-bottom :  14px;"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td a=
+lign=3D"left" style=3D"width :  119px; padding-top :  6px;" valign=3D"top">=
+<img border=3D"0" id=3D"1700517889933100001_imgsrc_url_7" width=3D"119"><br=
+></td><td style=3D"width :  20px;"><br></td><td align=3D"left" style=3D"wid=
+th :  240px;" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" style=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sa=
+ns-serif; font-weight :  300; color :  #333333;"><tbody><tr><td align=3D"le=
+ft" style=3D"font-size :  16px; line-height :  24px; padding-bottom :  8px;=
+">Winter<br></td></tr><tr><td align=3D"left" style=3D"font-size :  14px; li=
+ne-height :  19px;"><br>Gentle &amp; Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL<br> Item No: 026753097</td></tr></tbody></table></td><t=
+d style=3D"width :  24px;"><br></td><td align=3D"left" style=3D"font-family=
+ :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; =
+color :  #333333;" valign=3D"top">QTY: 3<br></td><td align=3D"right" style=
+=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-=
+weight :  300; color :  #333333;" valign=3D"top">$9.75<br></td></tr></tbody=
+></table></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D"left" sty=
+le=3D"padding-top :  20px; padding-bottom :  14px;"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td a=
+lign=3D"left" style=3D"width :  119px; padding-top :  6px;" valign=3D"top">=
+<img border=3D"0" id=3D"1700517889933100001_imgsrc_url_8" width=3D"119"><br=
+></td><td style=3D"width :  20px;"><br></td><td align=3D"left" style=3D"wid=
+th :  240px;" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" style=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sa=
+ns-serif; font-weight :  300; color :  #333333;"><tbody><tr><td align=3D"le=
+ft" style=3D"font-size :  16px; line-height :  24px; padding-bottom :  8px;=
+">Kitchen Lemon<br></td></tr><tr><td align=3D"left" style=3D"font-size :  1=
+4px; line-height :  19px;"><br>Gentle &amp; Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL<br> Item No: 026686019</td></tr></tbody></table></td><t=
+d style=3D"width :  24px;"><br></td><td align=3D"left" style=3D"font-family=
+ :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; =
+color :  #333333;" valign=3D"top">QTY: 4<br></td><td align=3D"right" style=
+=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-=
+weight :  300; color :  #333333;" valign=3D"top">$13.00<br></td></tr></tbod=
+y></table></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D"left" st=
+yle=3D"padding-top :  20px; padding-bottom :  14px;"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td =
+align=3D"left" style=3D"width :  119px; padding-top :  6px;" valign=3D"top"=
+><img border=3D"0" id=3D"1700517889933100001_imgsrc_url_9" width=3D"119"><b=
+r></td><td style=3D"width :  20px;"><br></td><td align=3D"left" style=3D"wi=
+dth :  240px;" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  s=
+ans-serif; font-weight :  300; color :  #333333;"><tbody><tr><td align=3D"l=
+eft" style=3D"font-size :  16px; line-height :  24px; padding-bottom :  8px=
+;">Lavender Cloud<br></td></tr><tr><td align=3D"left" style=3D"font-size : =
+ 14px; line-height :  19px;"><br>Gentle &amp; Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL<br> Item No: 026774411</td></tr></tbody></table></td><t=
+d style=3D"width :  24px;"><br></td><td align=3D"left" style=3D"font-family=
+ :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; =
+color :  #333333;" valign=3D"top">QTY: 2<br></td><td align=3D"right" style=
+=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-=
+weight :  300; color :  #333333;" valign=3D"top">$6.50<br></td></tr></tbody=
+></table></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D"left" sty=
+le=3D"padding-top :  20px; padding-bottom :  14px;"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td a=
+lign=3D"left" style=3D"width :  119px; padding-top :  6px;" valign=3D"top">=
+<img border=3D"0" id=3D"1700517889933100001_imgsrc_url_10" width=3D"119"><b=
+r></td><td style=3D"width :  20px;"><br></td><td align=3D"left" style=3D"wi=
+dth :  240px;" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  s=
+ans-serif; font-weight :  300; color :  #333333;"><tbody><tr><td align=3D"l=
+eft" style=3D"font-size :  16px; line-height :  24px; padding-bottom :  8px=
+;">Kitchen Mandarin<br></td></tr><tr><td align=3D"left" style=3D"font-size =
+:  14px; line-height :  19px;"><br>Gentle &amp; Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL<br> Item No: 026686024</td></tr></tbody></table></td><t=
+d style=3D"width :  24px;"><br></td><td align=3D"left" style=3D"font-family=
+ :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; =
+color :  #333333;" valign=3D"top">QTY: 4<br></td><td align=3D"right" style=
+=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-=
+weight :  300; color :  #333333;" valign=3D"top">$23.50<br></td></tr></tbod=
+y></table></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D"left" st=
+yle=3D"padding-top :  20px; padding-bottom :  14px;"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td =
+align=3D"left" style=3D"width :  119px; padding-top :  6px;" valign=3D"top"=
+><img border=3D"0" id=3D"1700517889933100001_imgsrc_url_11" width=3D"119"><=
+br></td><td style=3D"width :  20px;"><br></td><td align=3D"left" style=3D"w=
+idth :  240px;" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  =
+sans-serif; font-weight :  300; color :  #333333;"><tbody><tr><td align=3D"=
+left" style=3D"font-size :  16px; line-height :  24px; padding-bottom :  8p=
+x;">Balsam &amp; Bergamot<br></td></tr><tr><td align=3D"left" style=3D"font=
+-size :  14px; line-height :  19px;"><br>Gentle &amp; Clean Foaming Hand So=
+ap
+
+
+8.75 fl oz / 259 mL<br> Item No: 026763295</td></tr></tbody></table></td><t=
+d style=3D"width :  24px;"><br></td><td align=3D"left" style=3D"font-family=
+ :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; =
+color :  #333333;" valign=3D"top">QTY: 2<br></td><td align=3D"right" style=
+=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-=
+weight :  300; color :  #333333;" valign=3D"top">$17.00<br></td></tr></tbod=
+y></table></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D"left" st=
+yle=3D"padding-top :  20px; padding-bottom :  14px;"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td =
+align=3D"left" style=3D"width :  119px; padding-top :  6px;" valign=3D"top"=
+><img border=3D"0" id=3D"1700517889933100001_imgsrc_url_12" width=3D"119"><=
+br></td><td style=3D"width :  20px;"><br></td><td align=3D"left" style=3D"w=
+idth :  240px;" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  =
+sans-serif; font-weight :  300; color :  #333333;"><tbody><tr><td align=3D"=
+left" style=3D"font-size :  16px; line-height :  24px; padding-bottom :  8p=
+x;">Eucalyptus Mint<br></td></tr><tr><td align=3D"left" style=3D"font-size =
+:  14px; line-height :  19px;"><br>Gentle &amp; Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL<br> Item No: 026686020</td></tr></tbody></table></td><t=
+d style=3D"width :  24px;"><br></td><td align=3D"left" style=3D"font-family=
+ :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; =
+color :  #333333;" valign=3D"top">QTY: 4<br></td><td align=3D"right" style=
+=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-=
+weight :  300; color :  #333333;" valign=3D"top">$34.00<br></td></tr></tbod=
+y></table></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D"left" st=
+yle=3D"padding-top :  20px; padding-bottom :  14px;"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td =
+align=3D"left" style=3D"width :  119px; padding-top :  6px;" valign=3D"top"=
+><img border=3D"0" id=3D"1700517889933100001_imgsrc_url_13" width=3D"119"><=
+br></td><td style=3D"width :  20px;"><br></td><td align=3D"left" style=3D"w=
+idth :  240px;" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  =
+sans-serif; font-weight :  300; color :  #333333;"><tbody><tr><td align=3D"=
+left" style=3D"font-size :  16px; line-height :  24px; padding-bottom :  8p=
+x;">Cocktail Garden<br></td></tr><tr><td align=3D"left" style=3D"font-size =
+:  14px; line-height :  19px;"><br>Gentle &amp; Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL<br> Item No: 026774412</td></tr></tbody></table></td><t=
+d style=3D"width :  24px;"><br></td><td align=3D"left" style=3D"font-family=
+ :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; =
+color :  #333333;" valign=3D"top">QTY: 1<br></td><td align=3D"right" style=
+=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-=
+weight :  300; color :  #333333;" valign=3D"top">$8.50<br></td></tr></tbody=
+></table></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D"left" sty=
+le=3D"padding-top :  20px; padding-bottom :  14px;"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td a=
+lign=3D"left" style=3D"width :  119px; padding-top :  6px;" valign=3D"top">=
+<img border=3D"0" id=3D"1700517889933100001_imgsrc_url_14" width=3D"119"><b=
+r></td><td style=3D"width :  20px;"><br></td><td align=3D"left" style=3D"wi=
+dth :  240px;" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  s=
+ans-serif; font-weight :  300; color :  #333333;"><tbody><tr><td align=3D"l=
+eft" style=3D"font-size :  16px; line-height :  24px; padding-bottom :  8px=
+;">Luminous<br></td></tr><tr><td align=3D"left" style=3D"font-size :  14px;=
+ line-height :  19px;"><br>Gentle &amp; Clean Foaming Hand Soap
+
+
+8.75 fl oz / 259 mL<br> Item No: 026733753</td></tr></tbody></table></td><t=
+d style=3D"width :  24px;"><br></td><td align=3D"left" style=3D"font-family=
+ :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; =
+color :  #333333;" valign=3D"top">QTY: 1<br></td><td align=3D"right" style=
+=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-=
+weight :  300; color :  #333333;" valign=3D"top">$8.50<br></td></tr></tbody=
+></table></td></tr></tbody></table><table bgcolor=3D"#e5e5e5" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><t=
+d style=3D"line-height :  1px; font-size :  0;">&nbsp;<br></td></tr></tbody=
+></table><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tbody><tr><td align=3D"center" style=3D"padding-top :  10px; paddin=
+g-bottom :  12px; font-family :  'Helvetica Neue',  Helvetica,  Arial,  san=
+s-serif; font-size :  14px; line-height :  17px; color :  #666666;">Your or=
+der can=E2=80=99t be changed at this time.<br></td></tr></tbody></table></t=
+d></tr></tbody></table><table align=3D"center" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=3D"left=
+" style=3D"padding-bottom :  30px;"><table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"font-family :  'Helvetica Neue',  Helvetica,  Ari=
+al,  sans-serif; font-weight :  300; color :  #333333;"><tbody><tr><td alig=
+n=3D"left" style=3D"padding-bottom :  14px; font-size :  26px; line-height =
+:  28px;">SHIPPING<br></td></tr></tbody></table><table bgcolor=3D"#333333" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width :  536px;">=
+<tbody><tr><td style=3D"line-height :  1px; font-size :  0;">&nbsp;<br></td=
+></tr></tbody></table><div style=3D"font-size :  1px; line-height :  16px;"=
+>&nbsp;<br></div><table align=3D"center" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td bgcolor=3D"#e5e5e5"=
+ colspan=3D"3" style=3D"line-height :  1px; font-size :  0;">&nbsp;<br></td=
+></tr><tr><td bgcolor=3D"#e5e5e5" style=3D"width :  1px;"><br></td><td alig=
+n=3D"left" style=3D"width :  534px; padding-top :  18px; padding-bottom :  =
+24px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"fon=
+t-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight =
+:  300; font-size :  16px; line-height :  24px; color :  #666666;"><tbody><=
+tr><td style=3D"width :  24px;"><br></td><td align=3D"left"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-family :  'Helveti=
+ca Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; color :  #66=
+6666;"><tbody><tr><td align=3D"left" style=3D"width :  250px; font-size :  =
+18px; line-height :  28px; padding-bottom :  8px;" valign=3D"top"><b>Ship T=
+o </b> <br style=3D"line-height :  10px;"> <br style=3D"line-height :  10px=
+;"> <span class=3D"x_-804298855firstName"> John </span> <span class=3D"x_-8=
+04298855lastName"> Estrada </span> <br> 2121 Lake Shore Blvd W <br> Etobico=
+ke,
+
+
+ON
+
+
+M8V 4E9 <br> &nbsp;</td><td style=3D"width :  10px;"><br></td><td align=3D"=
+left" style=3D"font-size :  18px; line-height :  28px; padding-bottom :  8p=
+x;" valign=3D"top"><b>Shipping Method</b><br> <br style=3D"line-height :  1=
+0px;"> Standard<br> $9.99 <span class=3D"x_-804298855currency-code-display"=
+> CAD </span> <br> <br style=3D"line-height :  16px;"> &nbsp;</td></tr></tb=
+ody></table></td></tr></tbody></table></td><td bgcolor=3D"#e5e5e5" style=3D=
+"width :  1px;"><br></td></tr><tr><td bgcolor=3D"#e5e5e5" colspan=3D"3" sty=
+le=3D"line-height :  1px; font-size :  0;">&nbsp;<br></td></tr></tbody></ta=
+ble></td></tr></tbody></table><table align=3D"center" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td align=
+=3D"left"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"=
+font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; font-weig=
+ht :  300; color :  #333333;"><tbody><tr><td align=3D"left" style=3D"paddin=
+g-bottom :  14px; font-size :  26px; line-height :  28px;">BILLING<br></td>=
+</tr></tbody></table><table bgcolor=3D"#333333" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><td style=3D"lin=
+e-height :  1px; font-size :  0;">&nbsp;<br></td></tr></tbody></table><div =
+style=3D"font-size :  1px; line-height :  16px;">&nbsp;<br></div><table ali=
+gn=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"wid=
+th :  536px;"><tbody><tr><td bgcolor=3D"#e5e5e5" colspan=3D"3" style=3D"lin=
+e-height :  1px; font-size :  0;">&nbsp;<br></td></tr><tr><td bgcolor=3D"#e=
+5e5e5" style=3D"width :  1px;"><br></td><td align=3D"left" style=3D"width :=
+  534px; padding-top :  18px; padding-bottom :  24px;"><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" style=3D"font-family :  'Helvetica Neue=
+',  Helvetica,  Arial,  sans-serif; font-weight :  300; font-size :  16px; =
+line-height :  24px; color :  #666666;"><tbody><tr><td style=3D"width :  24=
+px;"><br></td><td align=3D"left"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" style=3D"font-family :  'Helvetica Neue',  Helvetica,  Arial,=
+  sans-serif; font-weight :  300; color :  #666666;"><tbody><tr><td align=
+=3D"left" style=3D"width :  250px; font-size :  18px; line-height :  28px; =
+padding-bottom :  8px;" valign=3D"top"><b>Bill To </b> <br> <br style=3D"li=
+ne-height :  10px;"> <span class=3D"x_-804298855firstName"> John </span> <s=
+pan class=3D"x_-804298855lastName"> Estrada </span> <br> 208 Evans Avenue <=
+br> Toronto,
+
+
+ON
+
+
+M8Z1J7 <br> &nbsp;</td><td style=3D"width :  10px;"><br></td><td align=3D"l=
+eft" style=3D"font-size :  18px; line-height :  28px; padding-bottom :  8px=
+;" valign=3D"top"><b>Payment Method </b> <br> <br style=3D"line-height :  1=
+0px;"> <div><span>Credit Visa</span><br></div>$195.48 CAD</td></tr></tbody>=
+</table></td></tr></tbody></table></td><td bgcolor=3D"#e5e5e5" style=3D"wid=
+th :  1px;"><br></td></tr><tr><td bgcolor=3D"#e5e5e5" colspan=3D"3" style=
+=3D"line-height :  1px; font-size :  0;">&nbsp;<br></td></tr></tbody></tabl=
+e></td></tr></tbody></table><table align=3D"center" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0"><tbody><tr><td align=3D"center" style=3D"padding-=
+top :  10px; padding-bottom :  12px; font-family :  'Helvetica Neue',  Helv=
+etica,  Arial,  sans-serif; font-size :  14px; line-height :  17px; color :=
+  #666666;">Totals are shown for the entire order.<br></td></tr></tbody></t=
+able><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" style=3D"width :  536px;"><tbody><tr><td align=3D"left" style=3D"padding=
+-bottom :  30px;"><table align=3D"center" bgcolor=3D"#f2f2f2" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" style=3D"width :  536px;"><tbody><tr><t=
+d align=3D"left" style=3D"padding-bottom :  30px;"><table align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-family :  'H=
+elvetica Neue',  Helvetica,  Arial,  sans-serif; font-weight :  300; color =
+:  #333333;"><tbody><tr><td align=3D"center" style=3D"padding-top :  30px; =
+padding-bottom :  18px; font-size :  26px; line-height :  28px;">PAYMENT SU=
+MMARY<br></td></tr></tbody></table><table align=3D"center" bgcolor=3D"#e5e5=
+e5" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width :  465p=
+x;"><tbody><tr><td style=3D"line-height :  2px; font-size :  0;">&nbsp;<br>=
+</td></tr></tbody></table><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"width :  465px;"><tbody><tr><td align=3D"=
+left" style=3D"width :  465px; padding-top :  18px; padding-bottom :  2px;"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width :  =
+100%; font-family :  'Helvetica Neue',  Helvetica,  Arial,  sans-serif; fon=
+t-weight :  300; color :  #333333;"><tbody><tr><td align=3D"left" style=3D"=
+font-size :  18px; line-height :  28px; padding-bottom :  15px;" valign=3D"=
+top">Merchandise Subtotal<br></td><td style=3D"width :  10px;"><br></td><td=
+ align=3D"right" style=3D"font-size :  18px; line-height :  28px; padding-b=
+ottom :  15px; width :  150px;" valign=3D"top">$163.00 <span class=3D"x_-80=
+4298855currency-code-display"> CAD</span><br></td></tr><tr><td align=3D"lef=
+t" style=3D"font-size :  18px; line-height :  28px; padding-bottom :  15px;=
+" valign=3D"top">Shipping &amp; Handling<br></td><td style=3D"width :  10px=
+;"><br></td><td align=3D"right" style=3D"font-size :  18px; line-height :  =
+28px; padding-bottom :  15px; width :  150px;" valign=3D"top">$9.99 <span c=
+lass=3D"x_-804298855currency-code-display"> CAD</span><br></td></tr><tr><td=
+ align=3D"left" style=3D"font-size :  18px; line-height :  28px;" valign=3D=
+"top">Sales Tax<br></td><td style=3D"width :  10px;"><br></td><td align=3D"=
+right" style=3D"font-size :  18px; line-height :  28px; width :  150px;" va=
+lign=3D"top">$22.49 <span class=3D"x_-804298855currency-code-display"> CAD<=
+/span><br></td></tr><tr><td style=3D"font-size :  14px; padding-bottom :  1=
+5px;" valign=3D"top">Tax is estimated and will be calculated when your orde=
+r is processed.<br></td></tr><tr><td align=3D"left" style=3D"font-size :  1=
+4px; padding-bottom :  15px;" valign=3D"top"><p style=3D"line-height: norma=
+l;"><span class=3D"size" style=3D"font-size: 14px; line-height: normal;">Ap=
+propriate PST, GST, QST and HST is applied to your order based on your ship=
+ping address.</span><br></p></td></tr></tbody></table></td></tr></tbody></t=
+able><table align=3D"center" bgcolor=3D"#e5e5e5" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"width :  465px;"><tbody><tr><td style=3D"=
+line-height :  2px; font-size :  0;">&nbsp;<br></td></tr></tbody></table><t=
+able align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"width :  465px; font-family :  'Helvetica Neue',  Helvetica,  Arial,  =
+sans-serif; font-weight :  300; color :  #333333;"><tbody><tr><td align=3D"=
+left" style=3D"padding-top :  20px; font-size :  21px; line-height :  28px;=
+"><b>Total</b><br></td><td align=3D"right" style=3D"padding-top :  20px; fo=
+nt-size :  21px; line-height :  28px; width :  150px;"><b>$195.48 <span cla=
+ss=3D"x_-804298855currency-code-display"> CAD</span></b><br></td></tr></tbo=
+dy></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></=
+tbody></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tb=
+ody><tr><td class=3D"x_-804298855spacer x_-804298855py-sm-16" height=3D"32"=
+><br></td></tr></tbody></table><table cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"100%"><tbody><tr><td style=3D"padding :  0 24px;"><table style=3D"t=
+ext-align :  center;" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><t=
+body><tr><td class=3D"x_-804298855col" width=3D"100%" style=3D"padding :  0=
+ 8px;"><img width=3D"292" id=3D"1700517889933100001_imgsrc_url_15" alt=3D""=
+><br></td></tr></tbody></table></td></tr></tbody></table><table cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td class=3D"x_-80429885=
+5spacer x_-804298855py-sm-16" height=3D"32"><br></td></tr></tbody></table><=
+table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td sty=
+le=3D"padding :  0 24px;"><table style=3D"text-align :  center;" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td class=3D"x_-8042988=
+55col" width=3D"100%" style=3D"padding :  0 8px;"><img width=3D"292" id=3D"=
+1700517889933100001_imgsrc_url_16" alt=3D"Email logo"><br></td></tr></tbody=
+></table></td></tr></tbody></table><table cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"100%"><tbody><tr><td class=3D"x_-804298855spacer x_-804298855py=
+-sm-16" height=3D"32"><br></td></tr></tbody></table><table align=3D"center"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"margin :  0 auto;" width=3D"8=
+0%"><tbody><tr><th bgcolor=3D"#333333" style=3D"cursor :  pointer;"><a href=
+=3D"https://www.bathandbodyworks.ca/" style=3D"color :  #FFFFFF; display : =
+ inline-block; font-size :  13px; line-height :  100%; padding :  12px 0px;=
+ text-decoration :  none; width :  100%; cursor :  pointer; background-colo=
+r :  #333; text-align :  center;" target=3D"_blank">SHOP NOW</a><br></th></=
+tr></tbody></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%=
+"><tbody><tr><td class=3D"x_-804298855spacer x_-804298855py-sm-16" height=
+=3D"32"><br></td></tr></tbody></table><table cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%"><tbody><tr><td style=3D"padding :  0 24px; text-align=
+ :  center;"><table cellpadding=3D"0" cellspacing=3D"0" style=3D"text-align=
+ :  center; Margin :  0 auto;" width=3D"80%"><tbody><tr><td class=3D"x_-804=
+298855col-sm-third x_-804298855font-sm" style=3D"padding :  0 8px;" width=
+=3D"260"><a class=3D"x_-804298855margin__none x_-804298855font-sm" href=3D"=
+https://www.bathandbodyworks.ca/en/store-locator" style=3D"text-decoration =
+:  none; color :  #333; font-size :  14px; text-align :  center; display : =
+ block; line-height :  normal;" target=3D"_blank">FIND A STORE<br></a></td>=
+<td class=3D"x_-804298855col-sm-third x_-804298855font-sm" style=3D"padding=
+ :  0 8px; border-right :  2px solid #eee; border-left :  2px solid #eee;" =
+width=3D"260"><a class=3D"x_-804298855font-sm" href=3D"https://www.bathandb=
+odyworks.ca/en/my-account" style=3D"text-decoration :  none; color :  #333;=
+ font-size :  14px; text-align :  center; display :  block; line-height :  =
+normal;" target=3D"_blank">MY ACCOUNT<br></a></td><td class=3D"x_-804298855=
+col-sm-third" style=3D"padding :  0 8px;" width=3D"260"><a class=3D"x_-8042=
+98855margin__none x_-804298855font-sm" href=3D"https://customercare.bathand=
+bodyworks.ca/hc/en-ca" style=3D"text-decoration :  none; color :  #333; fon=
+t-size :  14px; text-align :  center; display :  block; line-height :  norm=
+al;" target=3D"_blank">CUSTOMER CARE<br></a></td></tr></tbody></table></td>=
+</tr></tbody></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%"><tbody><tr><td class=3D"x_-804298855spacer x_-804298855py-sm-16" height=
+=3D"32"><br></td></tr></tbody></table><table cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%"><tbody><tr><td class=3D"x_-804298855spacer x_-8042988=
+55py-sm-16" height=3D"32"><br></td></tr></tbody></table><table cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"padding :  =
+0 24px;"><table style=3D"text-align :  center;" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"100%"><tbody><tr><td class=3D"x_-804298855col" width=3D"1=
+00%" style=3D"padding :  0 8px; cursor :  pointer;"><a href=3D"https://cust=
+omercare.bathandbodyworks.ca/hc/en-ca/categories/4419595681683-EXCHANGES-RE=
+TURNS" target=3D"_blank"><img width=3D"85%" id=3D"1700517889933100001_imgsr=
+c_url_17" alt=3D"Return Policy"> </a><br></td></tr></tbody></table></td></t=
+r></tbody></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"=
+><tbody><tr><td class=3D"x_-804298855spacer x_-804298855py-sm-16" height=3D=
+"32"><br></td></tr></tbody></table><table cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"100%"><tbody><tr><td style=3D"padding :  0 24px;"><table cellpa=
+dding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"text-align :  center;=
+"><tbody><tr><td class=3D"" width=3D"260" style=3D"padding :  0 8px; text-d=
+ecoration :  none; text-align :  right;"><a style=3D"text-decoration :  non=
+e; color :  #333; font-size :  12px; text-align :  right;" href=3D"https://=
+www.facebook.com/bathandbodyworkscanada" target=3D"_blank"><img style=3D"Ma=
+rgin-right :  15px;" width=3D"40" id=3D"1700517889933100001_imgsrc_url_18" =
+alt=3D""> </a><br></td><td class=3D"" width=3D"260" style=3D"padding :  0 8=
+px; text-align :  left;"><a style=3D"text-decoration :  none; color :  #333=
+; font-size :  12px; text-align :  left;" href=3D"https://www.instagram.com=
+/bathandbodyworkscanada/" target=3D"_blank"><img style=3D"Margin-right :  1=
+5px;" width=3D"40" id=3D"1700517889933100001_imgsrc_url_19" alt=3D""> </a><=
+br></td></tr></tbody></table></td></tr></tbody></table><table cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td class=3D"x_-80429885=
+5spacer x_-804298855py-sm-16" height=3D"32"><br></td></tr></tbody></table><=
+table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td sty=
+le=3D"padding :  0 24px; text-align :  center;"><table cellpadding=3D"0" ce=
+llspacing=3D"0" width=3D"75%" style=3D"text-align :  center; Margin :  0 au=
+to;"><tbody><tr><td class=3D"x_-804298855col-sm-third" width=3D"260" style=
+=3D"padding :  0 8px;"><a class=3D"x_-804298855font-sm-2 x_-804298855margin=
+__none" style=3D"text-decoration :  none; color :  #333; font-size :  10px;=
+ text-align :  center;" href=3D"https://www.bathandbodyworks.ca/en/customer=
+-care/privacy-and-security.html" target=3D"_blank">PRIVACY POLICY</a><br></=
+td><td class=3D"x_-804298855col-sm-third" width=3D"260" style=3D"padding : =
+ 0 8px; border-right :  2px solid #eee; border-left :  2px solid #eee;"><a =
+class=3D"x_-804298855font-sm-2" style=3D"text-decoration :  none; color :  =
+#333; font-size :  10px; text-align :  center;" href=3D"https://www.bathand=
+bodyworks.ca/en/customer-care/terms-of-use.html" target=3D"_blank">TERMS OF=
+ USE</a><br></td><td class=3D"x_-804298855col-sm-third" width=3D"260" style=
+=3D"padding :  0 8px;"><a class=3D"x_-804298855font-sm-2 x_-804298855margin=
+__none" style=3D"text-decoration :  none; color :  #333; font-size :  10px;=
+ text-align :  center;" href=3D"https://customercare.bathandbodyworks.ca/hc=
+/en-ca/categories/4419595681683-EXCHANGES-RETURNS" target=3D"_blank">RETURN=
+ POLICY</a><br></td></tr></tbody></table></td></tr></tbody></table><table c=
+ellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td class=3D"x=
+_-804298855spacer x_-804298855py-sm-16" height=3D"32"><br></td></tr></tbody=
+></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><=
+tr><td style=3D"padding :  0 24px;"><table cellpadding=3D"0" cellspacing=3D=
+"0" width=3D"100%"><tbody><tr><td class=3D"x_-804298855col" width=3D"100%" =
+style=3D"padding :  0 8px;"><p style=3D"line-height: 1.3; text-align: cente=
+r;"><span class=3D"size" style=3D"font-size: 10px; line-height: 1.3; text-a=
+lign: center;">Bath &amp; Body Works (Canada) Corp., 4875 Marc Blain, suite=
+ 201, St. Laurent, Quebec, H4R 3B2.<br> For more information, email us at <=
+a href=3D"mailto:bbwonlinecanada@bathandbodyworks.ca" style=3D"color :  #00=
+5596; text-decoration :  underline; font-weight :  bold; font-size :  10px;=
+" target=3D"_blank"> BBWOnlineCanada@bathandbodyworks.ca</a> or call <a hre=
+f=3D"tel:1-800-395-8008" style=3D"text-decoration :  none; color :  #333; f=
+ont-size :  10px;" target=3D"_blank"> 1-800-395-8008.</a> <br>Please do not=
+ reply to this email, as it is sent from an address that cannot accept inco=
+ming email.</span></p></td></tr></tbody></table></td></tr></tbody></table><=
+table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td cla=
+ss=3D"x_-804298855spacer x_-804298855py-sm-16" height=3D"32"><br></td></tr>=
+</tbody></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><=
+tbody><tr><td><img width=3D"100%" id=3D"1700517889933100001_imgsrc_url_20" =
+alt=3D""><br></td></tr></tbody></table></td></tr></tbody></table><table cla=
+ss=3D"x_-804298855gmail-app-fix"><tbody><tr><td><table cellpadding=3D"0" ce=
+llspacing=3D"0" border=3D"0" align=3D"center" width=3D"600"><tbody><tr><td =
+height=3D"1" style=3D"line-height :  1px; min-width :  200px;"><img src=3D"=
+transparent.gif" width=3D"200" height=3D"1" style=3D"display :  block; max-=
+height :  1px; min-height :  1px; min-width :  200px; width :  200px;"></td=
+><td height=3D"1" style=3D"line-height :  1px; min-width :  200px;"><img sr=
+c=3D"transparent.gif" width=3D"200" height=3D"1" style=3D"display :  block;=
+ max-height :  1px; min-height :  1px; min-width :  200px; width :  200px;"=
+></td><td height=3D"1" style=3D"line-height :  1px; min-width :  200px;"><i=
+mg src=3D"transparent.gif" width=3D"200" height=3D"1" style=3D"display :  b=
+lock; max-height :  1px; min-height :  1px; min-width :  200px; width :  20=
+0px;"></td></tr></tbody></table></td></tr></tbody></table></div></blockquot=
+e></div><div><br></div><div class=3D"zmail_signature_below"><div id=3D"" da=
+ta-zbluepencil-ignore=3D"true" data-sigid=3D"6189300000000739006"><div>Rega=
+rds,<br></div><div><br></div><div>John E. Estrada<br></div><div><br></div><=
+div>---------------------------------------<br></div><div><br></div><p styl=
+e=3D"font-style: normal; font-weight: 400; letter-spacing: normal; orphans:=
+ 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2;=
+ word-spacing: 0px"><span class=3D"highlight" style=3D"background-color:rgb=
+(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span =
+class=3D"font" style=3D"font-family:Verdana, Arial, Helvetica, sans-serif">=
+<span class=3D"size" style=3D"font-size:13.3333px"><span class=3D"highlight=
+" style=3D"background-color:rgb(255, 255, 255)"><b><span class=3D"colour" s=
+tyle=3D"color:rgb(0, 102, 0)"><span class=3D"font" style=3D"font-family:Cal=
+ibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D=
+"font-size:14.66px">START SHREDDING INC. (shredEX)</span></span></span></b>=
+<span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font"=
+ style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><spa=
+n class=3D"size" style=3D"font-size:14.66px"><br>208 Evans Ave, Toronto, ON=
+ M8Z 1J7<br></span></span></span><b><span class=3D"colour" style=3D"color:r=
+gb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana,=
+ Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.=
+66px">E:<span>&nbsp;<a href=3D"mailto:john@shredex.ca" target=3D"_blank" st=
+yle=3D"color: rgb(0, 0, 238)">john@shredex.ca</a>&nbsp;</span>W: <a target=
+=3D"_blank" href=3D"http://www.startshredding.com" style=3D"color: rgb(0, 0=
+, 238)">www.startshredding.com</a><br></span></span></span></b><span class=
+=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"f=
+ont-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"=
+size" style=3D"font-size:14.66px">DIRECT:&nbsp;</span></span></span><a styl=
+e=3D"color: rgb(17, 85, 204); cursor: default" target=3D"_blank"><span clas=
+s=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"=
+font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D=
+"size" style=3D"font-size:14.66px">416.255.1500</span></span></span></a><sp=
+an class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" st=
+yle=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span c=
+lass=3D"size" style=3D"font-size:14.66px"><br>TOLL FREE:&nbsp;</span></span=
+></span><a style=3D"color: rgb(17, 85, 204); cursor: default" target=3D"_bl=
+ank"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"=
+font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"=
+><span class=3D"size" style=3D"font-size:14.66px">1.866.868.9585</span></sp=
+an></span></a></span></span></span></span></span></p><p style=3D"font-style=
+: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent=
+: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: =
+0px"><span class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)=
+"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" =
+style=3D"font-family:Verdana, Arial, Helvetica, sans-serif"><span class=3D"=
+size" style=3D"font-size:13.3333px"><span class=3D"highlight" style=3D"back=
+ground-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(=
+34, 34, 34)"><span class=3D"font" style=3D"font-family:arial, sans-serif"><=
+span class=3D"size" style=3D"font-size:small"><span class=3D"colour" style=
+=3D"color:gray"><span class=3D"font" style=3D"font-family:Arial, sans-serif=
+"><span class=3D"size" style=3D"font-size:7.5pt">This message and any attac=
+hments are the property of the&nbsp;SHREDEX INC.&nbsp;or its affiliates. It=
+ may be legally privileged and/or confidential and is intended only for the=
+ use of the addressee(s). No addressee should store, forward, print, copy, =
+or otherwise reproduce this message in any manner that would allow it to be=
+ viewed by any individual not originally listed as a recipient. If the read=
+er of this message is not the intended recipient, you are hereby notified t=
+hat any unauthorized storage, disclosure, dissemination, distribution, copy=
+ing or the taking of any action in reliance on the information herein is st=
+rictly prohibited. If you have received this communication in error, please=
+ immediately notify the sender and delete this message.</span></span></span=
+></span></span></span></span></span></span></span></span><br></p><div id=3D=
+""><div><br></div></div><div><br></div></div></div><div><br></div></div><br=
+></body></html>
+------=_Part_654294_1921524535.1717125058330--
+

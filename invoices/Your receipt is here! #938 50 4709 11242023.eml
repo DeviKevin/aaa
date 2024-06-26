@@ -1,0 +1,1276 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp185754rbd;
+        Thu, 30 May 2024 20:10:52 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHxHc9T9An5cbs3ZPzpkOvp7+i9TQxAwRg5FtlsRqcGBgXgisVILDn9Bxpz+xmHRp5Az+bq
+X-Received: by 2002:a05:6a20:9716:b0:1b0:2cae:4622 with SMTP id adf61e73a8af0-1b26f25d085mr710611637.42.1717125052432;
+        Thu, 30 May 2024 20:10:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125052; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=p4R42EG8Caeez9WL49EjsabftJl4ZK+86AcK6AECKmAr3ZdexDqhRNOvrFBAVJqvM3
+         arbpGMmGzxtpzopCwDjjo1TLWByFKOOk+sasnl5xXsZoaZlceSDMfxZlQ4fpnsvJUPhr
+         VRvF/T/9+6G3ZxqiwhUOva//vdDFgqYreZnu3iaSSzFwuoAJYJNayKOtkpZHcpqfxKvh
+         wmuSkQb1GTCjQyV63GEjhRnuMtQ/KrANGBGV0x5h4+lAtqUnYE7/X5poN56xKJkTqwgJ
+         IAorzniItAbSJvrZHOOZtaFPL30AVMIkXpQVAHKiEHAy7M6qhkQI0CYE0VWEXZQDIMjR
+         q3kA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=EMVPGMct523wL++HE8k/OGIob6cPkX/oYzuTNBuGzfc=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=WS+e52XHXGHUuSCAnyXRZHxQf43fWzAuLandcFkbnVAk14+2H2cRPIcD/Nz3BAkJ5C
+         +gCItcV5EE8iIHZeoyUQvf01vBdH5lAOW1XKcX7MiNY5/6wpvGXYjehiVWdM+VFV0/GL
+         bsqc3Ap83rSWTfIpr5dyFnC98gfQNnr8SK5EVXTkTGIWLeTrQQa65sKN4ONjhgTHanAV
+         x/woi2gsM/feLxpl3eQ0ccFcv69rL0TtHdOXwLK+rAfwbroIyqZJO+Vk370qdbVt6f4U
+         EELeL7m6s/+zmaJcxCS5IZY77yclol0br0E6JdGcZszQi2iSk7qtpEu5ZdPUxVFuLLE3
+         uPlg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=VdPs2326;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o18.zoho.com (sender3-op-o18.zoho.com. [136.143.184.18])
+        by mx.google.com with ESMTPS id d9443c01a7336-1f6324179a1si7485555ad.587.2024.05.30.20.10.52
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:10:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) client-ip=136.143.184.18;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=VdPs2326;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125051; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=akruHwl/S9iWVST3S8elKvk3L8LP74683OjB6nD4gVCHcw6soYF0GvtcQvrccVNpywvCYdM3xIXuBMmbMvMskpuswdp/KQYLdpg0oY7Q88djymyjLIIc54cuQWCK6aj1QChCa5FaT3ByEfB8nyyg/iHfOqY58gPGqdvGF/lXqTY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125051; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=EMVPGMct523wL++HE8k/OGIob6cPkX/oYzuTNBuGzfc=; 
+	b=jPHehmjdrcJ6j9e86Q2ldnFYE3Z6bI6ryWlzeNKeTZ8h4Pj13TuuYCv1fVWWoMcTrmNuGMPwlPAFzhxYxiu/9/wbbXOKreKc6F67QPEY4jdYfA2OH9J83tC3Z4BpBUBebjjdmIxn+kKi5SjmvNK8tHEjL0JWExeIcWnazfjt0m4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125051;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=EMVPGMct523wL++HE8k/OGIob6cPkX/oYzuTNBuGzfc=;
+	b=VdPs2326joqr5KHOqwvk6NcCq3rElaT28BhgD0ba4VVQo0FwYWPoskHlkpiM1qJi
+	FTyagdlfU5LstFzmMEjRyXyWq/H2OpmOyPX0ymhPLOYF+ARHTdfQa5DFtxUUA4wcFHU
+	ww3meAKyQX212FgpI5no6PA/QxUBK2jwCVM44kNs=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717125050509470.1008095368279; Thu, 30 May 2024 20:10:50 -0700 (PDT)
+Date: Thu, 30 May 2024 23:10:50 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcca0eff1.ac42a3d5201725.1783011730011980468@shredex.ca>
+In-Reply-To: <140465bc-1fda-470f-b167-d0c8cc5e1349@atl1s07mta1306.xt.local>
+References: <140465bc-1fda-470f-b167-d0c8cc5e1349@atl1s07mta1306.xt.local>
+Subject: Fwd: Your receipt is here! #938 50 4709 11242023
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_654224_1508946333.1717125050354"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_654224_1508946333.1717125050354
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Best Buy Canada <noreply@e.bestbuy.ca>
+To: <JOHN@BACKPOCKET.CA>
+Date: Fri, 24 Nov 2023 12:28:55 -0500
+Subject: Your receipt is here! #938 50 4709 11242023
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Your receipt is here!
+
+
+
+#938 50 4709 11242023
+
+
+
+Thank you for shopping at Best Buy. Here=E2=80=99s your receipt from your r=
+ecent in-store visit.
+
+
+
+You can use this receipt for returns, exchanges, or other services.
+
+
+
+Your extraordinary awaits.
+
+
+
+
+
+
+
+
+
+
+
+Transaction Information
+
+
+
+
+
+Store Purchase #
+
+938 50 4709 11242023
+
+
+Date
+
+2023-11-24 12:28 PM
+
+
+Type
+
+Sale
+
+
+Associate Name
+
+Diviya
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Transaction Summary
+
+
+
+
+Insignia Precision Thumbsticks for Xbox One & Xbox Series X|S - White/Green=
+/Black
+
+
+Item #: 17203728
+
+H $9.99
+
+
+
+
+
+
+
+Skullcandy Smokin Buds In-Ear Sound Isolating True Wireless Earbuds - Black
+
+
+Item #: 17166489
+
+H $29.99
+
+
+
+
+
+
+
+Razer Kaira X Gaming Headset for Xbox Series X|S - White
+
+
+Item #: 15758282
+
+H $39.99
+
+
+
+
+
+
+
+Insignia Carrying/Protective Case for Meta Quest 2 & Meta Quest 3 - Only at=
+ Best Buy
+
+
+Item #: 15694666
+
+H $24.99
+
+
+
+
+
+
+
+Meta Quest 2 128GB VR Headset with Touch Controllers
+
+
+Item #: 15490835
+
+H $349.99
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Subtotal
+
+
+
+$454.95
+
+
+
+
+
+
+
+
+
+Tax Summary
+
+
+
+
+Province of Sale: ON
+
+
+HST
+
+13.00% of $454.95
+
+$59.14
+
+
+
+
+
+
+
+
+
+Total
+
+
+
+$514.09
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Payment Summary
+
+
+
+
+
+************3631 C VISA
+
+$514.09
+
+
+Approved 043336
+
+
+SEQ NO: 001001001221
+
+
+ACI/ISO: 001/00
+
+
+11/24/2023 12:27:59
+
+
+AID: A0000000031010
+
+
+APN: VISA CREDIT
+
+
+TVR: 0080008000
+
+
+TSI: E800
+
+
+VERIFIED BY PIN
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0000093800000050000047091124230107
+
+
+
+
+
+
+
+
+
+
+
+
+VAL #: 1496-6771-6378-3721
+
+
+
+
+
+
+
+
+
+
+
+
+Best Buy Ltd. #938
+=20
+167 North Queen St.
+=20
+Etobicoke ON, M9C 1A7
+
+
+
+
+S: 938 T: 4709  R: 50
+=20
+Date: 11242023
+
+
+
+GST/HST #135664738RT0001 | QST #1016255587TQ0001
+
+
+
+
+
+
+
+
+
+
+
+Win a $1000 Best Buy Gift Card!
+
+
+
+https://click.communications.bestbuypromotions.ca/?qs=3De1a99faa30b13ca2be7=
+70cca3f436ae7a5324348e2228640e32cf11fb499acddc4f74ae9e6980bc9fd76572bff9d61=
+acb5e5223713ff0c7eef231dabfaaedb00 in the next 30 days and enter our contes=
+t to win a $1000 Best Buy Gift Card.
+
+
+
+To manually enter the contest, go to  and enter these codes when prompted: =
+Group A: 294504
+
+Group B: 3709
+
+Group C: 181232aiurdd
+
+
+
+Read the full contest rules here https://click.communications.bestbuypromot=
+ions.ca/?qs=3De1a99faa30b13ca27e92c3946437c9d7a1b924e158293f2f8dcec6ba928fa=
+c2e7e5f9584458ff53fa9af7de904ef229eaa23eb0d260fe9f521427dfe63cf5b2d
+
+
+
+
+
+Open Box Product
+
+
+
+Although this product was a store display model or customer return, it carr=
+ies the same warranty coverage as a new product. The price is reduced to gi=
+ve you additional value.
+
+
+
+We=E2=80=99re Here to Help
+
+
+
+We=E2=80=99ll gladly give you a refund, exchange, or price adjustment on yo=
+ur purchases until Jan. 11, 2024. This extended holiday return policy does =
+not apply to cellular/wireless devices, devices and services financed throu=
+gh Best Buy Monthly Subscription, or non-returnable items. A store credit w=
+ill be issued for any gift receipt returns. Best Buy Marketplace items cann=
+ot be returned to Best Buy stores. Your original receipt is required. Some =
+conditions apply. Please ask an in-store Advisor or visit https://click.com=
+munications.bestbuypromotions.ca/?qs=3De1a99faa30b13ca20ae0d945804e85f5a76f=
+42c9b79bfa07250c8ac0ba8aba5509d226f890a2c4a3c88e915cc2988fc257ec5c4ad7c05a1=
+9 for full details.
+
+To ensure quality service, returns, exchanges, and price adjustments will n=
+ot be processed on the following dates: Dec. 27, 2023 for stores in Sault S=
+te. Marie, Quebec, and Atlantic provinces (NB, NL, NS, and PEI); Dec. 26, 2=
+023 for stores in all other regions.
+
+Our Low Price Guarantee excludes prices on Black Friday, Cyber Monday, and =
+Boxing Day & Week. Please ask a store Advisor or visit https://click.commun=
+ications.bestbuypromotions.ca/?qs=3De1a99faa30b13ca20ae0d945804e85f5a76f42c=
+9b79bfa07250c8ac0ba8aba5509d226f890a2c4a3c88e915cc2988fc257ec5c4ad7c05a19 f=
+or full details.
+
+
+
+
+
+Thank you for shopping at Best Buy Canada
+
+
+
+This email was sent from an outgoing-only address that cannot accept incomi=
+ng emails. If you still have questions, please visit our https://click.comm=
+unications.bestbuypromotions.ca/?qs=3De1a99faa30b13ca22dd73710ea6c5e3e2bc20=
+9ecd2e3835c09130ab74d94c4ee97a83c80afd796965670ea593235811f78acb26c5f989a06=
+ for more information.
+
+
+
+Promotional emails: As a customer of Best Buy Canada, we may send you promo=
+tional emails. If you do not wish to receive promotional emails from Best B=
+uy Canada, Please feel free to https://click.communications.bestbuypromotio=
+ns.ca/?qs=3De1a99faa30b13ca2291679c7d08a571a9b7e6dd3a999576ad8e3d91d9cb6999=
+abc0b1c6f2e19fed86b5bbce55b6e893adbe9724e91a01bbe.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=C2=A9 Best Buy Canada Ltd. Suite #102, 425 West 6th Avenue, Vancouver, BC =
+V5Y 1L3
+
+
+
+https://click.communications.bestbuypromotions.ca/?qs=3De1a99faa30b13ca27a8=
+0ae9b0cabcf8e4f6027b362e44a0a2ea94132a8497d4f40e4f7f47e342d942b4823cfa1bd2e=
+e0b7de020df5238cb3=C2=A0=C2=A0=C2=A0|=C2=A0=C2=A0=C2=A0https://click.commun=
+ications.bestbuypromotions.ca/?qs=3De1a99faa30b13ca217a83e3c37959e3343342b5=
+72a3a23515ae6f07292baf02be4783a68bf773695e8e23270c582ca22db63d4de112b997b=
+=C2=A0=C2=A0=C2=A0|=C2=A0=C2=A0=C2=A0 https://click.communications.bestbuyp=
+romotions.ca/?qs=3De1a99faa30b13ca273f4406cc93d09ffbd84922720db1c44e9941202=
+df3a28951885ae14c34c4bcc2f632f94b5b63b80b9a3127be308b516=C2=A0=C2=A0=C2=A0|=
+=C2=A0=C2=A0=C2=A0 https://click.communications.bestbuypromotions.ca/?qs=3D=
+e1a99faa30b13ca2218ae00cff654acee8bd39edabf7d8730a5e152fc25547b02db8cee08d2=
+2d0f3006f4d80644d11b259b88b881fe6e69f
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=20
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_654224_1508946333.1717125050354
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Best Buy Canada &lt;noreply@e.bestbuy.ca&gt;<br=
+>To: &lt;JOHN@BACKPOCKET.CA&gt;<br>Date: Fri, 24 Nov 2023 12:28:55 -0500<br=
+>Subject: Your receipt is here! #938 50 4709 11242023<br>=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<b=
+r></div><div><br></div><blockquote id=3D"blockquote_zmail" style=3D"margin:=
+ 0px;"><div class=3D"zm_-5629652781446212494_parse_5470276401343921135"><br=
+></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br=
+></div><div><br></div><div style=3D"background-color :  #F4F6F9;"><div styl=
+e=3D"background-color :  #F4F6F9;"><div style=3D"background :  #F4F6F9; bac=
+kground-color :  #F4F6F9; margin :  0px auto; max-width :  600px;"><table a=
+lign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"b=
+ackground :  #F4F6F9; background-color :  #F4F6F9; width :  100%;"><tbody><=
+tr><td style=3D"direction :  ltr; font-size :  0px; padding :  20px 0; text=
+-align :  center;"><div style=3D"margin :  0px auto; max-width :  600px;"><=
+table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" sty=
+le=3D"width :  100%;"><tbody><tr><td style=3D"direction :  ltr; font-size :=
+  0px; padding :  20px 0; padding-bottom :  32px; padding-left :  23px; pad=
+ding-right :  16px; text-align :  center;"><div class=3D"x_410857319mj-colu=
+mn-per-100 x_410857319mj-outlook-group-fix" style=3D"font-size :  0px; text=
+-align :  left; direction :  ltr; display :  inline-block; vertical-align :=
+  top; width :  100%;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" style=3D"vertical-align :  top;" width=3D"100%"><tbody><tr><td align=3D=
+"left" style=3D"font-size :  0px; padding :  10px 25px; padding-top :  0px;=
+ padding-bottom :  0px; padding-left :  0px;"><table border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" style=3D"border-collapse :  collapse; border-spa=
+cing :  0px;"><tbody><tr><td style=3D"width :  72px;"><img height=3D"auto" =
+id=3D"1700846941296100001_imgsrc_url_0" style=3D"border :  0; display :  bl=
+ock; outline :  none; text-decoration :  none; height :  auto; width :  100=
+%; font-size :  13px;" width=3D"100%"></td></tr></tbody></table></td></tr><=
+tr><td align=3D"left" style=3D"font-size :  0px; padding :  10px 25px; padd=
+ing-top :  36px; padding-right :  0px; padding-bottom :  0px; padding-left =
+:  0px;"><div style=3D"font-family :  Arial; font-size :  24px; font-weight=
+ :  bold; letter-spacing :  0; line-height :  120%; text-align :  left; col=
+or :  #1D252C;">Your receipt is here!<br></div></td></tr><tr><td align=3D"l=
+eft" style=3D"font-size :  0px; padding :  10px 25px; padding-top :  0px; p=
+adding-right :  0px; padding-bottom :  0px; padding-left :  0px;"><div styl=
+e=3D"font-family :  Arial; font-size :  24px; font-weight :  normal; letter=
+-spacing :  0; line-height :  120%; text-align :  left; color :  #1D252C;">=
+#938 50 4709 11242023<br></div></td></tr><tr><td align=3D"left" style=3D"fo=
+nt-size :  0px; padding :  10px 25px; padding-top :  24px; padding-bottom :=
+  0px; padding-left :  0px;"><div style=3D"font-family :  Arial; font-size =
+:  14px; font-weight :  normal; line-height :  120%; text-align :  left; co=
+lor :  #1D252C;">Thank you for shopping at Best Buy. Here=E2=80=99s your re=
+ceipt from your recent in-store visit.<br></div></td></tr><tr><td align=3D"=
+left" style=3D"font-size :  0px; padding :  10px 25px; padding-top :  16px;=
+ padding-bottom :  0px; padding-left :  0px;"><div style=3D"font-family :  =
+Arial; font-size :  14px; font-weight :  normal; line-height :  120%; text-=
+align :  left; color :  #1D252C;">You can use this receipt for returns, exc=
+hanges, or other services.<br></div></td></tr><tr><td align=3D"left" style=
+=3D"font-size :  0px; padding :  10px 25px; padding-top :  16px; padding-bo=
+ttom :  0px; padding-left :  0px;"><div style=3D"font-family :  Arial; font=
+-size :  14px; font-weight :  normal; line-height :  120%; text-align :  le=
+ft; color :  #1D252C;">Your extraordinary awaits.<br></div></td></tr></tbod=
+y></table></div></td></tr></tbody></table></div><div style=3D"background : =
+ #FFFFFF; background-color :  #FFFFFF; margin :  0px auto; border-radius : =
+ 8px 8px 0px 0px; max-width :  600px;"><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"background :  #FFFFFF; backgr=
+ound-color :  #FFFFFF; width :  100%; border-radius :  8px 8px 0px 0px;"><t=
+body><tr><td style=3D"border-bottom :  1px solid #E0E6EF; direction :  ltr;=
+ font-size :  0px; padding :  20px 0; padding-bottom :  14px; padding-left =
+:  0px; padding-top :  14px; text-align :  center;"><div class=3D"x_4108573=
+19mj-column-per-100 x_410857319mj-outlook-group-fix" style=3D"font-size :  =
+0px; text-align :  left; direction :  ltr; display :  inline-block; vertica=
+l-align :  top; width :  100%;"><table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"vertical-align :  top;" width=3D"100%"><tbody><tr><td=
+ align=3D"left" style=3D"font-size :  0px; padding :  10px 25px; padding-bo=
+ttom :  6px;"><div style=3D"font-family :  Ubuntu,  Helvetica,  Arial,  san=
+s-serif; font-size :  16px; font-weight :  bold; line-height :  1; text-ali=
+gn :  left; color :  #000000;">Transaction Information<br></div></td></tr><=
+tr><td align=3D"left" style=3D"font-size :  0px; padding :  10px 25px;"><ta=
+ble cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" style=
+=3D"color :  #000000; font-family :  Ubuntu,  Helvetica,  Arial,  sans-seri=
+f; font-size :  13px; line-height :  22px; table-layout :  auto; width :  1=
+00%; border :  none;"><colgroup><col></colgroup><tbody><tr><td class=3D"x_4=
+10857319transaction-info-labels" style=3D"font-size :  14px; font-weight : =
+ bold; font-family :  Arial; padding-top :  16px;">Store Purchase #<br></td=
+><td class=3D"x_410857319transaction-data-values" style=3D"font-family :  A=
+rial; text-decoration :  none; color :  inherit; font-size :  14px; padding=
+-top :  16px;">938 50 4709 11242023<br></td></tr><tr><td class=3D"x_4108573=
+19transaction-info-labels" style=3D"font-size :  14px; font-weight :  bold;=
+ font-family :  Arial; padding-top :  16px;">Date<br></td><td class=3D"x_41=
+0857319transaction-data-values" style=3D"font-family :  Arial; text-decorat=
+ion :  none; color :  inherit; font-size :  14px; padding-top :  16px;">202=
+3-11-24 12:28 PM<br></td></tr><tr><td class=3D"x_410857319transaction-info-=
+labels" style=3D"font-size :  14px; font-weight :  bold; font-family :  Ari=
+al; padding-top :  16px; padding-right :  10px;">Type<br></td><td class=3D"=
+x_410857319transaction-data-values" style=3D"font-family :  Arial; text-dec=
+oration :  none; color :  inherit; font-size :  14px; padding-top :  16px;"=
+>Sale<br></td></tr><tr><td class=3D"x_410857319transaction-info-labels" sty=
+le=3D"font-size :  14px; font-weight :  bold; font-family :  Arial; padding=
+-top :  16px; padding-right :  10px;">Associate Name<br></td><td class=3D"x=
+_410857319transaction-data-values" style=3D"font-family :  Arial; text-deco=
+ration :  none; color :  inherit; font-size :  14px; padding-top :  16px;">=
+Diviya<br></td></tr></tbody></table></td></tr></tbody></table></div></td></=
+tr></tbody></table></div><div style=3D"background :  #FFFFFF; background-co=
+lor :  #FFFFFF; margin :  0px auto; max-width :  600px;"><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"background =
+:  #FFFFFF; background-color :  #FFFFFF; width :  100%;"><tbody><tr><td sty=
+le=3D"direction :  ltr; font-size :  0px; padding :  20px 0; padding-bottom=
+ :  0px; padding-top :  0px; text-align :  center;"><div class=3D"x_4108573=
+19mj-column-per-100 x_410857319mj-outlook-group-fix" style=3D"font-size :  =
+0px; text-align :  left; direction :  ltr; display :  inline-block; vertica=
+l-align :  top; width :  100%;"><table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"vertical-align :  top; =
+padding-top :  24px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"100%"><tbody><tr><td align=3D"left" style=3D"font-size :  0px; =
+padding :  10px 25px; padding-top :  0px; padding-bottom :  0px;"><div styl=
+e=3D"font-family :  Ubuntu,  Helvetica,  Arial,  sans-serif; font-size :  1=
+3px; line-height :  1; text-align :  left; color :  #000000;"><div class=3D=
+"x_410857319transaction-summary-title" style=3D"font-size :  16px; font-wei=
+ght :  bold; padding-top :  0px; padding-bottom :  0px; line-height :  24px=
+;">Transaction Summary<br></div></div></td></tr><tr><td align=3D"left" styl=
+e=3D"font-size :  0px; padding :  10px 25px; padding-top :  0px; padding-bo=
+ttom :  0px;"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bor=
+der=3D"0" style=3D"color :  #000000; font-family :  Ubuntu,  Helvetica,  Ar=
+ial,  sans-serif; font-size :  13px; line-height :  22px; table-layout :  a=
+uto; width :  100%; border :  none;"><tbody><tr class=3D"x_410857319remove-=
+padding" style=3D"padding-bottom :  0px; padding-top :  0px;"><td colspan=
+=3D"3" class=3D"x_410857319transaction-summary-product-description" style=
+=3D"font-size :  16px; line-height :  24px; font-weight :  bold; font-famil=
+y :  Arial; color :  #001E73; padding-top :  24px; padding-bottom :  4px;">=
+Insignia Precision Thumbsticks for Xbox One &amp; Xbox Series X|S - White/G=
+reen/Black<br></td></tr><tr><td class=3D"x_410857319transaction-item-detail=
+s" style=3D"font-family :  Arial; font-size :  12px; line-height :  16px; c=
+olor :  #55555A; padding-top :  4px; padding-bottom :  0px;">Item #: 172037=
+28<br></td><td class=3D"x_410857319transaction-price" style=3D"font-family =
+:  Arial; font-weight :  bold; font-size :  14px; line-height :  18px; widt=
+h :  30%; color :  #1D252C; text-align :  right; padding-top :  6px;" width=
+=3D"30%" align=3D"right"><span class=3D"colour" style=3D"color:rgb(85, 85, =
+90)"><span class=3D"font" style=3D"font-family:Arial"><span class=3D"size" =
+style=3D"font-size: 12px; line-height: 16px;">H </span></span></span>$9.99<=
+br></td></tr><tr><td class=3D"x_410857319closing-summary" style=3D"padding-=
+top :  24px; padding-bottom :  0px; border-bottom :  1px solid #E0E6EF;"><b=
+r></td><td class=3D"x_410857319closing-summary" style=3D"padding-top :  24p=
+x; padding-bottom :  0px; border-bottom :  1px solid #E0E6EF;"><br></td></t=
+r><tr class=3D"x_410857319remove-padding" style=3D"padding-bottom :  0px; p=
+adding-top :  0px;"><td colspan=3D"3" class=3D"x_410857319transaction-summa=
+ry-product-description" style=3D"font-size :  16px; line-height :  24px; fo=
+nt-weight :  bold; font-family :  Arial; color :  #001E73; padding-top :  2=
+4px; padding-bottom :  4px;">Skullcandy Smokin Buds In-Ear Sound Isolating =
+True Wireless Earbuds - Black<br></td></tr><tr><td class=3D"x_410857319tran=
+saction-item-details" style=3D"font-family :  Arial; font-size :  12px; lin=
+e-height :  16px; color :  #55555A; padding-top :  4px; padding-bottom :  0=
+px;">Item #: 17166489<br></td><td class=3D"x_410857319transaction-price" st=
+yle=3D"font-family :  Arial; font-weight :  bold; font-size :  14px; line-h=
+eight :  18px; width :  30%; color :  #1D252C; text-align :  right; padding=
+-top :  6px;" width=3D"30%" align=3D"right"><span class=3D"colour" style=3D=
+"color:rgb(85, 85, 90)"><span class=3D"font" style=3D"font-family:Arial"><s=
+pan class=3D"size" style=3D"font-size: 12px; line-height: 16px;">H </span><=
+/span></span>$29.99<br></td></tr><tr><td class=3D"x_410857319closing-summar=
+y" style=3D"padding-top :  24px; padding-bottom :  0px; border-bottom :  1p=
+x solid #E0E6EF;"><br></td><td class=3D"x_410857319closing-summary" style=
+=3D"padding-top :  24px; padding-bottom :  0px; border-bottom :  1px solid =
+#E0E6EF;"><br></td></tr><tr class=3D"x_410857319remove-padding" style=3D"pa=
+dding-bottom :  0px; padding-top :  0px;"><td colspan=3D"3" class=3D"x_4108=
+57319transaction-summary-product-description" style=3D"font-size :  16px; l=
+ine-height :  24px; font-weight :  bold; font-family :  Arial; color :  #00=
+1E73; padding-top :  24px; padding-bottom :  4px;">Razer Kaira X Gaming Hea=
+dset for Xbox Series X|S - White<br></td></tr><tr><td class=3D"x_410857319t=
+ransaction-item-details" style=3D"font-family :  Arial; font-size :  12px; =
+line-height :  16px; color :  #55555A; padding-top :  4px; padding-bottom :=
+  0px;">Item #: 15758282<br></td><td class=3D"x_410857319transaction-price"=
+ style=3D"font-family :  Arial; font-weight :  bold; font-size :  14px; lin=
+e-height :  18px; width :  30%; color :  #1D252C; text-align :  right; padd=
+ing-top :  6px;" width=3D"30%" align=3D"right"><span class=3D"colour" style=
+=3D"color:rgb(85, 85, 90)"><span class=3D"font" style=3D"font-family:Arial"=
+><span class=3D"size" style=3D"font-size: 12px; line-height: 16px;">H </spa=
+n></span></span>$39.99<br></td></tr><tr><td class=3D"x_410857319closing-sum=
+mary" style=3D"padding-top :  24px; padding-bottom :  0px; border-bottom : =
+ 1px solid #E0E6EF;"><br></td><td class=3D"x_410857319closing-summary" styl=
+e=3D"padding-top :  24px; padding-bottom :  0px; border-bottom :  1px solid=
+ #E0E6EF;"><br></td></tr><tr class=3D"x_410857319remove-padding" style=3D"p=
+adding-bottom :  0px; padding-top :  0px;"><td colspan=3D"3" class=3D"x_410=
+857319transaction-summary-product-description" style=3D"font-size :  16px; =
+line-height :  24px; font-weight :  bold; font-family :  Arial; color :  #0=
+01E73; padding-top :  24px; padding-bottom :  4px;">Insignia Carrying/Prote=
+ctive Case for Meta Quest 2 &amp; Meta Quest 3 - Only at Best Buy<br></td><=
+/tr><tr><td class=3D"x_410857319transaction-item-details" style=3D"font-fam=
+ily :  Arial; font-size :  12px; line-height :  16px; color :  #55555A; pad=
+ding-top :  4px; padding-bottom :  0px;">Item #: 15694666<br></td><td class=
+=3D"x_410857319transaction-price" style=3D"font-family :  Arial; font-weigh=
+t :  bold; font-size :  14px; line-height :  18px; width :  30%; color :  #=
+1D252C; text-align :  right; padding-top :  6px;" width=3D"30%" align=3D"ri=
+ght"><span class=3D"colour" style=3D"color:rgb(85, 85, 90)"><span class=3D"=
+font" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size: =
+12px; line-height: 16px;">H </span></span></span>$24.99<br></td></tr><tr><t=
+d class=3D"x_410857319closing-summary" style=3D"padding-top :  24px; paddin=
+g-bottom :  0px; border-bottom :  1px solid #E0E6EF;"><br></td><td class=3D=
+"x_410857319closing-summary" style=3D"padding-top :  24px; padding-bottom :=
+  0px; border-bottom :  1px solid #E0E6EF;"><br></td></tr><tr class=3D"x_41=
+0857319remove-padding" style=3D"padding-bottom :  0px; padding-top :  0px;"=
+><td colspan=3D"3" class=3D"x_410857319transaction-summary-product-descript=
+ion" style=3D"font-size :  16px; line-height :  24px; font-weight :  bold; =
+font-family :  Arial; color :  #001E73; padding-top :  24px; padding-bottom=
+ :  4px;">Meta Quest 2 128GB VR Headset with Touch Controllers<br></td></tr=
+><tr><td class=3D"x_410857319transaction-item-details" style=3D"font-family=
+ :  Arial; font-size :  12px; line-height :  16px; color :  #55555A; paddin=
+g-top :  4px; padding-bottom :  0px;">Item #: 15490835<br></td><td class=3D=
+"x_410857319transaction-price" style=3D"font-family :  Arial; font-weight :=
+  bold; font-size :  14px; line-height :  18px; width :  30%; color :  #1D2=
+52C; text-align :  right; padding-top :  6px;" width=3D"30%" align=3D"right=
+"><span class=3D"colour" style=3D"color:rgb(85, 85, 90)"><span class=3D"fon=
+t" style=3D"font-family:Arial"><span class=3D"size" style=3D"font-size: 12p=
+x; line-height: 16px;">H </span></span></span>$349.99<br></td></tr><tr><td =
+class=3D"x_410857319closing-summary" style=3D"padding-top :  24px; padding-=
+bottom :  0px; border-bottom :  1px solid #E0E6EF;"><br></td><td class=3D"x=
+_410857319closing-summary" style=3D"padding-top :  24px; padding-bottom :  =
+0px; border-bottom :  1px solid #E0E6EF;"><br></td></tr></tbody></table></t=
+d></tr></tbody></table></td></tr></tbody></table></div></td></tr></tbody></=
+table></div><div style=3D"background :  #FFFFFF; background-color :  #FFFFF=
+F; margin :  0px auto; border-radius :  8px 8px 0px 0px; max-width :  600px=
+;"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"background :  #FFFFFF; background-color :  #FFFFFF; width :  100%=
+; border-radius :  8px 8px 0px 0px;"><tbody><tr><td style=3D"border-bottom =
+:  1px solid #C5CBD5; direction :  ltr; font-size :  0px; padding :  20px 0=
+; padding-bottom :  0px; padding-left :  0px; padding-top :  0px; text-alig=
+n :  center;"><div class=3D"x_410857319mj-column-per-100 x_410857319mj-outl=
+ook-group-fix" style=3D"font-size :  0px; text-align :  left; direction :  =
+ltr; display :  inline-block; vertical-align :  top; width :  100%;"><table=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"vertical-align :=
+  top;" width=3D"100%"><tbody><tr><td align=3D"left" style=3D"font-size :  =
+0px; padding :  10px 25px;"><table cellpadding=3D"0" cellspacing=3D"0" widt=
+h=3D"100%" border=3D"0" style=3D"color :  #000000; font-family :  Ubuntu,  =
+Helvetica,  Arial,  sans-serif; font-size :  13px; line-height :  22px; tab=
+le-layout :  auto; width :  100%; border :  none;"><colgroup><col></colgrou=
+p><tbody><tr><td class=3D"x_410857319receiptTotal-subtotal-labels" style=3D=
+"font-size :  14px; font-weight :  normal; font-family :  Arial; font-style=
+ :  normal; padding-top :  14px; padding-bottom :  16px; line-height :  20p=
+x; color :  #1D252C;">Subtotal<br></td><td><br></td><td class=3D"x_41085731=
+9receiptTotal-subtotal-values" style=3D"font-family :  Arial; font-weight :=
+  bold; font-size :  14px; width :  20%; color :  #1D252C; text-align :  ri=
+ght; padding-top :  16px; padding-bottom :  16px; line-height :  20px; whit=
+e-space :  nowrap;" width=3D"20%" align=3D"right">$454.95<br></td></tr><tr>=
+<td class=3D"x_410857319section-divider" style=3D"padding-top :  0px; paddi=
+ng-bottom :  10px; border-bottom :  1px solid #E0E6EF; width :  100%;" widt=
+h=3D"100%"><br></td><td class=3D"x_410857319section-divider" style=3D"paddi=
+ng-top :  0px; padding-bottom :  10px; border-bottom :  1px solid #E0E6EF; =
+width :  100%;" width=3D"100%"><br></td><td class=3D"x_410857319section-div=
+ider" style=3D"padding-top :  0px; padding-bottom :  10px; border-bottom : =
+ 1px solid #E0E6EF; width :  100%;" width=3D"100%"><br></td></tr><tr><td cl=
+ass=3D"x_410857319tax-summary-title" style=3D"font-size :  16px; font-weigh=
+t :  bold; padding-top :  24px; padding-bottom :  24px; line-height :  24px=
+;"><span>Tax Summary</span><br></td><td><br></td></tr><tr><td class=3D"x_41=
+0857319province-values" style=3D"font-size :  14px; font-weight :  normal; =
+padding-bottom :  16px; font-family :  Arial; font-style :  normal; line-he=
+ight :  20px; color :  #1D252C;"><span class=3D"colour" style=3D"color:rgb(=
+29, 37, 44)"><b><span class=3D"font" style=3D"font-family:Arial"><span clas=
+s=3D"size" style=3D"font-size: 14px; padding-bottom: 16px; padding-right: 5=
+px; font-style: normal; line-height: 20px;">Province of Sale:</span></span>=
+</b></span> ON<br></td></tr><tr><td class=3D"x_410857319receiptTotal-tax-la=
+bels" style=3D"font-size :  14px; font-weight :  normal; font-family :  Ari=
+al; font-style :  normal; padding-bottom :  12px; line-height :  20px; colo=
+r :  #1D252C;">HST<br></td><td class=3D"x_410857319row-values" style=3D"fon=
+t-family :  Arial; font-size :  14px; font-weight :  normal; color :  #1D25=
+2C; padding-bottom :  16px; text-align :  right; white-space :  nowrap; lin=
+e-height :  20px; padding-right :  10px;" align=3D"right"><span class=3D"co=
+lour" style=3D"color:rgb(126, 126, 126)"><span class=3D"font" style=3D"font=
+-family:Arial"><span class=3D"size" style=3D"font-size: 14px; font-weight: =
+normal; font-style: normal; padding-bottom: 12px; line-height: 20px; white-=
+space: nowrap; text-align: right;">13.00<span>% of </span>$454.95</span></s=
+pan></span><br></td><td class=3D"x_410857319taxamount-values" style=3D"font=
+-family :  Arial; font-size :  14px; font-weight :  normal; color :  #1D252=
+C; padding-bottom :  16px; text-align :  right; white-space :  nowrap; line=
+-height :  20px;" align=3D"right">$59.14<br></td></tr><tr><td class=3D"x_41=
+0857319section-divider" style=3D"padding-top :  0px; padding-bottom :  10px=
+; border-bottom :  1px solid #E0E6EF; width :  100%;" width=3D"100%"><br></=
+td><td class=3D"x_410857319section-divider" style=3D"padding-top :  0px; pa=
+dding-bottom :  10px; border-bottom :  1px solid #E0E6EF; width :  100%;" w=
+idth=3D"100%"><br></td><td class=3D"x_410857319section-divider" style=3D"pa=
+dding-top :  0px; padding-bottom :  10px; border-bottom :  1px solid #E0E6E=
+F; width :  100%;" width=3D"100%"><br></td></tr><tr><td class=3D"x_41085731=
+9receiptTotal-total-labels" style=3D"font-size :  16px; font-weight :  bold=
+; font-family :  Arial; font-style :  normal; padding-top :  16px; padding-=
+bottom :  24px; line-height :  20px; color :  #1D252C;">Total<br></td><td><=
+br></td><td class=3D"x_410857319receiptTotal-total-values" style=3D"font-fa=
+mily :  Arial; font-size :  14px; font-weight :  bold; width :  20%; color =
+:  #1D252C; text-align :  right; padding-top :  16px; padding-bottom :  24p=
+x; line-height :  20px; white-space :  nowrap;" width=3D"20%" align=3D"righ=
+t">$514.09<br></td></tr></tbody></table></td></tr></tbody></table></div></t=
+d></tr></tbody></table></div><div style=3D"background :  #FFFFFF; backgroun=
+d-color :  #FFFFFF; margin :  0px auto; max-width :  600px;"><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"backg=
+round :  #FFFFFF; background-color :  #FFFFFF; width :  100%;"><tbody><tr><=
+td style=3D"direction :  ltr; font-size :  0px; padding :  20px 0; padding-=
+bottom :  24px; padding-left :  0px; padding-top :  24px; text-align :  cen=
+ter;"><div class=3D"x_410857319mj-column-per-100 x_410857319mj-outlook-grou=
+p-fix" style=3D"font-size :  0px; text-align :  left; direction :  ltr; dis=
+play :  inline-block; vertical-align :  top; width :  100%;"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"vertical-align :  top;"=
+ width=3D"100%"><tbody><tr><td align=3D"left" style=3D"font-size :  0px; pa=
+dding :  10px 25px;"><div style=3D"font-family :  Ubuntu,  Helvetica,  Aria=
+l,  sans-serif; font-size :  16px; font-weight :  bold; line-height :  1; t=
+ext-align :  left; color :  #000000;">Payment Summary<br></div></td></tr><t=
+r><td align=3D"left" style=3D"font-size :  0px; padding :  10px 25px;"><tab=
+le cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" style=3D=
+"color :  #000000; font-family :  Ubuntu,  Helvetica,  Arial,  sans-serif; =
+font-size :  13px; line-height :  22px; table-layout :  auto; width :  100%=
+; border :  none;"><colgroup><col></colgroup><tbody><tr><td class=3D"x_4108=
+57319card-detail-value" style=3D"font-size :  14px; font-weight :  bold; fo=
+nt-family :  Arial; line-height :  16px; padding-right :  4px;">***********=
+*3631 C VISA<br></td><td class=3D"x_410857319amount-value" style=3D"font-si=
+ze :  14px; font-weight :  bold; font-family :  Arial; padding-left :  8px;=
+ text-align :  right;" align=3D"right">$514.09<br></td></tr><tr><td class=
+=3D"x_410857319approved-card-detail-value" style=3D"font-size :  12px; font=
+-weight :  bold; font-family :  Arial; line-height :  16px; color :  #30880=
+0; padding-top :  8px; padding-bottom :  0px;">Approved 043336<br></td></tr=
+><tr><td class=3D"x_410857319payment-data-values" style=3D"font-size :  12p=
+x; font-family :  Arial; line-height :  16px; padding-top :  4px; color :  =
+#55555A; padding-bottom :  0px;">SEQ NO: 001001001221<br></td></tr><tr><td =
+class=3D"x_410857319payment-data-values" style=3D"font-size :  12px; font-f=
+amily :  Arial; line-height :  16px; padding-top :  4px; color :  #55555A; =
+padding-bottom :  0px;">ACI/ISO: 001/00<br></td></tr><tr><td class=3D"x_410=
+857319payment-data-values" style=3D"font-size :  12px; font-family :  Arial=
+; line-height :  16px; padding-top :  4px; color :  #55555A; padding-bottom=
+ :  0px;">11/24/2023 12:27:59<br></td></tr><tr><td class=3D"x_410857319paym=
+ent-data-values" style=3D"font-size :  12px; font-family :  Arial; line-hei=
+ght :  16px; padding-top :  4px; color :  #55555A; padding-bottom :  0px;">=
+AID: A0000000031010<br></td></tr><tr><td class=3D"x_410857319payment-data-v=
+alues" style=3D"font-size :  12px; font-family :  Arial; line-height :  16p=
+x; padding-top :  4px; color :  #55555A; padding-bottom :  0px;">APN: VISA =
+CREDIT<br></td></tr><tr><td class=3D"x_410857319payment-data-values" style=
+=3D"font-size :  12px; font-family :  Arial; line-height :  16px; padding-t=
+op :  4px; color :  #55555A; padding-bottom :  0px;">TVR: 0080008000<br></t=
+d></tr><tr><td class=3D"x_410857319payment-data-values" style=3D"font-size =
+:  12px; font-family :  Arial; line-height :  16px; padding-top :  4px; col=
+or :  #55555A; padding-bottom :  0px;">TSI: E800<br></td></tr><tr><td class=
+=3D"x_410857319payment-data-values" style=3D"font-size :  12px; font-family=
+ :  Arial; line-height :  16px; padding-top :  4px; color :  #55555A; paddi=
+ng-bottom :  0px;">VERIFIED BY PIN<br></td></tr><tr><td class=3D"x_41085731=
+9payment-instructions-gap1" style=3D"padding-bottom :  24px;"><br></td><td>=
+<br></td></tr><tr style=3D"border-top :  1px solid #ecedee;"><td class=3D"x=
+_410857319payment-instructions-gap2" style=3D"padding-bottom :  24px;"><br>=
+</td><td class=3D"x_410857319payment-instructions-gap2" style=3D"padding-bo=
+ttom :  24px;"><br></td></tr></tbody></table></td></tr></tbody></table></di=
+v></td></tr></tbody></table></div><div style=3D"background :  #FFFFFF; back=
+ground-color :  #FFFFFF; margin :  0px auto; border-radius :  0px 0px 8px 8=
+px; max-width :  600px;"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"background :  #FFFFFF; background-color :=
+  #FFFFFF; width :  100%; border-radius :  0px 0px 8px 8px;"><tbody><tr><td=
+ style=3D"direction :  ltr; font-size :  0px; padding :  20px 0; padding-bo=
+ttom :  0px; padding-left :  0px; padding-top :  16px; text-align :  center=
+;"><div class=3D"x_410857319mj-column-per-100 x_410857319mj-outlook-group-f=
+ix" style=3D"font-size :  0px; text-align :  left; direction :  ltr; displa=
+y :  inline-block; vertical-align :  top; width :  100%;"><table border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" style=3D"vertical-align :  top;" wid=
+th=3D"100%"><tbody><tr><td align=3D"center" style=3D"font-size :  0px; padd=
+ing :  10px 25px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"border-collapse :  collapse; border-spacing :  0px;"><tbody><tr><t=
+d style=3D"width :  550px;"><img height=3D"auto" id=3D"1700846941296100001_=
+imgsrc_url_1" style=3D"border :  0; display :  block; outline :  none; text=
+-decoration :  none; height :  auto; width :  100%; font-size :  13px;" wid=
+th=3D"100%"></td></tr></tbody></table></td></tr></tbody></table></div></td>=
+</tr></tbody></table></div><div style=3D"background :  #FFFFFF; background-=
+color :  #FFFFFF; margin :  0px auto; border-radius :  0px 0px 8px 8px; max=
+-width :  600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"background :  #FFFFFF; background-color :  #FFFFFF=
+; width :  100%; border-radius :  0px 0px 8px 8px;"><tbody><tr><td style=3D=
+"direction :  ltr; font-size :  0px; padding :  20px 0; padding-bottom :  0=
+px; padding-left :  0px; padding-top :  0px; text-align :  center;"><div cl=
+ass=3D"x_410857319mj-column-per-100 x_410857319mj-outlook-group-fix" style=
+=3D"font-size :  0px; text-align :  left; direction :  ltr; display :  inli=
+ne-block; vertical-align :  top; width :  100%;"><table border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" style=3D"vertical-align :  top;" width=3D"100=
+%"><tbody><tr><td align=3D"center" style=3D"font-size :  0px; padding :  10=
+px 25px;"><div style=3D"font-family :  Arial; font-size :  10px; line-heigh=
+t :  1; text-align :  center; color :  #1D252C; min-height:  18px;">0000093=
+800000050000047091124230107<br></div></td></tr></tbody></table></div></td><=
+/tr></tbody></table></div><div style=3D"background :  #FFFFFF; background-c=
+olor :  #FFFFFF; margin :  0px auto; border-radius :  0px 0px 8px 8px; max-=
+width :  600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"background :  #FFFFFF; background-color :  #FFFFFF;=
+ width :  100%; border-radius :  0px 0px 8px 8px;"><tbody><tr><td style=3D"=
+direction :  ltr; font-size :  0px; padding :  0px; padding-bottom :  24px;=
+ text-align :  center;"><div class=3D"x_410857319mj-column-per-100 x_410857=
+319mj-outlook-group-fix" style=3D"font-size :  0px; text-align :  left; dir=
+ection :  ltr; display :  inline-block; vertical-align :  top; width :  100=
+%;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"vertic=
+al-align :  top;" width=3D"100%"><tbody><tr><td align=3D"center" style=3D"f=
+ont-size :  0px; padding :  10px 25px; padding-top :  16px;"><div style=3D"=
+font-family :  Arial; font-size :  14px; line-height :  10px; text-align : =
+ center; color :  #55555A;"><br><b>VAL #: </b>1496-6771-6378-3721<br></div>=
+</td></tr></tbody></table></div></td></tr></tbody></table></div><div style=
+=3D"background :  #FFFFFF; background-color :  #FFFFFF; margin :  0px auto;=
+ border-radius :  0px 0px 8px 8px; max-width :  600px;"><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"background :=
+  #FFFFFF; background-color :  #FFFFFF; width :  100%; border-radius :  0px=
+ 0px 8px 8px;"><tbody><tr><td style=3D"direction :  ltr; font-size :  0px; =
+padding :  0px; padding-bottom :  24px; text-align :  center;"><div class=
+=3D"x_410857319mj-column-per-100 x_410857319mj-outlook-group-fix" style=3D"=
+font-size :  0px; text-align :  left; direction :  ltr; display :  inline-b=
+lock; vertical-align :  top; width :  100%;"><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" style=3D"vertical-align :  top;" width=3D"100%"><=
+tbody><tr><td align=3D"center" style=3D"font-size :  0px; padding :  10px 2=
+5px; padding-top :  16px;"><div style=3D"font-family :  Arial; font-size : =
+ 14px; line-height :  10px; text-align :  center; color :  #000000;"><br><b=
+>Best Buy Ltd. #938</b><br> <br>167 North Queen St.<br> <br>Etobicoke ON, M=
+9C 1A7<br></div></td></tr><tr><td align=3D"center" style=3D"font-size :  0p=
+x; padding :  10px 25px; padding-top :  16px;"><div style=3D"font-family : =
+ Arial; font-size :  14px; line-height :  10px; text-align :  center; color=
+ :  #55555A;"><br><b>S: </b>938 <b>T: </b>4709 <b> R: </b>50<br> <br><b>Dat=
+e: </b>11242023<br></div></td></tr><tr><td align=3D"center" style=3D"font-s=
+ize :  0px; padding :  10px 25px; padding-top :  20px; padding-bottom :  20=
+px;"><div style=3D"font-family :  Arial; font-size :  12px; font-style :  n=
+ormal; font-weight :  normal; line-height :  16px; text-align :  center; co=
+lor :  #55555A;">GST/HST #135664738RT0001 | QST #1016255587TQ0001<br></div>=
+</td></tr></tbody></table></div></td></tr></tbody></table></div><div style=
+=3D"background :  #F4F6F9; background-color :  #F4F6F9; margin :  0px auto;=
+ max-width :  600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"background :  #F4F6F9; background-color :  #F4=
+F6F9; width :  100%;"><tbody><tr><td style=3D"direction :  ltr; font-size :=
+  0px; padding :  20px 0; padding-left :  23px; text-align :  center;"><div=
+ class=3D"x_410857319mj-column-per-100 x_410857319mj-outlook-group-fix" sty=
+le=3D"font-size :  0px; text-align :  left; direction :  ltr; display :  in=
+line-block; vertical-align :  top; width :  100%;"><table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"back=
+ground-color :  #F4F6F9; vertical-align :  top; padding-bottom :  0px;"><ta=
+ble border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody>=
+<tr><td align=3D"left" style=3D"font-size :  0px; padding :  10px 25px; pad=
+ding-bottom :  8px; padding-left :  0px;"><div style=3D"font-family :  Aria=
+l; font-size :  16px; font-style :  normal; font-weight :  bold; line-heigh=
+t :  24px; text-align :  left; color :  #1D252C;">Win a $1000 Best Buy Gift=
+ Card!<br></div></td></tr><tr><td align=3D"left" style=3D"font-size :  0px;=
+ padding :  10px 25px; padding-top :  0px; padding-bottom :  0px; padding-l=
+eft :  0px;"><div style=3D"font-family :  Arial; font-size :  14px; font-st=
+yle :  normal; font-weight :  normal; line-height :  20px; text-align :  le=
+ft; color :  #1D252C;"><a class=3D"x_410857319footer-href" href=3D"https://=
+click.communications.bestbuypromotions.ca/?qs=3De1a99faa30b13ca2be770cca3f4=
+36ae7a5324348e2228640e32cf11fb499acddc4f74ae9e6980bc9fd76572bff9d61acb5e522=
+3713ff0c7eef231dabfaaedb00" style=3D"font-family :  Arial; font-style :  no=
+rmal; font-weight :  normal; font-size :  14px; line-height :  16px; text-d=
+ecoration :  none; color :  #0046BE; padding-left :  0px;" target=3D"_blank=
+">Take our 5 minute survey</a> in the next 30 days and enter our contest to=
+ win a $1000 Best Buy Gift Card.<br></div></td></tr><tr><td align=3D"left" =
+style=3D"font-size :  0px; padding :  10px 25px; padding-top :  0px; paddin=
+g-bottom :  0px; padding-left :  0px;"><div style=3D"font-family :  Arial; =
+font-size :  14px; font-style :  normal; font-weight :  normal; line-height=
+ :  20px; text-align :  left; color :  #1D252C;"><ul style=3D"padding-left =
+:  25px; margin :  0px;"><li class=3D"x_410857319nps-survey-list-elements" =
+style=3D"padding-top :  16px;">To manually enter the contest, go to <a>www.=
+bestbuycanadacares.ca</a> and enter these codes when prompted: <ul style=3D=
+"list-style-type :  none; padding-left :  0px;"><li style=3D"padding-top : =
+ 8px;">Group A: 294504<br></li><li style=3D"padding-top :  4px;">Group B: 3=
+709<br></li><li style=3D"padding-top :  4px; padding-bottom :  16px;">Group=
+ C: 181232aiurdd<br></li></ul></li><li class=3D"x_410857319nps-survey-conte=
+st-rules" style=3D"padding-bottom :  22px;">Read the full contest rules her=
+e <a class=3D"x_410857319footer-href" href=3D"https://click.communications.=
+bestbuypromotions.ca/?qs=3De1a99faa30b13ca27e92c3946437c9d7a1b924e158293f2f=
+8dcec6ba928fac2e7e5f9584458ff53fa9af7de904ef229eaa23eb0d260fe9f521427dfe63c=
+f5b2d" style=3D"font-family :  Arial; font-style :  normal; font-weight :  =
+normal; font-size :  14px; line-height :  16px; text-decoration :  none; co=
+lor :  #0046BE; padding-left :  0px;" target=3D"_blank">www.bestbuycanadaca=
+res.ca</a><br></li></ul></div></td></tr><tr><td align=3D"left" style=3D"fon=
+t-size :  0px; padding :  10px 25px; padding-bottom :  8px; padding-left : =
+ 0px;"><div style=3D"font-family :  Arial; font-size :  16px; font-style : =
+ normal; font-weight :  bold; line-height :  24px; text-align :  left; colo=
+r :  #1D252C;">Open Box Product<br></div></td></tr><tr><td align=3D"left" s=
+tyle=3D"font-size :  0px; padding :  10px 25px; padding-top :  0px; padding=
+-bottom :  8px; padding-left :  0px;"><div style=3D"font-family :  Arial; f=
+ont-size :  14px; font-style :  normal; font-weight :  normal; line-height =
+:  20px; text-align :  left; color :  #1D252C;">Although this product was a=
+ store display model or customer return, it carries the same warranty cover=
+age as a new product. The price is reduced to give you additional value.<br=
+></div></td></tr><tr><td align=3D"left" style=3D"font-size :  0px; padding =
+:  10px 25px; padding-bottom :  8px; padding-left :  0px;"><div style=3D"fo=
+nt-family :  Arial; font-size :  16px; font-style :  normal; font-weight : =
+ bold; line-height :  24px; text-align :  left; color :  #1D252C;">We=E2=80=
+=99re Here to Help<br></div></td></tr><tr><td align=3D"left" style=3D"font-=
+size :  0px; padding :  10px 25px; padding-top :  0px; padding-bottom :  0p=
+x; padding-left :  0px;"><div style=3D"font-family :  Arial; font-size :  1=
+4px; font-style :  normal; font-weight :  normal; line-height :  20px; text=
+-align :  left; color :  #1D252C;"><ul style=3D"padding-left :  25px; margi=
+n :  0px;"><li class=3D"x_410857319help-text-list" style=3D"padding-bottom =
+:  22px;">We=E2=80=99ll gladly give you a refund, exchange, or price adjust=
+ment on your purchases until Jan. 11, 2024. This extended holiday return po=
+licy does not apply to cellular/wireless devices, devices and services fina=
+nced through Best Buy Monthly Subscription, or non-returnable items. A stor=
+e credit will be issued for any gift receipt returns. Best Buy Marketplace =
+items cannot be returned to Best Buy stores. Your original receipt is requi=
+red. Some conditions apply. Please ask an in-store Advisor or visit <a clas=
+s=3D"x_410857319footer-href" href=3D"https://click.communications.bestbuypr=
+omotions.ca/?qs=3De1a99faa30b13ca20ae0d945804e85f5a76f42c9b79bfa07250c8ac0b=
+a8aba5509d226f890a2c4a3c88e915cc2988fc257ec5c4ad7c05a19" style=3D"font-fami=
+ly :  Arial; font-style :  normal; font-weight :  normal; font-size :  14px=
+; line-height :  16px; text-decoration :  none; color :  #0046BE; padding-l=
+eft :  0px;" target=3D"_blank">BestBuy.ca</a> for full details.<br></li><li=
+ class=3D"x_410857319help-text-list" style=3D"padding-bottom :  22px;">To e=
+nsure quality service, returns, exchanges, and price adjustments will not b=
+e processed on the following dates: Dec. 27, 2023 for stores in Sault Ste. =
+Marie, Quebec, and Atlantic provinces (NB, NL, NS, and PEI); Dec. 26, 2023 =
+for stores in all other regions.<br></li><li class=3D"x_410857319help-text-=
+list" style=3D"padding-bottom :  22px;">Our Low Price Guarantee excludes pr=
+ices on Black Friday, Cyber Monday, and Boxing Day &amp; Week. Please ask a=
+ store Advisor or visit <a class=3D"x_410857319footer-href" href=3D"https:/=
+/click.communications.bestbuypromotions.ca/?qs=3De1a99faa30b13ca20ae0d94580=
+4e85f5a76f42c9b79bfa07250c8ac0ba8aba5509d226f890a2c4a3c88e915cc2988fc257ec5=
+c4ad7c05a19" style=3D"font-family :  Arial; font-style :  normal; font-weig=
+ht :  normal; font-size :  14px; line-height :  16px; text-decoration :  no=
+ne; color :  #0046BE; padding-left :  0px;" target=3D"_blank">BestBuy.ca</a=
+> for full details.<br></li></ul></div></td></tr><tr><td align=3D"left" sty=
+le=3D"font-size :  0px; padding :  10px 25px; padding-bottom :  8px; paddin=
+g-left :  0px;"><div style=3D"font-family :  Arial; font-size :  16px; font=
+-style :  normal; font-weight :  bold; line-height :  24px; text-align :  l=
+eft; color :  #1D252C;">Thank you for shopping at Best Buy Canada<br></div>=
+</td></tr><tr><td align=3D"left" style=3D"font-size :  0px; padding :  10px=
+ 25px; padding-top :  0px; padding-bottom :  8px; padding-left :  0px;"><di=
+v style=3D"font-family :  Arial; font-size :  14px; font-style :  normal; f=
+ont-weight :  normal; line-height :  20px; text-align :  left; color :  #1D=
+252C;">This email was sent from an outgoing-only address that cannot accept=
+ incoming emails. If you still have questions, please visit our <b><a class=
+=3D"x_410857319footer-href" href=3D"https://click.communications.bestbuypro=
+motions.ca/?qs=3De1a99faa30b13ca22dd73710ea6c5e3e2bc209ecd2e3835c09130ab74d=
+94c4ee97a83c80afd796965670ea593235811f78acb26c5f989a06" style=3D"font-famil=
+y :  Arial; font-style :  normal; font-weight :  normal; font-size :  14px;=
+ line-height :  16px; text-decoration :  none; color :  #0046BE; padding-le=
+ft :  0px;" target=3D"_blank">help center</a></b> for more information.<br>=
+</div></td></tr><tr><td align=3D"left" style=3D"font-size :  0px; padding :=
+  10px 25px; padding-top :  0px; padding-bottom :  8px; padding-left :  0px=
+;"><div style=3D"font-family :  Arial; font-size :  14px; font-style :  nor=
+mal; font-weight :  normal; line-height :  20px; text-align :  left; color =
+:  #1D252C;"><b>Promotional emails:</b> As a customer of Best Buy Canada, w=
+e may send you promotional emails. If you do not wish to receive promotiona=
+l emails from Best Buy Canada, Please feel free to <b><a class=3D"x_4108573=
+19footer-href" href=3D"https://click.communications.bestbuypromotions.ca/?q=
+s=3De1a99faa30b13ca2291679c7d08a571a9b7e6dd3a999576ad8e3d91d9cb6999abc0b1c6=
+f2e19fed86b5bbce55b6e893adbe9724e91a01bbe" style=3D"font-family :  Arial; f=
+ont-style :  normal; font-weight :  normal; font-size :  14px; line-height =
+:  16px; text-decoration :  none; color :  #0046BE; padding-left :  0px;" t=
+arget=3D"_blank">unsubscribe</a>.</b><br></div></td></tr><tr><td style=3D"f=
+ont-size :  0px; padding :  10px 25px; padding-top :  8px; padding-right : =
+ 2px; padding-bottom :  0px; padding-left :  2px;"><p style=3D"border-top :=
+  solid 1px #E0E0E0; margin :  0px auto; width :  100%;"><br></p></td></tr>=
+</tbody></table></td></tr></tbody></table></div></td></tr></tbody></table><=
+/div><div style=3D"background :  #F4F6F9; background-color :  #F4F6F9; marg=
+in :  0px auto; max-width :  600px;"><table align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" style=3D"background :  #F4F6F9; backgrou=
+nd-color :  #F4F6F9; width :  100%;"><tbody><tr><td style=3D"direction :  l=
+tr; font-size :  0px; padding :  20px 0; padding-bottom :  16px; padding-le=
+ft :  23px; padding-top :  0px; text-align :  center;"><div class=3D"x_4108=
+57319mj-column-per-100 x_410857319mj-outlook-group-fix" style=3D"font-size =
+:  0px; text-align :  left; direction :  ltr; display :  inline-block; vert=
+ical-align :  top; width :  100%;"><table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"background-color :  =
+#F4F6F9; vertical-align :  top; padding-bottom :  0px;"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td align=3D=
+"left" style=3D"font-size :  0px; padding :  10px 25px; padding-left :  0px=
+;"><div style=3D"font-family :  Arial; font-size :  12px; font-style :  nor=
+mal; font-weight :  normal; line-height :  16px; text-align :  left; color =
+:  #55555A;">=C2=A9 Best Buy Canada Ltd. Suite #102, 425 West 6th Avenue, V=
+ancouver, BC V5Y 1L3<br></div></td></tr><tr><td align=3D"left" style=3D"fon=
+t-size :  0px; padding :  10px 25px; padding-left :  0px;"><div style=3D"fo=
+nt-family :  Arial; font-size :  12px; font-style :  normal; font-weight : =
+ normal; line-height :  16px; text-align :  left; text-decoration :  none; =
+color :  #55555A;"><a class=3D"x_410857319footer-contact-us-href" href=3D"h=
+ttps://click.communications.bestbuypromotions.ca/?qs=3De1a99faa30b13ca27a80=
+ae9b0cabcf8e4f6027b362e44a0a2ea94132a8497d4f40e4f7f47e342d942b4823cfa1bd2ee=
+0b7de020df5238cb3" style=3D"text-decoration :  none; color :  #1d252c;" tar=
+get=3D"_blank">Contact&nbsp;Us</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a c=
+lass=3D"x_410857319footer-contact-us-href" href=3D"https://click.communicat=
+ions.bestbuypromotions.ca/?qs=3De1a99faa30b13ca217a83e3c37959e3343342b572a3=
+a23515ae6f07292baf02be4783a68bf773695e8e23270c582ca22db63d4de112b997b" styl=
+e=3D"text-decoration :  none; color :  #1d252c;" target=3D"_blank">Returns&=
+nbsp;&amp;&nbsp;Exchanges</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a class=
+=3D"x_410857319footer-contact-us-href" href=3D"https://click.communications=
+.bestbuypromotions.ca/?qs=3De1a99faa30b13ca273f4406cc93d09ffbd84922720db1c4=
+4e9941202df3a28951885ae14c34c4bcc2f632f94b5b63b80b9a3127be308b516" style=3D=
+"text-decoration :  none; color :  #1d252c;" target=3D"_blank">Privacy&nbsp=
+;Policy</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a class=3D"x_410857319foo=
+ter-contact-us-href" href=3D"https://click.communications.bestbuypromotions=
+.ca/?qs=3De1a99faa30b13ca2218ae00cff654acee8bd39edabf7d8730a5e152fc25547b02=
+db8cee08d22d0f3006f4d80644d11b259b88b881fe6e69f" style=3D"text-decoration :=
+  none; color :  #1d252c;" target=3D"_blank">Terms&nbsp;&amp;&nbsp;Conditio=
+ns</a><br></div></td></tr></tbody></table></td></tr></tbody></table></div><=
+/td></tr></tbody></table></div></td></tr></tbody></table></div><img id=3D"1=
+700846941296100001_imgsrc_url_2" width=3D"1" height=3D"1" alt=3D""> </div><=
+/div></blockquote></div><div><br></div><div class=3D"zmail_signature_below"=
+><div id=3D"" data-zbluepencil-ignore=3D"true" data-sigid=3D"61893000000007=
+39006"><div>Regards,<br></div><div><br></div><div>John E. Estrada<br></div>=
+<div><br></div><div>---------------------------------------<br></div><div><=
+br></div><p style=3D"font-style: normal; font-weight: 400; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: no=
+rmal; widows: 2; word-spacing: 0px"><span class=3D"highlight" style=3D"back=
+ground-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(=
+0, 0, 0)"><span class=3D"font" style=3D"font-family:Verdana, Arial, Helveti=
+ca, sans-serif"><span class=3D"size" style=3D"font-size:13.3333px"><span cl=
+ass=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><b><span cl=
+ass=3D"colour" style=3D"color:rgb(0, 102, 0)"><span class=3D"font" style=3D=
+"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=
+=3D"size" style=3D"font-size:14.66px">START SHREDDING INC. (shredEX)</span>=
+</span></span></b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><s=
+pan class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif=
+, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br>208 Evan=
+s Ave, Toronto, ON M8Z 1J7<br></span></span></span><b><span class=3D"colour=
+" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family=
+:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" styl=
+e=3D"font-size:14.66px">E:<span>&nbsp;<a href=3D"mailto:john@shredex.ca" ta=
+rget=3D"_blank" style=3D"color: rgb(0, 0, 238)">john@shredex.ca</a>&nbsp;</=
+span>W: <a target=3D"_blank" href=3D"http://www.startshredding.com" style=
+=3D"color: rgb(0, 0, 238)">www.startshredding.com</a><br></span></span></sp=
+an></b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=
+=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-se=
+rif"><span class=3D"size" style=3D"font-size:14.66px">DIRECT:&nbsp;</span><=
+/span></span><a style=3D"color: rgb(17, 85, 204); cursor: default" target=
+=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span cl=
+ass=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans=
+-serif"><span class=3D"size" style=3D"font-size:14.66px">416.255.1500</span=
+></span></span></a><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><=
+span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-seri=
+f, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br>TOLL FR=
+EE:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, 204); cursor: =
+default" target=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51=
+, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, s=
+ans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">1.8=
+66.868.9585</span></span></span></a></span></span></span></span></span></p>=
+<p style=3D"font-style: normal; font-weight: 400; letter-spacing: normal; o=
+rphans: 2; text-indent: 0px; text-transform: none; white-space: normal; wid=
+ows: 2; word-spacing: 0px"><span class=3D"highlight" style=3D"background-co=
+lor:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"=
+><span class=3D"font" style=3D"font-family:Verdana, Arial, Helvetica, sans-=
+serif"><span class=3D"size" style=3D"font-size:13.3333px"><span class=3D"hi=
+ghlight" style=3D"background-color:rgb(255, 255, 255)"><span class=3D"colou=
+r" style=3D"color:rgb(34, 34, 34)"><span class=3D"font" style=3D"font-famil=
+y:arial, sans-serif"><span class=3D"size" style=3D"font-size:small"><span c=
+lass=3D"colour" style=3D"color:gray"><span class=3D"font" style=3D"font-fam=
+ily:Arial, sans-serif"><span class=3D"size" style=3D"font-size:7.5pt">This =
+message and any attachments are the property of the&nbsp;SHREDEX INC.&nbsp;=
+or its affiliates. It may be legally privileged and/or confidential and is =
+intended only for the use of the addressee(s). No addressee should store, f=
+orward, print, copy, or otherwise reproduce this message in any manner that=
+ would allow it to be viewed by any individual not originally listed as a r=
+ecipient. If the reader of this message is not the intended recipient, you =
+are hereby notified that any unauthorized storage, disclosure, disseminatio=
+n, distribution, copying or the taking of any action in reliance on the inf=
+ormation herein is strictly prohibited. If you have received this communica=
+tion in error, please immediately notify the sender and delete this message=
+.</span></span></span></span></span></span></span></span></span></span></sp=
+an><br></p><div id=3D""><div><br></div></div><div><br></div></div></div><di=
+v><br></div></div><br></body></html>
+------=_Part_654224_1508946333.1717125050354--
+

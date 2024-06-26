@@ -1,0 +1,649 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp190093rbd;
+        Thu, 30 May 2024 20:25:53 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEUViFS7ExAjgGKckRtcTkikrO/tgtj+B7O7tcRQXhIoKLMbDDN71rs0DO2lPQliNjGTG3a
+X-Received: by 2002:a05:6a20:3cac:b0:1a7:52fa:7d6b with SMTP id adf61e73a8af0-1b26f25ddb0mr966846637.43.1717125952949;
+        Thu, 30 May 2024 20:25:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125952; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=kc27or45IsUUJdtChF/cju8iIWL9Cgs7Q82TUorkvtreNDN+8G/wJWWSTHQfP09TFc
+         bWBZp2USM8CmLxv+ZyeS7ILrIthWiIhSuWxkUmX3uGArdQ4FaHyqNC8Ysz+GUxKfiZha
+         rhiXynJt1XlYbzxPHBnomH40SzqiChMeA06nr1D+RAH3ql+VoXXBctAGGS4BC8bjgezM
+         IiUfC2DDIreWhyBN146oRkyTSxgImwNd+FqDqprhf6SvpVAmehe0MW4bD8PKSa758T4z
+         4pTsQQ0PuC8q7lyTKqDoW6qCjk8Wz3iyYk5N7W2sxPCgrqQpsNzjsPt3e2VmjL8ihub7
+         vTiQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=LGJhBLD/rGtVH25p/q3S6FJSFFi3jXU9OsdlBCm3eUw=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=AuN/B4LG/pbhsZe5SXR8ovkvZGPKyFnKUtZC0695YNJhT4CznWVWcv0HLCdNrFUkgv
+         bQqLrPPgJrGx9Q2BcI+KbgujEob8N6ssvir0ypcyUaxKtdNRnkQWdvr7oU3xjqNG9w2m
+         NSbgHkO8kx1FCPz46VWUUlsdjlHcMO1Oiriwfrzd4YiSfbX6c3T62WbqZKWk1M3RNi+X
+         ZAsJ+AHhgPVSQ3TvsEvMOSZHZoCUh7eHF4LC7Td0xtO7ZuMQGbcJu8YMXOCqgck9xmKe
+         7/iieVVUJ3oiVKgnI/MZ84JQ0UdP8Sqc2VIwzIwfxjD996FPwwACH1QVvmnp8hN/l82g
+         FOXw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=liWfSal4;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o18.zoho.com (sender3-op-o18.zoho.com. [136.143.184.18])
+        by mx.google.com with ESMTPS id 98e67ed59e1d1-2c1c27a9bcesi782165a91.35.2024.05.30.20.25.52
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:25:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) client-ip=136.143.184.18;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=liWfSal4;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.18 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125951; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=GUKR8dar4407h5EIV4GZPV2QJNaxzSU9ziiBN2e4IRJQR+li+BN4ifWVvZmtiZ2A3qYnrp+zC17JLG3Lp9rSA779GB0Hvqi6pSHW7cymVko3zJi4b/GDe5rZ7yiHVBjiyr9NLl289p0mN3j1g81nQoqiC7QLfIXj+k7R+Kzo14M=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125951; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=LGJhBLD/rGtVH25p/q3S6FJSFFi3jXU9OsdlBCm3eUw=; 
+	b=mTGVFCOsrTsRmFRleLaw87QF6fCYP76NU6bplnhtuzNBQvvv+HFK+GS8SsuSwobGnpkXyQaRVCItWlsjSDJjPFwrvjChTvlsqDeO3GqHK1WmwbKd6rE+EC9aydkXj3Yl6fWH/opcX/GEG83CgURz07KTfmsmoCTiwQvSRmHWLJo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125951;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=LGJhBLD/rGtVH25p/q3S6FJSFFi3jXU9OsdlBCm3eUw=;
+	b=liWfSal4yJfrvKkkjJSC00lo34xn8P3+RQaVgMnNjIhMouhKGdsn9R8kb0UdrI5i
+	u1D0p1uQ/EvREeIidz4GDQzzkRfk1aiM/sjCzTzPePIbzQK6Ae5uilMErec8DnJHcUI
+	3QP6plNeaL11jIt6WMWxt+Ss+UGtQsxLkueVLnBQ=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717125949017267.84561388758357; Thu, 30 May 2024 20:25:49 -0700 (PDT)
+Date: Thu, 30 May 2024 23:25:48 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fccaea622.d3253794203434.3155365179207756121@shredex.ca>
+In-Reply-To: <31029127.20220407134514.624eeaea7f0cb8.22655773@mail136-16.atl41.mandrillapp.com>
+References: <31029127.20220407134514.624eeaea7f0cb8.22655773@mail136-16.atl41.mandrillapp.com>
+Subject: =?UTF-8?Q?Fwd:_Barry=E2=80=99s_Receipt?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_659844_1921182933.1717125948963"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_659844_1921182933.1717125948963
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Barry's <yorkville@barrys.com>
+To: "John Estrada"<john@shredex.ca>
+Date: Thu, 07 Apr 2022 09:45:14 -0400
+Subject: Barry=E2=80=99s Receipt
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+http://*|ARCHIVE|*
+
+
+
+
+
+
+
+
+
+
+https://mandrillapp.com/track/click/31029127/www.barrys.com?p=3DeyJzIjoiWmc=
+4VzBOX2VhSGZvaFhFeWRwcGwtMmJOSktjIiwidiI6MSwicCI6IntcInVcIjozMTAyOTEyNyxcIn=
+ZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d3dy5iYXJyeXMuY29tXFxcL1wiLFwiaWRcI=
+jpcImEyNGZlODI5MDM1YzQwNjQ4ZTVmYmE3YjlmZDIyYWYzXCIsXCJ1cmxfaWRzXCI6W1wiOWFj=
+MTU0ZmYxN2UzNDBhNjMyNWUxNmQ4ZGRhM2Y4ODM4ZDg3ZmRkNlwiXX0ifQ
+
+
+
+
+
+
+
+
+
+
+Barry's
+
+
+John Estrada
+
+Apr 7, 2022, 9:45:12 AM
+
+Order #KNCP-TZB2-4Q2F
+
+Sales Receipt
+
+
+
+Item
+
+Price
+
+
+TORONTO - (1) CLASS
+
+
+CA$34.00
+
+
+
+
+
+Subtotal
+
+CA$34.00
+
+
+Discount
+
+
+
+
+-
+
+
+Taxes
+
+CA$4.42
+
+
+Total
+
+
+CA$38.42
+
+
+Visa ending in 8945
+
+CA$38.42
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thank you!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://mandrillapp.com/track/click/31029127/www.facebook.com?p=3DeyJzIjoiN=
+ENWdl9yNUNpNW50R3B4eFpaWl9EN2l5UUE0IiwidiI6MSwicCI6IntcInVcIjozMTAyOTEyNyxc=
+InZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d3dy5mYWNlYm9vay5jb21cXFwvQmFycnl=
+zQm9vdGNhbXBcXFwvXCIsXCJpZFwiOlwiYTI0ZmU4MjkwMzVjNDA2NDhlNWZiYTdiOWZkMjJhZj=
+NcIixcInVybF9pZHNcIjpbXCI5NTgzZGU0NGU2OGJkNWUwZTcxNmYxZTE1ODAyNzhjYTAxNmNhY=
+jA1XCJdfSJ9 https://mandrillapp.com/track/click/31029127/www.instagram.com?=
+p=3DeyJzIjoieUFUZVNlaVZqbTNFdzNCeDNaXzlOeWVCc2xrIiwidiI6MSwicCI6IntcInVcIjo=
+zMTAyOTEyNyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d3dy5pbnN0YWdyYW0uY2=
+9tXFxcL2JhcnJ5c1xcXC9cIixcImlkXCI6XCJhMjRmZTgyOTAzNWM0MDY0OGU1ZmJhN2I5ZmQyM=
+mFmM1wiLFwidXJsX2lkc1wiOltcImU2OWE3YWY1YzA2ZWUzZDhkNjE1MTg4Zjk2NTgyMzgxNTBm=
+NDAwNTdcIl19In0
+
+
+
+
+
+
+
+
+
+https://mandrillapp.com/track/click/31029127/www.barrys.com?p=3DeyJzIjoiamN=
+XajU2TjZFWmFLRHMwUFgxcVBFZVFXdkJZIiwidiI6MSwicCI6IntcInVcIjozMTAyOTEyNyxcIn=
+ZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d3dy5iYXJyeXMuY29tXFxcL2JhcnJ5cy14X=
+FxcL1wiLFwiaWRcIjpcImEyNGZlODI5MDM1YzQwNjQ4ZTVmYmE3YjlmZDIyYWYzXCIsXCJ1cmxf=
+aWRzXCI6W1wiY2Y5Nzg3MGM4MTU3MTZhMTM2ODM5ZWQxMGIxYmQ5NGYyNDRkYTViNFwiXX0ifQ
+
+
+
+
+
+
+
+
+https://mandrillapp.com/track/click/31029127/apps.apple.com?p=3DeyJzIjoiSTZ=
+GNDRXU2tBczFpbVd0cHpZd3lQRU9acFB3IiwidiI6MSwicCI6IntcInVcIjozMTAyOTEyNyxcIn=
+ZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL2FwcHMuYXBwbGUuY29tXFxcL3VzXFxcL2Fwc=
+FxcXC9iYXJyeXMteFxcXC9pZDE1MzU5NjkzODNcIixcImlkXCI6XCJhMjRmZTgyOTAzNWM0MDY0=
+OGU1ZmJhN2I5ZmQyMmFmM1wiLFwidXJsX2lkc1wiOltcIjc0OTQzN2Y5OTUzMGNhZTA0OGYwYTd=
+jNGM2NWU4YmQ5ZmFjZWI5ODNcIl19In0 https://mandrillapp.com/track/click/310291=
+27/play.google.com?p=3DeyJzIjoidVhkVnR0Y2NfakxhakY3bzdtQmR0a2hzbno0IiwidiI6=
+MSwicCI6IntcInVcIjozMTAyOTEyNyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3B=
+sYXkuZ29vZ2xlLmNvbVxcXC9zdG9yZVxcXC9hcHBzXFxcL2RldGFpbHM_aWQ9Y29tLmJhcnJ5cy=
+ZobD1lbiZnbD1VU1wiLFwiaWRcIjpcImEyNGZlODI5MDM1YzQwNjQ4ZTVmYmE3YjlmZDIyYWYzX=
+CIsXCJ1cmxfaWRzXCI6W1wiYWRhMmMxYmYzZWVmMDAyNDcwM2IyYjU3ZjJjZjI3N2E1NjAyMmI1=
+NVwiXX0ifQ
+
+
+
+
+
+
+
+
+
+https://mandrillapp.com/track/click/31029127/www.barrys.com?p=3DeyJzIjoibzR=
+IQWZ1ZWh3N2tPNGg0c2NLSFRLSEcyYUJvIiwidiI6MSwicCI6IntcInVcIjozMTAyOTEyNyxcIn=
+ZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d3dy5iYXJyeXMuY29tXFxcL21lZGlhLWxhb=
+mRpbmctMS1saWdodFxcXC8_Z2NsaWQ9Q2owS0NRancwZW1IQmhDMUFSSXNBTDFRR05lS0ZTRFhv=
+b0pvNzZwT0tWbDdUbzRVUllfYUZFbG5Tb1JHaEQtRk5hV1MteVJDVVB4SFota2FBaUpvRUFMd19=
+3Y0ImZ2Nsc3JjPWF3LmRzXCIsXCJpZFwiOlwiYTI0ZmU4MjkwMzVjNDA2NDhlNWZiYTdiOWZkMj=
+JhZjNcIixcInVybF9pZHNcIjpbXCI0ZGYxMzAxMjY0YmRjYjRlMWQzMjYwMzM4YzA4NGYxZmNkM=
+WI2ZGVkXCJdfSJ9
+
+
+
+
+
+
+
+
+http://*|UNSUB|*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_659844_1921182933.1717125948963
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Barry's &lt;yorkville@barrys.com&gt;<br>To: "Jo=
+hn Estrada"&lt;john@shredex.ca&gt;<br>Date: Thu, 07 Apr 2022 09:45:14 -0400=
+<br>Subject: Barry=E2=80=99s Receipt<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D Forwarded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><div><b=
+r></div><blockquote id=3D"blockquote_zmail" style=3D"margin: 0px;"><div cla=
+ss=3D"zm_8849049910260382417_parse_-4623812673024701962" style=3D"height: 1=
+00%; margin: 0; padding: 0; width: 100%;"><table align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" width=3D"100%" id=
+=3D"x_-109907973bodyTable" style=3D"border-collapse: collapse; height: 100%=
+; margin: 0; padding: 0; width: 100%;"><tbody><tr><td align=3D"center" vali=
+gn=3D"top" id=3D"x_-109907973bodyCell" style=3D"height: 100%; margin: 0; pa=
+dding: 0; width: 100%;" width=3D"100%" height=3D"100%"><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"x_-109907973tem=
+plateContainer" style=3D"border-collapse: collapse;"><tbody><tr><td valign=
+=3D"top" id=3D"x_-109907973templatePreheader"><table border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"x_-109907973mcnTextBlock=
+" style=3D"border-collapse: collapse; min-width: 100.0%;"><tbody class=3D"x=
+_-109907973mcnTextBlockOuter"><tr><td valign=3D"top" class=3D"x_-109907973m=
+cnTextBlockInner" style=3D"padding-top: 9.0px;"><table align=3D"left" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse: colla=
+pse; max-width: 100.0%; min-width: 100.0%;" width=3D"100%" class=3D"x_-1099=
+07973mcnTextContentContainer"><tbody><tr><td valign=3D"top" class=3D"x_-109=
+907973mcnTextContent" style=3D"padding: 0.0px 18.0px 9.0px; color: rgb(34,3=
+4,34); text-align: center;" align=3D"center"><a href=3D"http://*|ARCHIVE|*"=
+ target=3D"_blank">View this email in your browser</a><br></td></tr></tbody=
+></table></td></tr></tbody></table></td></tr><tr><td valign=3D"top" id=3D"x=
+_-109907973templateHeader"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%" class=3D"x_-109907973mcnImageBlock" style=3D"border-=
+collapse: collapse; min-width: 100.0%;"><tbody class=3D"x_-109907973mcnImag=
+eBlockOuter"><tr><td valign=3D"top" style=3D"padding: 0.0px;" class=3D"x_-1=
+09907973mcnImageBlockInner"><table align=3D"left" width=3D"100%" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" class=3D"x_-109907973mcnImageContent=
+Container" style=3D"border-collapse: collapse; min-width: 100.0%;"><tbody><=
+tr><td class=3D"x_-109907973mcnImageContent" valign=3D"top" style=3D"paddin=
+g-right: 0.0px; padding-left: 0.0px; padding-top: 0; padding-bottom: 0; tex=
+t-align: center;" align=3D"center"><a href=3D"https://mandrillapp.com/track=
+/click/31029127/www.barrys.com?p=3DeyJzIjoiWmc4VzBOX2VhSGZvaFhFeWRwcGwtMmJO=
+SktjIiwidiI6MSwicCI6IntcInVcIjozMTAyOTEyNyxcInZcIjoxLFwidXJsXCI6XCJodHRwczp=
+cXFwvXFxcL3d3dy5iYXJyeXMuY29tXFxcL1wiLFwiaWRcIjpcImEyNGZlODI5MDM1YzQwNjQ4ZT=
+VmYmE3YjlmZDIyYWYzXCIsXCJ1cmxfaWRzXCI6W1wiOWFjMTU0ZmYxN2UzNDBhNjMyNWUxNmQ4Z=
+GRhM2Y4ODM4ZDg3ZmRkNlwiXX0ifQ" title=3D"" class=3D"" target=3D"_blank"><img=
+ align=3D"center" alt=3D"" id=3D"1649339121704100001_imgsrc_url_0" width=3D=
+"600" style=3D"border: 0; height: auto; outline: none; text-decoration: non=
+e; max-width: 1200.0px; padding-bottom: 0; display: inline; vertical-align:=
+ bottom;" class=3D"x_-109907973mcnImage" height=3D"auto"> </a><br></td></tr=
+></tbody></table></td></tr></tbody></table></td></tr><tr><td valign=3D"top"=
+ id=3D"x_-109907973templateBody"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" width=3D"100%" class=3D"x_-109907973mcnTextBlock" style=3D"bo=
+rder-collapse: collapse; min-width: 100.0%;"><tbody class=3D"x_-109907973mc=
+nTextBlockOuter"><tr><td valign=3D"top" class=3D"x_-109907973mcnTextBlockIn=
+ner" style=3D"padding-top: 9.0px;"><table align=3D"left" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse; max-widt=
+h: 100.0%; min-width: 100.0%;" width=3D"100%" class=3D"x_-109907973mcnTextC=
+ontentContainer"><tbody><tr><td valign=3D"top" class=3D"x_-109907973mcnText=
+Content" style=3D"padding-top: 0; padding-right: 18.0px; padding-bottom: 9.=
+0px; padding-left: 18.0px;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" height=3D"100%" width=3D"100%" style=3D"border-collapse: collapse;=
+"><tbody><tr><td align=3D"center" valign=3D"top"><table style=3D"border-col=
+lapse: collapse; font-family: HelveticaNeue-Light, &quot; undefined: Helvet=
+icaNeueLight&quot; undefined: ,&quot; undefined: HelveticaNeue&quot; undefi=
+ned: ,Helvetica,Arial,&quot; undefined: LucidaGrande&quot; undefined: ,sans=
+-serif;"><tbody><tr><td><table cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"border-collapse: collapse; margin: 0 auto; border: 1.0px solid rgb(229,235=
+,237); max-width: 600.0px; min-width: 400.0px; padding: 3.0em;" width=3D"10=
+0%"><tbody><tr><td align=3D"center" style=3D"padding-top: 1.0em; font-size:=
+ 1.5em; font-weight: 900;" valign=3D"top" width=3D"100%">Barry's<br></td></=
+tr><tr><td align=3D"center" style=3D"padding: 2.0em 0;"><p style=3D"margin:=
+ 10px 0; padding: 0; font-weight: 900; text-align: center;">John Estrada<br=
+></p><p style=3D"margin: 10px 0; padding: 0; text-align: center;">Apr 7, 20=
+22, 9:45:12 AM<br></p><p style=3D"margin: 10px 0; padding: 0; text-align: c=
+enter;">Order #KNCP-TZB2-4Q2F<br></p><p style=3D"margin: 10px 0; padding: 0=
+; text-align: center;">Sales Receipt<br></p></td></tr><tr><td><table class=
+=3D"x_-109907973gutter-row--top--xl" style=3D"border-collapse: collapse; bo=
+rder-color: rgb(229,235,237); border-spacing: 0; min-width: 100.0%; margin-=
+top: 32.0px;"><tbody><tr class=3D"x_-109907973order-detail__row x_-10990797=
+3table__row__first x_-109907973header-labels"><th class=3D"x_-109907973type=
+-title-4 x_-109907973order-detail__cell--header x_-109907973grid__column--a=
+lign--left" style=3D"font-size: 16.0px;font-weight: bold;line-height: 1.5;t=
+ext-align: left;vertical-align: top;border-bottom: 1.0px solid rgb(229,235,=
+237);border-top: 1.0px solid rgb(229,235,237);padding-bottom: 16.0px;">Item=
+<br></th><th class=3D"x_-109907973type-title-4 x_-109907973order-detail__ce=
+ll--header x_-109907973text-right" style=3D"font-size: 16.0px;font-weight: =
+bold;line-height: 1.5;text-align: right;vertical-align: top;border-bottom: =
+1.0px solid rgb(229,235,237);border-top: 1.0px solid rgb(229,235,237);paddi=
+ng-bottom: 16.0px;">Price<br></th></tr><tr class=3D"x_-109907973order-detai=
+l__row x_-109907973order-detail__cell--line x_-109907973order-detail__row--=
+divider--top"><td scope=3D"row" style=3D"vertical-align: top; padding-top: =
+16.0px; padding-bottom: 16.0px;" valign=3D"top"><div>TORONTO - (1) CLASS<br=
+></div></td><td class=3D"x_-109907973text-right" style=3D"text-align: right=
+; vertical-align: top; padding-top: 16.0px; padding-bottom: 16.0px;" align=
+=3D"right" valign=3D"top">CA$34.00<br></td></tr><tr class=3D"x_-109907973or=
+der-detail__row x_-109907973order-detail__row--padding--bottom"><td colspan=
+=3D"2" style=3D"color: rgb(181,131,4); line-height: 1.5; font-style: italic=
+; padding-bottom: 16.0px;"><br></td></tr><tr class=3D"x_-109907973order-det=
+ail__row x_-109907973order-detail__row--divider--top" style=3D"border-top: =
+1.0px solid rgb(229,235,237);"><td style=3D"vertical-align: top; padding-to=
+p: 16.0px;" valign=3D"top">Subtotal<br></td><td class=3D"x_-109907973text-r=
+ight" style=3D"text-align: right; vertical-align: top; padding-top: 16.0px;=
+" align=3D"right" valign=3D"top"><span>CA$34.00</span><br></td></tr><tr cla=
+ss=3D"x_-109907973order-detail__row"><td class=3D"x_-109907973order-detail_=
+_cell" colspan=3D"2" scope=3D"col" style=3D"vertical-align: top; padding-to=
+p: 8.0px;" valign=3D"top">Discount<br></td></tr><tr class=3D"x_-109907973or=
+der-detail__row x_-109907973order-detail__discount x_-109907973order-detail=
+__cell--item"><td class=3D"x_-109907973type-secondary" style=3D"color: rgb(=
+117,116,117); vertical-align: top; padding-top: 4.0px;" valign=3D"top"><br>=
+</td><td class=3D"x_-109907973text-right" style=3D"text-align: right; verti=
+cal-align: top; padding-top: 4.0px;" align=3D"right" valign=3D"top">-<br></=
+td></tr><tr class=3D"x_-109907973order-detail__row x_-109907973order-detail=
+__tax" style=3D"font-size: 16.0px;line-height: 1.5;vertical-align: top;padd=
+ing-top: 8.0px;"><td>Taxes<br></td><td class=3D"x_-109907973text-right" sty=
+le=3D"font-size: 16.0px; line-height: 1.5; text-align: right; vertical-alig=
+n: top; padding-top: 8.0px;" align=3D"right" valign=3D"top">CA$4.42<br></td=
+></tr><tr class=3D"x_-109907973order-detail__row x_-109907973order-detail__=
+total x_-109907973order-detail__row--divider--bottom" style=3D"border-botto=
+m: 1.0px solid rgb(229,235,237);"><td scope=3D"row" style=3D"vertical-align=
+: top; padding-top: 8.0px; padding-bottom: 16.0px;" valign=3D"top"><div cla=
+ss=3D"x_-109907973type-title-4" style=3D"font-size: 16.0px;font-weight: bol=
+d;line-height: 1.5;">Total<br></div></td><td class=3D"x_-109907973type-titl=
+e-4 x_-109907973text-right x_-109907973order-detail__total" style=3D"font-s=
+ize: 16.0px; font-weight: bold; line-height: 1.5; text-align: right; vertic=
+al-align: top; padding-top: 8.0px; padding-bottom: 16.0px;" align=3D"right"=
+ valign=3D"top"><span>CA$38.42</span><br></td></tr><tr class=3D"x_-10990797=
+3order-detail__row"><td class=3D"x_-109907973payment-method-label" scope=3D=
+"row" style=3D"vertical-align: top; padding-top: 16.0px; padding-bottom: 0.=
+0px;" valign=3D"top">Visa ending in 8945<br></td><td class=3D"x_-109907973t=
+ext-right" style=3D"text-align: right; vertical-align: top; padding-top: 16=
+.0px; padding-bottom: 0.0px;" align=3D"right" valign=3D"top"><span>CA$38.42=
+</span><br></td></tr></tbody><tfoot><tr class=3D"x_-109907973order-detail__=
+row"><td class=3D"x_-109907973order__footer" colspan=3D"2" style=3D"vertica=
+l-align: top; padding: 32.0px 0 0;" valign=3D"top"><br></td></tr></tfoot></=
+table></td></tr></tbody></table></td></tr><tr><td align=3D"center" style=3D=
+"font-size: 0.875em; padding-top: 2.0em;"><p style=3D"padding: 0; font-weig=
+ht: 900; margin: 0.0px; text-align: center;">Thank you!<br></p></td></tr></=
+tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr=
+></tbody></table></td></tr><tr><td valign=3D"top" id=3D"x_-109907973templat=
+eFooter"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"x_-109907973mcnTextBlock" style=3D"border-collapse: collapse;=
+ min-width: 100.0%;"><tbody class=3D"x_-109907973mcnTextBlockOuter"><tr><td=
+ valign=3D"top" class=3D"x_-109907973mcnTextBlockInner" style=3D"padding-to=
+p: 9.0px;"><table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse: collapse; max-width: 100.0%; min-width: 10=
+0.0%;" width=3D"100%" class=3D"x_-109907973mcnTextContentContainer"><tbody>=
+<tr><td valign=3D"top" class=3D"x_-109907973mcnTextContent" style=3D"paddin=
+g: 0.0px 18.0px 9.0px; line-height: 100.0%;"><div style=3D"text-align: cent=
+er;"><a href=3D"https://mandrillapp.com/track/click/31029127/www.facebook.c=
+om?p=3DeyJzIjoiNENWdl9yNUNpNW50R3B4eFpaWl9EN2l5UUE0IiwidiI6MSwicCI6IntcInVc=
+IjozMTAyOTEyNyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d3dy5mYWNlYm9vay5=
+jb21cXFwvQmFycnlzQm9vdGNhbXBcXFwvXCIsXCJpZFwiOlwiYTI0ZmU4MjkwMzVjNDA2NDhlNW=
+ZiYTdiOWZkMjJhZjNcIixcInVybF9pZHNcIjpbXCI5NTgzZGU0NGU2OGJkNWUwZTcxNmYxZTE1O=
+DAyNzhjYTAxNmNhYjA1XCJdfSJ9" target=3D"_blank"><img height=3D"36" id=3D"164=
+9339121704100001_imgsrc_url_1" style=3D"outline: none; text-decoration: non=
+e; border: 0.0px; width: 40.0px; height: 36.0px; margin: 0.0px;" width=3D"4=
+0"></a> <a href=3D"https://mandrillapp.com/track/click/31029127/www.instagr=
+am.com?p=3DeyJzIjoieUFUZVNlaVZqbTNFdzNCeDNaXzlOeWVCc2xrIiwidiI6MSwicCI6Intc=
+InVcIjozMTAyOTEyNyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d3dy5pbnN0YWd=
+yYW0uY29tXFxcL2JhcnJ5c1xcXC9cIixcImlkXCI6XCJhMjRmZTgyOTAzNWM0MDY0OGU1ZmJhN2=
+I5ZmQyMmFmM1wiLFwidXJsX2lkc1wiOltcImU2OWE3YWY1YzA2ZWUzZDhkNjE1MTg4Zjk2NTgyM=
+zgxNTBmNDAwNTdcIl19In0" target=3D"_blank"><img height=3D"36" id=3D"16493391=
+21704100001_imgsrc_url_2" style=3D"outline: none; text-decoration: none; bo=
+rder: 0.0px; width: 40.0px; height: 36.0px; margin: 0.0px;" width=3D"40"></=
+a><br></div></td></tr></tbody></table></td></tr></tbody></table><table bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"x_-109=
+907973mcnImageBlock" style=3D"border-collapse: collapse; min-width: 100.0%;=
+"><tbody class=3D"x_-109907973mcnImageBlockOuter"><tr><td valign=3D"top" st=
+yle=3D"padding: 0.0px;" class=3D"x_-109907973mcnImageBlockInner"><table ali=
+gn=3D"left" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ class=3D"x_-109907973mcnImageContentContainer" style=3D"border-collapse: c=
+ollapse; min-width: 100.0%;"><tbody><tr><td class=3D"x_-109907973mcnImageCo=
+ntent" valign=3D"top" style=3D"padding-right: 0.0px; padding-left: 0.0px; p=
+adding-top: 0; padding-bottom: 0; text-align: center;" align=3D"center"><a =
+href=3D"https://mandrillapp.com/track/click/31029127/www.barrys.com?p=3DeyJ=
+zIjoiamNXajU2TjZFWmFLRHMwUFgxcVBFZVFXdkJZIiwidiI6MSwicCI6IntcInVcIjozMTAyOT=
+EyNyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d3dy5iYXJyeXMuY29tXFxcL2Jhc=
+nJ5cy14XFxcL1wiLFwiaWRcIjpcImEyNGZlODI5MDM1YzQwNjQ4ZTVmYmE3YjlmZDIyYWYzXCIs=
+XCJ1cmxfaWRzXCI6W1wiY2Y5Nzg3MGM4MTU3MTZhMTM2ODM5ZWQxMGIxYmQ5NGYyNDRkYTViNFw=
+iXX0ifQ" title=3D"" class=3D"" target=3D"_blank"><img align=3D"center" alt=
+=3D"" id=3D"1649339121704100001_imgsrc_url_3" width=3D"600" style=3D"border=
+: 0; height: auto; outline: none; text-decoration: none; max-width: 1200.0p=
+x; padding-bottom: 0; display: inline; vertical-align: bottom;" class=3D"x_=
+-109907973mcnImage" height=3D"auto"> </a><br></td></tr></tbody></table></td=
+></tr></tbody></table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"100%" class=3D"x_-109907973mcnTextBlock" style=3D"border-collap=
+se: collapse; min-width: 100.0%;"><tbody class=3D"x_-109907973mcnTextBlockO=
+uter"><tr><td valign=3D"top" class=3D"x_-109907973mcnTextBlockInner" style=
+=3D"padding-top: 9.0px;"><table align=3D"left" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"border-collapse: collapse; max-width: 100.0%;=
+ min-width: 100.0%;" width=3D"100%" class=3D"x_-109907973mcnTextContentCont=
+ainer"><tbody><tr><td valign=3D"top" class=3D"x_-109907973mcnTextContent" s=
+tyle=3D"padding: 0.0px 18.0px 9.0px; line-height: 100.0%;"><div style=3D"te=
+xt-align: center;"><a href=3D"https://mandrillapp.com/track/click/31029127/=
+apps.apple.com?p=3DeyJzIjoiSTZGNDRXU2tBczFpbVd0cHpZd3lQRU9acFB3IiwidiI6MSwi=
+cCI6IntcInVcIjozMTAyOTEyNyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL2FwcHM=
+uYXBwbGUuY29tXFxcL3VzXFxcL2FwcFxcXC9iYXJyeXMteFxcXC9pZDE1MzU5NjkzODNcIixcIm=
+lkXCI6XCJhMjRmZTgyOTAzNWM0MDY0OGU1ZmJhN2I5ZmQyMmFmM1wiLFwidXJsX2lkc1wiOltcI=
+jc0OTQzN2Y5OTUzMGNhZTA0OGYwYTdjNGM2NWU4YmQ5ZmFjZWI5ODNcIl19In0" target=3D"_=
+blank"><img height=3D"29" id=3D"1649339121704100001_imgsrc_url_4" style=3D"=
+outline: none; text-decoration: none; border: 0.0px initial; width: 100.0px=
+; height: 29.0px; margin: 0.0px;" width=3D"100"></a> <a href=3D"https://man=
+drillapp.com/track/click/31029127/play.google.com?p=3DeyJzIjoidVhkVnR0Y2Nfa=
+kxhakY3bzdtQmR0a2hzbno0IiwidiI6MSwicCI6IntcInVcIjozMTAyOTEyNyxcInZcIjoxLFwi=
+dXJsXCI6XCJodHRwczpcXFwvXFxcL3BsYXkuZ29vZ2xlLmNvbVxcXC9zdG9yZVxcXC9hcHBzXFx=
+cL2RldGFpbHM_aWQ9Y29tLmJhcnJ5cyZobD1lbiZnbD1VU1wiLFwiaWRcIjpcImEyNGZlODI5MD=
+M1YzQwNjQ4ZTVmYmE3YjlmZDIyYWYzXCIsXCJ1cmxfaWRzXCI6W1wiYWRhMmMxYmYzZWVmMDAyN=
+DcwM2IyYjU3ZjJjZjI3N2E1NjAyMmI1NVwiXX0ifQ" target=3D"_blank"><img height=3D=
+"29" id=3D"1649339121704100001_imgsrc_url_5" style=3D"outline: none; text-d=
+ecoration: none; border: 0.0px; width: 100.0px; height: 29.0px; margin: 0.0=
+px;" width=3D"100"></a><br></div></td></tr></tbody></table></td></tr></tbod=
+y></table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" class=3D"x_-109907973mcnImageBlock" style=3D"border-collapse: collaps=
+e; min-width: 100.0%;"><tbody class=3D"x_-109907973mcnImageBlockOuter"><tr>=
+<td valign=3D"top" style=3D"padding: 0.0px;" class=3D"x_-109907973mcnImageB=
+lockInner"><table align=3D"left" width=3D"100%" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"x_-109907973mcnImageContentContainer" style=
+=3D"border-collapse: collapse; min-width: 100.0%;"><tbody><tr><td class=3D"=
+x_-109907973mcnImageContent" valign=3D"top" style=3D"padding-right: 0.0px; =
+padding-left: 0.0px; padding-top: 0; padding-bottom: 0; text-align: center;=
+" align=3D"center"><a href=3D"https://mandrillapp.com/track/click/31029127/=
+www.barrys.com?p=3DeyJzIjoibzRIQWZ1ZWh3N2tPNGg0c2NLSFRLSEcyYUJvIiwidiI6MSwi=
+cCI6IntcInVcIjozMTAyOTEyNyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d3dy5=
+iYXJyeXMuY29tXFxcL21lZGlhLWxhbmRpbmctMS1saWdodFxcXC8_Z2NsaWQ9Q2owS0NRancwZW=
+1IQmhDMUFSSXNBTDFRR05lS0ZTRFhvb0pvNzZwT0tWbDdUbzRVUllfYUZFbG5Tb1JHaEQtRk5hV=
+1MteVJDVVB4SFota2FBaUpvRUFMd193Y0ImZ2Nsc3JjPWF3LmRzXCIsXCJpZFwiOlwiYTI0ZmU4=
+MjkwMzVjNDA2NDhlNWZiYTdiOWZkMjJhZjNcIixcInVybF9pZHNcIjpbXCI0ZGYxMzAxMjY0YmR=
+jYjRlMWQzMjYwMzM4YzA4NGYxZmNkMWI2ZGVkXCJdfSJ9" title=3D"" class=3D"" target=
+=3D"_blank"><img align=3D"center" alt=3D"" id=3D"1649339121704100001_imgsrc=
+_url_6" width=3D"600" style=3D"border: 0; height: auto; outline: none; text=
+-decoration: none; max-width: 1200.0px; padding-bottom: 0; display: inline;=
+ vertical-align: bottom;" class=3D"x_-109907973mcnImage" height=3D"auto"> <=
+/a><br></td></tr></tbody></table></td></tr></tbody></table><table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"x_-10990797=
+3mcnImageBlock" style=3D"border-collapse: collapse; min-width: 100.0%;"><tb=
+ody class=3D"x_-109907973mcnImageBlockOuter"><tr><td valign=3D"top" style=
+=3D"padding: 0.0px;" class=3D"x_-109907973mcnImageBlockInner"><table align=
+=3D"left" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" c=
+lass=3D"x_-109907973mcnImageContentContainer" style=3D"border-collapse: col=
+lapse; min-width: 100.0%;"><tbody><tr><td class=3D"x_-109907973mcnImageCont=
+ent" valign=3D"top" style=3D"padding-right: 0.0px; padding-left: 0.0px; pad=
+ding-top: 0; padding-bottom: 0; text-align: center;" align=3D"center"><a hr=
+ef=3D"http://*|UNSUB|*" title=3D"" class=3D"" target=3D"_blank"><img align=
+=3D"center" alt=3D"" id=3D"1649339121704100001_imgsrc_url_7" width=3D"600" =
+style=3D"border: 0; height: auto; outline: none; text-decoration: none; max=
+-width: 1200.0px; padding-bottom: 0; display: inline; vertical-align: botto=
+m;" class=3D"x_-109907973mcnImage" height=3D"auto"> </a><br></td></tr></tbo=
+dy></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></=
+tbody></table><img id=3D"1649339121704100001_imgsrc_url_8" height=3D"auto" =
+width=3D"1" style=3D"border: 0; height: auto; outline: none; text-decoratio=
+n: none;"></div></blockquote></div><div><br></div><div class=3D"zmail_signa=
+ture_below"><div id=3D"" data-zbluepencil-ignore=3D"true" data-sigid=3D"618=
+9300000000739006"><div>Regards,<br></div><div><br></div><div>John E. Estrad=
+a<br></div><div><br></div><div>---------------------------------------<br><=
+/div><div><br></div><p style=3D"font-style: normal; font-weight: 400; lette=
+r-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; whit=
+e-space: normal; widows: 2; word-spacing: 0px"><span class=3D"highlight" st=
+yle=3D"background-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D=
+"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:Verdana, Ari=
+al, Helvetica, sans-serif"><span class=3D"size" style=3D"font-size:13.3333p=
+x"><span class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)">=
+<b><span class=3D"colour" style=3D"color:rgb(0, 102, 0)"><span class=3D"fon=
+t" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><s=
+pan class=3D"size" style=3D"font-size:14.66px">START SHREDDING INC. (shredE=
+X)</span></span></span></b><span class=3D"colour" style=3D"color:rgb(51, 51=
+, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, s=
+ans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br=
+>208 Evans Ave, Toronto, ON M8Z 1J7<br></span></span></span><b><span class=
+=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"f=
+ont-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"=
+size" style=3D"font-size:14.66px">E:<span>&nbsp;<a href=3D"mailto:john@shre=
+dex.ca" target=3D"_blank" style=3D"color: rgb(0, 0, 238)">john@shredex.ca</=
+a>&nbsp;</span>W: <a target=3D"_blank" href=3D"http://www.startshredding.co=
+m" style=3D"color: rgb(0, 0, 238)">www.startshredding.com</a><br></span></s=
+pan></span></b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span=
+ class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, s=
+ans-serif"><span class=3D"size" style=3D"font-size:14.66px">DIRECT:&nbsp;</=
+span></span></span><a style=3D"color: rgb(17, 85, 204); cursor: default" ta=
+rget=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><spa=
+n class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, =
+sans-serif"><span class=3D"size" style=3D"font-size:14.66px">416.255.1500</=
+span></span></span></a><span class=3D"colour" style=3D"color:rgb(51, 51, 51=
+)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-=
+serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br>TOL=
+L FREE:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, 204); curs=
+or: default" target=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51=
+, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Aria=
+l, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"=
+>1.866.868.9585</span></span></span></a></span></span></span></span></span>=
+</p><p style=3D"font-style: normal; font-weight: 400; letter-spacing: norma=
+l; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal;=
+ widows: 2; word-spacing: 0px"><span class=3D"highlight" style=3D"backgroun=
+d-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0,=
+ 0)"><span class=3D"font" style=3D"font-family:Verdana, Arial, Helvetica, s=
+ans-serif"><span class=3D"size" style=3D"font-size:13.3333px"><span class=
+=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><span class=3D=
+"colour" style=3D"color:rgb(34, 34, 34)"><span class=3D"font" style=3D"font=
+-family:arial, sans-serif"><span class=3D"size" style=3D"font-size:small"><=
+span class=3D"colour" style=3D"color:gray"><span class=3D"font" style=3D"fo=
+nt-family:Arial, sans-serif"><span class=3D"size" style=3D"font-size:7.5pt"=
+>This message and any attachments are the property of the&nbsp;SHREDEX INC.=
+&nbsp;or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.</span></span></span></span></span></span></span></span></span></spa=
+n></span><br></p><div id=3D""><div><br></div></div><div><br></div></div></d=
+iv><div><br></div></div><br></body></html>
+------=_Part_659844_1921182933.1717125948963--
+

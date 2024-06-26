@@ -1,0 +1,532 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp183877rbd;
+        Thu, 30 May 2024 20:05:10 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG6RI/2Wsv31QBR+O7i3ktT8RcyqRQv7GAx3tNe5E9szkHgXtLt5iMpcsVE7G5FAbCryPjL
+X-Received: by 2002:a05:6358:e9e:b0:18e:3ec:94cb with SMTP id e5c5f4694b2df-19b48d80db0mr84261455d.14.1717124689150;
+        Thu, 30 May 2024 20:04:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717124689; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=Ol+F0D+LT8IlOhXqjjrze8JBw1hRxkQBqH1ddXh/W8hZktdFZDpDGw3s/apsrUhinW
+         ZzJE+wbzNmZGm2eiWL1QY7KyF3m3Exc1trhUBz+jUngpIFVpChY84UvPU5VtP3nczr2v
+         ArLt/8G8wdby13MMT95lf4dKXqBzuqI/QLyDvUSW3w6JiTKMgbcfWscWeGOnbQYhPv1q
+         mmKcS3b3Ji6nuOiEljHOFWCXLIFaaX8ZvyGpeITFDyrkIgUrHypUfHkglx1168LV7Efs
+         YwPxjbzWurSD+Zq4+pS8yElbFwXo/CasBfALoPvabxJPZsvOcjNyDzI+XxBVK/3aF3+m
+         rMvA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=yii/C0cHo65VMQa1ybxarWzjPu2WtwgZn3IqtXCkm/s=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=lO1UKiDgaK8m/xWFcvBmKAvhf434UUppjBgC8mXCBytROTqxVuhQIzA0yea3Rev0R5
+         c6YiLMbv1hyKAaU6RIuy0LgT6raDpDsUr1fFVUoyo02r0ozftHF/jeWWB8sWgmYeqgeb
+         Kl0gqw5LpXg8QyVJz35AiFywOAhszPPMXHG0s7Guj5lExPu7iWYqbL71swJ1iMvbQo6N
+         5R6FuKDoxyfxlSekCsIqJ5o7MU/L6pbPgLJVlEyLXwNY/QbSQ3r0MgeUBuULC3vfkc3F
+         kS3zx3k1C7Me2QbL4iLW5UTk1SY4T9QhCpQJfTDsPLDXn3WXkWPUGgHt4nH6/WtBperk
+         2jug==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b="LH/fFIJF";
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o19.zoho.com (sender3-op-o19.zoho.com. [136.143.184.19])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-6c35c18112esi740673a12.654.2024.05.30.20.04.48
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:04:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) client-ip=136.143.184.19;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b="LH/fFIJF";
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717124688; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=fVH+HgVClQyuwO+e3vckO6UQ2m+jbSN1IrN5kuBc/a1Ex3kAUIUXIXsZFN/d4ISj++ynAr0QVwaEco9cl5Su4ClbaqAchVd8TRwk45t1nNy08Ese6AAA8d8lWowItpIYRbryDoFVS1lh0GmSKjGral0XiXDfTTZbCXBp0p9FL1I=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717124688; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=yii/C0cHo65VMQa1ybxarWzjPu2WtwgZn3IqtXCkm/s=; 
+	b=jNgny6E+Y9EAmIu2qWRp/HUJpTuMUdqKVy38m7Ci9n1zvfcDIsB5JYXrAtZUemoXO8bFAhH7NfqS9jjFJ9U9rqbDncLv8B3rC06OdgyCO+r+Qpj4Ur+pL8QrNht5RyNPewAwJ1jLC6u7QnSq7wV8BDLUyHbtBwUpXK5Uv2aiehQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717124688;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=yii/C0cHo65VMQa1ybxarWzjPu2WtwgZn3IqtXCkm/s=;
+	b=LH/fFIJFtcle+cFX/mX2k43Ko/lBNgZ/SQjkB0xxdmmEcsEotXrEXd7yn9seLEWw
+	rQ0tX5p3pcX8J4qaddnWCAEIRJXkHbrT8XNi82Ops/Ndw3AlIIZBtz22kvn7EfipuGD
+	CMiZvBoIxl8gP5dK/ZsnSpMReKE1Pru+xgS+DTW0=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717124686885242.9408188064516; Thu, 30 May 2024 20:04:46 -0700 (PDT)
+Date: Thu, 30 May 2024 23:04:46 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcc9b63ed.1059e5643200966.8376517825157850531@shredex.ca>
+In-Reply-To: <20240529011416.D76F2E7B6D@smtp.ascendon.tv>
+References: <20240529011416.D76F2E7B6D@smtp.ascendon.tv>
+Subject: Fwd: Crave Subscription Receipt
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_651769_1641959448.1717124686830"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_651769_1641959448.1717124686830
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Crave <do_not_reply@crave.ca>
+To: <john@backpocket.ca>
+Date: Tue, 28 May 2024 21:14:16 -0400
+Subject: Crave Subscription Receipt
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+https://crave.ca
+
+
+
+
+
+
+Crave Subscription Receipt
+
+Your subscription was successfully processed.
+
+For future reference, your order number is 284185412.
+
+Here=E2=80=99s a summary of your charges:
+
+Plan:
+
+=C2=A0=C2=A0
+
+Crave - Crave Premium Ad-free (Annual)
+
+$220.00
+
+
+
+
+
+
+Tax:
+
+=C2=A0=C2=A0
+
+$28.60
+
+
+Tax Details:
+
+=C2=A0=C2=A0
+
+HST
+
+$28.60
+
+
+
+
+
+
+Total:
+
+=C2=A0=C2=A0
+
+$248.60
+
+
+
+
+Your subscription plan(s) (Crave and any selected Add-on) will automaticall=
+y renew according to your selected period (except in Quebec where all subsc=
+riptions will automatically renew to a monthly period) and your credit card=
+ will be charged the then applicable subscription fees, unless you cancel y=
+our subscription or make a different selection prior to your renewal date. =
+In all cases, renewal will be at the then applicable charges.  There are no=
+ refunds on paid subscription fees. Prices subject to change.
+
+You can change your subscription or cancel https://account.bellmedia.ca/acc=
+ount/subscriptions/.
+
+https://www.crave.ca
+
+Thank you,=20
+  Crave Customer Service Team
+Please read the Crave https://www.crave.ca/terms-and-conditions-84360459 or=
+ https://www.bell.ca/privacy These include important information regarding =
+amendments to the agreement, pricing, renewals and cancelation rights.
+
+
+
+https://instagram.com/cravecanada/
+
+https://twitter.com/CraveCanada
+
+https://www.facebook.com/CraveCanada
+
+
+
+
+
+
+
+
+
+
+
+
+This email was sent to mailto:john@backpocket.ca.=20
+ https://www.crave.ca/terms-and-conditions-84360459 and https://support.bel=
+l.ca/Billing-and-Accounts/Security_and_privacy/How_does_Bell_respect_my_pri=
+vacy=20
+ Crave promotional offers may be subject to additional terms. Please refer =
+to the promotional offer for any additional terms.=20
+ Please do not respond to this message by using the =E2=80=9CReply=E2=80=9D=
+ function.=20
+ Bell Media | 299 Queen Street West, Toronto, ON, M5V 2Z5 | 1-888-CRAVE88(2=
+72-8388) | mailto:help@crave.ca=20
+ Bell Media Inc. GST/HST: 861701399RT0001 QST: 1087079798TQ0001=20
+ Copyright =C2=A9 2022. Bell Media. All Rights Reserved.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_651769_1641959448.1717124686830
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Crave &lt;do_not_reply@crave.ca&gt;<br>To: &lt;=
+john@backpocket.ca&gt;<br>Date: Tue, 28 May 2024 21:14:16 -0400<br>Subject:=
+ Crave Subscription Receipt<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forward=
+ed message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><div><br></div><bl=
+ockquote id=3D"blockquote_zmail" style=3D"margin: 0px;"><style>div.zm_44000=
+87437262574666_parse_3402870988928441183 .x_1406924038headerContent a:link,
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038headerCon=
+tent a:visited,
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038headerCon=
+tent a .x_1406924038yshortcuts {
+  color: rgb(235, 65, 2);
+  font-weight: normal;
+  text-decoration: underline;
+}
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038bodyConte=
+nt a:link,
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038bodyConte=
+nt a:visited,
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038bodyConte=
+nt a .x_1406924038yshortcuts {
+  color: rgb(0, 192, 246);
+  font-weight: normal;
+  text-decoration: none;
+}
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038bodyConte=
+nt a:hover,
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038bodyConte=
+nt a:focus {
+  text-decoration: underline;
+  color: rgb(0, 192, 246);
+}
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038bodyConte=
+nt a:active {
+  color: rgb(15, 162, 199);
+}
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038footerCon=
+tent a:link,
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038footerCon=
+tent a:visited,
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038footerCon=
+tent a .x_1406924038yshortcuts,
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038footerCon=
+tent a span {
+  color: rgb(69, 69, 69);
+  font-weight: normal;
+  text-decoration: underline;
+}
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038footerCon=
+tent a:hover,
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038footerCon=
+tent a:focus {
+  color: rgb(0, 192, 246);
+}
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038btn:hover=
+,
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038btn:focus=
+ {
+  text-decoration: none !important;
+  background-color: rgb(47, 212, 255) !important;
+  color: rgb(255, 255, 255) !important;
+}
+div.zm_4400087437262574666_parse_3402870988928441183 .x_1406924038btn:activ=
+e {
+  text-decoration: none !important;
+  background-color: rgb(0, 173, 217) !important;
+  color: rgb(219, 219, 219) !important;
+}</style><div class=3D"zm_4400087437262574666_parse_3402870988928441183" st=
+yle=3D"font-family: Arial, Sans-Serif, 'proxima-nova'; margin: 0; padding: =
+0; background-color: rgb(4, 6, 29); height: 100%; width: 100%;"><table alig=
+n=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"100=
+%" width=3D"100%" id=3D"x_1406924038bodyTable" style=3D"margin: 0; padding:=
+ 0; background-color: rgb(4, 6, 29); border-collapse: collapse; height: 100=
+%; width: 100%;" bgcolor=3D"rgb(4, 6, 29)"><tbody><tr><td align=3D"center" =
+valign=3D"top" id=3D"x_1406924038bodyCell" style=3D"margin: 0; padding: 45p=
+x 20px 20px; height: 100%; width: 100%;" width=3D"100%" height=3D"100%"><ta=
+ble border=3D"0" cellpadding=3D"0" cellspacing=3D"0" id=3D"x_1406924038temp=
+lateContainer" style=3D"width: 650px; border-collapse: collapse;" width=3D"=
+650"><tbody><tr><td align=3D"center" valign=3D"top"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" width=3D"100%" id=3D"x_1406924038templateH=
+eader" style=3D"border-collapse: collapse;"><tbody><tr><td valign=3D"middle=
+" class=3D"x_1406924038headerContent" style=3D"padding-top: 0; padding-righ=
+t: 0; padding-bottom: 0; padding-left: 0; text-align: center; vertical-alig=
+n: middle; background: rgb(0, 8, 63); height: 98px;" height=3D"98" align=3D=
+"center"><a href=3D"https://crave.ca" target=3D"_blank"><img id=3D"17169452=
+60841100001_imgsrc_url_0" src=3D"https://account.bellmedia.ca/assets/img/ne=
+wsletter/crave/logo.png" style=3D"border: 0; height: auto; line-height: 100=
+%; outline: none; text-decoration: none;" height=3D"auto"> </a><br></td></t=
+r></tbody></table></td></tr><tr><td align=3D"center" valign=3D"top"><table =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" id=3D"x_140=
+6924038templateBody" style=3D"background-color: rgb(255, 255, 255); border-=
+bottom: 5px solid rgb(0, 192, 246); border-collapse: collapse;" bgcolor=3D"=
+rgb(255, 255, 255)"><tbody><tr><td valign=3D"top" class=3D"x_1406924038body=
+Content" style=3D"color: rgb(80, 80, 80); font-family: Arial, Sans-Serif, '=
+proxima-nova'; font-size: 14px; line-height: 150%; padding-top: 45px; paddi=
+ng-right: 75px; padding-bottom: 0px; padding-left: 75px; text-align: left;"=
+ align=3D"left"><h1 style=3D"display: block; font-family: Arial, Sans-Serif=
+, 'proxima-nova'; font-size: 30px; font-style: normal; font-weight: normal;=
+ line-height: 100%; letter-spacing: normal; margin-top: 0; margin-right: 0;=
+ margin-bottom: 30px; margin-left: 0; text-align: left; color: rgb(0, 0, 0)=
+;">Crave Subscription Receipt<br></h1><p style=3D"margin-bottom: 30px;"><sp=
+an class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=
+=3D"font-family:Arial, sans-serif, proxima-nova"><span class=3D"size" style=
+=3D"font-size: 18px; margin-bottom: 30px;">Your subscription was successful=
+ly processed.</span></span></span><br></p><p style=3D"margin-bottom: 30px;"=
+><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" s=
+tyle=3D"font-family:Arial, sans-serif, proxima-nova"><span class=3D"size" s=
+tyle=3D"font-size: 18px; margin-bottom: 30px;">For future reference, your o=
+rder number is 284185412.</span></span></span><br></p><p style=3D"margin-bo=
+ttom: 30px;"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span clas=
+s=3D"font" style=3D"font-family:Arial, sans-serif, proxima-nova"><span clas=
+s=3D"size" style=3D"font-size: 18px; margin-bottom: 30px;">Here=E2=80=99s a=
+ summary of your charges:</span></span></span><br></p><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" style=3D"font-family: Arial, Sans-Serif,=
+ &quot; undefined: proxima-nova&quot; font-size: 18px; color: rgb(0, 0, 0);=
+ border-collapse: collapse;"><tbody><tr><td>Plan:<br></td><td>&nbsp;&nbsp;<=
+br></td><td><table class=3D"x_1406924038orderQuote" style=3D"font-family: A=
+rial, Sans-Serif, 'proxima-nova'; font-size: 18px; color: rgb(0, 0, 0); mar=
+gin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-colla=
+pse: collapse;"><tbody><tr class=3D"x_1406924038orderQuoteItem" style=3D"fo=
+nt-family: Arial, Sans-Serif, 'proxima-nova'; font-size: 18px; color: rgb(0=
+, 0, 0); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;"=
+><td class=3D"x_1406924038orderQuoteItemName">Crave - Crave Premium Ad-free=
+ (Annual)<br></td><td class=3D"x_1406924038orderQuoteItemAmount">$220.00<br=
+></td></tr></tbody></table></td></tr><tr><td>Tax:<br></td><td>&nbsp;&nbsp;<=
+br></td><td>$28.60<br></td></tr><tr><td>Tax Details:<br></td><td>&nbsp;&nbs=
+p;<br></td><td><table class=3D"x_1406924038taxDetails" style=3D"font-family=
+: Arial, Sans-Serif, 'proxima-nova'; font-size: 18px; color: rgb(0, 0, 0); =
+margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-co=
+llapse: collapse;"><tbody><tr class=3D"x_1406924038taxItem" style=3D"font-f=
+amily: Arial, Sans-Serif, 'proxima-nova'; font-size: 18px; color: rgb(0, 0,=
+ 0); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;"><td=
+ class=3D"x_1406924038taxItemName" style=3D"font-family: Arial, Sans-Serif,=
+ 'proxima-nova'; font-size: 18px; color: rgb(0, 0, 0); margin-top: 0; margi=
+n-right: 0; margin-bottom: 0; margin-left: 0;">HST<br></td><td class=3D"x_1=
+406924038taxItemAmount" style=3D"font-family: Arial, Sans-Serif, 'proxima-n=
+ova'; font-size: 18px; color: rgb(0, 0, 0); margin-top: 0; margin-right: 0;=
+ margin-bottom: 0; margin-left: 0;">$28.60<br></td></tr></tbody></table></t=
+d></tr><tr><td>Total:<br></td><td>&nbsp;&nbsp;<br></td><td>$248.60<br></td>=
+</tr></tbody></table><p style=3D"margin-bottom: 30px;"><span class=3D"colou=
+r" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:A=
+rial, sans-serif, proxima-nova"><span class=3D"size" style=3D"font-size: 18=
+px; margin-bottom: 30px;">Your subscription plan(s) (Crave and any selected=
+ Add-on) will automatically renew according to your selected period (except=
+ in Quebec where all subscriptions will automatically renew to a monthly pe=
+riod) and your credit card will be charged the then applicable subscription=
+ fees, unless you cancel your subscription or make a different selection pr=
+ior to your renewal date. In all cases, renewal will be at the then applica=
+ble charges.  There are no refunds on paid subscription fees. Prices subjec=
+t to change.</span></span></span><br></p><p style=3D"margin-bottom: 30px;">=
+<span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" st=
+yle=3D"font-family:Arial, sans-serif, proxima-nova"><span class=3D"size" st=
+yle=3D"font-size: 18px; margin-bottom: 30px;">You can change your subscript=
+ion or cancel <a href=3D"https://account.bellmedia.ca/account/subscriptions=
+/" target=3D"_blank">here</a>.</span></span></span><br></p><div class=3D"x_=
+1406924038action" style=3D"text-align: center; margin-bottom: 20px;"><a hre=
+f=3D"https://www.crave.ca" class=3D"x_1406924038btn" style=3D"display: inli=
+ne-block; font-family: Arial, Sans-Serif, 'proxima-nova'; font-size: 20px; =
+height: 52px; line-height: 52px; padding: 0 28px; background-color: rgb(0, =
+192, 246); text-decoration: none; margin-bottom: 20px; color: rgb(255, 255,=
+ 255);" target=3D"_blank">Stream On!</a><br></div><p style=3D"margin-bottom=
+: 30px;"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D=
+"font" style=3D"font-family:Arial, sans-serif, proxima-nova"><span class=3D=
+"size" style=3D"font-size: 18px; margin-bottom: 30px;">Thank you, <br> <b> =
+Crave Customer Service Team</b></span></span></span></p><p style=3D"margin-=
+bottom: 30px;"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span cl=
+ass=3D"font" style=3D"font-family:Arial, sans-serif, proxima-nova"><span cl=
+ass=3D"size" style=3D"font-size: 11pt; margin-bottom: 30px;">Please read th=
+e Crave <a href=3D"https://www.crave.ca/terms-and-conditions-84360459" targ=
+et=3D"_blank"> Terms and Conditions </a> or <a href=3D"https://www.bell.ca/=
+privacy" target=3D"_blank"> Privacy Policy.</a> These include important inf=
+ormation regarding amendments to the agreement, pricing, renewals and cance=
+lation rights.</span></span></span><br></p></td></tr><tr><td class=3D"x_140=
+6924038socialNetworks" style=3D"padding-top: 0; padding-right: 75px; paddin=
+g-bottom: 30px; padding-left: 75px;"><table border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"100%" style=3D"border-collapse: collapse;"><tbod=
+y><tr><td width=3D"42" style=3D"text-align: left;" align=3D"left"><a href=
+=3D"https://instagram.com/cravecanada/" target=3D"_blank"><img id=3D"171694=
+5260841100001_imgsrc_url_1" src=3D"https://account.bellmedia.ca/assets/img/=
+newsletter/crave/instagram.png" style=3D"border: 0; height: auto; line-heig=
+ht: 100%; outline: none; text-decoration: none;" height=3D"auto"> </a><br><=
+/td><td width=3D"42" style=3D"text-align: left;" align=3D"left"><a href=3D"=
+https://twitter.com/CraveCanada" target=3D"_blank"><img id=3D"1716945260841=
+100001_imgsrc_url_2" src=3D"https://account.bellmedia.ca/assets/img/newslet=
+ter/crave/twitter.png" style=3D"border: 0; height: auto; line-height: 100%;=
+ outline: none; text-decoration: none;" height=3D"auto"> </a><br></td><td w=
+idth=3D"42" style=3D"text-align: left;" align=3D"left"><a href=3D"https://w=
+ww.facebook.com/CraveCanada" target=3D"_blank"><img id=3D"17169452608411000=
+01_imgsrc_url_3" src=3D"https://account.bellmedia.ca/assets/img/newsletter/=
+crave/facebook.png" style=3D"border: 0; height: auto; line-height: 100%; ou=
+tline: none; text-decoration: none;" height=3D"auto"> </a><br></td><td styl=
+e=3D"text-align: left;" align=3D"left"><br></td></tr></tbody></table></td><=
+/tr></tbody></table></td></tr><tr><td align=3D"center" valign=3D"top"><tabl=
+e border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" id=3D"x_1=
+406924038templateFooter" style=3D"background-color: transparent; border: 0;=
+ border-collapse: collapse;" bgcolor=3D"transparent"><tbody><tr><td valign=
+=3D"top" class=3D"x_1406924038footerContent" style=3D"color: rgb(69, 69, 69=
+); font-family: Arial, Sans-Serif, 'proxima-nova'; font-size: 10px; line-he=
+ight: 150%; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; p=
+adding-left: 20px; text-align: center;" align=3D"center">This email was sen=
+t to <a href=3D"mailto:john@backpocket.ca" target=3D"_blank">john@backpocke=
+t.ca</a>. <br> <a href=3D"https://www.crave.ca/terms-and-conditions-8436045=
+9" target=3D"_blank">Terms and Conditions</a> and <a href=3D"https://suppor=
+t.bell.ca/Billing-and-Accounts/Security_and_privacy/How_does_Bell_respect_m=
+y_privacy" target=3D"_blank">Privacy Policy</a> <br> Crave promotional offe=
+rs may be subject to additional terms. Please refer to the promotional offe=
+r for any additional terms. <br> Please do not respond to this message by u=
+sing the =E2=80=9CReply=E2=80=9D function. <br> Bell Media | 299 Queen Stre=
+et West, Toronto, ON, M5V 2Z5 | 1-888-CRAVE88(272-8388) | <a href=3D"mailto=
+:help@crave.ca" target=3D"_blank">help@crave.ca</a> <br> Bell Media Inc. GS=
+T/HST: 861701399RT0001 QST: 1087079798TQ0001 <br> Copyright =C2=A9 2022. Be=
+ll Media. All Rights Reserved.</td></tr></tbody></table></td></tr></tbody><=
+/table></td></tr></tbody></table></div></blockquote></div><div><br></div><d=
+iv class=3D"zmail_signature_below"><div id=3D"" data-zbluepencil-ignore=3D"=
+true" data-sigid=3D"6189300000000739006"><div>Regards,<br></div><div><br></=
+div><div>John E. Estrada<br></div><div><br></div><div>---------------------=
+------------------<br></div><div><br></div><p style=3D"font-style: normal; =
+font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; tex=
+t-transform: none; white-space: normal; widows: 2; word-spacing: 0px"><span=
+ class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><span cl=
+ass=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"f=
+ont-family:Verdana, Arial, Helvetica, sans-serif"><span class=3D"size" styl=
+e=3D"font-size:13.3333px"><span class=3D"highlight" style=3D"background-col=
+or:rgb(255, 255, 255)"><b><span class=3D"colour" style=3D"color:rgb(0, 102,=
+ 0)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, san=
+s-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">START=
+ SHREDDING INC. (shredEX)</span></span></span></b><span class=3D"colour" st=
+yle=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Cal=
+ibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D=
+"font-size:14.66px"><br>208 Evans Ave, Toronto, ON M8Z 1J7<br></span></span=
+></span><b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span cla=
+ss=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-=
+serif"><span class=3D"size" style=3D"font-size:14.66px">E:<span>&nbsp;<a hr=
+ef=3D"mailto:john@shredex.ca" target=3D"_blank" style=3D"color: rgb(0, 0, 2=
+38)">john@shredex.ca</a>&nbsp;</span>W: <a target=3D"_blank" href=3D"http:/=
+/www.startshredding.com" style=3D"color: rgb(0, 0, 238)">www.startshredding=
+.com</a><br></span></span></span></b><span class=3D"colour" style=3D"color:=
+rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana=
+, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14=
+.66px">DIRECT:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, 204=
+); cursor: default" target=3D"_blank"><span class=3D"colour" style=3D"color=
+:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdan=
+a, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:1=
+4.66px">416.255.1500</span></span></span></a><span class=3D"colour" style=
+=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Calibr=
+i, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"fo=
+nt-size:14.66px"><br>TOLL FREE:&nbsp;</span></span></span><a style=3D"color=
+: rgb(17, 85, 204); cursor: default" target=3D"_blank"><span class=3D"colou=
+r" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-famil=
+y:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" sty=
+le=3D"font-size:14.66px">1.866.868.9585</span></span></span></a></span></sp=
+an></span></span></span></p><p style=3D"font-style: normal; font-weight: 40=
+0; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: no=
+ne; white-space: normal; widows: 2; word-spacing: 0px"><span class=3D"highl=
+ight" style=3D"background-color:rgb(255, 255, 255)"><span class=3D"colour" =
+style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:Verd=
+ana, Arial, Helvetica, sans-serif"><span class=3D"size" style=3D"font-size:=
+13.3333px"><span class=3D"highlight" style=3D"background-color:rgb(255, 255=
+, 255)"><span class=3D"colour" style=3D"color:rgb(34, 34, 34)"><span class=
+=3D"font" style=3D"font-family:arial, sans-serif"><span class=3D"size" styl=
+e=3D"font-size:small"><span class=3D"colour" style=3D"color:gray"><span cla=
+ss=3D"font" style=3D"font-family:Arial, sans-serif"><span class=3D"size" st=
+yle=3D"font-size:7.5pt">This message and any attachments are the property o=
+f the&nbsp;SHREDEX INC.&nbsp;or its affiliates. It may be legally privilege=
+d and/or confidential and is intended only for the use of the addressee(s).=
+ No addressee should store, forward, print, copy, or otherwise reproduce th=
+is message in any manner that would allow it to be viewed by any individual=
+ not originally listed as a recipient. If the reader of this message is not=
+ the intended recipient, you are hereby notified that any unauthorized stor=
+age, disclosure, dissemination, distribution, copying or the taking of any =
+action in reliance on the information herein is strictly prohibited. If you=
+ have received this communication in error, please immediately notify the s=
+ender and delete this message.</span></span></span></span></span></span></s=
+pan></span></span></span></span><br></p><div id=3D""><div><br></div></div><=
+div><br></div></div></div><div><br></div></div><br></body></html>
+------=_Part_651769_1641959448.1717124686830--
+

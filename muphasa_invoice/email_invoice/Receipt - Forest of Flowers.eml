@@ -1,0 +1,607 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp188416rbd;
+        Thu, 30 May 2024 20:20:00 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGJfk/DjxV1u39nVcTm9S/mt1WC4WPU8A7G/wYkMjRxtgaU4GXGAB9N66w4kiPfIz2zEtgF
+X-Received: by 2002:a05:6a00:2d16:b0:702:4b69:5bca with SMTP id d2e1a72fcca58-7024b695ea6mr162739b3a.18.1717125599639;
+        Thu, 30 May 2024 20:19:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125599; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=xHcQGfGcnIaU6/HMgfNetnk0zqfPMRWHZWqzfdM5qW3KPm8DwIBO8g1aHOZWK7v47X
+         e4Od+jZBgn85Oq7fEUtR8i6W2U4yVK9lCNxL70UPLcqjes+nxohhxR8o5kUGH17BPaL3
+         kcx0aupePjCvvAh9kRZGMIzdhCC9UiUf8cD7pN4jcffLT1ZSiVd9/AEv41SKv+IH+vRo
+         5BpxcEco9HPuNGNe4LQm2kWUWc4GBmFFLW5PRU1GSJ2d8ZX3/DWFf2f35qX0wifMDnzY
+         ybPA5GlZnpJkMAszG6LTZvj3cgqOLvfjJWK5LVyJxQwtrLH5ps4PP76HSieYeVLLWZgi
+         KHbg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=11ksGx11+c99uv2unjpTvl9KqIHASwUSEES7YJ+/Ids=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=ujhMo+jMFWMOQfDGZjx8m/kk6iwYrhllQfQpJFr85MWgub/sbCEVMEgwYHXeJRUoFx
+         IP+Zcf5QaMWr0+WPExsFE4RSIl7QA8XtYY7X24WetMULmvVTX/YZy4F2Tmf8/GjIczPB
+         Cn6aqbvc1POOGfv1oUA+7BRy46GJmcJ0m9TWMs7x8xgGHHg9Hvbdyta20XO1tLSm72A1
+         ktouamZOEvnX+fEHZxyJouCSUkN5LR7YCbtPGFE8e6mLJJeL/DymTvNaX2wgtXVlQD30
+         HaVBrBBdksz+QarKhIztKuGQ3rzYMUZKqtRG71uKJx0n8jM6Ap6ax+B52WRIN7Qm3zIB
+         MQ+A==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=OIzyQIk3;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender3-op-o19.zoho.com (sender3-op-o19.zoho.com. [136.143.184.19])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-70242c2992dsi725241b3a.297.2024.05.30.20.19.59
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:19:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) client-ip=136.143.184.19;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=OIzyQIk3;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.184.19 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125598; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Ann9oqoqmL/04LbjY3uPaYG3/oArigE+qTbBiJS1fOHI2wJid4Ryp3wyCoz4KLczrKDk7b6ASF8HX2w0gj+6zJjLMwnlHOIL7lvXFiFJFYr1QNC7oIiwwTe1OMQs+nB41xIzPimbG4QifixmWH2vJCZ9gt4jEatBf/nxLO/AD5w=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125598; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=11ksGx11+c99uv2unjpTvl9KqIHASwUSEES7YJ+/Ids=; 
+	b=ALoLZRWdTE8xGw5zQrC0q66KV9vW3zakFSK0w+E0ik3CY8W/4kXeUX3PkXksfh7M8FPr0lk/jiuxMTdocXv+0zJvSwjTMyAqL9w0uJxmSNNz54P49FicDKBCV4BPIb3y1G9Zp1vWKyNq9Z6eATQAtkctxnqUo42Os7jdNYRvdRc=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125598;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=11ksGx11+c99uv2unjpTvl9KqIHASwUSEES7YJ+/Ids=;
+	b=OIzyQIk3umlpQCg4dtkw0aRG0QY9Qyt9W2VSV7NH/+kPL8W0I6hVKYDMzOUl0C+4
+	uT/zg+xRRAbHLGTozl/BpZF2MxyBvY5W+Hebaj9uX+NSIS/seegCodUJc9nU/Bw5Eya
+	X4ebkMR/GMV6HBdTtskHlxECA+aJvxuDXZ7mYQLE=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717125596068532.3094433864482; Thu, 30 May 2024 20:19:56 -0700 (PDT)
+Date: Thu, 30 May 2024 23:19:56 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcca94367.af2edbd4202791.1920354524575464502@shredex.ca>
+In-Reply-To: <010001811f96dfde-406bc266-80ed-487f-9c43-ed29d72e810b-000000@email.amazonses.com>
+References: <010001811f96dfde-406bc266-80ed-487f-9c43-ed29d72e810b-000000@email.amazonses.com>
+Subject: Fwd: Receipt - Forest of Flowers
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_657664_1359719333.1717125596007"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_657664_1359719333.1717125596007
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Forest of Flowers Peterborough <wecare@forestofflowerspeterborough.co=
+m>
+To: <JOHN@BACKPOCKET.CA>
+Date: Wed, 01 Jun 2022 10:06:30 -0400
+Subject: Receipt - Forest of Flowers
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+
+ Thanks for using purchasing from Forest of Flowers.=20
+This email is the receipt for your purchase.
+Customer JOHN ESTRADA
+
+
+
+
+
+Inv# 403818
+
+
+2022-06-01
+
+
+
+Description
+
+
+Amount
+
+
+
+1x ARRANGEMENT MEDIUM @ $59.99
+
+59.99
+
+
+1x DELIVERY @ $12.00
+
+12.00
+
+
+Subtotal
+
+
+71.99
+
+
+
+GST
+
+
+0.00
+
+
+
+PST
+
+
+0.00
+
+
+
+HST
+
+
+9.36
+
+
+
+Total
+
+
+81.35
+
+
+
+PAID:Debit
+
+81.35
+
+
+Balance
+
+
+0.00
+
+
+
+
+
+
+
+
+
+If you have any questions about this receipt, simply reply to this email fo=
+r help.
+
+Thank you for your business,=20
+The Forest of Flowers Team
+
+
+
+
+
+
+
+
+
+
+
+
+=C2=A9 2022 Forest of Flowers. All rights reserved.
+
+Forest of Flowers
+ 139 George Street N. Unit 6
+ Peterborough, ON  K9J 3G6
+ TEL: 705-876-6666
+ HST #: 76192-9520
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_657664_1359719333.1717125596007
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Forest of Flowers Peterborough &lt;wecare@fores=
+tofflowerspeterborough.com&gt;<br>To: &lt;JOHN@BACKPOCKET.CA&gt;<br>Date: W=
+ed, 01 Jun 2022 10:06:30 -0400<br>Subject: Receipt - Forest of Flowers<br>=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br></div><div><br></div><blockquote id=3D"blockquote_zma=
+il" style=3D"margin: 0px;"><style>@media only screen and (max-width: 500px)=
+ {
+  div.zm_3057656373716005705_parse_2936962170685235940 *.x_309452079button =
+{
+    width: 100%;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 600px) {
+  div.zm_3057656373716005705_parse_2936962170685235940 *.x_309452079email-b=
+ody_inner,
+div.zm_3057656373716005705_parse_2936962170685235940 *.x_309452079email-foo=
+ter {
+    width: 100%;
+  }
+}
+@media all and (prefers-color-scheme: dark) {
+  div.zm_3057656373716005705_parse_2936962170685235940,
+div.zm_3057656373716005705_parse_2936962170685235940 *.x_309452079email-bod=
+y,
+div.zm_3057656373716005705_parse_2936962170685235940 *.x_309452079email-bod=
+y_inner,
+div.zm_3057656373716005705_parse_2936962170685235940 *.x_309452079email-con=
+tent,
+div.zm_3057656373716005705_parse_2936962170685235940 *.x_309452079email-wra=
+pper,
+div.zm_3057656373716005705_parse_2936962170685235940 *.x_309452079email-mas=
+thead,
+div.zm_3057656373716005705_parse_2936962170685235940 *.x_309452079email-foo=
+ter {
+    background-color: rgb(51, 51, 51);
+    color: rgb(255, 255, 255);
+  }
+
+  div.zm_3057656373716005705_parse_2936962170685235940 p,
+div.zm_3057656373716005705_parse_2936962170685235940 ul,
+div.zm_3057656373716005705_parse_2936962170685235940 ol,
+div.zm_3057656373716005705_parse_2936962170685235940 blockquote,
+div.zm_3057656373716005705_parse_2936962170685235940 h1,
+div.zm_3057656373716005705_parse_2936962170685235940 h2,
+div.zm_3057656373716005705_parse_2936962170685235940 h3 {
+    color: rgb(255, 255, 255);
+  }
+
+  div.zm_3057656373716005705_parse_2936962170685235940 *.x_309452079attribu=
+tes_content,
+div.zm_3057656373716005705_parse_2936962170685235940 *.x_309452079discount =
+{
+    background-color: rgb(34, 34, 34);
+  }
+
+  div.zm_3057656373716005705_parse_2936962170685235940 *.x_309452079email-m=
+asthead_name {
+    text-shadow: none;
+  }
+}</style><div style=3D"height: 100%; width: 100.0%; min-height: 100.0%; fon=
+t-family: &quot; undefined: NunitoSans&quot; undefined: ,Helvetica,Arial,sa=
+ns-serif; background-color: rgb(244,244,247); color: rgb(81,84,94); margin:=
+ 0;" class=3D"zm_3057656373716005705_parse_2936962170685235940"><span class=
+=3D"size" style=3D"font-size: 1px; display: none; visibility: hidden; line-=
+height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;=
+">This is a receipt for your recent purchase on 2022-06-01.</span> <table c=
+lass=3D"x_309452079email-wrapper" width=3D"100.0%" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"width: 100.0%; background-color: rgb(244,244,247); mar=
+gin: 0; padding: 0;" bgcolor=3D"rgb(244,244,247)"><tbody><tr><td align=3D"c=
+enter" style=3D"font-family: &quot; undefined: NunitoSans&quot; undefined: =
+,Helvetica,Arial,sans-serif; font-size: 16.0px;"><table class=3D"x_30945207=
+9email-content" width=3D"100.0%" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"width: 100.0%; margin: 0; padding: 0;"><tbody><tr><td class=3D"x_309452=
+079email-body" width=3D"100.0%" style=3D"margin: 0; padding: 0; font-family=
+: &quot; undefined: NunitoSans&quot; undefined: ,Helvetica,Arial,sans-serif=
+; font-size: 16.0px; width: 100.0%; background-color: rgb(255,255,255);" bg=
+color=3D"rgb(255,255,255)"><table class=3D"x_309452079email-body_inner" ali=
+gn=3D"center" width=3D"570.0" cellpadding=3D"0" cellspacing=3D"0" style=3D"=
+width: 570.0px; background-color: rgb(255,255,255); margin: 0 auto; padding=
+: 0;" bgcolor=3D"rgb(255,255,255)"><tbody><tr><td class=3D"x_309452079conte=
+nt-cell" style=3D"font-family: &quot; undefined: NunitoSans&quot; undefined=
+: ,Helvetica,Arial,sans-serif; font-size: 16.0px; padding: 35.0px;"><div cl=
+ass=3D"x_309452079f-fallback"><p style=3D"line-height: 1.625; margin: 0.4em=
+ 0px 1.1875em;"><span class=3D"colour" style=3D"color:rgb(81, 84, 94)"><spa=
+n class=3D"size" style=3D"font-size: 16px; line-height: 1.625; margin: 0.4e=
+m 0px 1.1875em;">Thanks for using purchasing from Forest of Flowers. <br>Th=
+is email is the receipt for your purchase.</span></span></p><table class=3D=
+"x_309452079purchase" width=3D"100.0%" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"width: 100.0%; margin: 0; padding: 35.0px 0;"><tbody><tr><td colsp=
+an=3D"2" style=3D"font-family: &quot; undefined: NunitoSans&quot; undefined=
+: ,Helvetica,Arial,sans-serif; font-size: 16.0px;"><h3 style=3D"margin-top:=
+ 0; color: rgb(51,51,51); font-size: 14.0px; font-weight: bold; text-align:=
+ left;" align=3D"left">Customer JOHN ESTRADA<br></h3><p style=3D"margin: 0.=
+4em 0px 1.1875em; line-height: 1.625;"><span class=3D"colour" style=3D"colo=
+r:rgb(81, 84, 94)"><span class=3D"size" style=3D"font-size: 16px; margin: 0=
+.4em 0px 1.1875em; line-height: 1.625;"></span></span><br></p></td></tr><tr=
+><td style=3D"font-family: &quot; undefined: NunitoSans&quot; undefined: ,H=
+elvetica,Arial,sans-serif; font-size: 16.0px;"><h3 style=3D"margin-top: 0; =
+color: rgb(51,51,51); font-size: 14.0px; font-weight: bold; text-align: lef=
+t;" align=3D"left">Inv# 403818<br></h3></td><td style=3D"font-family: &quot=
+; undefined: NunitoSans&quot; undefined: ,Helvetica,Arial,sans-serif; font-=
+size: 16.0px;"><h3 class=3D"x_309452079align-right" style=3D"margin-top: 0;=
+ color: rgb(51,51,51); font-size: 14.0px; font-weight: bold; text-align: ri=
+ght;" align=3D"right">2022-06-01<br></h3></td></tr><tr><td colspan=3D"2" st=
+yle=3D"font-family: &quot; undefined: NunitoSans&quot; undefined: ,Helvetic=
+a,Arial,sans-serif; font-size: 16.0px;"><table class=3D"x_309452079purchase=
+_content" width=3D"100.0%" cellpadding=3D"0" cellspacing=3D"0" style=3D"wid=
+th: 100.0%; margin: 0; padding: 25.0px 0 0;"><tbody><tr><th class=3D"x_3094=
+52079purchase_heading" align=3D"left" style=3D"border-bottom: 1px solid rgb=
+(234, 234, 236); font-family: &quot; undefined: NunitoSans&quot; undefined:=
+ ,Helvetica,Arial,sans-serif; font-size: 12.0px; padding-bottom: 8.0px; bor=
+der-bottom-width: 1.0px; border-bottom-color: rgb(234,234,236); border-bott=
+om-style: solid;"><p class=3D"x_309452079f-fallback" style=3D"line-height: =
+1.625; margin: 0px;"><span class=3D"colour" style=3D"color:rgb(133, 135, 14=
+2)"><span class=3D"size" style=3D"font-size: 12px; line-height: 1.625; marg=
+in: 0px;">Description</span></span><br></p></th><th class=3D"x_309452079pur=
+chase_heading" align=3D"right" style=3D"border-bottom: 1px solid rgb(234, 2=
+34, 236); font-family: &quot; undefined: NunitoSans&quot; undefined: ,Helve=
+tica,Arial,sans-serif; font-size: 12.0px; padding-bottom: 8.0px; border-bot=
+tom-width: 1.0px; border-bottom-color: rgb(234,234,236); border-bottom-styl=
+e: solid;"><p class=3D"x_309452079f-fallback" style=3D"line-height: 1.625; =
+margin: 0px;"><span class=3D"colour" style=3D"color:rgb(133, 135, 142)"><sp=
+an class=3D"size" style=3D"font-size: 12px; line-height: 1.625; margin: 0px=
+;">Amount</span></span><br></p></th></tr><tr><td width=3D"75%" class=3D"x_3=
+09452079purchase_item" style=3D"font-family: &quot; undefined: NunitoSans&q=
+uot; undefined: ,Helvetica,Arial,sans-serif; font-size: 12.0px; color: rgb(=
+81,84,94); line-height: 12.0px; padding: 2.0px 0;"><span class=3D"x_3094520=
+79f-fallback">1x ARRANGEMENT MEDIUM @ $59.99</span><br></td><td class=3D"x_=
+309452079align-right" width=3D"25%" style=3D"font-family: &quot; undefined:=
+ NunitoSans&quot; undefined: ,Helvetica,Arial,sans-serif; font-size: 12.0px=
+; text-align: right;" align=3D"right"><span class=3D"x_309452079f-fallback"=
+>59.99</span><br></td></tr><tr><td width=3D"75%" class=3D"x_309452079purcha=
+se_item" style=3D"font-family: &quot; undefined: NunitoSans&quot; undefined=
+: ,Helvetica,Arial,sans-serif; font-size: 12.0px; color: rgb(81,84,94); lin=
+e-height: 12.0px; padding: 2.0px 0;"><span class=3D"x_309452079f-fallback">=
+1x DELIVERY @ $12.00</span><br></td><td class=3D"x_309452079align-right" wi=
+dth=3D"25%" style=3D"font-family: &quot; undefined: NunitoSans&quot; undefi=
+ned: ,Helvetica,Arial,sans-serif; font-size: 12.0px; text-align: right;" al=
+ign=3D"right"><span class=3D"x_309452079f-fallback">12.00</span><br></td></=
+tr><tr><td width=3D"70%" class=3D"x_309452079purchase_footer" valign=3D"mid=
+dle" style=3D"font-family: &quot; undefined: NunitoSans&quot; undefined: ,H=
+elvetica,Arial,sans-serif; font-size: 12.0px; padding-top: 15.0px; border-t=
+op-width: 1.0px; border-top-color: rgb(234,234,236); border-top-style: soli=
+d;"><p class=3D"x_309452079f-fallback x_309452079purchase_total x_309452079=
+purchase_total--label" style=3D"line-height: 1.625; text-align: right; marg=
+in: 0px; padding: 0px 15px 0px 0px;" align=3D"right"><span class=3D"colour"=
+ style=3D"color:rgb(51, 51, 51)"><b><span class=3D"size" style=3D"font-size=
+: 12px; line-height: 1.625; text-align: right; margin: 0px; padding: 0px 15=
+px 0px 0px;">Subtotal</span></b></span><br></p></td><td width=3D"30%" class=
+=3D"x_309452079purchase_footer" valign=3D"middle" style=3D"font-family: &qu=
+ot; undefined: NunitoSans&quot; undefined: ,Helvetica,Arial,sans-serif; fon=
+t-size: 12.0px; padding-top: 15.0px; border-top-width: 1.0px; border-top-co=
+lor: rgb(234,234,236); border-top-style: solid;"><p class=3D"x_309452079f-f=
+allback x_309452079purchase_total" style=3D"line-height: 1.625; text-align:=
+ right; margin: 0px;" align=3D"right"><span class=3D"colour" style=3D"color=
+:rgb(51, 51, 51)"><b><span class=3D"size" style=3D"font-size: 12px; line-he=
+ight: 1.625; text-align: right; margin: 0px;">71.99</span></b></span><br></=
+p></td></tr><tr><td width=3D"70%" class=3D"x_309452079purchase_footer" vali=
+gn=3D"middle" style=3D"padding-top: 1px; font-family: &quot; undefined: Nun=
+itoSans&quot; undefined: ,Helvetica,Arial,sans-serif; font-size: 12.0px;"><=
+p class=3D"x_309452079f-fallback x_309452079purchase_total x_309452079purch=
+ase_total--label" style=3D"padding: 0px 15px 0px 0px; line-height: 1.325; t=
+ext-align: right; margin: 0px;" align=3D"right"><span class=3D"colour" styl=
+e=3D"color:rgb(51, 51, 51)"><b><span class=3D"size" style=3D"font-size: 12p=
+x; padding: 0px 15px 0px 0px; line-height: 1.325; text-align: right; margin=
+: 0px;">GST</span></b></span><br></p></td><td width=3D"30%" class=3D"x_3094=
+52079purchase_footer" valign=3D"middle" style=3D"padding-top: 1px; font-fam=
+ily: &quot; undefined: NunitoSans&quot; undefined: ,Helvetica,Arial,sans-se=
+rif; font-size: 12.0px;"><p class=3D"x_309452079f-fallback x_309452079purch=
+ase_total" style=3D"line-height: 1.325; text-align: right; margin: 0px;" al=
+ign=3D"right"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><b><sp=
+an class=3D"size" style=3D"font-size: 12px; line-height: 1.325; text-align:=
+ right; margin: 0px;">0.00</span></b></span><br></p></td></tr><tr><td width=
+=3D"70%" class=3D"x_309452079purchase_footer" valign=3D"middle" style=3D"pa=
+dding-top: 1px; font-family: &quot; undefined: NunitoSans&quot; undefined: =
+,Helvetica,Arial,sans-serif; font-size: 12.0px;"><p class=3D"x_309452079f-f=
+allback x_309452079purchase_total x_309452079purchase_total--label" style=
+=3D"padding: 0px 15px 0px 0px; line-height: 1.325; text-align: right; margi=
+n: 0px;" align=3D"right"><span class=3D"colour" style=3D"color:rgb(51, 51, =
+51)"><b><span class=3D"size" style=3D"font-size: 12px; padding: 0px 15px 0p=
+x 0px; line-height: 1.325; text-align: right; margin: 0px;">PST</span></b><=
+/span><br></p></td><td width=3D"30%" class=3D"x_309452079purchase_footer" v=
+align=3D"middle" style=3D"padding-top: 1px; font-family: &quot; undefined: =
+NunitoSans&quot; undefined: ,Helvetica,Arial,sans-serif; font-size: 12.0px;=
+"><p class=3D"x_309452079f-fallback x_309452079purchase_total" style=3D"lin=
+e-height: 1.325; text-align: right; margin: 0px;" align=3D"right"><span cla=
+ss=3D"colour" style=3D"color:rgb(51, 51, 51)"><b><span class=3D"size" style=
+=3D"font-size: 12px; line-height: 1.325; text-align: right; margin: 0px;">0=
+.00</span></b></span><br></p></td></tr><tr><td width=3D"70%" class=3D"x_309=
+452079purchase_footer" valign=3D"middle" style=3D"padding-top: 1px; font-fa=
+mily: &quot; undefined: NunitoSans&quot; undefined: ,Helvetica,Arial,sans-s=
+erif; font-size: 12.0px;"><p class=3D"x_309452079f-fallback x_309452079purc=
+hase_total x_309452079purchase_total--label" style=3D"padding: 0px 15px 0px=
+ 0px; line-height: 1.325; text-align: right; margin: 0px;" align=3D"right">=
+<span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><b><span class=3D"si=
+ze" style=3D"font-size: 12px; padding: 0px 15px 0px 0px; line-height: 1.325=
+; text-align: right; margin: 0px;">HST</span></b></span><br></p></td><td wi=
+dth=3D"30%" class=3D"x_309452079purchase_footer" valign=3D"middle" style=3D=
+"padding-top: 1px; font-family: &quot; undefined: NunitoSans&quot; undefine=
+d: ,Helvetica,Arial,sans-serif; font-size: 12.0px;"><p class=3D"x_309452079=
+f-fallback x_309452079purchase_total" style=3D"line-height: 1.325; text-ali=
+gn: right; margin: 0px;" align=3D"right"><span class=3D"colour" style=3D"co=
+lor:rgb(51, 51, 51)"><b><span class=3D"size" style=3D"font-size: 12px; line=
+-height: 1.325; text-align: right; margin: 0px;">9.36</span></b></span><br>=
+</p></td></tr><tr><td width=3D"70%" class=3D"x_309452079purchase_footer" va=
+lign=3D"middle" style=3D"padding-top: 1px; font-family: &quot; undefined: N=
+unitoSans&quot; undefined: ,Helvetica,Arial,sans-serif; font-size: 12.0px;"=
+><p class=3D"x_309452079f-fallback x_309452079purchase_total x_309452079pur=
+chase_total--label" style=3D"padding: 0px 15px 0px 0px; line-height: 1.325;=
+ text-align: right; margin: 0px;" align=3D"right"><span class=3D"colour" st=
+yle=3D"color:rgb(51, 51, 51)"><b><span class=3D"size" style=3D"font-size: 1=
+2px; padding: 0px 15px 0px 0px; line-height: 1.325; text-align: right; marg=
+in: 0px;">Total</span></b></span><br></p></td><td width=3D"30%" class=3D"x_=
+309452079purchase_footer" valign=3D"middle" style=3D"padding-top: 1px; font=
+-family: &quot; undefined: NunitoSans&quot; undefined: ,Helvetica,Arial,san=
+s-serif; font-size: 12.0px;"><p class=3D"x_309452079f-fallback x_309452079p=
+urchase_total" style=3D"line-height: 1.325; text-align: right; margin: 0px;=
+" align=3D"right"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><b=
+><span class=3D"size" style=3D"font-size: 12px; line-height: 1.325; text-al=
+ign: right; margin: 0px;">81.35</span></b></span><br></p></td></tr><tr><td =
+width=3D"70%" class=3D"x_309452079purchase_item" style=3D"font-family: &quo=
+t; undefined: NunitoSans&quot; undefined: ,Helvetica,Arial,sans-serif; font=
+-size: 12.0px; color: rgb(81,84,94); line-height: 12.0px; padding: 5.0px 0;=
+"><span class=3D"x_309452079f-fallback">PAID:Debit</span><br></td><td class=
+=3D"x_309452079align-right" width=3D"30%" style=3D"font-family: &quot; unde=
+fined: NunitoSans&quot; undefined: ,Helvetica,Arial,sans-serif; font-size: =
+12.0px; text-align: right;" align=3D"right"><span class=3D"x_309452079f-fal=
+lback">81.35</span><br></td></tr><tr><td width=3D"70%" class=3D"x_309452079=
+purchase_footer2" valign=3D"middle" style=3D"font-family: &quot; undefined:=
+ NunitoSans&quot; undefined: ,Helvetica,Arial,sans-serif; font-size: 12.0px=
+; padding-top: 15.0px; border-top-width: 1.0px; border-top-color: rgb(234,2=
+34,236); border-top-style: solid;"><p class=3D"x_309452079f-fallback x_3094=
+52079purchase_total2 x_309452079purchase_total--label" style=3D"line-height=
+: 1.625; text-align: right; margin: 0px; padding: 0px 15px 0px 0px;" align=
+=3D"right"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><b><span =
+class=3D"size" style=3D"font-size: 12px; line-height: 1.625; text-align: ri=
+ght; margin: 0px; padding: 0px 15px 0px 0px;">Balance</span></b></span><br>=
+</p></td><td width=3D"30%" class=3D"x_309452079purchase_footer2" valign=3D"=
+middle" style=3D"font-family: &quot; undefined: NunitoSans&quot; undefined:=
+ ,Helvetica,Arial,sans-serif; font-size: 12.0px; padding-top: 15.0px; borde=
+r-top-width: 1.0px; border-top-color: rgb(234,234,236); border-top-style: s=
+olid;"><p class=3D"x_309452079f-fallback x_309452079purchase_total2" style=
+=3D"line-height: 1.625; text-align: right; margin: 0px;" align=3D"right"><s=
+pan class=3D"colour" style=3D"color:rgb(51, 51, 51)"><b><span class=3D"size=
+" style=3D"font-size: 12px; line-height: 1.625; text-align: right; margin: =
+0px;">0.00</span></b></span><br></p></td></tr></tbody></table></td></tr></t=
+body></table><p style=3D"line-height: 1.625; margin: 0.4em 0px 1.1875em;"><=
+span class=3D"colour" style=3D"color:rgb(81, 84, 94)"><span class=3D"size" =
+style=3D"font-size: 16px; line-height: 1.625; margin: 0.4em 0px 1.1875em;">=
+If you have any questions about this receipt, simply reply to this email fo=
+r help.</span></span><br></p><p style=3D"line-height: 1.625; margin: 0.4em =
+0px 1.1875em;"><span class=3D"colour" style=3D"color:rgb(81, 84, 94)"><span=
+ class=3D"size" style=3D"font-size: 16px; line-height: 1.625; margin: 0.4em=
+ 0px 1.1875em;">Thank you for your business, <br>The Forest of Flowers Team=
+</span></span></p><table class=3D"x_309452079body-action" align=3D"center" =
+width=3D"100.0%" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100.0%=
+; text-align: center; margin: 30.0px auto; padding: 0;"><tbody><tr><td alig=
+n=3D"center" style=3D"font-family: &quot; undefined: NunitoSans&quot; undef=
+ined: ,Helvetica,Arial,sans-serif; font-size: 16.0px;"><br></td></tr></tbod=
+y></table></div></td></tr></tbody></table></td></tr><tr><td style=3D"font-f=
+amily: &quot; undefined: NunitoSans&quot; undefined: ,Helvetica,Arial,sans-=
+serif; font-size: 16.0px;"><table class=3D"x_309452079email-footer" align=
+=3D"center" width=3D"570.0" cellpadding=3D"0" cellspacing=3D"0" style=3D"wi=
+dth: 570.0px; text-align: center; margin: 0 auto; padding: 0;"><tbody><tr><=
+td class=3D"x_309452079content-cell" align=3D"center" style=3D"font-family:=
+ &quot; undefined: NunitoSans&quot; undefined: ,Helvetica,Arial,sans-serif;=
+ font-size: 16.0px; padding: 35.0px;"><p class=3D"x_309452079f-fallback x_3=
+09452079sub x_309452079align-center" style=3D"line-height: 1.625; text-alig=
+n: center; margin: 0.4em 0px 1.1875em;" align=3D"center"><span class=3D"col=
+our" style=3D"color:rgb(107, 110, 118)"><span class=3D"size" style=3D"font-=
+size: 13px; line-height: 1.625; text-align: center; margin: 0.4em 0px 1.187=
+5em;">=C2=A9 2022 Forest of Flowers. All rights reserved.</span></span><br>=
+</p><p class=3D"x_309452079f-fallback x_309452079sub x_309452079align-cente=
+r" style=3D"line-height: 1.625; text-align: center; margin: 0.4em 0px 1.187=
+5em;" align=3D"center"><span class=3D"colour" style=3D"color:rgb(107, 110, =
+118)"><span class=3D"size" style=3D"font-size: 13px; line-height: 1.625; te=
+xt-align: center; margin: 0.4em 0px 1.1875em;">Forest of Flowers<br> 139 Ge=
+orge Street N. Unit 6<br> Peterborough, ON  K9J 3G6<br> TEL: 705-876-6666<b=
+r> HST #: 76192-9520<br></span></span></p></td></tr></tbody></table></td></=
+tr></tbody></table></td></tr></tbody></table></div></blockquote></div><div>=
+<br></div><div class=3D"zmail_signature_below"><div id=3D"" data-zbluepenci=
+l-ignore=3D"true" data-sigid=3D"6189300000000739006"><div>Regards,<br></div=
+><div><br></div><div>John E. Estrada<br></div><div><br></div><div>---------=
+------------------------------<br></div><div><br></div><p style=3D"font-sty=
+le: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-inde=
+nt: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing=
+: 0px"><span class=3D"highlight" style=3D"background-color:rgb(255, 255, 25=
+5)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font=
+" style=3D"font-family:Verdana, Arial, Helvetica, sans-serif"><span class=
+=3D"size" style=3D"font-size:13.3333px"><span class=3D"highlight" style=3D"=
+background-color:rgb(255, 255, 255)"><b><span class=3D"colour" style=3D"col=
+or:rgb(0, 102, 0)"><span class=3D"font" style=3D"font-family:Calibri, Verda=
+na, Arial, sans-serif, sans-serif"><span class=3D"size" style=3D"font-size:=
+14.66px">START SHREDDING INC. (shredEX)</span></span></span></b><span class=
+=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"f=
+ont-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"=
+size" style=3D"font-size:14.66px"><br>208 Evans Ave, Toronto, ON M8Z 1J7<br=
+></span></span></span><b><span class=3D"colour" style=3D"color:rgb(51, 51, =
+51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, san=
+s-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">E:<sp=
+an>&nbsp;<a href=3D"mailto:john@shredex.ca" target=3D"_blank" style=3D"colo=
+r: rgb(0, 0, 238)">john@shredex.ca</a>&nbsp;</span>W: <a target=3D"_blank" =
+href=3D"http://www.startshredding.com" style=3D"color: rgb(0, 0, 238)">www.=
+startshredding.com</a><br></span></span></span></b><span class=3D"colour" s=
+tyle=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family:Ca=
+libri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" style=
+=3D"font-size:14.66px">DIRECT:&nbsp;</span></span></span><a style=3D"color:=
+ rgb(17, 85, 204); cursor: default" target=3D"_blank"><span class=3D"colour=
+" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family=
+:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" styl=
+e=3D"font-size:14.66px">416.255.1500</span></span></span></a><span class=3D=
+"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font=
+-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"siz=
+e" style=3D"font-size:14.66px"><br>TOLL FREE:&nbsp;</span></span></span><a =
+style=3D"color: rgb(17, 85, 204); cursor: default" target=3D"_blank"><span =
+class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=
+=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span clas=
+s=3D"size" style=3D"font-size:14.66px">1.866.868.9585</span></span></span><=
+/a></span></span></span></span></span></p><p style=3D"font-style: normal; f=
+ont-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text=
+-transform: none; white-space: normal; widows: 2; word-spacing: 0px"><span =
+class=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><span cla=
+ss=3D"colour" style=3D"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"fo=
+nt-family:Verdana, Arial, Helvetica, sans-serif"><span class=3D"size" style=
+=3D"font-size:13.3333px"><span class=3D"highlight" style=3D"background-colo=
+r:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(34, 34, 34)=
+"><span class=3D"font" style=3D"font-family:arial, sans-serif"><span class=
+=3D"size" style=3D"font-size:small"><span class=3D"colour" style=3D"color:g=
+ray"><span class=3D"font" style=3D"font-family:Arial, sans-serif"><span cla=
+ss=3D"size" style=3D"font-size:7.5pt">This message and any attachments are =
+the property of the&nbsp;SHREDEX INC.&nbsp;or its affiliates. It may be leg=
+ally privileged and/or confidential and is intended only for the use of the=
+ addressee(s). No addressee should store, forward, print, copy, or otherwis=
+e reproduce this message in any manner that would allow it to be viewed by =
+any individual not originally listed as a recipient. If the reader of this =
+message is not the intended recipient, you are hereby notified that any una=
+uthorized storage, disclosure, dissemination, distribution, copying or the =
+taking of any action in reliance on the information herein is strictly proh=
+ibited. If you have received this communication in error, please immediatel=
+y notify the sender and delete this message.</span></span></span></span></s=
+pan></span></span></span></span></span></span><br></p><div id=3D""><div><br=
+></div></div><div><br></div></div></div><div><br></div></div><br></body></h=
+tml>
+------=_Part_657664_1359719333.1717125596007--
+

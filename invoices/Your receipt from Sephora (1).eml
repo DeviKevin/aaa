@@ -1,0 +1,937 @@
+Delivered-To: vikingdwarf2918@gmail.com
+Received: by 2002:a05:7208:c210:b0:86:33f9:44b4 with SMTP id s16csp187729rbd;
+        Thu, 30 May 2024 20:17:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH5/S4EIe88tF/h9qBsws6Pflvt5eioLAtmTMOhfzUoa8aZMawVuoNan1SyHnkfTD1p7/01
+X-Received: by 2002:a05:6871:299:b0:23b:caff:be33 with SMTP id 586e51a60fabf-2508bd09734mr1025880fac.49.1717125453443;
+        Thu, 30 May 2024 20:17:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1717125453; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=YAVwziza9RolybozCN8PzxiJ+Dk890dGz7V+yfZj4H7AURKTTn1tiCkYBCCkIwA067
+         2FZy5aVamHgYsRjbNDa0LFJME7OWMO/HcqrwGmSjEJ5DWO0O/mq8p3NEi6CsbIyA6uNe
+         4zghQ1b3gdgIK3nG/2vWDpc+F+dVzjgVcLpFBL78gQiiEYI7HLVYQepFoJJvnMkVHbGt
+         3ubs6XJtkQ5H9zeizhoI8VkLTZPanWDu7slQ4FZPfAE3Vu9DvMcBxxUF2oh6aAtrzL4Y
+         udFUYZg4yjlvDrSliXJXh7WkC+E07hIq+qBMmvBGdCROOo0VifR6q/tSTGqUB7K8Xo5B
+         wl9g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:importance:mime-version:subject:references:in-reply-to
+         :message-id:to:from:date:dkim-signature;
+        bh=xtK0/+wjgEDWUgGEmm3pq2CLi8fx6JhfOsSbtLOt29o=;
+        fh=GmUMqLa2j3UcTKV3xMw5vAYZaEqujKE1qJGDizuG1v4=;
+        b=KslhgHye7jmp1lFYeJSMbtk87BMFUmqR5j4U0ZCzVl0B35o/DaWz7oSyhRRJ7CPqNu
+         Uk+zl8AUVNkA6zqHVXndGDHuJnR12mJqMWfhhzVechOoQNlVNRrpFNAXZrykoFk3mpkN
+         riZjdXezzGFABE5/LUbWZa36CZAszfV0ia41joIuNfirwxrwN2aZV90+bC38WhHKQ4ab
+         1qlImkceaaxxja7TKuOjQ6nQJGX3lkRvrjibDqsss/eDFatloTqOHLJSO0lsALZtaZ6r
+         +UjoIbNv3R4opomfVIzy0b1EvbFSqi7xNUw7bGjfo5M/b4lAv68F3QBHov/Zgu2+9w5v
+         9Oaw==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=Ww6hYeF+;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+Return-Path: <john@shredex.ca>
+Received: from sender4-op-o14.zoho.com (sender4-op-o14.zoho.com. [136.143.188.14])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-702425f061esi741993b3a.97.2024.05.30.20.17.32
+        for <vikingdwarf2918@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 May 2024 20:17:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) client-ip=136.143.188.14;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@shredex.ca header.s=zoho header.b=Ww6hYeF+;
+       arc=pass (i=1 spf=pass spfdomain=shredex.ca dkim=pass dkdomain=shredex.ca dmarc=pass fromdomain=shredex.ca>);
+       spf=pass (google.com: domain of john@shredex.ca designates 136.143.188.14 as permitted sender) smtp.mailfrom=john@shredex.ca;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=shredex.ca
+ARC-Seal: i=1; a=rsa-sha256; t=1717125450; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=M4agKclWFg2kEShXBP9hOOV3UQO5tsetDbD0iXAWePrVzVdX4QmVI5xRMwK8Ax4UX4M2oSmzkEbb+r5XD7ko2kJhqeNKncpGMT083nmqY9G6f+Zc+coOwy+qrVBIdMFTsA2H58IfobW97A++5fGghniPEPoF/zIb1HW+wFMARSg=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1717125450; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=xtK0/+wjgEDWUgGEmm3pq2CLi8fx6JhfOsSbtLOt29o=; 
+	b=ZD/e1uHv9B/UByROUnaqksCbr6qoWuRV9FLlmj9JIm8r8XzkzblEMTwBXoJMJ4BKZAQFW9C4LrhxhH2rMZWXfCxhxexmUqxiKQUjtwvY0/MNHfxF2i68XImd4mPcWPCcmMydGOIhstbI++fh8uyD6semthhtcTk8BwqXWpmrieQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=shredex.ca;
+	spf=pass  smtp.mailfrom=john@shredex.ca;
+	dmarc=pass header.from=<john@shredex.ca>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1717125450;
+	s=zoho; d=shredex.ca; i=john@shredex.ca;
+	h=Date:Date:From:From:To:To:Message-Id:Message-Id:In-Reply-To:References:Subject:Subject:MIME-Version:Content-Type:Reply-To:Cc;
+	bh=xtK0/+wjgEDWUgGEmm3pq2CLi8fx6JhfOsSbtLOt29o=;
+	b=Ww6hYeF+2tHkjyvc+XrxysVFvdeJ6hTL8Uiwy6UFWb2VLvVH9GU7PlnF0x29vjzU
+	Xlgu7yauUDXuGbZU8IK7ZoqrpeAi8xjL1sQGs991cdKd69qT1MJOZVWpFeBy3RHK4YN
+	qM1ce9OXM+Cmm0GOk97pxbOlVo3qN0vWb/imWdGU=
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1717125448666135.47635918474634; Thu, 30 May 2024 20:17:28 -0700 (PDT)
+Date: Thu, 30 May 2024 23:17:28 -0400
+From: John Estrada <john@shredex.ca>
+To: "vikingdwarf2918" <vikingdwarf2918@gmail.com>
+Message-Id: <18fcca7039c.afc59d5a202491.853456137488874136@shredex.ca>
+In-Reply-To: <HP2v6100000184cfcf58afb681d6434b5c3ae8115@beauty.sephora.com>
+References: <HP2v6100000184cfcf58afb681d6434b5c3ae8115@beauty.sephora.com>
+Subject: Fwd: Your receipt from Sephora
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_656738_1464110808.1717125448605"
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
+
+------=_Part_656738_1464110808.1717125448605
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+From: Sephora <shop@beauty.sephora.com>
+To: <John@backpocket.ca>
+Date: Thu, 01 Dec 2022 17:29:44 -0500
+Subject: Your receipt from Sephora
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+
+
+
+=20
+
+
+
+
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcc2/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcc3/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcc4/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcc5/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+ITEM
+
+AMOUNT
+
+
+
+
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcc6/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcc7/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcc8/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcc9/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcca/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+
+
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bccb/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Subtotal: $0.00
+
+
+Total: $0.00
+
+
+
+
+
+
+
+
+Transaction #39434
+
+
+Store #544
+
+
+NAME:  John Estrada
+
+
+DATE: 12/01/2022
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bccc/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bccd/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcce/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bccf/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+(416) 621-6700
+
+
+
+
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcd0/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcd1/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcd2/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+
+
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcd3/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcd4/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcd5/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcd6/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK=C2=A0=C2=A0|=C2=A0=C2=A0https://beauty.sephora=
+.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcd7=
+/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfu=
+JRsWdK=C2=A0=C2=A0|=C2=A0=C2=A0https://beauty.sephora.com/T/v6100000184cfcf=
+58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcd8/c89f69df-c1fd-4e1e-91=
+96-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK=C2=A0=C2=A0|=C2=
+=A0=C2=A0https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c=
+89f69dfc1fd4e1e0000021ef3a0bcd9/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=
+=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK=C2=A0=C2=A0|=C2=A0=C2=A0https://beaut=
+y.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021=
+ef3a0bcda/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDh=
+Fgyx2PTfuJRsWdK=C2=A0=C2=A0|=C2=A0=C2=A0https://beauty.sephora.com/T/v61000=
+00184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcdb/c89f69df-c1f=
+d-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK
+
+
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcdc/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK=C2=A0=C2=A0|=C2=A0=C2=A0https://beauty.sephora=
+.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcdd=
+/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfu=
+JRsWdK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=C2=A92022 Sephora USA, Inc., 525 Market Street, Suite 350 San Francisco,=
+=20
+CA 94105. All=C2=A0rights=C2=A0reserved.
+https://beauty.sephora.com/H/2/v6100000184cfcf58afb681d6434b5c3ae8/c89f69df=
+-c1fd-4e1e-9196-f6ebde890cb1/HTML
+
+Price and availability information is subject to change without notice, per=
+ our https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f6=
+9dfc1fd4e1e0000021ef3a0bcde/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv=
+0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You are receiving this one-time transactional email because you requested a=
+ digital receipt at a Sephora retail location.
+
+Please retain a copy of your receipt and we will gladly return or exchange =
+your new or gently used purchase at any Sephora location in accordance with=
+ the Sephora Return Policy below.
+
+Sephora Return Policy
+
+THIS POLICY IS EFFECTIVE FOR ALL PURCHASES MADE ON AND AFTER DECEMBER 14, 2=
+019.
+
+New or gently used items purchased in store and returned within 30 days of =
+your original purchase date along with your receipt will be refunded or exc=
+hanged at your preference. Refunds will be processed in the same tender as =
+your original purchase. Beauty Insider points associated with your refund w=
+ill be removed when the transaction is processed. All applicable taxes as r=
+equired by law will be included.
+
+Any new or gently used items accompanied by a receipt but returned 31 to 60=
+ days after your original purchase date will be refunded in the form of a S=
+ephora Canada merchandise credit or we will gladly offer to you a product e=
+xchange.
+
+Sephora Canada merchandise credit can only be used at Sephora Canada stores=
+ and is not valid for use on Sephora.ca. Sephora Canada merchandise credit =
+has no expiration date and cannot be redeemed for cash (other than as provi=
+ded by law), reloaded, transferred to others, or sold; and if lost or stole=
+n we are not able to replace it for you.
+
+Sephora.ca Purchases: New or gently used Sephora.ca purchases may be return=
+ed to any of our Canadian stores within 60 days of your original on line pu=
+rchase date if you present the Sephora original packing slip. The returns p=
+olicy for Sephora.ca purchases can be found at Sephora.ca/Returns. Please n=
+ote that we are unable to refund any shipping and handling charges associat=
+ed with your purchase unless an error was made by Sephora.
+
+New or gently used items returned without a receipt or for Sephora.ca purch=
+ases without the Sephora original packing slip but found within our system =
+will be processed according to the applicable Sephora refund and exchange p=
+olicy.
+
+Any products not verifiable within our system will be ineligible for a refu=
+nd, exchange, or merchandise credit.
+
+Sephora Canada may choose, at its discretion, to accept product refunds and=
+ exchanges for items purchased in Sephora stores outside of Canada, and suc=
+h refunds and exchanges will then be in accordance with the Refund and Exch=
+ange Policies outlined above. All eligible transactions can only be process=
+ed in Canadian dollars and we must apply all federal and provincial taxes a=
+s required by law. We are not able to make any adjustments for currency val=
+uation or duties.
+
+***Note that all returns are subject to validation and approval by Sephora.=
+ Sephora reserves the right to limit or refuse a return. Sephora will respe=
+ct any additional return rights that you may have under applicable provinci=
+al laws, including any refund rights with respect to purchases made on Seph=
+ora.ca.***=20
+
+* NO PURCHASE OF ANY KIND IS NECESSARY TO ENTER OR WIN THESE SWEEPSTAKES. S=
+weepstakes run through 12/31/2022 and is a series of monthly sweepstakes. O=
+dds of winning depend on number of entries received for each monthly Sweeps=
+takes. Sweepstakes is open only to current legal residents of Canada who ha=
+ve reached the age of majority in the Province or Territory in which they r=
+eside as of the date of entry.  Sweepstakes is void outside of Canada, and =
+where prohibited or restricted by law. Sweepstakes is subject to applicable=
+ federal, provincial and local laws. Limit 1 entry/month. Sponsored by Seph=
+ora USA, Inc. For complete rules, click https://beauty.sephora.com/T/v61000=
+00184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcdf/c89f69df-c1f=
+d-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regards,
+
+
+
+John E. Estrada
+
+
+
+---------------------------------------
+
+
+
+START SHREDDING INC. (shredEX)
+208 Evans Ave, Toronto, ON M8Z 1J7
+E:=C2=A0mailto:john@shredex.ca=C2=A0W: http://www.startshredding.com
+DIRECT:=C2=A0
+TOLL FREE:=C2=A0
+This message and any attachments are the property of the=C2=A0SHREDEX INC.=
+=C2=A0or its affiliates. It may be legally privileged and/or confidential a=
+nd is intended only for the use of the addressee(s). No addressee should st=
+ore, forward, print, copy, or otherwise reproduce this message in any manne=
+r that would allow it to be viewed by any individual not originally listed =
+as a recipient. If the reader of this message is not the intended recipient=
+, you are hereby notified that any unauthorized storage, disclosure, dissem=
+ination, distribution, copying or the taking of any action in reliance on t=
+he information herein is strictly prohibited. If you have received this com=
+munication in error, please immediately notify the sender and delete this m=
+essage.
+------=_Part_656738_1464110808.1717125448605
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>=
+<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"Content-Type"></h=
+ead><body ><div style=3D"font-family: Calibri, Verdana, Arial, sans-serif; =
+font-size: 12pt;"><div><br></div><div><br></div><div class=3D"zmail_extra_h=
+r" style=3D"border-top: 1px solid rgb(204, 204, 204); height: 0px; margin-t=
+op: 10px; margin-bottom: 10px; line-height: 0px;"><br></div><div class=3D"z=
+mail_extra" data-zbluepencil-ignore=3D"true"><div><br></div><div id=3D"1">=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forwarded message =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D<br>From: Sephora &lt;shop@beauty.sephora.com&gt;<br>To: =
+&lt;John@backpocket.ca&gt;<br>Date: Thu, 01 Dec 2022 17:29:44 -0500<br>Subj=
+ect: Your receipt from Sephora<br>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Forw=
+arded message =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br></div><div><br></div>=
+<blockquote id=3D"blockquote_zmail" style=3D"margin: 0px;"><div style=3D"ma=
+rgin :  0px; padding :  0px; background-color :  #ffffff; padding :  0; mar=
+gin :  0; min-width :  100%;"><img id=3D"1669933788582100001_imgsrc_url_0" =
+style=3D"display :  none; max-height :  0px; font-size :  0px; overflow :  =
+hidden;"> <table width=3D"100%" border=3D"0" align=3D"center" cellpadding=
+=3D"0" cellspacing=3D"0" bgcolor=3D"#ffffff" class=3D"x_-351325154full-wrap=
+ x_-351325154tbl_cntr"><tbody><tr><td align=3D"center" bgcolor=3D"#ffffff" =
+style=3D"vertical-align :  top; padding :  0px 0px 0px 0px;"><table width=
+=3D"700" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-widt=
+h :  700px; width :  700px; background-color :  #ffffff;" bgcolor=3D"#fffff=
+f" class=3D"x_-351325154tbl x_-351325154tbl_cntr"><tbody><tr><td align=3D"c=
+enter" valign=3D"top"><table align=3D"center" bgcolor=3D"#FFFFFF" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td align=
+=3D"center" valign=3D"top"><table width=3D"100%" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center" valign=3D"top" sty=
+le=3D"font-family :  Arial,  Helvetica,  sans-serif; font-size :  13px; lin=
+e-height :  16px; color :  #555555; padding :  12px 0px 0px 0px;"><div styl=
+e=3D"display :  none; max-height :  0px; overflow :  hidden;">John, thanks =
+for shopping at Sephora. Your e-receipt is enclosed.<div style=3D"display :=
+  none; max-height :  0px; overflow :  hidden;">=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;&nbsp;=E2=80=8C&nbsp;=E2=80=8C=
+&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C=
+&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C=
+&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C=
+&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C=
+&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C=
+&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C=
+&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;<br></div></div></td></tr></tbody=
+></table></td></tr><tr><td align=3D"center"><table width=3D"100%" border=3D=
+"0" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#ffffff=
+" class=3D"x_-351325154full-wrap x_-351325154tbl_cntr"><tbody><tr><td align=
+=3D"center" bgcolor=3D"#ffffff" style=3D"vertical-align :  top; padding :  =
+0px 0px 0px 0px;"><table width=3D"700" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" style=3D"min-width :  700px; width :  700px; background-color =
+:  #ffffff;" bgcolor=3D"#ffffff" class=3D"x_-351325154tbl x_-351325154tbl_c=
+ntr"><tbody><tr><td align=3D"center" valign=3D"top"><table width=3D"100%" b=
+order=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"cen=
+ter" valign=3D"top"><table width=3D"100%" border=3D"0" cellspacing=3D"0" ce=
+llpadding=3D"0"><tbody><tr><td align=3D"center" valign=3D"top" style=3D"pad=
+ding :  0px 0px 0px 0px; border-bottom :  1px solid #ffffff;"><a href=3D"ht=
+tps://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd=
+4e1e0000021ef3a0bcc2/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKT=
+Xg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank"><img id=3D"166993378858210000=
+1_imgsrc_url_1" alt=3D"SEPHORA" width=3D"700" height=3D"auto" style=3D"disp=
+lay :  block; border :  0;"></a></td></tr></tbody></table></td></tr></tbody=
+></table></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr>=
+<td align=3D"center"><table width=3D"700" border=3D"0" align=3D"center" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D""><tbody><tr><td align=3D"left" s=
+tyle=3D"font-size :  39px; font-family :  Helvetica,  Arial,  'sans-serif';=
+ padding :  30px 0px 0px 20px;"><span class=3D"colour" style=3D"color:rgb(0=
+, 0, 0)"><span class=3D"font" style=3D"font-family:Helvetica, Arial, sans-s=
+erif"><span class=3D"size" style=3D"font-size:39px"><a style=3D"text-decora=
+tion :  none; color :  black;" href=3D"https://beauty.sephora.com/T/v610000=
+0184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcc3/c89f69df-c1fd=
+-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=
+=3D"_blank">Thanks for shopping with us!</a></span></span></span><br></td><=
+/tr><tr><td align=3D"left" style=3D"padding :  30px 0px 30px 20px;"><span c=
+lass=3D"font" style=3D"font-family:Helvetica, Arial, sans-serif"><span clas=
+s=3D"size" style=3D"font-size:20px"><a style=3D"text-decoration :  none; co=
+lor :  #000000;" href=3D"https://beauty.sephora.com/T/v6100000184cfcf58afb6=
+81d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcc4/c89f69df-c1fd-4e1e-9196-f6e=
+bde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank">Hi=
+  John,<br>Here=E2=80=99s the receipt from your visit on 12/01/2022.<br>P.S=
+. We appreciate you choosing paperless. Enjoy your new beauty!<br><br>View =
+your in-store &amp; online purchases <u>here</u> &gt;</a></span></span></td=
+></tr><tr><td align=3D"center" style=3D"padding :  30px;"><a style=3D"text-=
+decoration :  none; color :  #000000;" href=3D"https://beauty.sephora.com/T=
+/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcc5/c89f6=
+9df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK=
+" target=3D"_blank"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"><sp=
+an class=3D"font" style=3D"font-family:Georgia, serif"><span class=3D"size"=
+ style=3D"font-size:40px">Transaction Details</span></span></span></a><br><=
+/td></tr><tr><td align=3D"center"><table width=3D"640" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" align=3D"center"><tbody><tr><td style=3D"backg=
+round-color :  #F4F4F4;"><table width=3D"640" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0"><tbody><tr><td width=3D"500" style=3D"padding-left :  5=
+px; padding-top :  15px; padding-bottom :  15px;"><span class=3D"font" styl=
+e=3D"font-family:Helvetica, Arial, sans-serif"><span class=3D"size" style=
+=3D"font-size:18px"><b>ITEM</b></span></span><br></td><td width=3D"140" ali=
+gn=3D"right" style=3D"padding-top :  15px; padding-bottom :  15px;"><span c=
+lass=3D"font" style=3D"font-family:Helvetica, Arial, sans-serif"><span clas=
+s=3D"size" style=3D"font-size:18px"><b>AMOUNT</b></span></span><br></td></t=
+r></tbody></table></td></tr><tr><td valign=3D"top" align=3D"left" style=3D"=
+padding-left :  5px; padding-top :  10px; padding-bottom :  10px; border-bo=
+ttom :  1px solid #CBCBCB;"><table width=3D"640" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" align=3D"center"><tbody><tr><td align=3D"center" w=
+idth=3D"200"><a href=3D"https://beauty.sephora.com/T/v6100000184cfcf58afb68=
+1d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcc6/c89f69df-c1fd-4e1e-9196-f6eb=
+de890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank"><im=
+g id=3D"1669933788582100001_imgsrc_url_2" width=3D"150" border=3D"0" alt=3D=
+"BI BDAY GIFT AMIKA BG CAN"></a><br></td><td width=3D"440" align=3D"center"=
+ valign=3D"middle"><table width=3D"350" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0"><tbody><tr><td style=3D"padding-right :  15px;"><span class=
+=3D"font" style=3D"font-family:Helvetica, Arial, sans-serif"><span class=3D=
+"size" style=3D"font-size:20px"><a style=3D"text-decoration :  none; color =
+:  #000000;" href=3D"https://beauty.sephora.com/T/v6100000184cfcf58afb681d6=
+434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcc7/c89f69df-c1fd-4e1e-9196-f6ebde8=
+90cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank">BI BDA=
+Y GIFT AMIKA BG CAN</a></span></span><br></td></tr><tr><td style=3D"padding=
+-bottom :  10px;"><span class=3D"colour" style=3D"color:rgb(119, 119, 119)"=
+><span class=3D"font" style=3D"font-family:Helvetica, Arial, sans-serif"><s=
+pan class=3D"size" style=3D"font-size: 16px; text-decoration: none;"><a sty=
+le=3D"text-decoration :  none; color :  #777777;" href=3D"https://beauty.se=
+phora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a=
+0bcc8/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx=
+2PTfuJRsWdK" target=3D"_blank">ITEM 2568657</a></span></span></span><br></t=
+d></tr><tr><td><table width=3D"440" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0"><tbody><tr><td width=3D"300"><span class=3D"font" style=3D"font-f=
+amily:Helvetica, Arial, sans-serif"><span class=3D"size" style=3D"font-size=
+:16px"><a style=3D"text-decoration :  none; color :  #000000;" href=3D"http=
+s://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e=
+1e0000021ef3a0bcc9/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg=
+2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank">Price: $0.00</a></span></span><=
+br></td><td width=3D"140" align=3D"right" style=3D"padding-right :  5px;"><=
+span class=3D"font" style=3D"font-family:Helvetica, Arial, sans-serif"><spa=
+n class=3D"size" style=3D"font-size:16px"><a style=3D"text-decoration :  no=
+ne; color :  #000000;" href=3D"https://beauty.sephora.com/T/v6100000184cfcf=
+58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcca/c89f69df-c1fd-4e1e-91=
+96-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_bla=
+nk">$0.00</a></span></span><br></td></tr></tbody></table></td></tr><tr><td>=
+<span class=3D"font" style=3D"font-family:Helvetica, Arial, sans-serif"><sp=
+an class=3D"size" style=3D"font-size:16px"><a style=3D"text-decoration :  n=
+one; color :  #000000;" href=3D"https://beauty.sephora.com/T/v6100000184cfc=
+f58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bccb/c89f69df-c1fd-4e1e-9=
+196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_bl=
+ank">Qty: 1</a></span></span><br></td></tr></tbody></table></td></tr></tbod=
+y></table></td></tr></tbody></table></td></tr><tr><td style=3D"padding-top =
+:  20px; padding-bottom :  20px;"><table width=3D"640" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" align=3D"center"><tbody><tr><td align=3D"right=
+" style=3D"padding-bottom :  5px;"><span class=3D"font" style=3D"font-famil=
+y:Helvetica, Arial, sans-serif"><span class=3D"size" style=3D"font-size:18p=
+x">Subtotal: $0.00</span></span><br></td></tr><tr><td align=3D"right" style=
+=3D"padding-bottom :  20px;"><span class=3D"font" style=3D"font-family:Helv=
+etica, Arial, sans-serif"><span class=3D"size" style=3D"font-size:18px"><b>=
+Total: $0.00</b></span></span><br></td></tr></tbody></table></td></tr><tr><=
+td style=3D"padding-top :  20px; padding-bottom :  20px;"><table width=3D"6=
+40" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tbod=
+y><tr><td align=3D"center"><img id=3D"1669933788582100001_imgsrc_url_3" alt=
+=3D"Barcode" style=3D"display :  block;" border=3D"0"></td></tr><tr><td ali=
+gn=3D"center" style=3D"padding-top :  10px;"><span class=3D"font" style=3D"=
+font-family:Helvetica, Arial, sans-serif"><span class=3D"size" style=3D"fon=
+t-size:18px">Transaction #39434</span></span><br></td></tr><tr><td align=3D=
+"center" style=3D"padding-bottom :  20px;"><span class=3D"font" style=3D"fo=
+nt-family:Helvetica, Arial, sans-serif"><span class=3D"size" style=3D"font-=
+size:18px">Store #544</span></span><br></td></tr><tr><td align=3D"center"><=
+span class=3D"font" style=3D"font-family:Helvetica, Arial, sans-serif"><spa=
+n class=3D"size" style=3D"font-size:18px">NAME:  John Estrada</span></span>=
+<br></td></tr><tr><td align=3D"center" style=3D"padding-bottom :  30px;"><s=
+pan class=3D"font" style=3D"font-family:Helvetica, Arial, sans-serif"><span=
+ class=3D"size" style=3D"font-size:18px">DATE: 12/01/2022</span></span><br>=
+</td></tr><tr><td align=3D"center"><span class=3D"font" style=3D"font-famil=
+y:Helvetica, Arial, sans-serif"><span class=3D"size" style=3D"font-size:18p=
+x"><b><a style=3D"text-decoration :  none; color :  #000000;" href=3D"https=
+://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e1=
+e0000021ef3a0bccc/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2=
+Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank">SEPHORA SHERWAY GARDENS</a></b><=
+/span></span><br></td></tr><tr><td align=3D"center"><span class=3D"font" st=
+yle=3D"font-family:Helvetica, Arial, sans-serif"><span class=3D"size" style=
+=3D"font-size:18px"><a style=3D"text-decoration :  none; color :  #000000;"=
+ href=3D"https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c=
+89f69dfc1fd4e1e0000021ef3a0bccd/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=
+=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank">25 THE WEST MALL</=
+a></span></span><br></td></tr><tr><td align=3D"center"><span class=3D"font"=
+ style=3D"font-family:Helvetica, Arial, sans-serif"><span class=3D"size" st=
+yle=3D"font-size:18px"><a style=3D"text-decoration :  none; color :  #00000=
+0;" href=3D"https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae=
+8/c89f69dfc1fd4e1e0000021ef3a0bcce/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__d=
+U__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank">UNIT #1210</a><=
+/span></span><br></td></tr><tr><td align=3D"center"><span class=3D"font" st=
+yle=3D"font-family:Helvetica, Arial, sans-serif"><span class=3D"size" style=
+=3D"font-size:18px"><a style=3D"text-decoration :  none; color :  #000000;"=
+ href=3D"https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c=
+89f69dfc1fd4e1e0000021ef3a0bccf/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=
+=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank">TORONTO, ONTARIO,
+     04
+     M9C-1B8</a></span></span><br></td></tr><tr><td align=3D"center"><span =
+class=3D"font" style=3D"font-family:Helvetica, Arial, sans-serif"><span cla=
+ss=3D"size" style=3D"font-size:18px">(416) 621-6700</span></span><br></td><=
+/tr></tbody></table></td></tr><tr><td align=3D"center" style=3D"padding :  =
+30px;"><a style=3D"text-decoration :  none; color :  #000000;" href=3D"http=
+s://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e=
+1e0000021ef3a0bcd0/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg=
+2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank"><span class=3D"colour" style=3D=
+"color:rgb(0, 0, 0)"><span class=3D"font" style=3D"font-family:Georgia, ser=
+if"><span class=3D"size" style=3D"font-size:40px">You Might Also Like</span=
+></span></span></a><br></td></tr><tr><td align=3D"center" style=3D"padding-=
+bottom :  30px;"><table width=3D"570" border=3D"0" cellspacing=3D"0" cellpa=
+dding=3D"0" align=3D"center"><tbody><tr><td align=3D"center"><a href=3D"htt=
+ps://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4=
+e1e0000021ef3a0bcd1/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTX=
+g2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank"><img id=3D"1669933788582100001=
+_imgsrc_url_4" width=3D"190" height=3D"306" border=3D"0" alt=3D"Shop Now"><=
+/a><br></td><td align=3D"center"><a href=3D"https://beauty.sephora.com/T/v6=
+100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcd2/c89f69df=
+-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" t=
+arget=3D"_blank"><img id=3D"1669933788582100001_imgsrc_url_5" width=3D"190"=
+ height=3D"306" border=3D"0" alt=3D"Shop Now"></a><br></td></tr></tbody></t=
+able></td></tr><tr><td align=3D"center"><a href=3D"https://beauty.sephora.c=
+om/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcd3/c=
+89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJR=
+sWdK" target=3D"_blank"><img style=3D"display :  block;" border=3D"0" id=3D=
+"1669933788582100001_imgsrc_url_6" width=3D"700" height=3D"350" alt=3D"Take=
+ the Survey"></a></td></tr><tr><td align=3D"center"><a href=3D"https://beau=
+ty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e1e000002=
+1ef3a0bcd4/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtD=
+hFgyx2PTfuJRsWdK" target=3D"_blank"><img style=3D"display :  block;" border=
+=3D"0" id=3D"1669933788582100001_imgsrc_url_7" width=3D"700" height=3D"350"=
+ alt=3D"Download the app"></a></td></tr></tbody></table></td></tr><tr><td a=
+lign=3D"center" style=3D"padding-top :  30px;"><table width=3D"100%" border=
+=3D"0" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#fff=
+fff" class=3D"x_-351325154full-wrap x_-351325154tbl_cntr"><tbody><tr><td al=
+ign=3D"center" bgcolor=3D"#ffffff" style=3D"vertical-align :  top; padding =
+:  0px 0px 0px 0px;"><table width=3D"700" border=3D"0" cellspacing=3D"0" ce=
+llpadding=3D"0" style=3D"min-width :  700px; width :  700px; background-col=
+or :  #ffffff;" bgcolor=3D"#ffffff" class=3D"x_-351325154tbl x_-351325154tb=
+l_cntr"><tbody><tr><td align=3D"center" valign=3D"top"><table width=3D"100%=
+" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"=
+center" valign=3D"top" bgcolor=3D"#000000" style=3D"border-top :  1px solid=
+ #ffffff; padding :  0px 20px;"><table width=3D"100%" border=3D"0" cellspac=
+ing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center" valign=3D"top" =
+style=3D"border-top :  1px solid #ffffff;"><table width=3D"100%" border=3D"=
+0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center" vali=
+gn=3D"top" bgcolor=3D"#000000"><table width=3D"100%" border=3D"0" cellspaci=
+ng=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center" valign=3D"top" s=
+tyle=3D"color :  #ffffff; padding :  53px 0px 45px 0px;" class=3D"x_-351325=
+154padc11"><a href=3D"https://beauty.sephora.com/T/v6100000184cfcf58afb681d=
+6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcd5/c89f69df-c1fd-4e1e-9196-f6ebde=
+890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank" style=
+=3D"color :  #ffffff; text-decoration :  none;"><span class=3D"font" style=
+=3D"font-family:Georgia, &quot;serif&quot;"><span class=3D"size" style=3D"f=
+ont-size:40px">We Belong to Something Beautiful</span></span></a><br></td><=
+/tr><tr><td align=3D"center" valign=3D"top" style=3D"font-family :  Arial, =
+ Helvetica,  sans-serif; color :  #ffffff; font-size :  13px; line-height :=
+  16px;" class=3D"x_-351325154lS0"><a href=3D"https://beauty.sephora.com/T/=
+v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcd6/c89f69=
+df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK"=
+ target=3D"_blank" style=3D"color :  #ffffff; text-decoration :  none;"><sp=
+an class=3D"x_-351325154link x_-351325154mobileFooterText">Makeup</span></a=
+><span class=3D"x_-351325154mobileFooterText">&nbsp;&nbsp;|&nbsp;&nbsp;</sp=
+an><a href=3D"https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3=
+ae8/c89f69dfc1fd4e1e0000021ef3a0bcd7/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?_=
+_dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank" style=3D"colo=
+r :  #ffffff; text-decoration :  none;"><span class=3D"x_-351325154link x_-=
+351325154mobileFooterText">Skincare</span></a><span class=3D"x_-351325154mo=
+bileFooterText">&nbsp;&nbsp;|&nbsp;&nbsp;</span><a href=3D"https://beauty.s=
+ephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3=
+a0bcd8/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgy=
+x2PTfuJRsWdK" target=3D"_blank" style=3D"color :  #ffffff; text-decoration =
+:  none;"><span class=3D"x_-351325154link x_-351325154mobileFooterText">Hai=
+r</span></a><span class=3D"x_-351325154mobileFooterText">&nbsp;&nbsp;|&nbsp=
+;&nbsp;</span><a href=3D"https://beauty.sephora.com/T/v6100000184cfcf58afb6=
+81d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcd9/c89f69df-c1fd-4e1e-9196-f6e=
+bde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank" st=
+yle=3D"color :  #ffffff; text-decoration :  none;"><span class=3D"x_-351325=
+154link x_-351325154mobileFooterText">Fragrance</span></a><span class=3D"x_=
+-351325154hide">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class=3D"x_-351325154=
+break"></span><a href=3D"https://beauty.sephora.com/T/v6100000184cfcf58afb6=
+81d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcda/c89f69df-c1fd-4e1e-9196-f6e=
+bde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank" st=
+yle=3D"color :  #ffffff; text-decoration :  none;"><span class=3D"x_-351325=
+154link x_-351325154mobileFooterText">Find a Store</span></a><span class=3D=
+"x_-351325154mobileFooterText">&nbsp;&nbsp;|&nbsp;&nbsp;</span><a href=3D"h=
+ttps://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1f=
+d4e1e0000021ef3a0bcdb/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBK=
+TXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank" style=3D"color :  #f53e4d; t=
+ext-decoration :  none;"><span class=3D"colour" style=3D"color:rgb(245, 62,=
+ 77)">Get a Free Sample</span></a><br></td></tr><tr><td align=3D"center" va=
+lign=3D"top"><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0"><tbody><tr><td align=3D"center" valign=3D"top" style=3D"padding : =
+ 15px 0px 14px 0px;"><table width=3D"416" align=3D"center" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0" class=3D"x_-351325154tbl"><tbody><tr><th a=
+lign=3D"left" valign=3D"top"><table width=3D"100%" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" class=3D"x_-351325154wdthauto"><tbody><tr><td alig=
+n=3D"center" valign=3D"top" style=3D"font-family :  Arial,  Helvetica,  san=
+s-serif; color :  #ffffff; font-size :  13px; line-height :  16px;" class=
+=3D"x_-351325154lS0 x_-351325154mobileFooterText"><span class=3D"x_-3513251=
+54break"></span><a href=3D"https://beauty.sephora.com/T/v6100000184cfcf58af=
+b681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcdc/c89f69df-c1fd-4e1e-9196-f=
+6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank" =
+style=3D"color :  #ffffff; text-decoration :  none;"><span class=3D"x_-3513=
+25154link">Privacy Policy</span></a><span class=3D"x_-351325154mobileFooter=
+Text">&nbsp;&nbsp;|&nbsp;&nbsp;</span><a href=3D"https://beauty.sephora.com=
+/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1fd4e1e0000021ef3a0bcdd/c89=
+f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsW=
+dK" target=3D"_blank" style=3D"color :  #ffffff; text-decoration :  none;">=
+<span class=3D"x_-351325154link">Contact Us</span></a><br></td></tr></tbody=
+></table></th></tr></tbody></table></td></tr></tbody></table></td></tr><tr>=
+<td align=3D"center" valign=3D"top" style=3D"font-family :  Arial,  Helveti=
+ca,  sans-serif; color :  #ffffff; font-size :  13px; line-height :  16px; =
+padding :  0px 10px 27px 10px; letter-spacing :  0.5px;" class=3D"x_-351325=
+154padc13 x_-351325154mobileFooterText">=C2=A92022 Sephora USA, Inc., 525 M=
+arket Street, Suite 350 San Francisco, <br class=3D"x_-351325154hide">CA 94=
+105. All&nbsp;rights&nbsp;reserved.<br><a href=3D"https://beauty.sephora.co=
+m/H/2/v6100000184cfcf58afb681d6434b5c3ae8/c89f69df-c1fd-4e1e-9196-f6ebde890=
+cb1/HTML" style=3D"color :  #000000; text-decoration :  none;" target=3D"_b=
+lank"><span class=3D"x_-351325154link">Web Version</span></a></td></tr><tr>=
+<td align=3D"center" valign=3D"top" style=3D"font-family :  Arial,  Helveti=
+ca,  sans-serif; color :  #acacac; font-size :  12px; line-height :  15px; =
+padding :  0px 10px 20px 10px; letter-spacing :  0.5px;" class=3D"x_-351325=
+154pad14 x_-351325154mobileDisc">Price and availability information is subj=
+ect to change without notice, per our <a style=3D"color :  #adadad;" href=
+=3D"https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69=
+dfc1fd4e1e0000021ef3a0bcde/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0=
+G4RBKTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank">Terms of Use</a>.<br></=
+td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table=
+></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></ta=
+ble></td></tr></tbody></table><table align=3D"center" bgcolor=3D"#000000" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"700"><tbody><tr><t=
+d align=3D"center" valign=3D"top" style=3D"font-family :  Arial,  Helvetica=
+,  sans-serif; color :  #acacac; font-size :  12px; line-height :  15px; pa=
+dding :  0px 10px 65px 10px; letter-spacing :  0.5px;" class=3D"x_-35132515=
+4pad14 x_-351325154mobileDisc">You are receiving this one-time transactiona=
+l email because you requested a digital receipt at a Sephora retail locatio=
+n.<br><br>Please retain a copy of your receipt and we will gladly return or=
+ exchange your new or gently used purchase at any Sephora location in accor=
+dance with the Sephora Return Policy below.<br><br><b>Sephora Return Policy=
+</b><br><br>THIS POLICY IS EFFECTIVE FOR ALL PURCHASES MADE ON AND AFTER DE=
+CEMBER 14, 2019.<br><br>New or gently used items purchased in store and ret=
+urned within 30 days of your original purchase date along with your receipt=
+ will be refunded or exchanged at your preference. Refunds will be processe=
+d in the same tender as your original purchase. Beauty Insider points assoc=
+iated with your refund will be removed when the transaction is processed. A=
+ll applicable taxes as required by law will be included.<br><br>Any new or =
+gently used items accompanied by a receipt but returned 31 to 60 days after=
+ your original purchase date will be refunded in the form of a Sephora Cana=
+da merchandise credit or we will gladly offer to you a product exchange.<br=
+><br>Sephora Canada merchandise credit can only be used at Sephora Canada s=
+tores and is not valid for use on Sephora.ca. Sephora Canada merchandise cr=
+edit has no expiration date and cannot be redeemed for cash (other than as =
+provided by law), reloaded, transferred to others, or sold; and if lost or =
+stolen we are not able to replace it for you.<br><br>Sephora.ca Purchases: =
+New or gently used Sephora.ca purchases may be returned to any of our Canad=
+ian stores within 60 days of your original on line purchase date if you pre=
+sent the Sephora original packing slip. The returns policy for Sephora.ca p=
+urchases can be found at Sephora.ca/Returns. Please note that we are unable=
+ to refund any shipping and handling charges associated with your purchase =
+unless an error was made by Sephora.<br><br>New or gently used items return=
+ed without a receipt or for Sephora.ca purchases without the Sephora origin=
+al packing slip but found within our system will be processed according to =
+the applicable Sephora refund and exchange policy.<br><br>Any products not =
+verifiable within our system will be ineligible for a refund, exchange, or =
+merchandise credit.<br><br>Sephora Canada may choose, at its discretion, to=
+ accept product refunds and exchanges for items purchased in Sephora stores=
+ outside of Canada, and such refunds and exchanges will then be in accordan=
+ce with the Refund and Exchange Policies outlined above. All eligible trans=
+actions can only be processed in Canadian dollars and we must apply all fed=
+eral and provincial taxes as required by law. We are not able to make any a=
+djustments for currency valuation or duties.<br><br>***Note that all return=
+s are subject to validation and approval by Sephora. Sephora reserves the r=
+ight to limit or refuse a return. Sephora will respect any additional retur=
+n rights that you may have under applicable provincial laws, including any =
+refund rights with respect to purchases made on Sephora.ca.*** <br><br>* NO=
+ PURCHASE OF ANY KIND IS NECESSARY TO ENTER OR WIN THESE SWEEPSTAKES. Sweep=
+stakes run through 12/31/2022 and is a series of monthly sweepstakes. Odds =
+of winning depend on number of entries received for each monthly Sweepstake=
+s. Sweepstakes is open only to current legal residents of Canada who have r=
+eached the age of majority in the Province or Territory in which they resid=
+e as of the date of entry.  Sweepstakes is void outside of Canada, and wher=
+e prohibited or restricted by law. Sweepstakes is subject to applicable fed=
+eral, provincial and local laws. Limit 1 entry/month. Sponsored by Sephora =
+USA, Inc. For complete rules, click <a style=3D"color :  #ADADAD;" href=3D"=
+https://beauty.sephora.com/T/v6100000184cfcf58afb681d6434b5c3ae8/c89f69dfc1=
+fd4e1e0000021ef3a0bcdf/c89f69df-c1fd-4e1e-9196-f6ebde890cb1?__dU__=3Dv0G4RB=
+KTXg2Gvf-dtDhFgyx2PTfuJRsWdK" target=3D"_blank">here</a>.</td></tr></tbody>=
+</table></td></tr></tbody></table></td></tr></tbody></table><div style=3D"d=
+isplay :  none; white-space :  nowrap; font :  15px courier; line-height : =
+ 0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br></div><=
+/div></blockquote></div><div><br></div><div class=3D"zmail_signature_below"=
+><div id=3D"" data-zbluepencil-ignore=3D"true" data-sigid=3D"61893000000007=
+39006"><div>Regards,<br></div><div><br></div><div>John E. Estrada<br></div>=
+<div><br></div><div>---------------------------------------<br></div><div><=
+br></div><p style=3D"font-style: normal; font-weight: 400; letter-spacing: =
+normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: no=
+rmal; widows: 2; word-spacing: 0px"><span class=3D"highlight" style=3D"back=
+ground-color:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(=
+0, 0, 0)"><span class=3D"font" style=3D"font-family:Verdana, Arial, Helveti=
+ca, sans-serif"><span class=3D"size" style=3D"font-size:13.3333px"><span cl=
+ass=3D"highlight" style=3D"background-color:rgb(255, 255, 255)"><b><span cl=
+ass=3D"colour" style=3D"color:rgb(0, 102, 0)"><span class=3D"font" style=3D=
+"font-family:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=
+=3D"size" style=3D"font-size:14.66px">START SHREDDING INC. (shredEX)</span>=
+</span></span></b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><s=
+pan class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif=
+, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br>208 Evan=
+s Ave, Toronto, ON M8Z 1J7<br></span></span></span><b><span class=3D"colour=
+" style=3D"color:rgb(51, 51, 51)"><span class=3D"font" style=3D"font-family=
+:Calibri, Verdana, Arial, sans-serif, sans-serif"><span class=3D"size" styl=
+e=3D"font-size:14.66px">E:<span>&nbsp;<a href=3D"mailto:john@shredex.ca" ta=
+rget=3D"_blank" style=3D"color: rgb(0, 0, 238)">john@shredex.ca</a>&nbsp;</=
+span>W: <a target=3D"_blank" href=3D"http://www.startshredding.com" style=
+=3D"color: rgb(0, 0, 238)">www.startshredding.com</a><br></span></span></sp=
+an></b><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span class=
+=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans-se=
+rif"><span class=3D"size" style=3D"font-size:14.66px">DIRECT:&nbsp;</span><=
+/span></span><a style=3D"color: rgb(17, 85, 204); cursor: default" target=
+=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><span cl=
+ass=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-serif, sans=
+-serif"><span class=3D"size" style=3D"font-size:14.66px">416.255.1500</span=
+></span></span></a><span class=3D"colour" style=3D"color:rgb(51, 51, 51)"><=
+span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, sans-seri=
+f, sans-serif"><span class=3D"size" style=3D"font-size:14.66px"><br>TOLL FR=
+EE:&nbsp;</span></span></span><a style=3D"color: rgb(17, 85, 204); cursor: =
+default" target=3D"_blank"><span class=3D"colour" style=3D"color:rgb(51, 51=
+, 51)"><span class=3D"font" style=3D"font-family:Calibri, Verdana, Arial, s=
+ans-serif, sans-serif"><span class=3D"size" style=3D"font-size:14.66px">1.8=
+66.868.9585</span></span></span></a></span></span></span></span></span></p>=
+<p style=3D"font-style: normal; font-weight: 400; letter-spacing: normal; o=
+rphans: 2; text-indent: 0px; text-transform: none; white-space: normal; wid=
+ows: 2; word-spacing: 0px"><span class=3D"highlight" style=3D"background-co=
+lor:rgb(255, 255, 255)"><span class=3D"colour" style=3D"color:rgb(0, 0, 0)"=
+><span class=3D"font" style=3D"font-family:Verdana, Arial, Helvetica, sans-=
+serif"><span class=3D"size" style=3D"font-size:13.3333px"><span class=3D"hi=
+ghlight" style=3D"background-color:rgb(255, 255, 255)"><span class=3D"colou=
+r" style=3D"color:rgb(34, 34, 34)"><span class=3D"font" style=3D"font-famil=
+y:arial, sans-serif"><span class=3D"size" style=3D"font-size:small"><span c=
+lass=3D"colour" style=3D"color:gray"><span class=3D"font" style=3D"font-fam=
+ily:Arial, sans-serif"><span class=3D"size" style=3D"font-size:7.5pt">This =
+message and any attachments are the property of the&nbsp;SHREDEX INC.&nbsp;=
+or its affiliates. It may be legally privileged and/or confidential and is =
+intended only for the use of the addressee(s). No addressee should store, f=
+orward, print, copy, or otherwise reproduce this message in any manner that=
+ would allow it to be viewed by any individual not originally listed as a r=
+ecipient. If the reader of this message is not the intended recipient, you =
+are hereby notified that any unauthorized storage, disclosure, disseminatio=
+n, distribution, copying or the taking of any action in reliance on the inf=
+ormation herein is strictly prohibited. If you have received this communica=
+tion in error, please immediately notify the sender and delete this message=
+.</span></span></span></span></span></span></span></span></span></span></sp=
+an><br></p><div id=3D""><div><br></div></div><div><br></div></div></div><di=
+v><br></div></div><br></body></html>
+------=_Part_656738_1464110808.1717125448605--
+
